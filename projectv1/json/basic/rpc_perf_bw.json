@@ -1,0 +1,15 @@
+{
+  "file": "rpc_perf",
+  "pre_command": "cd .",
+  "post_command":"cd .",
+  "architecture":"cpu",
+  "n_proc": "2",
+  "codemode": "opt",
+  "threadmode": "seq",
+  "network": "ofi",
+  "flags": "-shared-heap=20%%",
+  "timeout":"1200",
+  "regex": "0:\\s+.*s(.*)MiB",
+  "outputs":"str(time.time())+','+','.join([str(i) for i in [max([float(i) for i in arr]) for arr in np.array_split(p.findall(data.decode('utf-8')),4)]])",
+  "csv_name":"multi-bandwidth_rpc_perf_UPCXX(cpu_opt_seq_ofi)_sharedheap=20_2processors_one-at-a-time_8bytes"
+}

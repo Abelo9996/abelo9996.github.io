@@ -1,0 +1,15 @@
+{
+  "file": "",
+  "pre_command": "",
+  "post_command":"cd .",
+  "architecture":"",
+  "n_proc": "",
+  "codemode": "",
+  "threadmode": "",
+  "network": "",
+  "flags": "",
+  "timeout":"",
+  "regex": "",
+  "outputs":"",
+  "csv_name":""
+}

@@ -1,0 +1,15 @@
+{
+  "file": "misc_perf",
+  "pre_command": "cd .",
+  "post_command":"cd .",
+  "architecture":"cpu",
+  "n_proc": "2",
+  "codemode": "opt",
+  "threadmode": "seq",
+  "network": "ofi",
+  "flags": "",
+  "timeout":"1200",
+  "regex": "progress\\s+:\\s+(.+)\\ss.+",
+  "outputs":"str(time.time())+','+p.findall(data.decode('utf-8'))[0]",
+  "csv_name":"misc_perf_UPCXX(cpu_opt_seq_ofi)_sharedheap=20_2processors_one-at-a-time_8bytes"
+}
