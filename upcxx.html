@@ -180,6 +180,7 @@ $(function() {
     $('#' + $(this).val()).show();
   });
 });
+window.addEventListener('load', function () {
 var myIFrame = document.getElementById("files");
 var content = myIFrame.contentWindow.document.body.innerText;
 const files = content.split(",");
@@ -213,5 +214,6 @@ for (let i = 0; i < files.length;i=i+3){
   iframe.setAttribute("src", link);
   iframe.className = "plots";
   document.getElementById("output").appendChild(iframe);
+  })
 }
 </script>
