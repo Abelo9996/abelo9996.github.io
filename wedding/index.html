@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hovsep & Hasmik - Wedding Celebration</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&family=Merriweather:wght@300;400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">EN</button>
+        <button class="lang-btn" data-lang="hy" title="Հայերեն">ՀՅ</button>
+        <button class="lang-btn" data-lang="ru" title="Русский">РУ</button>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="#hero" class="logo">H & H</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#intro" class="nav-link" data-i18n="nav_about">About Us</a></li>
+                <li><a href="#events" class="nav-link" data-i18n="nav_events">Events</a></li>
+                <li><a href="#gallery" class="nav-link" data-i18n="nav_gallery">Gallery</a></li>
+                <li><a href="#timeline" class="nav-link" data-i18n="nav_timeline">Timeline</a></li>
+                <li><a href="#map" class="nav-link" data-i18n="nav_venue">Venue</a></li>
+            </ul>
+            <a href="rsvp.html" class="nav-cta" data-i18n="nav_rsvp">RSVP</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span data-i18n="hero_title_first">Hovsep</span> 
+                <span class="ampersand">&</span> 
+                <span data-i18n="hero_title_second">Hasmik</span>
+            </h1>
+            <a href="#map" class="btn btn-hero" data-i18n="hero_venue_btn">Venue Location</a>
+        </div>
+        <div class="scroll-arrow">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="intro" class="section section-intro">
+        <div class="container">
+            <h2 class="section-heading" data-i18n="intro_title">About Us</h2>
+            <div class="intro-layout">
+                <div class="intro-image intro-image-left">
+                    <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="intro-content">
+                    <p class="intro-lead" data-i18n="intro_lead">
+                        We are Hovsep and Hasmik, and we are thrilled to invite you to celebrate the most important day of our lives.
+                    </p>
+                    <p data-i18n="intro_text">
+                        Our love story began in the most unexpected way. From the moment our paths crossed, we knew something magical had started. Through laughter, adventures, and countless memories, our bond grew stronger every day. Now, we're excited to celebrate our love with the people who mean the most to us. Join us as we begin this beautiful journey together as husband and wife.
+                    </p>
+                    <p data-i18n="intro_closing">
+                        Your presence on this special day would mean the world to us. We look forward to creating beautiful memories together with our family and friends in the heart of Armenia.
+                    </p>
+                </div>
+                <div class="intro-image intro-image-right">
+                    <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section section-events">
+        <div class="container">
+            <h2 class="section-heading" data-i18n="events_title">Events</h2>
+            <p class="events-intro" data-i18n="events_intro">
+                Join us for a day filled with love, tradition, and celebration as we unite our lives together.
+            </p>
+            <div class="events-grid">
+                <div class="event-item">
+                    <div class="event-icon">⛪</div>
+                    <h3 data-i18n="event_ceremony_title">Ceremony</h3>
+                    <p class="event-time" data-i18n="event_ceremony_time">4:00 PM</p>
+                    <p class="event-location" data-i18n="event_ceremony_location">Church of Holy Mother of God</p>
+                    <p data-i18n="event_ceremony_address">15 Abovyan Street, Yerevan</p>
+                    <p class="event-description" data-i18n="event_ceremony_desc">
+                        We invite you to witness our sacred vows and the beginning of our life together in the beautiful setting of this historic church.
+                    </p>
+                </div>
+                <div class="event-divider"></div>
+                <div class="event-item">
+                    <div class="event-icon">🎉</div>
+                    <h3 data-i18n="event_reception_title">Reception</h3>
+                    <p class="event-time" data-i18n="event_reception_time">6:00 PM</p>
+                    <p class="event-location" data-i18n="event_reception_location">Grand Ballroom - Yerevan Events Hall</p>
+                    <p data-i18n="event_reception_address">123 Baghramyan Ave, Yerevan</p>
+                    <p class="event-description" data-i18n="event_reception_desc">
+                        Following the ceremony, join us for an evening of dinner, dancing, and celebration. Let's create unforgettable memories together!
+                    </p>
+                </div>
+            </div>
+            <div class="dress-code-section">
+                <button class="btn btn-accent" id="dressCodeBtn" data-i18n="dresscode_btn">Dress Code</button>
+                <div class="dress-code-info" id="dressCodeInfo">
+                    <p data-i18n="dresscode_text"><strong>Formal Attire:</strong> Ladies - Evening gowns | Gentlemen - Suits or tuxedos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hashtag Section -->
+    <section class="section section-hashtag">
+        <div class="container">
+            <h3 class="hashtag-title" data-i18n="hashtag_title">Share Your Moments</h3>
+            <p class="hashtag" data-i18n="hashtag_text">#HovsepAndHasmik2026</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section section-gallery">
+        <div class="container">
+            <h2 class="section-heading" data-i18n="gallery_title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <img src="images/hovsep_and_hasmik.png" alt="Hovsep and Hasmik">
+                        <div class="img-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section section-timeline">
+        <div class="container">
+            <h2 class="section-heading" data-i18n="timeline_title">Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4 data-i18n="timeline_1_title">Guest Arrival</h4>
+                        <p data-i18n="timeline_1_desc">Please arrive and be seated</p>
+                    </div>
+                    <div class="timeline-time" data-i18n="timeline_1_time">3:30 PM</div>
+                    <div class="timeline-content"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-time" data-i18n="timeline_2_time">4:00 PM</div>
+                    <div class="timeline-content">
+                        <h4 data-i18n="timeline_2_title">Ceremony</h4>
+                        <p data-i18n="timeline_2_desc">Join us as we exchange vows</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4 data-i18n="timeline_3_title">Cocktail Hour</h4>
+                        <p data-i18n="timeline_3_desc">Drinks and hors d'oeuvres</p>
+                    </div>
+                    <div class="timeline-time" data-i18n="timeline_3_time">5:00 PM</div>
+                    <div class="timeline-content"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content"></div>
+                    <div class="timeline-time" data-i18n="timeline_4_time">6:00 PM</div>
+                    <div class="timeline-content">
+                        <h4 data-i18n="timeline_4_title">Reception & Dinner</h4>
+                        <p data-i18n="timeline_4_desc">Celebrate with dinner and dancing</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4 data-i18n="timeline_5_title">Send Off</h4>
+                        <p data-i18n="timeline_5_desc">A magical farewell</p>
+                    </div>
+                    <div class="timeline-time" data-i18n="timeline_5_time">11:00 PM</div>
+                    <div class="timeline-content"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Section -->
+    <section class="section section-city">
+        <div class="city-banner">
+            <h2 data-i18n="city_title">Yerevan</h2>
+            <p data-i18n="city_subtitle">The Heart of Armenia</p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="section section-map">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.8765432109876!2d44.5136!3d40.1776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDEwJzM5LjQiTiA0NMKwMzAnNDkuMCJF!5e0!3m2!1sen!2sam!4v1234567890"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <div class="venue-card">
+                <h3 data-i18n="venue_name">Grand Ballroom</h3>
+                <p data-i18n="venue_location">Yerevan Events Hall</p>
+                <p data-i18n="venue_address">123 Baghramyan Ave, Yerevan</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Yerevan+Events+Hall" target="_blank" class="btn btn-map" data-i18n="venue_btn">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP CTA Section -->
+    <section class="section section-rsvp-cta">
+        <div class="container">
+            <h2 data-i18n="rsvp_cta_title">Join Us on Our Special Day</h2>
+            <p data-i18n="rsvp_cta_subtitle">Your presence would make our celebration complete</p>
+            <a href="rsvp.html" class="btn btn-primary" data-i18n="rsvp_cta_button">RSVP Now</a>
+            <p class="rsvp-deadline" data-i18n="rsvp_cta_deadline">Please respond by May 15, 2026</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer_text">With love, Hovsep & Hasmik</p>
+            <p data-i18n="footer_date">June 15, 2026 • Yerevan, Armenia</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

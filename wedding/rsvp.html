@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Hovsep & Hasmik</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&family=Merriweather:wght@300;400;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="rsvp-page">
+    <!-- Floating Wedding Rings Canvas -->
+    <canvas id="rings"></canvas>
+
+    <!-- Botanical Decorations -->
+    <div class="botanical botanical-top-left"></div>
+    <div class="botanical botanical-top-right"></div>
+    <div class="botanical botanical-bottom-left"></div>
+    <div class="botanical botanical-bottom-right"></div>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en" title="English">EN</button>
+        <button class="lang-btn" data-lang="hy" title="Հայերեն">ՀՅ</button>
+        <button class="lang-btn" data-lang="ru" title="Русский">РУ</button>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html#hero" class="logo">H & H</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#intro" class="nav-link" data-i18n="nav_about">About Us</a></li>
+                <li><a href="index.html#events" class="nav-link" data-i18n="nav_events">Events</a></li>
+                <li><a href="index.html#gallery" class="nav-link" data-i18n="nav_gallery">Gallery</a></li>
+                <li><a href="index.html#timeline" class="nav-link" data-i18n="nav_timeline">Timeline</a></li>
+                <li><a href="index.html#map" class="nav-link" data-i18n="nav_venue">Venue</a></li>
+            </ul>
+            <a href="rsvp.html" class="nav-cta active" data-i18n="nav_rsvp">RSVP</a>
+        </nav>
+    </header>
+
+    <!-- RSVP Hero -->
+    <section class="rsvp-hero">
+        <div class="floating-hearts">
+            <div class="heart">❤️</div>
+            <div class="heart">💕</div>
+            <div class="heart">💖</div>
+        </div>
+        <div class="rsvp-hero-content">
+            <div class="decorative-line top"></div>
+            <h1 data-i18n="rsvp_hero_title">RSVP</h1>
+            <p class="rsvp-hero-subtitle"><span data-i18n="hero_title_first">Hovsep</span> & <span data-i18n="hero_title_second">Hasmik</span></p>
+            <p class="rsvp-hero-date" data-i18n="hero_date">June 15, 2026</p>
+            <div class="decorative-line bottom"></div>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="rsvp-form-section fade-in">
+        <div class="container">
+            <div class="rsvp-intro">
+                <h2 data-i18n="rsvp_intro_title">Join Us on Our Special Day</h2>
+                <p data-i18n="rsvp_intro_subtitle">Please let us know if you can join us for our special day</p>
+                <p class="rsvp-deadline"><span data-i18n="rsvp_intro_deadline">⏰ Kindly respond by</span> <strong data-i18n="rsvp_deadline_date">May 15, 2026</strong></p>
+            </div>
+            
+            <div class="form-container">
+                <form id="rsvpForm" class="rsvp-form">
+                    <div class="form-section">
+                        <h3 class="form-section-title" data-i18n="form_info_title">Your Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName"><span data-i18n="form_first_name">First Name</span> *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName"><span data-i18n="form_last_name">Last Name</span> *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email"><span data-i18n="form_email">Email Address</span> *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-i18n="form_phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title" data-i18n="form_attendance_title">Attendance</h3>
+                        <div class="form-group">
+                            <label><span data-i18n="form_attending_question">Will you be attending?</span> *</label>
+                            <div class="attendance-options">
+                                <label class="attendance-card">
+                                    <input type="radio" name="attending" value="yes" required>
+                                    <div class="card-content">
+                                        <div class="attendance-icon">💝</div>
+                                        <span class="attendance-title" data-i18n="form_attending_yes">Joyfully Accepts</span>
+                                        <span class="attendance-subtitle" data-i18n="form_attending_yes_sub">Can't wait to celebrate!</span>
+                                    </div>
+                                </label>
+                                <label class="attendance-card">
+                                    <input type="radio" name="attending" value="no" required>
+                                    <div class="card-content">
+                                        <div class="attendance-icon">💐</div>
+                                        <span class="attendance-title" data-i18n="form_attending_no">Regretfully Declines</span>
+                                        <span class="attendance-subtitle" data-i18n="form_attending_no_sub">Will be there in spirit</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="guestsGroup" style="display: none;">
+                            <label for="guests"><span data-i18n="form_guests_count">Number of Guests (including yourself)</span> *</label>
+                            <select id="guests" name="guests">
+                                <option value="" data-i18n="form_guests_select">Select number of guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="guestNamesGroup" style="display: none;">
+                            <label for="guestNames" data-i18n="form_guest_names">Guest Names</label>
+                            <textarea id="guestNames" name="guestNames" rows="3" data-i18n="form_guest_names_placeholder" placeholder="Please list the names of all guests attending..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title" data-i18n="form_additional_title">Additional Information</h3>
+                        <div class="form-group">
+                            <label for="dietary" data-i18n="form_dietary">Dietary Restrictions or Allergies</label>
+                            <textarea id="dietary" name="dietary" rows="3" data-i18n="form_dietary_placeholder" placeholder="Please let us know of any allergies or dietary requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="accommodation" data-i18n="form_accommodation">Do you need accommodation recommendations?</label>
+                            <div class="toggle-group">
+                                <label class="toggle-option">
+                                    <input type="radio" name="accommodation" value="yes">
+                                    <span class="toggle-btn" data-i18n="form_accommodation_yes">Yes, please</span>
+                                </label>
+                                <label class="toggle-option">
+                                    <input type="radio" name="accommodation" value="no">
+                                    <span class="toggle-btn" data-i18n="form_accommodation_no">No, thank you</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-i18n="form_message">Message to the Couple</label>
+                            <textarea id="message" name="message" rows="4" data-i18n="form_message_placeholder" placeholder="Share your wishes, song requests, or any special message..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span data-i18n="form_submit">Submit RSVP</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </form>
+                
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="success-animation">
+                        <div class="success-icon">✓</div>
+                        <div class="confetti"></div>
+                    </div>
+                    <h3 data-i18n="form_success_title">Thank You!</h3>
+                    <p data-i18n="form_success_message">Your RSVP has been received. We look forward to celebrating with you!</p>
+                    <a href="index.html" class="back-home-btn" data-i18n="form_back_home">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text" data-i18n="footer_text">With love, Hovsep & Hasmik</p>
+            <p class="footer-date" data-i18n="footer_date">June 15, 2026</p>
+            <div class="footer-links">
+                <a href="index.html" data-i18n="footer_back_link">Back to Wedding Page</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
