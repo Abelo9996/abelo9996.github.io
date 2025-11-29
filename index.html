@@ -1,9 +1,9 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Google Tag Manager -->
@@ -12,15 +12,17 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PGZH8HT');</script>
-  <!-- End Google Tag anager -->
+  <!-- End Google Tag Manager -->
 
-  <!-- Materialize - Compiled and minified CSS-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
-  <!-- Font Awesome Icon - CSS-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-  <!-- Custom Styles-->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <title>Abel Yagubyan | Software & ML Engineer</title>
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <title>Abel Yagubyan | ML Engineer & Researcher</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126939217-2"></script>
@@ -28,718 +30,1444 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'UA-126939217-2');
   </script>
 
-  <!-- Open Graph-->
+  <!-- Meta Tags -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Abel Yagubyan | Software Engineer" />
-  <meta property="og:description" content="Software Engineer" />
+  <meta property="og:title" content="Abel Yagubyan | ML Engineer & Researcher" />
+  <meta property="og:description" content="ML Engineer & Researcher specializing in Deep Learning and Distributed Systems" />
   <meta property="og:url" content="https://abelo9996.github.io/" />
-  <meta property="og:site_name" content="Abel Yagubyan | Software Engineer" />
-  <meta property="article:publisher" content="https://abelo9996.github.io/" />
-  <!-- Twitter -->
-  <meta name="description" content="Software Engineer with a passion for Machine Learning and Distributed Systems." />
-  <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="/assets/img/favicon/manifest.json" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="ML Engineer & Researcher with expertise in Deep Learning, Distributed Systems, and High-Performance Computing." />
   <meta name="robots" content="index, follow" />
-  <!-- Google Site Verification for indexing -->
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #00d9ff;
+      --secondary: #7b2ff7;
+      --accent: #f72585;
+      --dark: #0a0e27;
+      --darker: #050816;
+      --light: #e0e7ff;
+      --gray: #8892b0;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-glow: linear-gradient(90deg, #00d9ff, #7b2ff7, #f72585);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker);
+      color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Particle Background */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: var(--darker);
+    }
+
+    /* Navigation */
+    .main-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 0;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .main-nav.scrolled {
+      padding: 1rem 0;
+      background: rgba(10, 14, 39, 0.95);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: var(--gradient-glow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-glow);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .gradient-text {
+      background: var(--gradient-glow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 3s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-text h2 {
+      font-size: 2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-text .typing-text {
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--gradient-glow);
+      color: white;
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 217, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(0, 217, 255, 0.3);
+      box-shadow: 0 0 60px rgba(0, 217, 255, 0.4);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .profile-container::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: var(--gradient-glow);
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.3;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(0, 217, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 217, 255, 0.3);
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      color: var(--darker);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-glow);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .skills-list li {
+      padding: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    .skills-list li::before {
+      content: '▹ ';
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .skills-category {
+      background: rgba(0, 217, 255, 0.05);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .skills-category h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(123, 47, 247, 0.1);
+      border: 1px solid rgba(123, 47, 247, 0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--light);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Experience Section */
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .experience-card {
+      background: rgba(0, 217, 255, 0.03);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-glow);
+    }
+
+    .experience-card:hover {
+      transform: translateX(10px);
+      border-color: rgba(0, 217, 255, 0.5);
+      box-shadow: 0 10px 40px rgba(0, 217, 255, 0.1);
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: start;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .company-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: white;
+      padding: 0.5rem;
+    }
+
+    .experience-info h3 {
+      font-size: 1.8rem;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+
+    .role {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .duration {
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .experience-description {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .experience-description ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.8rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .tech-badge {
+      background: rgba(247, 37, 133, 0.1);
+      border: 1px solid rgba(247, 37, 133, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: rgba(0, 217, 255, 0.03);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 217, 255, 0.5);
+      box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .education-card {
+      background: rgba(123, 47, 247, 0.05);
+      border: 1px solid rgba(123, 47, 247, 0.3);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .education-card:hover {
+      border-color: rgba(123, 47, 247, 0.6);
+      box-shadow: 0 10px 40px rgba(123, 47, 247, 0.2);
+    }
+
+    .education-header h3 {
+      font-size: 1.8rem;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+
+    .degree {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .location {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .coursework {
+      margin-top: 1.5rem;
+    }
+
+    .coursework h4 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .coursework ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .coursework li {
+      color: var(--gray);
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(123, 47, 247, 0.1);
+    }
+
+    .coursework li::before {
+      content: '◆ ';
+      color: var(--secondary);
+      margin-right: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-text {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 2.5rem;
+      background: rgba(0, 217, 255, 0.05);
+      border: 1px solid rgba(0, 217, 255, 0.3);
+      border-radius: 15px;
+      text-decoration: none;
+      color: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(0, 217, 255, 0.1);
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(10, 14, 39, 0.8);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(0, 217, 255, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--gradient-glow);
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .profile-container {
+        width: 300px;
+        height: 300px;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(10, 14, 39, 0.98);
+        width: 70%;
+        padding: 2rem;
+        border-left: 1px solid rgba(0, 217, 255, 0.2);
+        transition: right 0.3s ease;
+        height: calc(100vh - 80px);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  
-  <!-- Navigation Menu-->
-  <!-- Nav class 1 -->
-  <nav class="hide-on-small-only">
-    <ul class="side-nav fixed section table-of-contents">
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-      <li class="logo">
-        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
-          class="brand-logo grey-blue-text">
-          <img src="/assets/img/abel.jpeg" class="circle img-responsive profile-pic" alt="avatar">
-        </a>
-      </li>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-indicator" id="scrollIndicator"></div>
 
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"></canvas>
 
-      <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-
-      
-      <li class="bold">
-        <!--
-        ICONS:
-        -->
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-
-      <li class="bold">
-        <!-- 
-        1. mdi-communication-contacts
-        2. mdi-content-mail
-        3. mdi-communication-email
-        -->
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        1. mdi-action-description
-        2. mdi-file-folder
-        3. mdi-file-folder-open
-        4. mdi-file-attachment
-        5. mdi-file-folder-shared
-        -->
-        <!-- <a aria-label="Open Abel's resume in a new tab" href="#resume" target="_blank"
-          onclick="window.open('https://abelo9996.github.io/assets/resume/resume_abel.pdf')"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
-        <a aria-label="Open Abel's resume in a new tab" href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank"
-        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Nav class 2 -->
-  <nav class="hide-on-large only trigger z-depth-1">
-    <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
-      class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    <div class="name-title">
-      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Abel Yagubyan</a><span class="black-text">Software Engineer</span>
+  <!-- Navigation -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+      <div class="nav-logo" onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})">
+        <span class="logo-text">AY</span>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">// About</a></li>
+        <li><a href="#experience">// Experience</a></li>
+        <li><a href="#projects">// Projects</a></li>
+        <li><a href="#education">// Education</a></li>
+        <li><a href="#contact">// Contact</a></li>
+        <li><a href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank">// Resume</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Nav class 3 -->
-  <nav class="hide-on-large only">
-    <ul id="slide-out" class="side-nav">
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="gradient-text">Abel Yagubyan</span></h1>
+        <h2>I build <span class="typing-text" id="typingText"></span></h2>
+        <p>
+          ML Engineer & Researcher specializing in Deep Learning, Distributed Systems, and High-Performance Computing. 
+          Passionate about developing innovative solutions that push the boundaries of what's possible with AI.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i> Get In Touch
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="http://linkedin.com/in/abelyagubyan" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Abelo9996/" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="profile-container">
+          <img src="assets/img/abel.jpeg" alt="Abel Yagubyan" class="profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <li class="bold">
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Open Abel's Resume in a new tab"
-          href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Main Content-->
-  <main>
-    <!-- First Section: Heading lines and image -->
-    <section id="intro" class="section scrollspy full-height">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="col-md-9">
-          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
-            <div class="caption">
-              <h2>Hi, I'm <span class="teal">Abel Yagubyan.</span></h2>
-              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
-              <!-- <h5 style="color:#00796b">A <span class="typing" style="font-weight: 300; color:#fff"></span></h5> -->
-              <h5>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving challenging real-world problems.</h5>
-            </div>
-            <div class="social">
-              <a href="http://linkedin.com/in/abelyagubyan" target="_blank">
-                <button class="icon-btn linkedin">
-                  <i class="fa fa-linkedin"></i>
-                </button>
-              </a>
-              <a href="https://github.com/Abelo9996/" target="_blank">
-                <button class="icon-btn github">
-                  <i class="fa fa-github"></i>
-                </button>
-              </a>
-
-              <!-- <a href="http://linkedin.com/in/abelyagubyan" target="_blank">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-
-                  </span>
-              </a> -->
-            </div>
-            <div class='buttons'>
-              <a href="#about" class="readme">Read More</a>
-              <a href="#contact" class="contactme">Contact Me</a>
-            </div>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2 class="section-title"><span class="gradient-text">About Me</span></h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          Welcome to my digital space! I hold a <strong>Bachelor's degree in Computer Science and Applied Mathematics from UC Berkeley</strong> 
+          and a <strong>Master's degree in Computer Science from Northwestern University</strong>, with a focus on Deep Learning and Distributed Systems.
+        </p>
+        <p>
+          My research and professional experience spans cutting-edge technologies in Machine Learning, High-Performance Computing, 
+          and Systems Architecture. I've contributed to projects at <strong>Lawrence Berkeley National Laboratory</strong> working with 
+          UPC++ and PGAS programming, developed AI solutions at <strong>FibonAI</strong> that transformed legal workflows, and collaborated 
+          with <strong>Apple and UC Berkeley</strong> to introduce Computer Architecture projects to thousands of HBCU students.
+        </p>
+        <p>
+          I'm passionate about building efficient, scalable systems that solve real-world problems. Whether it's optimizing Deep Neural 
+          Networks for edge devices, implementing parallel computing solutions, or developing AI-powered applications, I thrive on 
+          challenges that push technological boundaries.
+        </p>
+        <ul class="skills-list">
+          <li>Machine Learning & Deep Learning</li>
+          <li>Distributed Systems & HPC</li>
+          <li>Computer Vision & NLP</li>
+          <li>Systems Architecture</li>
+          <li>GPU Programming & CUDA</li>
+          <li>Research & Innovation</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skills-category">
+          <h3>Tech Stack</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">Golang</span>
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Swift</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">CUDA</span>
+            <span class="skill-tag">UPC++</span>
+            <span class="skill-tag">MPI</span>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Second Section: About -->
-    <section id="about" class="section scrollspy">
-      <h3 class="page-title white-text teal">About</h3>
-      <div class="container flow-text">
-        <!-- <blockquote>
-          <h2>
-            A Software Engineer with a passion for Machine Learning and Distributed Systems.
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <h2 class="section-title"><span class="gradient-text">Experience</span></h2>
+    <div class="experience-grid">
 
-          </h2>
-        </blockquote> -->        
-        <p>
-          Welcome to my page! I am a Bachelor's graduate in Computer Science and Applied Mathematics from UC Berkeley. I have a particular passion for Machine Learning, Distributed Systems, Databases, and Security. Building on this passion, I pursued and successfully completed my Master's of Science degree in Computer Science at Northwestern University. I have previously worked on technologies like Python, C/C++, Golang, Java, MySQL, MongoDB, Flask, and x86/RISC-V during my Bachelor's/Master's. I am passionate about developing complex applications that solve real-world problems impacting millions of users within my intended areas of interest.
-        </p>
-        <p>
+      <!-- FibonAI -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/fibonai_black.png" alt="FibonAI" class="company-logo">
+          <div class="experience-info">
+            <h3>FibonAI</h3>
+            <div class="role">Co-Founder & Lead Engineer</div>
+            <div class="duration">2023 - Present | San Francisco, CA</div>
+          </div>
+        </div>
+        <div class="experience-description">
           <ul>
-            <li><b>Languages:</b> Python, Java, C/C++, Golang, Rust, Swift, PHP, JavaScript, Bash</li>
-            <li><b>Databases:</b> MySQL, PostgreSQL, MongoDB, Firebase</li>
-            <li><b>Libraries/Frameworks:</b> Keras, TensorFlow, PyTorch, CUDA, UPC++, GPU Programming, MPI, NumPy, Pandas, OpenCV, Flask, Django, Node.js</li>
-            <li><b>Tools & Technologies:</b> Git, Docker, AWS, Heroku</li>
+            <li>Built the premier legal AI-powered workspace transforming in-house legal operations</li>
+            <li>Developed end-to-end GPT-powered suite of tools for legal workflow automation</li>
+            <li>Onboarded 10+ beta customers from enterprises like Confluent and Cresta</li>
+            <li>Achieved 40% reduction in repetitive manual tasks for in-house legal teams</li>
           </ul>
-          
-        </p>
-          
-        <!-- <p>
-          
-          Detail-oriented Software Developer with professional experience in Backend Development, Machine Learning, Computer Vision. I am adept in Python, Django, Flask, SQL, Machine Learning, Computer Vision.           
-        </p> -->
-        <p>
-          Looking for an opportunity to work in a challenging position combining my skills in Software & ML Engineering, which provides professional development, interesting experiences, and personal growth.
-        </p>
-        <!-- <p>
-          Another Paragraph
-        </p>  -->
-        <!-- <p>
-        <strong>Current Focus</strong>:&nbsp;<a aria-label="Navigate to the Inclusive Design Patterns homepage"
-          href="https://www.smashingmagazine.com/inclusive-design-patterns/">Accessibility</a>&nbsp;//&nbsp;<a
-          aria-label="Navigate to the Full Stack React homepage"
-          href="https://www.fullstackreact.com/">React</a>&nbsp;//&nbsp;<a
-          aria-label='Navigate to the article "Scalable CSS"'
-          href="https://mrmrs.github.io/writing/2016/03/24/scalable-css/">Design Systems</a>
-        </p> -->
-      </div>
-    </section>
-
-
-    <!-- Third Section: Experience -->
-    <section id="experience" class="section scrollspy">
-      <h3 class="page-title white-text teal">Experience</h3>
-      <div class="container">
-
-        <!-- Latest Experience -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.mccormick.northwestern.edu/computer-science/" target="_blank"><img alt="Northwestern University logo"
-                    src="/assets/img/nu_logo.png" class="responsive-img center-block" /></a>
-              </div>
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.mccormick.northwestern.edu/computer-science/" target="_blank"
-                      class="teal-text hoverline">Northwestern University’s Prof. Guo</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Research Assistant</div>
-            <ul>
-              <li>
-               Contributor to Professor Dongning Guo's and PhD student Yiming Zhang’s project titled as "Deep Reinforcement Learning for Scheduling, Power Control, and Rate Adaptation in Cellular Networks".
-              </li>
-              <li>Currently speeding up project simulations using GPU programming.</li>
-              <li>
-                <b>Tools:</b> Python, GPU programming, and CUDA
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>June 2022 - April 2023 | Evanston, IL</span>
-          </div>
-        </div>
-
-        
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.lbl.gov" target="_blank"><img alt="LBNL logo"
-                    src="/assets/img/lbnl_logo.jpg" class="responsive-img center-block" /></a>
-              </div>
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.lbl.gov" target="_blank"
-                      class="teal-text hoverline">Lawrence Berkeley National Laboratory</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Research Assistant</div>
-            <ul>
-              <li>
-                Working with the Pagoda Project team at Lawrence Berkeley National Laboratory on UPC++, a C++ library providing classes and functions that support Partitioned Global Address Space (PGAS) programming, to:
-              </li>
-              <li>
-                Develop and deploy automated performance regression testing for UPC++ using crons and Python.
-              </li>
-              <li>
-                Implement benchmarks in UPC++ (OSU micro-benchmarks, Parallel Research Kernels, Bale    benchmarks) and compare to other libraries such as MPI and SHMEM.
-              </li>
-                <b>Tools:</b> Python, Flask, C++, UPC++, MPI, SHMEM
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>June 2022 - April 2023 | Berkeley, CA</span>
-          </div>
-        </div>
-
-        
-        <!-- Experience 2 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="#projects" target="_blank">
-                <img alt="UC Berkeley logo" src="/assets/img/cal_logo.png" class="responsive-img center-block" /></a>
-
-              </div>
-
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="#projects" class="teal-text hoverline">UC Berkeley's Prof. Filippenko</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Research Assistant</div>
-            <ul>
-              <li>
-                Worked as a Research Assistant for the world-renowned Professor Alex Filippenko to implement an ML
-Classification model using CNNs that use image data from Caltech's ZTF program to accurately classify
-different types of supernovae and transient objects.
-              </li>
-
-              <li>
-                More mentioned in the Projects section.
-              </li>
-              <li>
-                <b>Tools:</b> Python, JS
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>Aug 2021 - May 2022 | Berkeley, CA</span>
-          </div>
-        </div>
-      
-        
-        
-        <!-- Experience 2 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://eecs.berkeley.edu" target="_blank">
-                <img alt="UC Berkeley logo" src="/assets/img/cal_logo.png" class="responsive-img center-block" /></a>
-
-              </div>
-
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://eecs.berkeley.edu" class="teal-text hoverline">UC Berkeley's CS61C and CS161 Courses</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Teaching Assistant</div>
-            <ul>
-              <li>
-                Teaching Assistant for CS61C: Computer Architecture and CS161: Computer Security courses.
-              </li>
-              <li>
-                Project lead for CS61C's numc, a project that implements a simple numpy library and achieves up to 20x speedup (in comparison to dummy implementation) with the help of OpenMP, SIMD, and Loop unrolling.
-              </li>
-
-              <li>
-                Project lead for CS61C's CS61Classify, a project that implements a simple Neural Network model using RISC-V assembly code (similar to x86).
-              </li>
-              <li>
-                Project lead for CS161's Dropbox project, a project that implements an encrypted, safe, and scalable file sharing system using Go along with Cryptography.
-              </li>
-              <li>
-                <b>Tools:</b> Python, C, Go, Assembly (RISC-V and x86), JS
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>May 2021 - May 2022 | Berkeley, CA</span>
-          </div>
-        </div>
-
-      
-      
-
-        <!-- Experience 2 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.apple.com" target="_blank">
-                <img alt="Apple logo" src="/assets/img/apple_logo.png" class="responsive-img center-block" /></a>
-              </div>
-
-              <!-- <div class="col s12 m10"> -->
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.apple.com" class="teal-text hoverline">Apple x UC Berkeley</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Software Engineer Intern</div>
-            <ul>
-              <li>
-                In collaboration with Apple and UC Berkeley's CS61C: Computer Architecture course (myself as a Teaching Assistant for that course), introduced Computer Architecture-based projects to 4000+ HBCU students by implementing the source code with the help of C, Python, and Assembly.
-              </li>
-              <li>
-                Project lead for numc, a project that implements a simple numpy library and achieves up to 20x speedup (in comparison to dummy implementation) with the help of OpenMP, SIMD, and Loop unrolling.
-              </li>
-
-              <li>
-                Project lead for CS61Classify, a project that implements a simple Neural Network model using RISC-V assembly code (similar to x86).
-              </li>
-
-              
-              <li>
-                <b>Tools:</b> Python, C, Assembly (RISC-V)
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>May 2021 - Aug 2021 | Remote</span>
-          </div>
-        </div>
-      
-      
-      
-        <!-- Experience 3 -->
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://eecs.berkeley.edu" target="_blank"><img alt="UC Berkeley logo"
-                    src="/assets/img/cal_logo.png" class="responsive-img center-block" /></a>
-              </div>
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://eecs.berkeley.edu" target="_blank"
-                      class="teal-text hoverline">UC Berkeley's Prof. Garcia</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Research Assistant</div>
-            <ul>
-              <li>
-                Introduced new online examination features to 3,000+ students with 100% satisfaction by implementing an interactive RISC-V compiler to PrairieLearn, an online examination platform, for UC Berkeley Computer Architecture courses using a combination of Python, Assembly (RISC-V), C, JS, and Docker.
-              </li>
-              <li>
-                Published paper with Prof. Garcia for the SIGCSE '22 Technical Symposium.
-              </li>
-              <li>
-                <b>Tools:</b> Python, Docker, Assembly (RISC-V), C, JS
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>June 2019 - May 2022 | Berkeley, CA</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Fourth Section: Projects -->
-    <section id="projects" class="section scrollspy">
-      <h3 class="page-title white-text teal">Projects</h3>
-      <div class="container">
-        <div class="row">
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Curated News App" src="/assets/img/fibonai_black.png" style="top:30%;" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">FibonAI<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  The premier legal AI-powered workspace that transforms in-house legal operations
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, Flask, AWS, SQL, Zilliz, and JS</li>
-                  <li>End-to-end in-house legal workflow with GPT-powered suite of tools.</li>
-                  <li>Onboarded over 10 beta customers from enterprises like Confluent and Cresta.</li>
-                  <li>Helped save up to 40% of repetitive and manual daily tasks in in-house teams.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the website for project" href="https://fibonai.co/"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-globe"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Efficiency in Deep Neural Networks" src="/assets/img/dnn.jpeg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">SCALPEL<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Introducing efficiency in Deep Neural Networks
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, C++, Bash</li>
-                  <li>Reduced popular modern Deep Neural Network (DNN) model sizes (i.e., AlexNet, LeNet-5, etc.) by up to~80%.</li>
-                  <li>Achieved up to ~3.5x speedup in modern DNNs.</li>
-                  <li>Customizes DNN pruning techniques to the underlying hardware parallelism (Microcontroller, CPU, and GPU) </li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/Abelo9996/CS_C267/blob/main/267%20Final%20Report.pdf"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="SN1A Classification" src="/assets/img/cosmos.jpg"
-                style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Supernovae Classification<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Supernovae type classifier using Convolutional Neural Networks (CNNs) and Random Forests
-                </p>
-              </div>
-              <div class="card-reveal">
-                <!-- TODO: change this -- only close button -->
-                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
-                <span class="card-title teal-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Python, Flash, Bash</li>
-                  <li>Retrieves image data from Caltech's ZTF Program API.</li>
-                  <li>Processes and classifies Supernovae according to their type by up to ~95% accuracy by using a modified version of ResNet-18.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/Abelo9996/CS294-082-Project/blob/main/294-82%20Final%20Project%20Report%20(2)%20(2).pdf"
-                    target="_blank" data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Seventh Section: Education -->
-    <section id="education" class="section scrollspy">
-      <h3 class="page-title white-text teal">Education</h3>
-      <div class="container">
-        <div class="row">
-          <!-- Education -->
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://www.mccormick.northwestern.edu/computer-science/" target="_blank" class="teal-text hoverline">Northwestern University</a></span>
-                </p>
-                <p class="brown-text">Evanston, Illinois, USA</p>
-                <p>
-                  <b>Degree: </b>Master of Science in Computer Science (Concentration in Deep Learning and Distributed Systems)
-                  <br>
-                </p>
-
-                <ul>
-                  <p>
-                    <b>Relevant Courseworks:</b>
-                  <ul>
-                    <li>EECS 473: Deep Reinforcement Learning</li>
-                    <li>MATH 450: Probability Theory & Stochastic Analysis</li>
-                    <li>CS 440: Advanced Networking</li>
-                    <li>CS 446: Kernel and Other Low-level Software Development</li>
-                    <li>CS 449: Deep Learning</li>
-                    <li>CS 468: Programming Massively Parallel Processors - CUDA</li>
-                    <li>CS 497: Deep Learning in NLP</li>
-                  </ul>
-                  </p>
-
-                </ul>
-              </div>
-            </div>
-
-            
-          </div>
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://eecs.berkeley.edu" target="_blank" class="teal-text hoverline">University of California, Berkeley</a></span>
-                </p>
-                <p class="brown-text">Berkeley, California, USA</p>
-                <p>
-                  <b>Degree: </b>Bachelor of Arts in Computer Science and Applied Mathematics
-                  <br>
-                </p>
-
-                <ul>
-                  <p>
-                    <b>Relevant Courseworks:</b>
-                  <ul>
-                    <li>CS 61B/170: Data Structures and Algorithms</li>
-                    <li>CS W186: Database Systems</li>
-                    <li>CS 188: Artificial Intelligence</li>
-                    <li>CS 189: Machine Learning</li>
-                    <li>CS 194-26: Computer Vision</li>
-                    <li>CS C267: Parallel Computers</li>
-                    <li>CS 294-82: Machine Learning in Multimedia data</li>
-                  </ul>
-                  </p>
-
-                </ul>
-              </div>
-            </div>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">AWS</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">Zilliz</span>
+            <span class="tech-badge">GPT-4</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Eight Section: Contact -->
-    <section id="contact" class="section scrollspy full-height">
-      <h3 class="page-title white-text teal">Contact</h3>
-      <div class="container">
-        <p>
-          <a aria-label="Email Abel" href="mailto:abelyagubyan@berkeley.edu" target="_blank" data-position="top"
-            data-tooltip="Email Abel" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-envelope"></i><a aria-label="Email Abel" href="mailto:abelyagubyan@berkeley.edu"
-              class="hoverline">abelyagubyan@berkeley.edu</a></a>
-        </p>
-        <p>
-          <a aria-label="View Abel on GitHub" href="http://github.com/abelo9996" target="_blank"
-            data-position="top" data-tooltip="View Abel on GitHub"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i><a
-              aria-label="Abel on Github" href="http://github.com/abelo9996" class="hoverline"
-              target="_blank">github.com/abelo9996</a></a>
-        </p>
-        <p>
-          <a aria-label="View Abel on LinkedIn" href="http://linkedin.com/in/abelyagubyan" target="_blank"
-            data-position="top" data-tooltip="View Abel on LinkedIn"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-linkedin"></i><a aria-label="Abel on LinkedIn" href="http://linkedin.com/in/abelyagubyan"
-              class="hoverline" target="_blank">linkedin.com/in/abelyagubyan</a></a>
-        </p>
+      <!-- Northwestern University -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/nu_logo.png" alt="Northwestern University" class="company-logo">
+          <div class="experience-info">
+            <h3>Northwestern University</h3>
+            <div class="role">Research Assistant - Prof. Dongning Guo's Lab</div>
+            <div class="duration">June 2022 - April 2023 | Evanston, IL</div>
+          </div>
+        </div>
+        <div class="experience-description">
+          <ul>
+            <li>Contributed to "Deep Reinforcement Learning for Scheduling, Power Control, and Rate Adaptation in Cellular Networks"</li>
+            <li>Accelerated project simulations using GPU programming and CUDA</li>
+            <li>Optimized deep RL algorithms for resource allocation in wireless networks</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">CUDA</span>
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">GPU Programming</span>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <!-- typed.js -->
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["Tech Enthusiast", "Programmer", "Quick Learner"],
-      loop: true,
-      typeSpeed: 80,
-      backSpeed: 40
-    });
-  </script>
+      <!-- Lawrence Berkeley National Laboratory -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/lbnl_logo.jpg" alt="LBNL" class="company-logo">
+          <div class="experience-info">
+            <h3>Lawrence Berkeley National Laboratory</h3>
+            <div class="role">Research Assistant - Pagoda Project</div>
+            <div class="duration">June 2022 - April 2023 | Berkeley, CA</div>
+          </div>
+        </div>
+        <div class="experience-description">
+          <ul>
+            <li>Worked on UPC++, a C++ library for Partitioned Global Address Space (PGAS) programming</li>
+            <li>Developed automated performance regression testing using Python and crons</li>
+            <li>Implemented benchmarks (OSU micro-benchmarks, PRK, Bale) and compared to MPI/SHMEM</li>
+            <li>Enhanced performance analysis tools for distributed memory systems</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">UPC++</span>
+            <span class="tech-badge">MPI</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+          </div>
+        </div>
+      </div>
 
+      <!-- UC Berkeley - Research -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/cal_logo.png" alt="UC Berkeley" class="company-logo">
+          <div class="experience-info">
+            <h3>UC Berkeley - Prof. Filippenko's Lab</h3>
+            <div class="role">Research Assistant</div>
+            <div class="duration">Aug 2021 - May 2022 | Berkeley, CA</div>
+          </div>
+        </div>
+        <div class="experience-description">
+          <ul>
+            <li>Developed ML Classification model using CNNs for supernovae classification</li>
+            <li>Utilized image data from Caltech's ZTF program to classify transient objects</li>
+            <li>Achieved 95% accuracy using modified ResNet-18 architecture</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">TensorFlow</span>
+            <span class="tech-badge">Computer Vision</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- jQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <!-- UC Berkeley - Teaching -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/cal_logo.png" alt="UC Berkeley" class="company-logo">
+          <div class="experience-info">
+            <h3>UC Berkeley - CS61C & CS161</h3>
+            <div class="role">Teaching Assistant</div>
+            <div class="duration">May 2021 - May 2022 | Berkeley, CA</div>
+          </div>
+        </div>
+        <div class="experience-description">
+          <ul>
+            <li>TA for CS61C (Computer Architecture) and CS161 (Computer Security)</li>
+            <li>Project lead for numc: achieved 20x speedup using OpenMP, SIMD, and loop unrolling</li>
+            <li>Project lead for CS61Classify: Neural Network implementation in RISC-V assembly</li>
+            <li>Project lead for Dropbox: encrypted file sharing system using Go and Cryptography</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-badge">C</span>
+            <span class="tech-badge">Go</span>
+            <span class="tech-badge">RISC-V</span>
+            <span class="tech-badge">Python</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- Materialize - Compiled and minified JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+      <!-- Apple x UC Berkeley -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <img src="assets/img/apple_logo.png" alt="Apple" class="company-logo">
+          <div class="experience-info">
+            <h3>Apple x UC Berkeley</h3>
+            <div class="role">Software Engineer Intern</div>
+            <div class="duration">May 2021 - Aug 2021 | Remote</div>
+          </div>
+        </div>
+        <div class="experience-description">
+          <ul>
+            <li>Introduced Computer Architecture projects to 4000+ HBCU students</li>
+            <li>Developed project implementations in C, Python, and RISC-V Assembly</li>
+            <li>Collaborated with Apple and UC Berkeley CS61C course staff</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-badge">C</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">RISC-V</span>
+            <span class="tech-badge">Assembly</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <h2 class="section-title"><span class="gradient-text">Featured Projects</span></h2>
+    <div class="projects-grid">
+
+      <!-- FibonAI -->
+      <div class="project-card">
+        <img src="assets/img/fibonai_black.png" alt="FibonAI" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">FibonAI</h3>
+          <p class="project-description">
+            The premier legal AI-powered workspace that transforms in-house legal operations. End-to-end workflow with 
+            GPT-powered tools, saving up to 40% of manual tasks.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">AWS</span>
+            <span class="tech-badge">GPT-4</span>
+          </div>
+          <div class="project-links">
+            <a href="https://fibonai.co/" target="_blank" class="project-link">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCALPEL -->
+      <div class="project-card">
+        <img src="assets/img/dnn.jpeg" alt="SCALPEL" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">SCALPEL</h3>
+          <p class="project-description">
+            Efficiency in Deep Neural Networks. Reduced DNN model sizes by ~80% and achieved ~3.5x speedup. 
+            Customizes pruning techniques to hardware parallelism.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">PyTorch</span>
+            <span class="tech-badge">CUDA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Abelo9996/CS_C267/blob/main/267%20Final%20Report.pdf" target="_blank" class="project-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supernovae Classification -->
+      <div class="project-card">
+        <img src="assets/img/cosmos.jpg" alt="Supernovae Classification" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">Supernovae Classifier</h3>
+          <p class="project-description">
+            ML classifier using CNNs for supernovae type identification. Achieved ~95% accuracy using modified 
+            ResNet-18 with ZTF Program data.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">TensorFlow</span>
+            <span class="tech-badge">Computer Vision</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Abelo9996/CS294-082-Project/blob/main/294-82%20Final%20Project%20Report%20(2)%20(2).pdf" target="_blank" class="project-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section" id="education">
+    <h2 class="section-title"><span class="gradient-text">Education</span></h2>
+    <div class="education-grid">
+
+      <!-- Northwestern University -->
+      <div class="education-card">
+        <div class="education-header">
+          <h3>Northwestern University</h3>
+          <div class="degree">Master of Science in Computer Science</div>
+          <div class="location">Evanston, Illinois • 2022-2023</div>
+        </div>
+        <p style="color: var(--gray); margin-bottom: 1rem;">
+          Concentration in Deep Learning and Distributed Systems
+        </p>
+        <div class="coursework">
+          <h4>Relevant Coursework</h4>
+          <ul>
+            <li>Deep Reinforcement Learning</li>
+            <li>Deep Learning</li>
+            <li>Deep Learning in NLP</li>
+            <li>Programming Massively Parallel Processors (CUDA)</li>
+            <li>Advanced Networking</li>
+            <li>Kernel & Low-level Software Development</li>
+            <li>Probability Theory & Stochastic Analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- UC Berkeley -->
+      <div class="education-card">
+        <div class="education-header">
+          <h3>University of California, Berkeley</h3>
+          <div class="degree">Bachelor of Arts in Computer Science & Applied Mathematics</div>
+          <div class="location">Berkeley, California • 2018-2022</div>
+        </div>
+        <div class="coursework">
+          <h4>Relevant Coursework</h4>
+          <ul>
+            <li>Data Structures and Algorithms</li>
+            <li>Machine Learning</li>
+            <li>Artificial Intelligence</li>
+            <li>Computer Vision</li>
+            <li>Parallel Computers</li>
+            <li>Database Systems</li>
+            <li>ML in Multimedia Data</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2 class="section-title"><span class="gradient-text">Get In Touch</span></h2>
+    <div class="contact-content">
+      <p class="contact-text">
+        I'm always open to discussing new opportunities, innovative projects, or research collaborations. 
+        Whether you have a question or just want to say hi, feel free to reach out!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:abelyagubyan@berkeley.edu" class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>abelyagubyan@berkeley.edu</span>
+        </a>
+        <a href="http://linkedin.com/in/abelyagubyan" target="_blank" class="contact-item">
+          <i class="fab fa-linkedin-in"></i>
+          <span>linkedin.com/in/abelyagubyan</span>
+        </a>
+        <a href="http://github.com/abelo9996" target="_blank" class="contact-item">
+          <i class="fab fa-github"></i>
+          <span>github.com/abelo9996</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Designed & Built by Abel Yagubyan © 2025</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">Powered by curiosity, coffee, and code</p>
+    </div>
+  </footer>
+
   <script>
-    // Materialize - Initializers
-    $(document).ready(function () {
-      $(".scrollspy").scrollSpy()
-      // Initialize collapse button
-      $(".button-collapse").sideNav({
-        menuWidth: 190, // Default is 240
-        edge: "left", // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      })
-    })
+    // Typing Animation
+    const phrases = [
+      "intelligent systems",
+      "ML pipelines",
+      "distributed systems",
+      "scalable solutions",
+      "research tools",
+      "high-performance code"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('typingText');
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        setTimeout(() => isDeleting = true, 2000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+
+    // Particle Canvas
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 100;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections
+      particles.forEach((p1, i) => {
+        particles.slice(i + 1).forEach(p2 => {
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 217, 255, ${0.2 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Scroll Progress Indicator
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollIndicator').style.width = scrollPercentage + '%';
+    });
+
+    // Navigation scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.experience-card, .project-card, .education-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
   </script>
 </body>
 
