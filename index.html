@@ -17,12 +17,12 @@
   <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
-  <title>Abel Yagubyan | ML Engineer & Researcher</title>
+  <title>Abel Yagubyan | AI Researcher & Technical Founder</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126939217-2"></script>
@@ -44,8 +44,7 @@
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
   
   <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon.png" />
 
   <style>
     * {
@@ -55,618 +54,501 @@
     }
 
     :root {
-      --primary: #00d9ff;
-      --secondary: #7b2ff7;
-      --accent: #f72585;
-      --dark: #0a0e27;
-      --darker: #050816;
-      --light: #e0e7ff;
-      --gray: #8892b0;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --gradient-glow: linear-gradient(90deg, #00d9ff, #7b2ff7, #f72585);
+      --primary: #0085ff;
+      --bg-page: #fafafa;
+      --bg-card: #ffffff;
+      --text-primary: #333333;
+      --text-secondary: #666666;
+      --text-light: #888888;
+      --border: #eaeaea;
+      --shadow: rgba(0, 0, 0, 0.08);
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--darker);
-      color: var(--light);
+      font-family: 'Montserrat', 'Lato', sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
       overflow-x: hidden;
       line-height: 1.6;
+      min-width: 1000px;
     }
 
-    /* Particle Background */
+    /* Remove particle canvas */
     #particle-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: var(--darker);
+      display: none;
     }
 
-    /* Navigation */
-    .main-nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 0;
-      background: rgba(10, 14, 39, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-      z-index: 1000;
-      transition: all 0.3s ease;
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    .main-nav.scrolled {
-      padding: 1rem 0;
-      background: rgba(10, 14, 39, 0.95);
+    a:hover {
+      text-decoration: underline;
     }
 
-    .nav-container {
+    /* Main Container */
+    .container {
+      display: flex;
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 40px 60px;
+      gap: 60px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      position: sticky;
+      top: 40px;
+      height: fit-content;
+    }
+
+    .sidebar img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .sidebar h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .sidebar .subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .social-icons {
       display: flex;
-      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      display: flex;
       align-items: center;
-    }
-
-    .nav-logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: var(--gradient-glow);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .nav-logo:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      position: relative;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-glow);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
+      justify-content: center;
+      font-size: 18px;
       color: var(--primary);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
     }
 
-    .nav-links a:hover::before {
-      width: 100%;
+    .social-icons a:hover {
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
     }
 
-    /* Mobile Menu Toggle */
+    .contact {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+
+    .contact div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .contact i {
+      color: var(--primary);
+      width: 16px;
+    }
+
+    /* Hide old navigation */
+    .main-nav {
+      display: none;
+    }
+
     .menu-toggle {
       display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
     }
 
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: var(--primary);
-      transition: all 0.3s ease;
+    /* Main Content */
+    .main {
+      flex-grow: 1;
+      max-width: 900px;
+    }
+
+    /* Hero/Introduction */
+    .intro {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-primary);
+      margin-bottom: 60px;
+    }
+
+    .intro p {
+      margin-bottom: 16px;
+    }
+
+    .intro a {
+      font-weight: 600;
     }
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
+      text-align: center;
+      padding: 60px 0;
+      margin-bottom: 50px;
+      border-bottom: 2px solid var(--border);
     }
 
-    .hero-content {
-      max-width: 1400px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: 4rem;
+    .hero h1 {
+      font-size: 56px;
       font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
-    .gradient-text {
-      background: var(--gradient-glow);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 3s ease infinite;
-      background-size: 200% 200%;
-    }
-
-    @keyframes gradient-shift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .hero-text h2 {
-      font-size: 2rem;
-      color: var(--gray);
-      margin-bottom: 1.5rem;
+    .hero .tagline {
+      font-size: 24px;
+      color: var(--text-secondary);
       font-weight: 400;
-    }
-
-    .hero-text .typing-text {
-      color: var(--primary);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      color: var(--gray);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      line-height: 1.8;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary {
-      background: var(--gradient-glow);
-      color: white;
-      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(0, 217, 255, 0.1);
-      transform: translateY(-3px);
-    }
-
-    .hero-image {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .profile-container {
-      position: relative;
-      width: 400px;
-      height: 400px;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid rgba(0, 217, 255, 0.3);
-      box-shadow: 0 0 60px rgba(0, 217, 255, 0.4);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .profile-container::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      right: -20px;
-      bottom: -20px;
-      background: var(--gradient-glow);
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.3;
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .social-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(0, 217, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 217, 255, 0.3);
-    }
-
-    .social-icon:hover {
-      background: var(--primary);
-      color: var(--darker);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+      margin-bottom: 0;
     }
 
     /* Section Styles */
     .section {
-      padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
+      margin-bottom: 70px;
     }
 
-    .section-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 3rem;
-      text-align: center;
-      position: relative;
-      display: inline-block;
-      width: 100%;
+    .section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: var(--gradient-glow);
-      border-radius: 2px;
-    }
-
-    /* About Section */
-    .about-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--gray);
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
-    }
-
-    .skills-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin-top: 2rem;
-    }
-
-    .skills-list li {
-      padding: 0.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      color: var(--primary);
-    }
-
-    .skills-list li::before {
-      content: '▹ ';
-      color: var(--accent);
-      font-weight: bold;
-      margin-right: 0.5rem;
-    }
-
-    .skills-category {
-      background: rgba(0, 217, 255, 0.05);
-      border: 1px solid rgba(0, 217, 255, 0.2);
-      border-radius: 15px;
-      padding: 2rem;
-    }
-
-    .skills-category h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-
-    .skill-tags {
+    /* News Section */
+    .news-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 10px;
     }
 
-    .skill-tag {
-      background: rgba(123, 47, 247, 0.1);
-      border: 1px solid rgba(123, 47, 247, 0.3);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: var(--light);
-      font-family: 'JetBrains Mono', monospace;
+    .news-row::-webkit-scrollbar {
+      height: 8px;
     }
 
-    /* Experience Section */
-    .experience-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
+    .news-row::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
     }
 
-    .experience-card {
-      background: rgba(0, 217, 255, 0.03);
-      border: 1px solid rgba(0, 217, 255, 0.2);
-      border-radius: 20px;
-      padding: 2.5rem;
-      transition: all 0.3s ease;
-      position: relative;
+    .news-card {
+      flex: 0 0 300px;
+      background: var(--bg-card);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px var(--shadow);
       overflow: hidden;
-    }
-
-    .experience-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--gradient-glow);
-    }
-
-    .experience-card:hover {
-      transform: translateX(10px);
-      border-color: rgba(0, 217, 255, 0.5);
-      box-shadow: 0 10px 40px rgba(0, 217, 255, 0.1);
-    }
-
-    .experience-header {
-      display: flex;
-      align-items: start;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .company-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      object-fit: contain;
-      background: white;
-      padding: 0.5rem;
-    }
-
-    .experience-info h3 {
-      font-size: 1.8rem;
-      color: var(--light);
-      margin-bottom: 0.5rem;
-    }
-
-    .role {
-      color: var(--primary);
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .duration {
-      color: var(--gray);
-      font-size: 0.9rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .experience-description {
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
-    .experience-description ul {
-      margin-top: 1rem;
-      padding-left: 1.5rem;
-    }
-
-    .experience-description li {
-      margin-bottom: 0.8rem;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-
-    .tech-badge {
-      background: rgba(247, 37, 133, 0.1);
-      border: 1px solid rgba(247, 37, 133, 0.3);
-      padding: 0.4rem 1rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .project-card {
-      background: rgba(0, 217, 255, 0.03);
-      border: 1px solid rgba(0, 217, 255, 0.2);
-      border-radius: 20px;
-      overflow: hidden;
+      border: 1px solid var(--border);
       transition: all 0.3s ease;
       cursor: pointer;
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 217, 255, 0.5);
-      box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px var(--shadow);
+      border-color: var(--primary);
     }
 
-    .project-image {
+    .news-card img {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+      height: 160px;
+      object-fit: contain;
+      background: #f8f9fa;
     }
 
-    .project-content {
-      padding: 2rem;
+    .news-card-content {
+      padding: 16px;
     }
 
-    .project-title {
-      font-size: 1.5rem;
-      color: var(--light);
-      margin-bottom: 1rem;
+    .news-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 10px;
     }
 
-    .project-description {
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+    .news-card .date {
+      font-size: 12px;
+      color: var(--text-light);
     }
 
-    .project-links {
+    /* Publications / Experience Cards */
+    .pub-card, .experience-card {
       display: flex;
-      gap: 1rem;
-    }
-
-    .project-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 1.2rem;
+      background: var(--bg-card);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px var(--shadow);
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid var(--border);
       transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .project-link:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
+    .pub-card:hover, .experience-card:hover {
+      box-shadow: 0 6px 20px var(--shadow);
+      transform: translateY(-4px);
+      border-color: var(--primary);
     }
 
-    /* Education Section */
+    .pub-card img {
+      max-width: 300px;
+      max-height: 180px;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-right: 24px;
+      flex-shrink: 0;
+      background: #f8f9fa;
+    }
+
+    .experience-card img {
+      max-width: 100px;
+      max-height: 100px;
+      width: 100%;
+      object-fit: contain;
+      background: var(--bg-page);
+      padding: 10px;
+      margin-right: 24px;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    .pub-card .text, .experience-card .text {
+      flex-grow: 1;
+    }
+
+    .pub-card h3, .experience-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .pub-card .authors, .role {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .role {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .duration, .award {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .tldr, .description {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    .tldr strong {
+      font-weight: 700;
+    }
+
+    .links, .tech-stack {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .links a, .links span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      background: var(--bg-page);
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .links a:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    }
+
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      background: var(--bg-page);
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .links span i {
+      font-size: 11px;
+    }
+
+    .tech-badge {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+      font-weight: 500;
+    }
+
+    /* Software / Projects Grid */
+    .software-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .software-card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .software-card:hover {
+      box-shadow: 0 6px 20px var(--shadow);
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .software-card .repo {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .software-card .tag {
+      font-size: 11px;
+      background: var(--bg-page);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-left: 8px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .software-card .description {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 12px 0;
+      line-height: 1.5;
+    }
+
+    .software-card .stats {
+      font-size: 12px;
+      display: flex;
+      gap: 16px;
+      color: var(--text-light);
+      align-items: center;
+    }
+
+    .software-card .stats span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .software-card .stats i {
+      font-size: 13px;
+    }
+
+    /* Education Grid */
     .education-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
     }
 
     .education-card {
-      background: rgba(123, 47, 247, 0.05);
-      border: 1px solid rgba(123, 47, 247, 0.3);
-      border-radius: 20px;
-      padding: 2.5rem;
-      transition: all 0.3s ease;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      transition: all 0.2s ease;
+      cursor: default;
     }
 
     .education-card:hover {
-      border-color: rgba(123, 47, 247, 0.6);
-      box-shadow: 0 10px 40px rgba(123, 47, 247, 0.2);
+      box-shadow: 0 4px 12px var(--shadow);
     }
 
     .education-header h3 {
-      font-size: 1.8rem;
-      color: var(--light);
-      margin-bottom: 0.5rem;
+      font-size: 18px;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-weight: 700;
     }
 
     .degree {
       color: var(--primary);
-      font-size: 1.1rem;
+      font-size: 15px;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
     }
 
     .location {
-      color: var(--gray);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      font-size: 13px;
+      margin-bottom: 16px;
     }
 
     .coursework {
-      margin-top: 1.5rem;
+      margin-top: 16px;
     }
 
     .coursework h4 {
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .coursework ul {
@@ -675,80 +557,31 @@
     }
 
     .coursework li {
-      color: var(--gray);
-      padding: 0.5rem 0;
-      font-size: 0.95rem;
-      border-bottom: 1px solid rgba(123, 47, 247, 0.1);
+      color: var(--text-secondary);
+      padding: 6px 0;
+      font-size: 13px;
+      border-bottom: 1px solid var(--bg-page);
     }
 
     .coursework li::before {
-      content: '◆ ';
-      color: var(--secondary);
-      margin-right: 0.5rem;
-    }
-
-    /* Contact Section */
-    .contact-content {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .contact-text {
-      font-size: 1.2rem;
-      color: var(--gray);
-      margin-bottom: 3rem;
-      line-height: 1.8;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem 2.5rem;
-      background: rgba(0, 217, 255, 0.05);
-      border: 1px solid rgba(0, 217, 255, 0.3);
-      border-radius: 15px;
-      text-decoration: none;
-      color: var(--light);
-      transition: all 0.3s ease;
-    }
-
-    .contact-item:hover {
-      background: rgba(0, 217, 255, 0.1);
-      border-color: var(--primary);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-    }
-
-    .contact-item i {
-      font-size: 1.5rem;
+      content: '• ';
       color: var(--primary);
+      margin-right: 8px;
+      font-weight: bold;
     }
 
     /* Footer */
     .footer {
-      background: rgba(10, 14, 39, 0.8);
-      padding: 3rem 2rem;
+      background: var(--bg-page);
+      padding: 40px 60px;
       text-align: center;
-      border-top: 1px solid rgba(0, 217, 255, 0.1);
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
     }
 
     .footer p {
-      color: var(--gray);
-      font-size: 0.9rem;
+      color: var(--text-light);
+      font-size: 13px;
     }
 
     /* Scroll Indicator */
@@ -756,81 +589,55 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 4px;
-      background: var(--gradient-glow);
+      height: 3px;
+      background: var(--primary);
       z-index: 9999;
       transition: width 0.1s ease;
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
-      .hero-content {
-        grid-template-columns: 1fr;
+    @media (max-width: 1200px) {
+      body {
+        min-width: auto;
+      }
+
+      .container {
+        flex-direction: column;
+        padding: 30px;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        margin-bottom: 40px;
       }
 
-      .hero-image {
-        order: -1;
+      .main {
+        max-width: 100%;
       }
 
-      .profile-container {
-        width: 300px;
-        height: 300px;
+      .pub-card, .experience-card {
+        flex-direction: column;
       }
 
-      .hero-text h1 {
-        font-size: 3rem;
+      .pub-card img, .experience-card img {
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 16px;
       }
 
-      .about-content {
+      .software-grid {
         grid-template-columns: 1fr;
       }
 
       .education-grid {
         grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        flex-direction: column;
-        background: rgba(10, 14, 39, 0.98);
-        width: 70%;
-        padding: 2rem;
-        border-left: 1px solid rgba(0, 217, 255, 0.2);
-        transition: right 0.3s ease;
-        height: calc(100vh - 80px);
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero-text h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-text h2 {
-        font-size: 1.5rem;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-buttons {
-        justify-content: center;
       }
     }
   </style>
@@ -844,593 +651,429 @@
   <!-- Scroll Progress Indicator -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
 
-  <!-- Particle Background -->
-  <canvas id="particle-canvas"></canvas>
-
-  <!-- Navigation -->
-  <nav class="main-nav" id="mainNav">
-    <div class="nav-container">
-      <div class="nav-logo" onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})">
-        <span class="logo-text">AY</span>
-      </div>
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">// About</a></li>
-        <li><a href="#experience">// Experience</a></li>
-        <li><a href="#projects">// Projects</a></li>
-        <li><a href="#education">// Education</a></li>
-        <li><a href="#contact">// Contact</a></li>
-        <li><a href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank">// Resume</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Hi, I'm <span class="gradient-text">Abel Yagubyan</span></h1>
-        <h2>I build <span class="typing-text" id="typingText"></span></h2>
-        <p>
-          ML Engineer & Researcher specializing in Deep Learning, Distributed Systems, and High-Performance Computing. 
-          Passionate about developing innovative solutions that push the boundaries of what's possible with AI.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> View My Work
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            <i class="fas fa-envelope"></i> Get In Touch
-          </a>
-        </div>
-        <div class="social-links">
-          <a href="http://linkedin.com/in/abelyagubyan" target="_blank" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/Abelo9996/" target="_blank" class="social-icon">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="profile-container">
-          <img src="assets/img/abel.jpeg" alt="Abel Yagubyan" class="profile-img">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="section" id="about">
-    <h2 class="section-title"><span class="gradient-text">About Me</span></h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>
-          Welcome to my digital space! I hold a <strong>Bachelor's degree in Computer Science and Applied Mathematics from UC Berkeley</strong> 
-          and a <strong>Master's degree in Computer Science from Northwestern University</strong>, with a focus on Deep Learning and Distributed Systems.
-        </p>
-        <p>
-          My research and professional experience spans cutting-edge technologies in Machine Learning, High-Performance Computing, 
-          and Systems Architecture. I've contributed to projects at <strong>Lawrence Berkeley National Laboratory</strong> working with 
-          UPC++ and PGAS programming, developed AI solutions at <strong>FibonAI</strong> that transformed legal workflows, and collaborated 
-          with <strong>Apple and UC Berkeley</strong> to introduce Computer Architecture projects to thousands of HBCU students.
-        </p>
-        <p>
-          I'm passionate about building efficient, scalable systems that solve real-world problems. Whether it's optimizing Deep Neural 
-          Networks for edge devices, implementing parallel computing solutions, or developing AI-powered applications, I thrive on 
-          challenges that push technological boundaries.
-        </p>
-        <ul class="skills-list">
-          <li>Machine Learning & Deep Learning</li>
-          <li>Distributed Systems & HPC</li>
-          <li>Computer Vision & NLP</li>
-          <li>Systems Architecture</li>
-          <li>GPU Programming & CUDA</li>
-          <li>Research & Innovation</li>
-        </ul>
-      </div>
-      <div>
-        <div class="skills-category">
-          <h3>Tech Stack</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C/C++</span>
-            <span class="skill-tag">Golang</span>
-            <span class="skill-tag">Rust</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Swift</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">CUDA</span>
-            <span class="skill-tag">UPC++</span>
-            <span class="skill-tag">MPI</span>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MongoDB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="section" id="experience">
-    <h2 class="section-title"><span class="gradient-text">Experience</span></h2>
-    <div class="experience-grid">
-
-      <!-- FibonAI -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/fibonai_black.png" alt="FibonAI" class="company-logo">
-          <div class="experience-info">
-            <h3>FibonAI</h3>
-            <div class="role">Co-Founder & Lead Engineer</div>
-            <div class="duration">2023 - Present | San Francisco, CA</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>Built the premier legal AI-powered workspace transforming in-house legal operations</li>
-            <li>Developed end-to-end GPT-powered suite of tools for legal workflow automation</li>
-            <li>Onboarded 10+ beta customers from enterprises like Confluent and Cresta</li>
-            <li>Achieved 40% reduction in repetitive manual tasks for in-house legal teams</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Flask</span>
-            <span class="tech-badge">AWS</span>
-            <span class="tech-badge">SQL</span>
-            <span class="tech-badge">Zilliz</span>
-            <span class="tech-badge">GPT-4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Northwestern University -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/nu_logo.png" alt="Northwestern University" class="company-logo">
-          <div class="experience-info">
-            <h3>Northwestern University</h3>
-            <div class="role">Research Assistant - Prof. Dongning Guo's Lab</div>
-            <div class="duration">June 2022 - April 2023 | Evanston, IL</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>Contributed to "Deep Reinforcement Learning for Scheduling, Power Control, and Rate Adaptation in Cellular Networks"</li>
-            <li>Accelerated project simulations using GPU programming and CUDA</li>
-            <li>Optimized deep RL algorithms for resource allocation in wireless networks</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">CUDA</span>
-            <span class="tech-badge">PyTorch</span>
-            <span class="tech-badge">GPU Programming</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lawrence Berkeley National Laboratory -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/lbnl_logo.jpg" alt="LBNL" class="company-logo">
-          <div class="experience-info">
-            <h3>Lawrence Berkeley National Laboratory</h3>
-            <div class="role">Research Assistant - Pagoda Project</div>
-            <div class="duration">June 2022 - April 2023 | Berkeley, CA</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>Worked on UPC++, a C++ library for Partitioned Global Address Space (PGAS) programming</li>
-            <li>Developed automated performance regression testing using Python and crons</li>
-            <li>Implemented benchmarks (OSU micro-benchmarks, PRK, Bale) and compared to MPI/SHMEM</li>
-            <li>Enhanced performance analysis tools for distributed memory systems</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">C++</span>
-            <span class="tech-badge">UPC++</span>
-            <span class="tech-badge">MPI</span>
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Flask</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- UC Berkeley - Research -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/cal_logo.png" alt="UC Berkeley" class="company-logo">
-          <div class="experience-info">
-            <h3>UC Berkeley - Prof. Filippenko's Lab</h3>
-            <div class="role">Research Assistant</div>
-            <div class="duration">Aug 2021 - May 2022 | Berkeley, CA</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>Developed ML Classification model using CNNs for supernovae classification</li>
-            <li>Utilized image data from Caltech's ZTF program to classify transient objects</li>
-            <li>Achieved 95% accuracy using modified ResNet-18 architecture</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">TensorFlow</span>
-            <span class="tech-badge">Computer Vision</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- UC Berkeley - Teaching -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/cal_logo.png" alt="UC Berkeley" class="company-logo">
-          <div class="experience-info">
-            <h3>UC Berkeley - CS61C & CS161</h3>
-            <div class="role">Teaching Assistant</div>
-            <div class="duration">May 2021 - May 2022 | Berkeley, CA</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>TA for CS61C (Computer Architecture) and CS161 (Computer Security)</li>
-            <li>Project lead for numc: achieved 20x speedup using OpenMP, SIMD, and loop unrolling</li>
-            <li>Project lead for CS61Classify: Neural Network implementation in RISC-V assembly</li>
-            <li>Project lead for Dropbox: encrypted file sharing system using Go and Cryptography</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">C</span>
-            <span class="tech-badge">Go</span>
-            <span class="tech-badge">RISC-V</span>
-            <span class="tech-badge">Python</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Apple x UC Berkeley -->
-      <div class="experience-card">
-        <div class="experience-header">
-          <img src="assets/img/apple_logo.png" alt="Apple" class="company-logo">
-          <div class="experience-info">
-            <h3>Apple x UC Berkeley</h3>
-            <div class="role">Software Engineer Intern</div>
-            <div class="duration">May 2021 - Aug 2021 | Remote</div>
-          </div>
-        </div>
-        <div class="experience-description">
-          <ul>
-            <li>Introduced Computer Architecture projects to 4000+ HBCU students</li>
-            <li>Developed project implementations in C, Python, and RISC-V Assembly</li>
-            <li>Collaborated with Apple and UC Berkeley CS61C course staff</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-badge">C</span>
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">RISC-V</span>
-            <span class="tech-badge">Assembly</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <h2 class="section-title"><span class="gradient-text">Featured Projects</span></h2>
-    <div class="projects-grid">
-
-      <!-- FibonAI -->
-      <div class="project-card">
-        <img src="assets/img/fibonai_black.png" alt="FibonAI" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">FibonAI</h3>
-          <p class="project-description">
-            The premier legal AI-powered workspace that transforms in-house legal operations. End-to-end workflow with 
-            GPT-powered tools, saving up to 40% of manual tasks.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Flask</span>
-            <span class="tech-badge">AWS</span>
-            <span class="tech-badge">GPT-4</span>
-          </div>
-          <div class="project-links">
-            <a href="https://fibonai.co/" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- SCALPEL -->
-      <div class="project-card">
-        <img src="assets/img/dnn.jpeg" alt="SCALPEL" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">SCALPEL</h3>
-          <p class="project-description">
-            Efficiency in Deep Neural Networks. Reduced DNN model sizes by ~80% and achieved ~3.5x speedup. 
-            Customizes pruning techniques to hardware parallelism.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">C++</span>
-            <span class="tech-badge">PyTorch</span>
-            <span class="tech-badge">CUDA</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Abelo9996/CS_C267/blob/main/267%20Final%20Report.pdf" target="_blank" class="project-link">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Supernovae Classification -->
-      <div class="project-card">
-        <img src="assets/img/cosmos.jpg" alt="Supernovae Classification" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">Supernovae Classifier</h3>
-          <p class="project-description">
-            ML classifier using CNNs for supernovae type identification. Achieved ~95% accuracy using modified 
-            ResNet-18 with ZTF Program data.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">TensorFlow</span>
-            <span class="tech-badge">Computer Vision</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Abelo9996/CS294-082-Project/blob/main/294-82%20Final%20Project%20Report%20(2)%20(2).pdf" target="_blank" class="project-link">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="section" id="education">
-    <h2 class="section-title"><span class="gradient-text">Education</span></h2>
-    <div class="education-grid">
-
-      <!-- Northwestern University -->
-      <div class="education-card">
-        <div class="education-header">
-          <h3>Northwestern University</h3>
-          <div class="degree">Master of Science in Computer Science</div>
-          <div class="location">Evanston, Illinois • 2022-2023</div>
-        </div>
-        <p style="color: var(--gray); margin-bottom: 1rem;">
-          Concentration in Deep Learning and Distributed Systems
-        </p>
-        <div class="coursework">
-          <h4>Relevant Coursework</h4>
-          <ul>
-            <li>Deep Reinforcement Learning</li>
-            <li>Deep Learning</li>
-            <li>Deep Learning in NLP</li>
-            <li>Programming Massively Parallel Processors (CUDA)</li>
-            <li>Advanced Networking</li>
-            <li>Kernel & Low-level Software Development</li>
-            <li>Probability Theory & Stochastic Analysis</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- UC Berkeley -->
-      <div class="education-card">
-        <div class="education-header">
-          <h3>University of California, Berkeley</h3>
-          <div class="degree">Bachelor of Arts in Computer Science & Applied Mathematics</div>
-          <div class="location">Berkeley, California • 2018-2022</div>
-        </div>
-        <div class="coursework">
-          <h4>Relevant Coursework</h4>
-          <ul>
-            <li>Data Structures and Algorithms</li>
-            <li>Machine Learning</li>
-            <li>Artificial Intelligence</li>
-            <li>Computer Vision</li>
-            <li>Parallel Computers</li>
-            <li>Database Systems</li>
-            <li>ML in Multimedia Data</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <h2 class="section-title"><span class="gradient-text">Get In Touch</span></h2>
-    <div class="contact-content">
-      <p class="contact-text">
-        I'm always open to discussing new opportunities, innovative projects, or research collaborations. 
-        Whether you have a question or just want to say hi, feel free to reach out!
-      </p>
-      <div class="contact-links">
-        <a href="mailto:abelyagubyan@berkeley.edu" class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <span>abelyagubyan@berkeley.edu</span>
-        </a>
-        <a href="http://linkedin.com/in/abelyagubyan" target="_blank" class="contact-item">
-          <i class="fab fa-linkedin-in"></i>
-          <span>linkedin.com/in/abelyagubyan</span>
-        </a>
-        <a href="http://github.com/abelo9996" target="_blank" class="contact-item">
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="assets/img/abel.jpeg" alt="Abel Yagubyan" />
+      <h1>Abel Yagubyan</h1>
+      <div class="subtitle">Senior Data Scientist at C3.ai</div>
+      
+      <div class="social-icons">
+        <a href="https://github.com/Abelo9996/" target="_blank" title="GitHub">
           <i class="fab fa-github"></i>
-          <span>github.com/abelo9996</span>
+        </a>
+        <a href="http://linkedin.com/in/abelyagubyan" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://scholar.google.com" target="_blank" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
         </a>
       </div>
-    </div>
-  </section>
+
+      <div class="contact">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:abelyagubyan@berkeley.edu">abelyagubyan@berkeley.edu</a>
+        </div>
+        <div>
+          <i class="fas fa-map-marker-alt"></i>
+          San Francisco, CA
+        </div>
+        <div>
+          <i class="fas fa-file-pdf"></i>
+          <a href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank">CV / Resume</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Abel Yagubyan</h1>
+        <p class="tagline">Senior Data Scientist at C3.ai</p>
+      </section>
+
+      <!-- Introduction -->
+      <section class="intro">
+        <p>
+          Hello! I'm a <strong>Senior Data Scientist at C3.ai</strong> with expertise in <strong>Deep Learning</strong>, <strong>Predictive Maintenance</strong>, and <strong>High-Performance Computing</strong>. I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
+        </p>
+        <p>
+          Previously, I co-founded <a href="https://fibonai.co/" target="_blank"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), conducted research at <strong>Lawrence Berkeley National Laboratory</strong> on UPC++ performance testing, and interned at <strong>Apple</strong>. I've also reviewed 100+ papers for Elsevier's AI and Vision Computing journals.
+        </p>
+      </section>
+
+      <!-- News Section -->
+      <section class="section">
+        <h2>News</h2>
+        <div class="news-row">
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/C3ai_logo.svg.png" alt="C3.ai Promotion" />
+            <div class="news-card-content">
+              <p>Promoted to Senior Data Scientist at C3.ai in under 18 months for high-impact customer solutions</p>
+              <div class="date">2024</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/fibonai_black.png" alt="FibonAI Launch" />
+            <div class="news-card-content">
+              <p>Co-founded FibonAI, accepted into UC Berkeley's Skydeck Pad-13 Incubator competing against 5,000+ startups</p>
+              <div class="date">June - Dec 2023</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/nu_logo.png" alt="Northwestern" />
+            <div class="news-card-content">
+              <p>Graduated with M.S. in Computer Science from Northwestern University with Summa Cum Laude Honors</p>
+              <div class="date">June 2023</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/lbnl_logo.jpg" alt="LBNL" />
+            <div class="news-card-content">
+              <p>Research contributor at Lawrence Berkeley National Lab's Pagoda Project on UPC++ performance testing</p>
+              <div class="date">June 2022 - April 2023</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/cal_logo.png" alt="SIGCSE Publication" />
+            <div class="news-card-content">
+              <p>Published "Embedding of Programming IDEs into Computer-Based Testing Software" at ACM SIGCSE '22</p>
+              <div class="date">March 2022</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/cal_logo.png" alt="UC Berkeley Graduation" />
+            <div class="news-card-content">
+              <p>Graduated from UC Berkeley with dual B.A. in Computer Science & Applied Mathematics</p>
+              <div class="date">May 2022</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/apple_logo.png" alt="Apple Internship" />
+            <div class="news-card-content">
+              <p>Software Engineering Intern at Apple x UC Berkeley, managing CS61C projects for 4000+ HBCU students</p>
+              <div class="date">May - Aug 2021</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research & Publications -->
+      <section class="section">
+        <h2>Research & Publications</h2>
+
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/cal_logo.png" alt="SIGCSE Publication" />
+          <div class="text">
+            <h3>Embedding of Programming IDEs into Computer-Based Testing Software</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong>, Dan Garcia</div>
+            <div class="award">ACM SIGCSE '22 — Technical Symposium on Computer Science Education</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Published peer-reviewed paper presenting an interactive RISC-V compiler integrated into PrairieLearn for online programming education, enabling 3,000+ students to complete CS61C exams with embedded IDE functionality.
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i> Paper
+              </a>
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> ACM DL
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/dnn.jpeg" alt="SCALPEL" />
+          <div class="text">
+            <h3>SCALPEL: Customized Deep Neural Network Compression</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong></div>
+            <div class="award">Northwestern University — Research Project (Jan 2022 - June 2022)</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Developed Python-based DNN compression framework that reduced model sizes (AlexNet, LeNet-5) by up to 80% and achieved 3.5x speedup by customizing pruning techniques to target hardware parallelism (CPU, GPU, Microcontroller).
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i> Report
+              </a>
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/lbnl_logo.jpg" alt="UPC++ Research" />
+          <div class="text">
+            <h3>UPC++ Performance Regression Testing & Benchmarking</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong>, Lawrence Berkeley National Laboratory</div>
+            <div class="award">Pagoda Project — Research Contribution</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Developed automated performance regression testing platform for UPC++, a C++ library for distributed-memory parallel computing. Implemented distributed hashing benchmarks and compared performance against MPI and SHMEM.
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> LBNL Pagoda
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/cosmos.jpg" alt="Peer Review" />
+          <div class="text">
+            <h3>Peer Reviewer — Elsevier Journals</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong></div>
+            <div class="award">Engineering & Applications of AI, Neural Networks, Vision Research</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Reviewed 100+ research papers for Elsevier's prestigious AI and computer vision publication journals, contributing to the peer review process for cutting-edge research in machine learning and neural networks.
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> Elsevier
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industry Experience -->
+      <section class="section">
+        <h2>Industry Experience</h2>
+
+        <div class="experience-card">
+          <img src="assets/img/C3ai_logo.svg.png" alt="C3.ai" />
+          <div class="text">
+            <h3>C3.ai</h3>
+            <div class="role">Senior Data Scientist</div>
+            <div class="duration">May 2024 - Present | Redwood City, CA</div>
+            <div class="description">
+              Lead data science initiatives in predictive maintenance and generative AI across large-scale deployments for <strong>Shell, ExxonMobil, Dow, Bloom Energy</strong>. Directed pilots delivering over <strong>$10M in value</strong> and deploying 1,000+ models per project. Developed foundational healthcare transformer model trained on 1M+ U.S. patient records. Created <strong>SpeedyREL</strong>, an internal tool reducing deployment timelines by 50%, adopted by 5+ projects. <strong>Promoted to Senior in under 18 months.</strong>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">PyTorch</span>
+              <span class="tech-badge">Transformers</span>
+              <span class="tech-badge">XGBoost</span>
+              <span class="tech-badge">SQL</span>
+              <span class="tech-badge">Kubernetes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <img src="assets/img/fibonai_black.png" alt="FibonAI" />
+          <div class="text">
+            <h3>FibonAI</h3>
+            <div class="role">Co-Founder</div>
+            <div class="duration">June 2023 - December 2023 | San Francisco, CA</div>
+            <div class="description">
+              Designed and built SaaS platform providing comprehensive LLM-powered workspace for in-house corporate legal teams—integrating intake & triage, contract management, matter management, and AI Assistants. Successfully onboarded <strong>8 General Counsels/Chief Legal Officers</strong>. Achieved <strong>60% conversion rate</strong> during demos and <strong>100% weekly user growth</strong>. Accepted into <strong>UC Berkeley's Skydeck Pad-13 Incubator</strong> (competing against 5,000+ startups globally).
+            </div>
+            <div class="tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Flask</span>
+              <span class="tech-badge">AWS</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">GPT-4</span>
+              <span class="tech-badge">React</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <img src="assets/img/apple_logo.png" alt="Apple" />
+          <div class="text">
+            <h3>Apple x UC Berkeley</h3>
+            <div class="role">Software Engineering Intern</div>
+            <div class="duration">May 2021 - August 2021 | Remote</div>
+            <div class="description">
+              Project lead in collaboration with <strong>Apple</strong> and <strong>UC Berkeley's CS61C: Computer Architecture</strong> course. Coded and managed Computer Architecture, Algorithm, and ML-based projects for <strong>4,000+ students</strong> simultaneously. Developed implementations using <strong>C, C++, Python, SIMD, OpenMP, and RISC-V Assembly</strong>.
+            </div>
+            <div class="tech-stack">
+              <span class="tech-badge">C</span>
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">RISC-V</span>
+              <span class="tech-badge">Assembly</span>
+              <span class="tech-badge">OpenMP</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Software & Projects -->
+      <section class="section">
+        <h2>Software & Projects</h2>
+        <div class="software-grid">
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">FibonAI<span class="tag">Production</span></div>
+            <div class="description">Premier legal AI-powered workspace transforming in-house legal operations with GPT-powered tools.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> Private Repo</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-building"></i> 10+ Customers</span>
+            </div>
+            <div class="links">
+              <a href="https://fibonai.co" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> Website
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">SCALPEL<span class="tag">Research</span></div>
+            <div class="description">DNN model compression achieving 80% size reduction and 3.5x speedup through hardware-aware pruning.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> 15</span>
+              <span><i class="fas fa-code-branch"></i> 3</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-microchip"></i> CUDA</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">UPC++ Benchmarking Suite<span class="tag">Framework</span></div>
+            <div class="description">Automated performance regression testing for UPC++ with comparison to MPI and SHMEM.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> 8</span>
+              <span><i class="fas fa-code-branch"></i> 2</span>
+              <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C++</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">PrairieLearn RISC-V Compiler<span class="tag">Tool</span></div>
+            <div class="description">Interactive RISC-V compiler for online education serving 3,000+ students. Published at SIGCSE '22.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> 12</span>
+              <span><i class="fas fa-code-branch"></i> 4</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-users"></i> 3,000+ Students</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">CS61Classify<span class="tag">Educational</span></div>
+            <div class="description">Neural network implementation in RISC-V assembly for Computer Architecture education.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> 24</span>
+              <span><i class="fas fa-code-branch"></i> 7</span>
+              <span><i class="fas fa-circle" style="color: #6e4c13;"></i> Assembly</span>
+              <span><i class="fas fa-graduation-cap"></i> Educational</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
+            <div class="repo">numc<span class="tag">Educational</span></div>
+            <div class="description">NumPy-like library in C achieving 20x speedup using OpenMP, SIMD, and loop unrolling optimizations.</div>
+            <div class="stats">
+              <span><i class="fas fa-star"></i> 18</span>
+              <span><i class="fas fa-code-branch"></i> 5</span>
+              <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C</span>
+              <span><i class="fas fa-tachometer-alt"></i> 20x Faster</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <h2>Education</h2>
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-header">
+              <h3>Northwestern University</h3>
+              <div class="degree">Master of Science in Computer Science</div>
+              <div class="location">Evanston, Illinois • 2022-2023</div>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
+              Concentration in Deep Learning and Distributed Systems
+            </p>
+            <div class="coursework">
+              <h4>Relevant Coursework</h4>
+              <ul>
+                <li>Deep Reinforcement Learning</li>
+                <li>Deep Learning</li>
+                <li>Deep Learning in NLP</li>
+                <li>Programming Massively Parallel Processors (CUDA)</li>
+                <li>Advanced Networking</li>
+                <li>Kernel & Low-level Software Development</li>
+                <li>Probability Theory & Stochastic Analysis</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="education-card">
+            <div class="education-header">
+              <h3>University of California, Berkeley</h3>
+              <div class="degree">Bachelor of Arts in Computer Science & Applied Mathematics</div>
+              <div class="location">Berkeley, California • 2018-2022</div>
+            </div>
+            <div class="coursework">
+              <h4>Relevant Coursework</h4>
+              <ul>
+                <li>Data Structures and Algorithms</li>
+                <li>Machine Learning</li>
+                <li>Artificial Intelligence</li>
+                <li>Computer Vision</li>
+                <li>Parallel Computers</li>
+                <li>Database Systems</li>
+                <li>ML in Multimedia Data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <p>Designed & Built by Abel Yagubyan © 2025</p>
-      <p style="margin-top: 0.5rem; font-size: 0.8rem;">Powered by curiosity, coffee, and code</p>
-    </div>
+    <p>© 2025 Abel Yagubyan. Built with passion for research and innovation.</p>
   </footer>
 
   <script>
-    // Typing Animation
-    const phrases = [
-      "intelligent systems",
-      "ML pipelines",
-      "distributed systems",
-      "scalable solutions",
-      "research tools",
-      "high-performance code"
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = document.getElementById('typingText');
-
-    function typeEffect() {
-      const currentPhrase = phrases[phraseIndex];
-      
-      if (isDeleting) {
-        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        setTimeout(() => isDeleting = true, 2000);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-      }
-
-      const speed = isDeleting ? 50 : 100;
-      setTimeout(typeEffect, speed);
-    }
-
-    typeEffect();
-
-    // Particle Canvas
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-    const particleCount = 100;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 217, 255, 0.5)';
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 217, 255, ${0.2 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        });
-      });
-
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
     // Scroll Progress Indicator
     window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercentage = (scrollTop / scrollHeight) * 100;
       document.getElementById('scrollIndicator').style.width = scrollPercentage + '%';
-    });
-
-    // Navigation scroll effect
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
     });
 
     // Smooth scroll for all links
@@ -1446,29 +1089,6 @@
         }
       });
     });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.experience-card, .project-card, .education-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'all 0.6s ease';
-      observer.observe(el);
-    });
   </script>
 </body>
-
 </html>
