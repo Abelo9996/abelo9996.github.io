@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Albert Dilanyan — Violinist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+</head>
+<body>
+
+  <!-- ─── PAGE LOADER ─── -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <a href="#home" class="nav-logo-link">Albert Dilanyan</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home"         data-i18n="nav_home">Home</a></li>
+      <li><a href="#bio"          data-i18n="nav_bio">Bio</a></li>
+      <li><a href="#news"         data-i18n="nav_news">News</a></li>
+      <li><a href="#performances" data-i18n="nav_perf">Performances</a></li>
+      <li><a href="#recordings"   data-i18n="nav_rec">Recordings</a></li>
+      <li><a href="#videos"       data-i18n="nav_videos">Videos</a></li>
+      <li><a href="#contact"      data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="fi">FI</button>
+      </div>
+      <div class="nav-social">
+        <a href="#" aria-label="Facebook" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@АльбертАшотович-з8и" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </a>
+        <a href="#" aria-label="X / Twitter" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── MOBILE MENU ─── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#10005;</button>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="fi">FI</button>
+    </div>
+    <ul>
+      <li><a href="#home"         data-i18n="nav_home">Home</a></li>
+      <li><a href="#bio"          data-i18n="nav_bio">Bio</a></li>
+      <li><a href="#news"         data-i18n="nav_news">News</a></li>
+      <li><a href="#performances" data-i18n="nav_perf">Performances</a></li>
+      <li><a href="#recordings"   data-i18n="nav_rec">Recordings</a></li>
+      <li><a href="#videos"       data-i18n="nav_videos">Videos</a></li>
+      <li><a href="#contact"      data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="mobile-social">
+      <a href="#" aria-label="Facebook" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" aria-label="Instagram" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://www.youtube.com/@АльбертАшотович-з8и" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+    </div>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section id="home" class="hero">
+    <div class="hero-slide active" style="background-image: url('assets/violinist.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-label" data-i18n="hero_subtitle">Violinist</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-name">Albert<br>Dilanyan</h1>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line-wrap"><div class="scroll-line"></div></div>
+    </div>
+    <button class="hero-arrow left"  id="heroPrev" aria-label="Previous slide">&#8592;</button>
+    <button class="hero-arrow right" id="heroNext" aria-label="Next slide">&#8594;</button>
+  </section>
+
+  <!-- ─── PRESS QUOTE STRIP ─── -->
+  <section class="press-strip">
+    <div class="press-strip-inner">
+      <div class="press-mark">&ldquo;</div>
+      <p class="press-quote" data-i18n="quote_text">A violinist of rare gifts — technically dazzling and emotionally profound.</p>
+      <p class="press-source" data-i18n="quote_source">— The Guardian</p>
+    </div>
+  </section>
+
+  <!-- ─── BIO ─── -->
+  <section id="bio" class="bio">
+    <div class="bio-inner">
+      <div class="bio-text">
+        <p class="section-label" data-i18n="nav_bio">Bio</p>
+        <h2 class="section-title" data-i18n="bio_title">Biography</h2>
+        <p class="bio-body drop-cap" data-i18n="bio_p1">Albert Dilanyan is a violinist of extraordinary sensitivity whose playing bridges the classical tradition with a deeply personal voice. Born into a musical family, he began his violin studies at the age of five and quickly distinguished himself through the purity of his tone and his instinctive musicianship.</p>
+        <p class="bio-body" data-i18n="bio_p2">He has performed as soloist with leading orchestras across Europe and the Americas, earning praise for interpretations that balance intellectual rigour with lyrical warmth. His chamber music partnerships have taken him to some of the world's most celebrated festivals, where audiences respond to his ability to listen and breathe with fellow musicians.</p>
+        <p class="bio-body" data-i18n="bio_p3">A committed pedagogue, Albert regularly gives masterclasses and workshops, believing that the transmission of musical knowledge is inseparable from performance. He plays a late-18th-century Italian violin and records for an internationally distributed classical label.</p>
+      </div>
+      <div class="bio-portrait">
+        <div class="bio-portrait-frame">
+          <img src="assets/violinist.jpg" alt="Albert Dilanyan, violinist" loading="lazy" />
+        </div>
+        <div class="bio-portrait-caption">
+          <span class="caption-line"></span>
+          <span class="caption-text">Albert Dilanyan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NEWS ─── -->
+  <section id="news" class="news">
+    <div class="news-header">
+      <p class="section-label light" data-i18n="nav_news">News</p>
+      <h2 class="section-title light" data-i18n="nav_news">News</h2>
+    </div>
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-img-wrap">
+          <div class="news-card-image" style="background-image: url('assets/violinist.jpg');"></div>
+          <div class="news-card-overlay">
+            <span class="news-date" data-i18n="news_1_date">March 2026</span>
+            <h3 data-i18n="news_1_head">Carnegie Hall Debut Receives Standing Ovation</h3>
+          </div>
+        </div>
+        <div class="news-card-body">
+          <p data-i18n="news_1_body">Critics hailed the performance as "a revelation of technical mastery and profound musicality" in the New York Times.</p>
+          <a href="#" class="read-more" data-i18n="read_more">Read more</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-img-wrap">
+          <div class="news-card-image" style="background-image: url('assets/violinist.jpg');"></div>
+          <div class="news-card-overlay">
+            <span class="news-date" data-i18n="news_2_date">February 2026</span>
+            <h3 data-i18n="news_2_head">New Recording Released on Deutsche Grammophon</h3>
+          </div>
+        </div>
+        <div class="news-card-body">
+          <p data-i18n="news_2_body">The debut album featuring Bach Sonatas and Partitas is available on all major streaming platforms from 14 February.</p>
+          <a href="#" class="read-more" data-i18n="read_more">Read more</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-img-wrap">
+          <div class="news-card-image" style="background-image: url('assets/violinist.jpg');"></div>
+          <div class="news-card-overlay">
+            <span class="news-date" data-i18n="news_3_date">January 2026</span>
+            <h3 data-i18n="news_3_head">European Tour Announced for Spring Season</h3>
+          </div>
+        </div>
+        <div class="news-card-body">
+          <p data-i18n="news_3_body">Fourteen concert dates spanning Vienna, Berlin, Paris and London will feature the complete Beethoven violin sonatas.</p>
+          <a href="#" class="read-more" data-i18n="read_more">Read more</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─── PERFORMANCES ─── -->
+  <section id="performances" class="performances">
+    <div class="performances-bg" style="background-image: url('assets/violinist.jpg');"></div>
+    <div class="performances-overlay"></div>
+    <div class="performances-inner">
+      <p class="section-label light" data-i18n="nav_perf">Performances</p>
+      <h2 class="section-title light" data-i18n="nav_perf">Performances</h2>
+      <div class="perf-grid">
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">12</span>
+            <span class="perf-month" data-i18n="month_may">MAY</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_1_title">Beethoven Violin Concerto</p>
+            <p class="perf-location"><em>Wiener Konzerthaus, Vienna</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">19</span>
+            <span class="perf-month" data-i18n="month_may">MAY</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_2_title">Brahms Sonatas Recital</p>
+            <p class="perf-location"><em>Berliner Philharmonie, Berlin</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">27</span>
+            <span class="perf-month" data-i18n="month_may">MAY</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_3_title">Sibelius Violin Concerto</p>
+            <p class="perf-location"><em>Salle Pleyel, Paris</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">04</span>
+            <span class="perf-month" data-i18n="month_jun">JUN</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_4_title">Bach Partitas &amp; Sonatas</p>
+            <p class="perf-location"><em>Barbican Centre, London</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">11</span>
+            <span class="perf-month" data-i18n="month_jun">JUN</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_5_title">Tchaikovsky Violin Concerto</p>
+            <p class="perf-location"><em>Carnegie Hall, New York</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">20</span>
+            <span class="perf-month" data-i18n="month_jun">JUN</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_6_title">Prokofiev Sonata No. 1</p>
+            <p class="perf-location"><em>Walt Disney Concert Hall, LA</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">05</span>
+            <span class="perf-month" data-i18n="month_jul">JUL</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_7_title">Mendelssohn Violin Concerto</p>
+            <p class="perf-location"><em>Lucerne Festival, Switzerland</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+        <div class="perf-cell">
+          <div class="perf-date">
+            <span class="perf-day">18</span>
+            <span class="perf-month" data-i18n="month_jul">JUL</span>
+          </div>
+          <div class="perf-info">
+            <p class="perf-title" data-i18n="perf_8_title">Bartók Violin Concerto No. 2</p>
+            <p class="perf-location"><em>Edinburgh International Festival</em></p>
+            <a href="#" class="perf-link" data-i18n="tickets_info">Tickets &amp; Info</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RECORDINGS ─── -->
+  <section id="recordings" class="recordings">
+    <div class="recordings-inner">
+      <div class="recordings-grid-wrap">
+        <p class="section-label" data-i18n="nav_rec">Recordings</p>
+        <h2 class="section-title" data-i18n="nav_rec">Recordings</h2>
+        <div class="recordings-grid">
+
+          <div class="album-card">
+            <div class="album-cover-wrap">
+              <div class="album-cover" style="background-image: url('assets/violinist.jpg');"></div>
+            </div>
+            <div class="album-info">
+              <h3 data-i18n="rec_1_title">Bach: Sonatas &amp; Partitas</h3>
+              <p class="album-meta">CD &middot; 2026</p>
+              <p class="album-desc" data-i18n="rec_1_desc">A landmark traversal of Bach's complete works for solo violin, recorded over three sessions in Vienna.</p>
+              <div class="album-links">
+                <a href="#">Spotify</a>
+                <a href="#">Apple Music</a>
+                <a href="#">Amazon</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="album-card tall">
+            <div class="album-cover-wrap">
+              <div class="album-cover" style="background-image: url('assets/violinist.jpg');"></div>
+            </div>
+            <div class="album-info">
+              <h3 data-i18n="rec_2_title">Beethoven: Complete Sonatas Vol. I</h3>
+              <p class="album-meta">CD &middot; 2025</p>
+              <p class="album-desc" data-i18n="rec_2_desc">The first instalment of a projected complete Beethoven violin sonata cycle, praised for its conversational intimacy.</p>
+              <div class="album-links">
+                <a href="#">Spotify</a>
+                <a href="#">Apple Music</a>
+                <a href="#">Amazon</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="album-card">
+            <div class="album-cover-wrap">
+              <div class="album-cover" style="background-image: url('assets/violinist.jpg');"></div>
+            </div>
+            <div class="album-info">
+              <h3 data-i18n="rec_3_title">Sibelius &amp; Prokofiev Concertos</h3>
+              <p class="album-meta">CD &middot; 2024</p>
+              <p class="album-desc" data-i18n="rec_3_desc">Recorded live with the Berliner Philharmoniker, capturing the electrifying atmosphere of these debut performances.</p>
+              <div class="album-links">
+                <a href="#">Spotify</a>
+                <a href="#">Apple Music</a>
+                <a href="#">Amazon</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="album-card">
+            <div class="album-cover-wrap">
+              <div class="album-cover" style="background-image: url('assets/violinist.jpg');"></div>
+            </div>
+            <div class="album-info">
+              <h3 data-i18n="rec_4_title">Brahms: Violin Sonatas</h3>
+              <p class="album-meta">CD &middot; 2023</p>
+              <p class="album-desc" data-i18n="rec_4_desc">A deeply personal reading of the three Brahms sonatas, recorded in an intimate studio setting in Berlin.</p>
+              <div class="album-links">
+                <a href="#">Spotify</a>
+                <a href="#">Apple Music</a>
+                <a href="#">Amazon</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="recordings-portrait">
+        <div class="recordings-portrait-frame">
+          <img src="assets/violinist.jpg" alt="Albert Dilanyan" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VIDEOS ─── -->
+  <section id="videos" class="videos">
+    <div class="videos-inner">
+      <p class="section-label" data-i18n="nav_videos">Videos</p>
+      <h2 class="section-title" data-i18n="videos_title">Watch &amp; Listen</h2>
+      <div class="videos-grid">
+
+        <div class="video-item" data-video-id="JnaGt9nkmAM">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/JnaGt9nkmAM/hqdefault.jpg" alt="Skoryk: Carpathian Rapsodia" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_1">Skoryk: Carpathian Rapsodia</p>
+        </div>
+
+        <div class="video-item" data-video-id="3ir2VnFexnI">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/3ir2VnFexnI/hqdefault.jpg" alt="Tchaikovsky: Melody" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_2">Tchaikovsky: Melody</p>
+        </div>
+
+        <div class="video-item" data-video-id="E4Fiwl3NvyY">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/E4Fiwl3NvyY/hqdefault.jpg" alt="Khachaturian: Sabre Dance" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_3">Khachaturian: Sabre Dance</p>
+        </div>
+
+        <div class="video-item" data-video-id="HYNs2yowJVU">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/HYNs2yowJVU/hqdefault.jpg" alt="Khachaturian: Violin Concerto" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_4">Khachaturian: Violin Concerto</p>
+        </div>
+
+        <div class="video-item" data-video-id="RDXVk7aJSNg">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/RDXVk7aJSNg/hqdefault.jpg" alt="Wieniawski: Faust Fantasy" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_5">Wieniawski: Faust Fantasy</p>
+        </div>
+
+        <div class="video-item" data-video-id="H_HYszUDGHU">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/H_HYszUDGHU/hqdefault.jpg" alt="Komitas: Krunk" loading="lazy" class="video-thumb-img" />
+            <button class="video-play-btn" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+          </div>
+          <p class="video-title" data-i18n="vid_6">Komitas: Krunk</p>
+        </div>
+
+      </div>
+      <div class="videos-cta">
+        <a href="https://www.youtube.com/@АльбертАшотович-з8и" target="_blank" rel="noopener" class="yt-channel-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          <span data-i18n="videos_cta">Watch on YouTube</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <p class="section-label" data-i18n="nav_contact">Contact</p>
+      <h2 class="section-title" data-i18n="nav_contact">Contact</h2>
+      <p class="contact-sub" data-i18n="contact_sub">For booking enquiries, press requests or general information, please use the form below.</p>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" data-i18n="form_name">Name</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="ph_name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form_email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject" data-i18n="form_subject">Subject</label>
+          <input type="text" id="subject" name="subject" data-i18n-placeholder="ph_subject" placeholder="Booking / Press / General" />
+        </div>
+        <div class="form-group">
+          <label for="message" data-i18n="form_message">Message</label>
+          <textarea id="message" name="message" rows="6" data-i18n-placeholder="ph_message" placeholder="Your message…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span class="btn-text" data-i18n="btn_send">Send Message</span>
+          <span class="btn-arrow">&#8594;</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-name">Albert Dilanyan</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"  class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.youtube.com/@АльбертАшотович-з8и" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+        <a href="#" aria-label="X"         class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_copy">&copy; 2026 Albert Dilanyan. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="#bio"          data-i18n="nav_bio">Bio</a>
+        <a href="#performances" data-i18n="nav_perf">Performances</a>
+        <a href="#videos"       data-i18n="nav_videos">Videos</a>
+        <a href="#contact"      data-i18n="nav_contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ─── COOKIE BANNER ─── -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p data-i18n-html="cookie_text">This website uses cookies to enhance your experience. <a href="#">Learn more</a></p>
+    <button id="cookieAccept" class="cookie-btn" data-i18n="cookie_agree">I agree</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
