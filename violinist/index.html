@@ -14,13 +14,16 @@
 </head>
 <body>
 
+  <!-- ─── SKIP LINK (keyboard / screen-reader users) ─── -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ─── PAGE LOADER ─── -->
   <div class="page-loader" id="pageLoader">
     <div class="loader-line"></div>
   </div>
 
   <!-- ─── NAVIGATION ─── -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Primary navigation">
     <div class="nav-logo">
       <a href="#home" class="nav-logo-link">Albert Dilanyan</a>
     </div>
@@ -56,13 +59,13 @@
         </a>
       </div>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- ─── MOBILE MENU ─── -->
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
     <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#10005;</button>
     <div class="mobile-lang">
       <button class="lang-btn active" data-lang="en">EN</button>
@@ -85,7 +88,10 @@
       <a href="#" aria-label="Instagram" class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
       <a href="https://www.youtube.com/@АльбертАшотович-з8и" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
     </div>
-  </div>
+  </nav>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main id="main-content">
 
   <!-- ─── HERO ─── -->
   <section id="home" class="hero">
@@ -109,7 +115,7 @@
   <!-- ─── PRESS QUOTE STRIP ─── -->
   <section class="press-strip">
     <div class="press-strip-inner">
-      <div class="press-mark">&ldquo;</div>
+      <div class="press-mark" aria-hidden="true">&ldquo;</div>
       <p class="press-quote" data-i18n="quote_text">A violinist of rare gifts — technically dazzling and emotionally profound.</p>
       <p class="press-source" data-i18n="quote_source">— The Guardian</p>
     </div>
@@ -479,6 +485,8 @@
     </div>
   </section>
 
+  </main><!-- /#main-content -->
+
   <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="footer-top">
@@ -493,7 +501,7 @@
     <div class="footer-divider"></div>
     <div class="footer-bottom">
       <p data-i18n="footer_copy">&copy; 2026 Albert Dilanyan. All rights reserved.</p>
-      <nav class="footer-nav">
+      <nav class="footer-nav" aria-label="Footer navigation">
         <a href="#bio"          data-i18n="nav_bio">Bio</a>
         <a href="#performances" data-i18n="nav_perf">Performances</a>
         <a href="#videos"       data-i18n="nav_videos">Videos</a>
@@ -503,7 +511,7 @@
   </footer>
 
   <!-- ─── COOKIE BANNER ─── -->
-  <div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" aria-live="polite">
     <p data-i18n-html="cookie_text">This website uses cookies to enhance your experience. <a href="#">Learn more</a></p>
     <button id="cookieAccept" class="cookie-btn" data-i18n="cookie_agree">I agree</button>
   </div>

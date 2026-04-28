@@ -1,5 +1,8 @@
 'use strict';
 
+// ─── MOTION PREFERENCE ───────────────────────────────────────────────────────
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ─── TRANSLATIONS ────────────────────────────────────────────────────────────
 const translations = {
   en: {
@@ -260,19 +263,37 @@ const hamburger   = document.getElementById('hamburger');
 const mobileMenu  = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
 
-function openMobileMenu()  { mobileMenu.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  hamburger.classList.add('open');
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'Close menu');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  // Move focus into the menu for keyboard/screen-reader users
+  mobileMenu.querySelector('a, button') && mobileMenu.querySelector('a, button').focus();
+}
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Open menu');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
 
 hamburger.addEventListener('click', openMobileMenu);
 mobileClose.addEventListener('click', closeMobileMenu);
 
 // ─── HERO PARALLAX ───────────────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  document.querySelectorAll('.hero-slide').forEach(s => {
-    s.style.transform = `translateY(${y * 0.28}px)`;
-  });
-}, { passive: true });
+if (!prefersReducedMotion) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.querySelectorAll('.hero-slide').forEach(s => {
+      s.style.transform = `translateY(${y * 0.28}px)`;
+    });
+  }, { passive: true });
+}
 
 // ─── HERO SLIDER ─────────────────────────────────────────────────────────────
 const slides = document.querySelectorAll('.hero-slide');
@@ -283,9 +304,10 @@ function goTo(i) {
   slides[cur].classList.add('active');
 }
 function startSlider() { timer = setInterval(() => goTo(cur + 1), 6000); }
-document.getElementById('heroPrev').addEventListener('click', () => { clearInterval(timer); goTo(cur - 1); startSlider(); });
-document.getElementById('heroNext').addEventListener('click', () => { clearInterval(timer); goTo(cur + 1); startSlider(); });
-if (slides.length > 0) startSlider();
+document.getElementById('heroPrev').addEventListener('click', () => { clearInterval(timer); goTo(cur - 1); if (!prefersReducedMotion) startSlider(); });
+document.getElementById('heroNext').addEventListener('click', () => { clearInterval(timer); goTo(cur + 1); if (!prefersReducedMotion) startSlider(); });
+// Don't auto-advance slides when user prefers reduced motion
+if (slides.length > 0 && !prefersReducedMotion) startSlider();
 
 // ─── SCROLL ANIMATIONS ───────────────────────────────────────────────────────
 const animGroups = [
