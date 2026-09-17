@@ -67,13 +67,43 @@
 
     :root {
       --primary: #0085ff;
+      --primary-strong: #0069cc;
       --bg-page: #fafafa;
       --bg-card: #ffffff;
+      --bg-subtle: #f8f9fa;
+      --accent-tint: #f0f7ff;
+      --badge-bg: #e0f2fe;
+      --badge-border: #bae6fd;
+      --badge-text: #0369a1;
       --text-primary: #333333;
       --text-secondary: #666666;
       --text-light: #888888;
       --border: #eaeaea;
       --shadow: rgba(0, 0, 0, 0.08);
+      --glow-1: rgba(0, 133, 255, 0.20);
+      --glow-2: rgba(0, 133, 255, 0.05);
+      /* image mats stay light in both themes so logos/illustrations read cleanly */
+      --img-mat: #f5f7f9;
+    }
+
+    :root[data-theme="dark"] {
+      --primary: #3ea6ff;
+      --primary-strong: #6cbcff;
+      --bg-page: #0d1117;
+      --bg-card: #161b22;
+      --bg-subtle: #1b222b;
+      --accent-tint: #13243a;
+      --badge-bg: rgba(62, 166, 255, 0.14);
+      --badge-border: rgba(62, 166, 255, 0.35);
+      --badge-text: #7cc4ff;
+      --text-primary: #e6edf3;
+      --text-secondary: #aab4bf;
+      --text-light: #7d8894;
+      --border: #262d36;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --glow-1: rgba(62, 166, 255, 0.24);
+      --glow-2: rgba(62, 166, 255, 0.05);
+      --img-mat: #eef1f5;
     }
 
     body {
@@ -83,6 +113,7 @@
       overflow-x: hidden;
       line-height: 1.6;
       min-width: 1000px;
+      transition: background-color 0.35s ease, color 0.35s ease;
     }
 
     /* Remove particle canvas */
@@ -293,7 +324,8 @@
       width: 100%;
       height: 160px;
       object-fit: contain;
-      background: #f8f9fa;
+      background: var(--img-mat);
+      padding: 30px 28px;
     }
 
     .news-card .news-icon {
@@ -305,7 +337,7 @@
       gap: 14px;
       font-size: 46px;
       color: var(--primary);
-      background: #f0f7ff;
+      background: var(--accent-tint);
     }
 
     .news-card .news-icon .tag-label {
@@ -359,7 +391,7 @@
       border-radius: 8px;
       margin-right: 24px;
       flex-shrink: 0;
-      background: #f8f9fa;
+      background: var(--img-mat);
     }
 
     .pub-card .pub-icon {
@@ -371,7 +403,7 @@
       justify-content: center;
       font-size: 54px;
       color: var(--primary);
-      background: #f0f7ff;
+      background: var(--accent-tint);
       border-radius: 8px;
       margin-right: 24px;
       flex-shrink: 0;
@@ -382,8 +414,8 @@
       max-height: 100px;
       width: 100%;
       object-fit: contain;
-      background: var(--bg-page);
-      padding: 10px;
+      background: var(--img-mat);
+      padding: 18px;
       margin-right: 24px;
       flex-shrink: 0;
       border-radius: 8px;
@@ -477,9 +509,9 @@
     }
 
     .tech-badge {
-      background: #e0f2fe;
-      border-color: #bae6fd;
-      color: #0369a1;
+      background: var(--badge-bg);
+      border-color: var(--badge-border);
+      color: var(--badge-text);
       font-weight: 500;
       white-space: nowrap;
     }
@@ -504,9 +536,9 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
-      background: #eef6ff;
-      color: #0369a1;
-      border: 1px solid #bae6fd;
+      background: var(--accent-tint);
+      color: var(--badge-text);
+      border: 1px solid var(--badge-border);
       margin-bottom: 10px;
       white-space: nowrap;
     }
@@ -791,6 +823,128 @@
       transition: width 0.1s ease;
     }
 
+    /* Smooth theme transition on surfaces */
+    .news-card, .pub-card, .experience-card, .software-card,
+    .award-card, .education-card, .adoption, .stat, .sidebar img,
+    .social-icons a, .cert-chip {
+      transition: background-color 0.35s ease, border-color 0.35s ease,
+                  color 0.35s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Dark-mode toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--primary);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: transform 0.2s ease, background 0.3s ease,
+                  color 0.3s ease, border-color 0.3s ease;
+    }
+    .theme-toggle:hover { transform: translateY(-2px) rotate(-8deg); border-color: var(--primary); }
+    .theme-toggle .fa-sun { display: none; }
+    :root[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .fa-sun { display: inline; }
+
+    /* Hero glow + dynamic tagline */
+    .hero { position: relative; overflow: hidden; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 700px;
+      height: 380px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center, var(--glow-1) 0%, var(--glow-2) 45%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+      animation: heroGlow 9s ease-in-out infinite;
+    }
+    @keyframes heroGlow {
+      0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%, -52%) scale(1.08); }
+    }
+    .hero-typed {
+      margin-top: 14px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      min-height: 27px;
+      letter-spacing: 0.2px;
+    }
+    .typed-cursor { color: var(--primary); font-weight: 400; }
+
+    /* Research Impact band */
+    .impact { margin-bottom: 60px; }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 14px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+    }
+    .stat-num {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* Scroll reveal (only active once JS adds .reveal-on to <html>) */
+    .reveal-on .impact, .reveal-on .news-card, .reveal-on .pub-card,
+    .reveal-on .experience-card, .reveal-on .software-card,
+    .reveal-on .award-card, .reveal-on .education-card,
+    .reveal-on .adoption, .reveal-on .section > h2 {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      will-change: opacity, transform;
+    }
+    .reveal-on .is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before { animation: none; }
+    }
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       body {
@@ -835,8 +989,33 @@
       .education-grid {
         grid-template-columns: 1fr;
       }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .stat-num {
+        font-size: 34px;
+      }
     }
   </style>
+
+  <!-- Theme + motion init (runs before first paint to avoid any flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('reveal-on');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>
@@ -846,6 +1025,11 @@
 
   <!-- Scroll Progress Indicator -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
+
+  <!-- Dark-mode toggle -->
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle light / dark">
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+  </button>
 
   <div class="container">
     <!-- Sidebar -->
@@ -892,6 +1076,7 @@
       <section class="hero">
         <h1>Abel Yagubyan</h1>
         <p class="tagline">Senior Data Scientist at C3.ai</p>
+        <p class="hero-typed"><span id="typed" aria-hidden="true"></span></p>
       </section>
 
       <!-- Introduction -->
@@ -902,6 +1087,17 @@
         <p>
           Previously, I co-founded <a href="https://fibonai.co/" target="_blank"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), conducted research at <strong>Lawrence Berkeley National Laboratory</strong> on UPC++ performance testing, and interned at <strong>Apple</strong>. I've also reviewed 100+ papers for Elsevier's AI and Vision Computing journals.
         </p>
+      </section>
+
+      <!-- Research Impact -->
+      <section class="impact" aria-label="Research impact at a glance">
+        <div class="impact-grid">
+          <div class="stat"><div class="stat-num" data-target="191">191</div><div class="stat-label">Peer Reviews</div></div>
+          <div class="stat"><div class="stat-num" data-target="25">25</div><div class="stat-label">Citations</div></div>
+          <div class="stat"><div class="stat-num" data-target="13">13</div><div class="stat-label">Merged PRs</div></div>
+          <div class="stat"><div class="stat-num" data-target="8">8</div><div class="stat-label">Journals</div></div>
+          <div class="stat"><div class="stat-num" data-target="5">5</div><div class="stat-label">Citing Groups</div></div>
+        </div>
       </section>
 
       <!-- News Section -->
@@ -925,7 +1121,7 @@
           </div>
 
           <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
-            <div class="news-icon"><i class="fas fa-coins"></i><span class="tag-label">Publication</span></div>
+            <img src="assets/img/paper_coin_flip_judge.png" alt="The Coin Flip Judge illustration" />
             <div class="news-card-content">
               <p>"The Coin Flip Judge?" accepted at GroundLM 2026 (EMNLP 2026) as an Archival Long Paper; camera-ready submitted.</p>
               <div class="date">Sep 2026</div>
@@ -1450,6 +1646,9 @@
     <p style="margin-top: 8px;">Last updated <time datetime="2026-09-17">September 17, 2026</time>.</p>
   </footer>
 
+  <!-- Typed.js (local vendor copy) for the dynamic hero -->
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+
   <script>
     // Scroll Progress Indicator
     window.addEventListener('scroll', () => {
@@ -1472,6 +1671,98 @@
         }
       });
     });
+  </script>
+
+  <script>
+    // ---- Dynamic hero: typed research themes ----
+    if (window.Typed) {
+      new Typed('#typed', {
+        strings: [
+          'LLM-as-a-Judge Reliability',
+          'Agent Reproducibility',
+          'Evaluation Science',
+          '191 Peer Reviews',
+          'Open-Source LLM Evaluation'
+        ],
+        typeSpeed: 45,
+        backSpeed: 24,
+        backDelay: 1500,
+        startDelay: 400,
+        loop: true,
+        smartBackspace: true
+      });
+    }
+
+    // ---- Dark-mode toggle (persisted) ----
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var next = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+
+    // ---- Scroll reveal + stat count-up ----
+    (function () {
+      var reduce = false;
+      try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      var statNums = document.querySelectorAll('.stat-num');
+
+      function countUp(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+        if (reduce) { el.textContent = target; return; }
+        var start = null, dur = 1400;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target);
+          if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+      }
+
+      // Under reduced motion, reveal CSS is inactive (everything already visible); just fill numbers.
+      if (reduce) {
+        statNums.forEach(function (el) { el.textContent = el.getAttribute('data-target'); });
+        return;
+      }
+
+      var revealTargets = document.querySelectorAll(
+        '.impact, .news-card, .pub-card, .experience-card, .software-card, .award-card, .education-card, .adoption, .section > h2'
+      );
+
+      if (!('IntersectionObserver' in window)) {
+        revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+        statNums.forEach(function (el) { el.textContent = el.getAttribute('data-target'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealTargets.forEach(function (el) {
+        var idx = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = Math.min(idx, 6) * 60 + 'ms';
+        io.observe(el);
+      });
+
+      var statIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { countUp(entry.target); statIO.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      statNums.forEach(function (el) { statIO.observe(el); });
+    })();
   </script>
 </body>
 </html>
