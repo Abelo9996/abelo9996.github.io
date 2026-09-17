@@ -1792,7 +1792,7 @@
 
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
       var W = 0, H = 0, nodes = [], raf = null;
-      var LINK = 140; // px at which nodes connect
+      var LINK = 155; // px at which nodes connect
 
       function themeIsDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
 
@@ -1801,7 +1801,7 @@
         H = canvas.height = Math.floor(window.innerHeight * dpr);
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
-        var count = Math.max(24, Math.min(80, Math.round(window.innerWidth * window.innerHeight / 18000)));
+        var count = Math.max(45, Math.min(130, Math.round(window.innerWidth * window.innerHeight / 11000)));
         nodes = [];
         for (var i = 0; i < count; i++) {
           nodes.push({
@@ -1817,8 +1817,8 @@
       function draw() {
         var dark = themeIsDark();
         var col = dark ? '62,166,255' : '0,133,255';
-        var lineA = dark ? 0.16 : 0.10;
-        var nodeA = dark ? 0.42 : 0.30;
+        var lineA = dark ? 0.20 : 0.17;
+        var nodeA = dark ? 0.55 : 0.50;
         var link = LINK * dpr;
 
         ctx.clearRect(0, 0, W, H);
