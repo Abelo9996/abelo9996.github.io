@@ -33,15 +33,27 @@
     gtag('config', 'UA-126939217-2');
   </script>
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://abelo9996.github.io/" />
+
   <!-- Meta Tags -->
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Abel Yagubyan | ML Engineer & Researcher" />
-  <meta property="og:description" content="ML Engineer & Researcher specializing in Deep Learning and Distributed Systems" />
-  <meta property="og:url" content="https://abelo9996.github.io/" />
-  <meta name="description" content="ML Engineer & Researcher with expertise in Deep Learning, Distributed Systems, and High-Performance Computing." />
+  <meta name="description" content="ML Engineer and Researcher with expertise in Deep Learning, Distributed Systems, and High-Performance Computing. Sole-author research on LLM-as-a-judge reliability and agent reproducibility." />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+
+  <!-- OpenGraph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
+  <meta property="og:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 191 peer reviews across 8 journals." />
+  <meta property="og:url" content="https://abelo9996.github.io/" />
+  <meta property="og:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
+  <meta name="twitter:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 191 peer reviews across 8 journals." />
+  <meta name="twitter:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
   
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon.png" />
@@ -185,6 +197,7 @@
     .main {
       flex-grow: 1;
       max-width: 900px;
+      min-width: 0;
     }
 
     /* Hero/Introduction */
@@ -246,6 +259,8 @@
       overflow-x: auto;
       gap: 20px;
       padding-bottom: 10px;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .news-row::-webkit-scrollbar {
@@ -279,6 +294,26 @@
       height: 160px;
       object-fit: contain;
       background: #f8f9fa;
+    }
+
+    .news-card .news-icon {
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      font-size: 46px;
+      color: var(--primary);
+      background: #f0f7ff;
+    }
+
+    .news-card .news-icon .tag-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
     }
 
     .news-card-content {
@@ -325,6 +360,21 @@
       margin-right: 24px;
       flex-shrink: 0;
       background: #f8f9fa;
+    }
+
+    .pub-card .pub-icon {
+      max-width: 220px;
+      width: 100%;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      color: var(--primary);
+      background: #f0f7ff;
+      border-radius: 8px;
+      margin-right: 24px;
+      flex-shrink: 0;
     }
 
     .experience-card img {
@@ -431,6 +481,152 @@
       border-color: #bae6fd;
       color: #0369a1;
       font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Prevent tag chips from overflowing on narrow screens */
+    .links, .tech-stack {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .links a, .links span, .tech-badge {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    /* Publication badge (venue / status) */
+    .pub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #eef6ff;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+
+    .pub-badge.preprint {
+      background: var(--bg-page);
+      color: var(--text-secondary);
+      border-color: var(--border);
+    }
+
+    /* Citations & Adoption block */
+    .adoption {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 10px;
+    }
+
+    .adoption p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .adoption p:last-child {
+      margin-bottom: 0;
+    }
+
+    .adoption .cite-count {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .adoption a {
+      font-weight: 600;
+    }
+
+    /* Awards & Recognition */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .award-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      transition: all 0.2s ease;
+    }
+
+    .award-card:hover {
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .award-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .award-card .award-meta {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .award-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .cert-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      overflow-wrap: anywhere;
+    }
+
+    .cert-chip .count {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Open Source cards reuse .experience-card; PR meta list */
+    .os-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin: 4px 0 12px;
+    }
+
+    .os-meta strong {
+      color: var(--text-primary);
+    }
+
+    /* ORCID brand color on the sidebar icon */
+    .social-icons a.orcid:hover {
+      background: #a6ce39;
+      border-color: #a6ce39;
     }
 
     /* Software / Projects Grid */
@@ -659,14 +855,18 @@
       <div class="subtitle">Senior Data Scientist at C3.ai</div>
       
       <div class="social-icons">
-        <a href="https://github.com/Abelo9996/" target="_blank" title="GitHub">
+        <a href="https://github.com/Abelo9996/" target="_blank" rel="noopener" title="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="http://linkedin.com/in/abelyagubyan" target="_blank" title="LinkedIn">
+        <a href="http://linkedin.com/in/abelyagubyan" target="_blank" rel="noopener" title="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://scholar.google.com" target="_blank" title="Google Scholar">
+        <!-- TODO(owner): replace with the owner's Google Scholar profile URL (currently the generic scholar.google.com landing page) -->
+        <a href="https://scholar.google.com" target="_blank" rel="noopener" title="Google Scholar">
           <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener" class="orcid" title="ORCID 0009-0004-8213-2863">
+          <i class="fab fa-orcid"></i>
         </a>
       </div>
 
@@ -708,6 +908,46 @@
       <section class="section">
         <h2>News</h2>
         <div class="news-row">
+          <div class="news-card" onclick="window.open('https://github.com/truera/trulens/blob/main/MAINTAINERS.md', '_blank')">
+            <div class="news-icon"><i class="fas fa-code-branch"></i><span class="tag-label">Open Source</span></div>
+            <div class="news-card-content">
+              <p>Named Area Triager on TruLens (the open-source LLM and agent evaluation library maintained by Snowflake) and added to MAINTAINERS.md.</p>
+              <div class="date">Sep 2026</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://github.com/UKGovernmentBEIS/inspect_evals/releases/tag/v0.20.0', '_blank')">
+            <div class="news-icon"><i class="fas fa-shield-halved"></i><span class="tag-label">Open Source</span></div>
+            <div class="news-card-content">
+              <p>Contribution credited in inspect_evals v0.20.0, the UK AI Security Institute's evaluation suite for Inspect AI.</p>
+              <div class="date">Sep 2026</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
+            <div class="news-icon"><i class="fas fa-coins"></i><span class="tag-label">Publication</span></div>
+            <div class="news-card-content">
+              <p>"The Coin Flip Judge?" accepted at GroundLM 2026 (EMNLP 2026) as an Archival Long Paper; camera-ready submitted.</p>
+              <div class="date">Sep 2026</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
+            <div class="news-icon"><i class="fas fa-quote-right"></i><span class="tag-label">Citations</span></div>
+            <div class="news-card-content">
+              <p>Work cited by research groups at Meta, Alibaba and Nanjing University, USTC, University of New Mexico, and KTH.</p>
+              <div class="date">Aug to Sep 2026</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
+            <div class="news-icon"><i class="fas fa-file-lines"></i><span class="tag-label">Preprints</span></div>
+            <div class="news-card-content">
+              <p>Released two sole-author preprints on LLM agent reproducibility and LLM-as-a-judge reliability.</p>
+              <div class="date">Apr 2026</div>
+            </div>
+          </div>
+
           <div class="news-card" onclick="window.open('https://google.com', '_blank')">
             <img src="assets/img/C3ai_logo.svg.png" alt="C3.ai Promotion" />
             <div class="news-card-content">
@@ -770,12 +1010,72 @@
       <section class="section">
         <h2>Research & Publications</h2>
 
+        <div class="pub-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
+          <div class="pub-icon"><i class="fas fa-coins"></i></div>
+          <div class="text">
+            <span class="pub-badge">GroundLM 2026 (EMNLP), Archival</span>
+            <h3>The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
+            <div class="award">arXiv:2606.13685, April 2026. Accepted as an Archival Long Paper at the GroundLM 2026 workshop at EMNLP 2026, Budapest (proceedings forthcoming).</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Repeated identical LLM-as-a-judge evaluations across six judges from three providers show pairwise verdicts flip on 11 to 14 percent of re-runs, order bias persists across model generations, a single trial recovers only 86.6 percent of the consensus verdict, and about 11 trials are needed to stabilize a verdict; argues for multi-trial aggregation, order randomization, and uncertainty reporting as standard practice.
+            </div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2606.13685" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> arXiv abstract
+              </a>
+              <a href="https://arxiv.org/pdf/2606.13685" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i> PDF
+              </a>
+              <!-- TODO(owner): add OpenReview page URL for the GroundLM 2026 submission when available -->
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card" onclick="window.open('https://arxiv.org/abs/2605.28840', '_blank')">
+          <div class="pub-icon"><i class="fas fa-robot"></i></div>
+          <div class="text">
+            <span class="pub-badge preprint">Preprint</span>
+            <h3>How Consistent Are LLM Agents? Measuring Behavioral Reproducibility in Multi-Step Tool-Calling Pipelines</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
+            <div class="award">arXiv:2605.28840, April 2026.</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Measures whether an LLM agent given the same task twice takes the same actions across several models and providers, and documents that agents with large unconstrained action spaces vary run to run.
+            </div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2605.28840" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> arXiv abstract
+              </a>
+              <a href="https://arxiv.org/pdf/2605.28840" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i> PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          TODO(owner): MNRAS first-author paper (astronomy, machine learning), 18 citations.
+          Supply title, coauthors, year, DOI, and TLDR, then add a .pub-card here in newest-first order.
+          Template:
+          <div class="pub-card" onclick="window.open('DOI_URL', '_blank')">
+            <img src="assets/img/cosmos.jpg" alt="MNRAS paper" />
+            <div class="text">
+              <span class="pub-badge">MNRAS</span>
+              <h3>TITLE</h3>
+              <div class="authors"><strong>Abel Yagubyan</strong>, COAUTHORS</div>
+              <div class="award">Monthly Notices of the Royal Astronomical Society, YEAR. 18 citations.</div>
+              <div class="tldr"><strong>TLDR:</strong> ...</div>
+              <div class="links"><a href="DOI_URL" ...>DOI</a></div>
+            </div>
+          </div>
+        -->
+
         <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
           <img src="assets/img/cal_logo.png" alt="SIGCSE Publication" />
           <div class="text">
             <h3>Embedding of Programming IDEs into Computer-Based Testing Software</h3>
             <div class="authors"><strong>Abel Yagubyan</strong>, Dan Garcia</div>
-            <div class="award">ACM SIGCSE '22 — Technical Symposium on Computer Science Education</div>
+            <div class="award">ACM SIGCSE '22, Technical Symposium on Computer Science Education</div>
             <div class="tldr">
               <strong>TLDR:</strong> Published peer-reviewed paper presenting an interactive RISC-V compiler integrated into PrairieLearn for online programming education, enabling 3,000+ students to complete CS61C exams with embedded IDE functionality.
             </div>
@@ -795,7 +1095,7 @@
           <div class="text">
             <h3>SCALPEL: Customized Deep Neural Network Compression</h3>
             <div class="authors"><strong>Abel Yagubyan</strong></div>
-            <div class="award">Northwestern University — Research Project (Jan 2022 - June 2022)</div>
+            <div class="award">Northwestern University, Research Project (Jan 2022 to June 2022)</div>
             <div class="tldr">
               <strong>TLDR:</strong> Developed Python-based DNN compression framework that reduced model sizes (AlexNet, LeNet-5) by up to 80% and achieved 3.5x speedup by customizing pruning techniques to target hardware parallelism (CPU, GPU, Microcontroller).
             </div>
@@ -815,7 +1115,7 @@
           <div class="text">
             <h3>UPC++ Performance Regression Testing & Benchmarking</h3>
             <div class="authors"><strong>Abel Yagubyan</strong>, Lawrence Berkeley National Laboratory</div>
-            <div class="award">Pagoda Project — Research Contribution</div>
+            <div class="award">Pagoda Project, Research Contribution</div>
             <div class="tldr">
               <strong>TLDR:</strong> Developed automated performance regression testing platform for UPC++, a C++ library for distributed-memory parallel computing. Implemented distributed hashing benchmarks and compared performance against MPI and SHMEM.
             </div>
@@ -827,21 +1127,14 @@
           </div>
         </div>
 
-        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
-          <img src="assets/img/cosmos.jpg" alt="Peer Review" />
-          <div class="text">
-            <h3>Peer Reviewer — Elsevier Journals</h3>
-            <div class="authors"><strong>Abel Yagubyan</strong></div>
-            <div class="award">Engineering & Applications of AI, Neural Networks, Vision Research</div>
-            <div class="tldr">
-              <strong>TLDR:</strong> Reviewed 100+ research papers for Elsevier's prestigious AI and computer vision publication journals, contributing to the peer review process for cutting-edge research in machine learning and neural networks.
-            </div>
-            <div class="links">
-              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Elsevier
-              </a>
-            </div>
-          </div>
+        <h3 style="font-size: 20px; font-weight: 700; margin: 10px 0 14px; color: var(--text-primary);">Citations &amp; Adoption</h3>
+        <div class="adoption">
+          <p>
+            Cited and built on by research groups at Meta Superintelligence Labs (OmnilingualGAIA2, <a href="https://arxiv.org/abs/2608.08775" target="_blank" rel="noopener">arXiv:2608.08775</a>), Alibaba Group and Nanjing University (OpenCodeReview, <a href="https://arxiv.org/abs/2608.09290" target="_blank" rel="noopener">arXiv:2608.09290</a>, open source at <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">github.com/alibaba/open-code-review</a>), USTC (<a href="https://arxiv.org/abs/2607.02873" target="_blank" rel="noopener">arXiv:2607.02873</a>), University of New Mexico, and KTH Royal Institute of Technology (<a href="https://arxiv.org/abs/2609.06147" target="_blank" rel="noopener">arXiv:2609.06147</a>). <span class="cite-count">25 citations total as of September 2026.</span>
+          </p>
+          <p>
+            Waxell published operational guidance for its users based on the judge-reliability findings, citing the paper as its first source.
+          </p>
         </div>
       </section>
 
@@ -933,8 +1226,6 @@
             <div class="repo">SCALPEL<span class="tag">Research</span></div>
             <div class="description">DNN model compression achieving 80% size reduction and 3.5x speedup through hardware-aware pruning.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> 15</span>
-              <span><i class="fas fa-code-branch"></i> 3</span>
               <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
               <span><i class="fas fa-microchip"></i> CUDA</span>
             </div>
@@ -949,8 +1240,6 @@
             <div class="repo">UPC++ Benchmarking Suite<span class="tag">Framework</span></div>
             <div class="description">Automated performance regression testing for UPC++ with comparison to MPI and SHMEM.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> 8</span>
-              <span><i class="fas fa-code-branch"></i> 2</span>
               <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C++</span>
               <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
             </div>
@@ -965,8 +1254,6 @@
             <div class="repo">PrairieLearn RISC-V Compiler<span class="tag">Tool</span></div>
             <div class="description">Interactive RISC-V compiler for online education serving 3,000+ students. Published at SIGCSE '22.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> 12</span>
-              <span><i class="fas fa-code-branch"></i> 4</span>
               <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
               <span><i class="fas fa-users"></i> 3,000+ Students</span>
             </div>
@@ -981,8 +1268,6 @@
             <div class="repo">CS61Classify<span class="tag">Educational</span></div>
             <div class="description">Neural network implementation in RISC-V assembly for Computer Architecture education.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> 24</span>
-              <span><i class="fas fa-code-branch"></i> 7</span>
               <span><i class="fas fa-circle" style="color: #6e4c13;"></i> Assembly</span>
               <span><i class="fas fa-graduation-cap"></i> Educational</span>
             </div>
@@ -997,8 +1282,6 @@
             <div class="repo">numc<span class="tag">Educational</span></div>
             <div class="description">NumPy-like library in C achieving 20x speedup using OpenMP, SIMD, and loop unrolling optimizations.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> 18</span>
-              <span><i class="fas fa-code-branch"></i> 5</span>
               <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C</span>
               <span><i class="fas fa-tachometer-alt"></i> 20x Faster</span>
             </div>
@@ -1008,6 +1291,109 @@
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Open Source -->
+      <section class="section">
+        <h2>Open Source</h2>
+
+        <div class="experience-card">
+          <div style="max-width: 100px; width: 100%; min-height: 100px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--primary); background: var(--bg-page); border-radius: 8px; margin-right: 24px; flex-shrink: 0;">
+            <i class="fas fa-magnifying-glass-chart"></i>
+          </div>
+          <div class="text">
+            <h3>TruLens</h3>
+            <div class="role">Area Triager</div>
+            <div class="os-meta">Maintained by <strong>Snowflake</strong> &middot; <a href="https://github.com/truera/trulens" target="_blank" rel="noopener">github.com/truera/trulens</a> &middot; Area Triager since September 11, 2026</div>
+            <div class="description">
+              Open-source LLM and agent evaluation and tracing library. <strong>13 merged pull requests</strong>: one observability feature (streaming tokens, time to first token, and throughput in the OpenTelemetry path) and twelve correctness fixes across the database and persistence layer, dashboard, evaluation API, IR metrics, OpenAI and Anthropic providers, instrumentation, leaderboard aggregation, and Python 3.10 compatibility. Listed in MAINTAINERS.md with scope over OpenTelemetry instrumentation, evaluation and database correctness, and shared core code. Feature proposal #2741 (repeated-trial self-consistency for LLM-as-a-judge metrics) is grounded in the Coin Flip Judge paper.
+            </div>
+            <div class="links">
+              <a href="https://github.com/truera/trulens/blob/main/MAINTAINERS.md" target="_blank" rel="noopener">
+                <i class="fas fa-file-lines"></i> MAINTAINERS.md
+              </a>
+              <a href="https://github.com/truera/trulens/pulls?q=is%3Apr+author%3AAbelo9996+is%3Amerged" target="_blank" rel="noopener">
+                <i class="fas fa-code-pull-request"></i> Merged PRs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div style="max-width: 100px; width: 100%; min-height: 100px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--primary); background: var(--bg-page); border-radius: 8px; margin-right: 24px; flex-shrink: 0;">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="text">
+            <h3>inspect_evals</h3>
+            <div class="role">Contributor</div>
+            <div class="os-meta"><strong>UK AI Security Institute</strong> &middot; <a href="https://github.com/UKGovernmentBEIS/inspect_evals" target="_blank" rel="noopener">github.com/UKGovernmentBEIS/inspect_evals</a></div>
+            <div class="description">
+              The UK AI Security Institute's evaluation suite for Inspect AI. Merged PR #2317 migrating the shared metric helpers (mean, standard deviation, and standard error) to the framework's aggregation API; credited in release v0.20.0 (September 2026).
+            </div>
+            <div class="links">
+              <a href="https://github.com/UKGovernmentBEIS/inspect_evals/releases/tag/v0.20.0" target="_blank" rel="noopener">
+                <i class="fas fa-tag"></i> Release notes v0.20.0
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards & Recognition -->
+      <section class="section">
+        <h2>Awards &amp; Recognition</h2>
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <h3>Peer Reviewer</h3>
+            <div class="award-meta">191 peer reviews for 8 journals (ORCID, September 2026)</div>
+            <p>
+              Engineering Applications of Artificial Intelligence, Image and Vision Computing, Neural Networks, Information Fusion, Neurocomputing, Expert Systems with Applications, Knowledge-Based Systems, and Data and Knowledge Engineering.
+            </p>
+            <div class="links">
+              <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener">
+                <i class="fab fa-orcid"></i> ORCID record
+              </a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <h3>Elsevier Recognised Reviewer Certificates</h3>
+            <div class="award-meta">2024 to 2026 &middot; nine journals</div>
+            <p>Certificates awarded for review volume across the following journals:</p>
+            <div class="cert-list">
+              <span class="cert-chip">Engineering Applications of Artificial Intelligence <span class="count">109</span></span>
+              <span class="cert-chip">Image and Vision Computing <span class="count">33</span></span>
+              <span class="cert-chip">Neural Networks <span class="count">26</span></span>
+              <span class="cert-chip">Information Fusion <span class="count">18</span></span>
+              <span class="cert-chip">Neurocomputing <span class="count">3</span></span>
+              <span class="cert-chip">Expert Systems with Applications <span class="count">1</span></span>
+              <span class="cert-chip">Knowledge-Based Systems <span class="count">1</span></span>
+              <span class="cert-chip">Data and Knowledge Engineering <span class="count">1</span></span>
+              <span class="cert-chip">International Journal of Intelligent Networks <span class="count">1</span></span>
+            </div>
+            <!-- Note(owner): certificate PDFs intentionally not uploaded; add if desired. -->
+          </div>
+
+          <div class="award-card">
+            <h3>GroundLM 2026 Workshop at EMNLP 2026</h3>
+            <div class="award-meta">Budapest, 2026</div>
+            <p>
+              "The Coin Flip Judge?" accepted as an Archival Long Paper (Program Chairs decision: Accept; two area-chair recommendations to accept).
+            </p>
+          </div>
+
+          <div class="award-card">
+            <h3>UC Berkeley Skydeck Pad-13</h3>
+            <div class="award-meta">2023</div>
+            <p>
+              FibonAI accepted into UC Berkeley's Skydeck Pad-13 Incubator (competing against 5,000+ startups globally).
+            </p>
+          </div>
+
+          <!-- TODO(owner): add any other awards or recognition here, newest first. -->
+
         </div>
       </section>
 
@@ -1064,7 +1450,8 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Abel Yagubyan. Built with passion for research and innovation.</p>
+    <p>© 2026 Abel Yagubyan. Built with passion for research and innovation.</p>
+    <p style="margin-top: 8px;">Last updated <time datetime="2026-09-17">September 17, 2026</time>.</p>
   </footer>
 
   <script>
