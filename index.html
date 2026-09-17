@@ -960,6 +960,65 @@
       .hero::before { animation: none; }
     }
 
+    /* Sidebar Education */
+    .sidebar-section {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: left;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .sidebar-heading {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .edu-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-logo {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--img-mat);
+      padding: 5px;
+      border: 1px solid var(--border);
+    }
+    .edu-info { min-width: 0; }
+    .edu-school { font-size: 14px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+    .edu-degree { font-size: 12.5px; font-weight: 600; color: var(--primary); margin-top: 2px; line-height: 1.35; }
+    .edu-meta { font-size: 11.5px; color: var(--text-light); margin-top: 3px; }
+    .edu-note { font-size: 11.5px; color: var(--text-secondary); margin-top: 5px; line-height: 1.45; }
+    .edu-more { margin-top: 7px; }
+    .edu-more summary {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+    }
+    .edu-more summary::-webkit-details-marker { display: none; }
+    .edu-more summary::before { content: "\25B8  "; font-size: 9px; }
+    .edu-more[open] summary::before { content: "\25BE  "; }
+    .edu-more p {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       body {
@@ -1084,6 +1143,37 @@
         <div>
           <i class="fas fa-file-pdf"></i>
           <a href="https://abelo9996.github.io/assets/resume/abel_resume.pdf" target="_blank">CV / Resume</a>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading">Education</h3>
+
+        <div class="edu-item">
+          <img src="assets/img/nu_logo.png" alt="Northwestern University" class="edu-logo" />
+          <div class="edu-info">
+            <div class="edu-school">Northwestern University</div>
+            <div class="edu-degree">M.S. in Computer Science</div>
+            <div class="edu-meta">Evanston, IL &middot; 2022-2023</div>
+            <div class="edu-note">Concentration in Deep Learning &amp; Distributed Systems</div>
+            <details class="edu-more">
+              <summary>Relevant coursework</summary>
+              <p>Deep Reinforcement Learning, Deep Learning, Deep Learning in NLP, Programming Massively Parallel Processors (CUDA), Advanced Networking, Kernel &amp; Low-level Software Development, Probability Theory &amp; Stochastic Analysis</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <img src="assets/img/cal_logo.png" alt="University of California, Berkeley" class="edu-logo" />
+          <div class="edu-info">
+            <div class="edu-school">UC Berkeley</div>
+            <div class="edu-degree">B.A. in Computer Science &amp; Applied Mathematics</div>
+            <div class="edu-meta">Berkeley, CA &middot; 2018-2022</div>
+            <details class="edu-more">
+              <summary>Relevant coursework</summary>
+              <p>Data Structures and Algorithms, Machine Learning, Artificial Intelligence, Computer Vision, Parallel Computers, Database Systems, ML in Multimedia Data</p>
+            </details>
+          </div>
         </div>
       </div>
     </aside>
@@ -1607,54 +1697,6 @@
         </div>
       </section>
 
-      <!-- Education -->
-      <section class="section">
-        <h2>Education</h2>
-        <div class="education-grid">
-          <div class="education-card">
-            <div class="education-header">
-              <h3>Northwestern University</h3>
-              <div class="degree">Master of Science in Computer Science</div>
-              <div class="location">Evanston, Illinois • 2022-2023</div>
-            </div>
-            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">
-              Concentration in Deep Learning and Distributed Systems
-            </p>
-            <div class="coursework">
-              <h4>Relevant Coursework</h4>
-              <ul>
-                <li>Deep Reinforcement Learning</li>
-                <li>Deep Learning</li>
-                <li>Deep Learning in NLP</li>
-                <li>Programming Massively Parallel Processors (CUDA)</li>
-                <li>Advanced Networking</li>
-                <li>Kernel & Low-level Software Development</li>
-                <li>Probability Theory & Stochastic Analysis</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="education-card">
-            <div class="education-header">
-              <h3>University of California, Berkeley</h3>
-              <div class="degree">Bachelor of Arts in Computer Science & Applied Mathematics</div>
-              <div class="location">Berkeley, California • 2018-2022</div>
-            </div>
-            <div class="coursework">
-              <h4>Relevant Coursework</h4>
-              <ul>
-                <li>Data Structures and Algorithms</li>
-                <li>Machine Learning</li>
-                <li>Artificial Intelligence</li>
-                <li>Computer Vision</li>
-                <li>Parallel Computers</li>
-                <li>Database Systems</li>
-                <li>ML in Multimedia Data</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   </div>
 
