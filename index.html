@@ -106,14 +106,29 @@
       --img-mat: #eef1f5;
     }
 
+    html {
+      background: var(--bg-page);
+      transition: background-color 0.35s ease;
+    }
+
+    /* Subtle knowledge-graph background animation */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
     body {
       font-family: 'Montserrat', 'Lato', sans-serif;
-      background: var(--bg-page);
+      background: transparent;
       color: var(--text-primary);
       overflow-x: hidden;
       line-height: 1.6;
       min-width: 1000px;
-      transition: background-color 0.35s ease, color 0.35s ease;
+      transition: color 0.35s ease;
     }
 
     /* Remove particle canvas */
@@ -1023,6 +1038,9 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- Subtle knowledge-graph background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
   <!-- Scroll Progress Indicator -->
   <div class="scroll-indicator" id="scrollIndicator"></div>
 
@@ -1762,6 +1780,96 @@
         });
       }, { threshold: 0.5 });
       statNums.forEach(function (el) { statIO.observe(el); });
+    })();
+
+    // ---- Knowledge-graph background animation ----
+    (function () {
+      var canvas = document.getElementById('bg-canvas');
+      if (!canvas || !canvas.getContext) return;
+      var ctx = canvas.getContext('2d');
+      var reduce = false;
+      try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var W = 0, H = 0, nodes = [], raf = null;
+      var LINK = 140; // px at which nodes connect
+
+      function themeIsDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+
+      function resize() {
+        W = canvas.width = Math.floor(window.innerWidth * dpr);
+        H = canvas.height = Math.floor(window.innerHeight * dpr);
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        var count = Math.max(24, Math.min(80, Math.round(window.innerWidth * window.innerHeight / 18000)));
+        nodes = [];
+        for (var i = 0; i < count; i++) {
+          nodes.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.12 * dpr,
+            vy: (Math.random() - 0.5) * 0.12 * dpr,
+            r: (Math.random() * 1.2 + 1.1) * dpr
+          });
+        }
+      }
+
+      function draw() {
+        var dark = themeIsDark();
+        var col = dark ? '62,166,255' : '0,133,255';
+        var lineA = dark ? 0.16 : 0.10;
+        var nodeA = dark ? 0.42 : 0.30;
+        var link = LINK * dpr;
+
+        ctx.clearRect(0, 0, W, H);
+
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          if (!reduce) {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+          }
+          for (var j = i + 1; j < nodes.length; j++) {
+            var m = nodes[j], dx = n.x - m.x, dy = n.y - m.y;
+            var d = Math.sqrt(dx * dx + dy * dy);
+            if (d < link) {
+              ctx.strokeStyle = 'rgba(' + col + ',' + ((1 - d / link) * lineA).toFixed(3) + ')';
+              ctx.lineWidth = dpr * 0.8;
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(m.x, m.y);
+              ctx.stroke();
+            }
+          }
+        }
+        ctx.fillStyle = 'rgba(' + col + ',' + nodeA + ')';
+        for (var k = 0; k < nodes.length; k++) {
+          var p = nodes[k];
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        if (!reduce) raf = window.requestAnimationFrame(draw);
+      }
+
+      function start() { if (!raf && !reduce) raf = window.requestAnimationFrame(draw); }
+      function stop() { if (raf) { window.cancelAnimationFrame(raf); raf = null; } }
+
+      resize();
+      draw(); // paints at least one frame (also the static frame under reduced motion)
+
+      var rt;
+      window.addEventListener('resize', function () {
+        clearTimeout(rt);
+        rt = setTimeout(function () { resize(); if (reduce) draw(); }, 150);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop(); else start();
+      });
+      // Repaint colors when the theme flips (needed under reduced motion; harmless otherwise)
+      new MutationObserver(function () { if (reduce) draw(); })
+        .observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     })();
   </script>
 </body>
