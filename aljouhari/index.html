@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/al-jouhari-mark.png">
+<link rel="apple-touch-icon" href="images/al-jouhari-mark.png">
+<title>Al Jouhari Technical Services — Craftsmanship in Construction | Dubai, UAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14130F;
+    --ink-2:#1E1C17;
+    --bg:#F6F3EC;
+    --bg-2:#EFEBE1;
+    --paper:#FBF9F4;
+    --gold:#B08D4F;
+    --gold-soft:#C9AE7C;
+    --line:#D8D2C4;
+    --line-dark:rgba(255,255,255,.14);
+    --muted:#8C8578;
+    --muted-light:#B7B0A2;
+    --max:1280px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.disp{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.08;letter-spacing:.005em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+  .kicker{font-family:'Jost';font-weight:400;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+  .thin-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Jost';font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;padding:17px 34px;border:1px solid var(--gold);color:var(--ink);background:transparent;cursor:pointer;transition:color .5s cubic-bezier(.2,.7,.2,1),border-color .5s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden;appearance:none;-webkit-appearance:none;z-index:0}
+  .thin-btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
+  .thin-btn:hover{color:#fff;border-color:var(--gold)}
+  .thin-btn:hover::before{transform:translateY(0)}
+  .thin-btn.on-dark{color:#fff;border-color:rgba(255,255,255,.4)}
+  .thin-btn.on-dark:hover{color:var(--ink);border-color:var(--gold)}
+  .thin-btn.on-dark::before{background:var(--gold)}
+  .thin-btn.solid{background:var(--gold);color:#fff;border-color:var(--gold)}
+  .thin-btn.solid::before{background:var(--ink)}
+  .thin-btn.solid:hover{color:#fff;border-color:var(--ink)}
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .5s ease,padding .5s ease,border-color .5s ease;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(20,19,15,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:96px;transition:height .5s ease}
+  header.scrolled .nav{height:74px}
+  .brand{display:flex;align-items:center;gap:13px;color:#fff}
+  .brand .gem{width:36px;height:auto;flex:none;object-fit:contain;display:block}
+  .brand .bt{font-family:'Cormorant Garamond';font-size:23px;font-weight:500;letter-spacing:.04em;line-height:1}
+  .brand small{display:block;font-family:'Jost';font-size:8.5px;font-weight:400;letter-spacing:.32em;color:var(--gold-soft);margin-top:3px}
+  nav ul{display:flex;gap:38px;list-style:none}
+  nav ul a{font-family:'Jost';font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:300;position:relative;padding:4px 0}
+  nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .4s ease}
+  nav ul a:hover{color:#fff}
+  nav ul a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-cta{font-family:'Jost';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:12px 24px;transition:all .4s ease}
+  .nav-cta:hover{background:var(--gold);border-color:var(--gold)}
+  .lang-btn{font-family:'Jost';font-size:11.5px;letter-spacing:normal;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);padding:11px 15px;cursor:pointer;transition:all .4s ease;line-height:1;min-width:56px;text-align:center}
+  .lang-btn:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+  .burger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:0}
+  .burger span{width:26px;height:1px;background:#fff;transition:.3s}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+  .hero-media{position:absolute;inset:0;z-index:0}
+  .hero-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 12s ease-out forwards}
+  .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,19,15,.86) 0%,rgba(20,19,15,.6) 42%,rgba(20,19,15,.25) 100%)}
+  @keyframes kenburns{to{transform:scale(1)}}
+  .hero-inner{position:relative;z-index:2;color:#fff;max-width:760px;padding:120px 0 60px}
+  .hero .kicker{opacity:0;transform:translateY(24px);animation:rise 1s .3s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1{font-size:clamp(48px,7.5vw,104px);font-weight:300;margin:26px 0 0;letter-spacing:-.01em;opacity:0;transform:translateY(30px);animation:rise 1.1s .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero p{font-size:18px;font-weight:300;color:rgba(255,255,255,.8);max-width:520px;margin:30px 0 44px;opacity:0;transform:translateY(30px);animation:rise 1.1s .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero-actions{display:flex;gap:18px;flex-wrap:wrap;opacity:0;transform:translateY(30px);animation:rise 1.1s .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .scroll-hint .ln{width:1px;height:50px;background:linear-gradient(var(--gold),transparent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section.block{padding:140px 0}
+  .sec-head{max-width:720px;margin:0 auto 80px;text-align:center}
+  .sec-head .kicker{display:block;margin-bottom:22px}
+  .sec-head h2{font-size:clamp(36px,5vw,64px);font-weight:300}
+  .sec-head h2 em{font-style:italic;color:var(--gold)}
+  .sec-head p{color:var(--muted);font-size:17px;margin-top:24px}
+  .rule{width:60px;height:1px;background:var(--gold);margin:26px auto 0}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- INTRO / ABOUT ---------- */
+  .intro{background:var(--paper)}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+  .intro-figure{position:relative}
+  .intro-figure .main{aspect-ratio:4/5;object-fit:cover;width:100%}
+  .intro-figure .accent{position:absolute;right:-40px;bottom:-40px;width:52%;aspect-ratio:1;object-fit:cover;border:10px solid var(--paper)}
+  .intro-figure .yrs{position:absolute;left:-40px;top:40px;background:var(--ink);color:#fff;padding:30px 34px;text-align:center}
+  .intro-figure .yrs .n{font-family:'Cormorant Garamond';font-size:58px;line-height:.9;color:var(--gold-soft)}
+  .intro-figure .yrs .l{font-family:'Jost';font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;margin-top:8px;color:rgba(255,255,255,.75)}
+  .intro-copy .kicker{display:block;margin-bottom:22px}
+  .intro-copy h2{font-size:clamp(32px,3.6vw,50px);font-weight:300;margin-bottom:28px}
+  .intro-copy h2 em{font-style:italic;color:var(--gold)}
+  .intro-copy p{color:var(--muted);margin-bottom:20px;font-size:16.5px}
+  .intro-copy .sig{margin-top:36px;font-family:'Cormorant Garamond';font-style:italic;font-size:24px;color:var(--ink)}
+  .intro-copy .sig small{display:block;font-family:'Jost';font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  /* ---------- STATS ---------- */
+  .figures{background:var(--ink);color:#fff}
+  .figures .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .fig{padding:70px 30px;text-align:center;border-right:1px solid var(--line-dark)}
+  .fig:last-child{border-right:0}
+  .fig .n{font-family:'Cormorant Garamond';font-size:66px;font-weight:300;color:var(--gold-soft);line-height:1}
+  .fig .l{font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:12px}
+
+  /* ---------- CAPABILITIES ---------- */
+  .services{background:var(--bg)}
+  .cap-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:90px;align-items:start}
+  .cap-intro{position:sticky;top:120px}
+  .cap-intro .kicker{display:block;margin-bottom:22px}
+  .cap-intro h2{font-size:clamp(34px,3.9vw,54px);font-weight:300;line-height:1.06}
+  .cap-intro h2 em{font-style:italic;color:var(--gold)}
+  .cap-intro .lead{color:var(--muted);font-size:16.5px;margin-top:26px;max-width:430px}
+  .cap-assure{margin-top:40px;border-top:1px solid var(--line)}
+  .cap-assure div{padding:15px 0;border-bottom:1px solid var(--line);font-family:'Jost';font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:14px}
+  .cap-assure div::before{content:"";width:7px;height:7px;flex:none;background:var(--gold);transform:rotate(45deg)}
+  .cap-groups{display:grid;gap:52px}
+  .cap-group h4{font-family:'Jost';font-size:11.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+  .cap-row{display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:baseline;padding:21px 4px;border-top:1px solid var(--line);transition:padding .45s cubic-bezier(.2,.7,.2,1),background .45s ease}
+  .cap-group h4+.cap-row{border-top:0}
+  .cap-row .rn{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--ink);transition:color .4s ease}
+  .cap-row .rd{font-family:'Jost';font-size:13.5px;color:var(--muted);text-align:right;max-width:330px;line-height:1.55}
+  .cap-row:hover{padding-left:16px}
+  .cap-row:hover .rn{color:var(--gold)}
+  html[dir="rtl"] .cap-row{padding:21px 4px}
+  html[dir="rtl"] .cap-row .rd{text-align:left}
+  html[dir="rtl"] .cap-row:hover{padding-left:4px;padding-right:16px}
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio{background:var(--ink);color:#fff}
+  .portfolio .sec-head h2{color:#fff}
+  .portfolio .sec-head p{color:var(--muted-light)}
+  .gallery-filters{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-bottom:60px;border:1px solid var(--line-dark);width:fit-content;margin-left:auto;margin-right:auto}
+  .gf{background:transparent;color:rgba(255,255,255,.6);border:0;border-right:1px solid var(--line-dark);padding:15px 30px;font-family:'Jost';font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:300;cursor:pointer;transition:all .4s ease}
+  .gf:last-child{border-right:0}
+  .gf:hover{color:#fff}
+  .gf.active{background:var(--gold);color:#fff}
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;grid-auto-flow:dense}
+  .gallery figure{position:relative;overflow:hidden;grid-column:span 4;aspect-ratio:4/3;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
+  .gallery figure.tall{grid-column:span 4;aspect-ratio:3/4}
+  .gallery figure.wide{grid-column:span 8;aspect-ratio:16/9}
+  .gallery img{width:100%;height:100%;object-fit:cover;filter:brightness(.98);transition:filter 1s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+  .gallery figure:hover img{filter:brightness(1.04);transform:scale(1.06)}
+  .gallery figcaption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:linear-gradient(transparent 40%,rgba(20,19,15,.82));opacity:0;transition:opacity .5s ease}
+  .gallery figure:hover figcaption{opacity:1}
+  .gallery figcaption .ct{font-family:'Jost';font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+  .gallery figcaption .cn{font-family:'Cormorant Garamond';font-size:26px;font-weight:400;margin-top:6px}
+  .gallery figure.hide{display:none}
+  .gallery figure.is-out{opacity:0;transform:scale(.94)}
+  .gallery figure.is-in{opacity:0;transform:scale(.96) translateY(16px)}
+
+  /* ---------- CLIENTS ---------- */
+  .clients{background:var(--paper)}
+  .clients-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+  .client{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:26px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);transition:background .4s ease}
+  .client:nth-child(6n){border-right:0}
+  .client:hover{background:#fff}
+  .client img.logo{max-height:48px;max-width:80%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.72;transition:filter .5s ease,opacity .5s ease}
+  .clients-grid .client:nth-child(-n+4) img.logo{max-height:74px;max-width:90%}
+  .client:hover img.logo{filter:grayscale(0);opacity:1}
+  .client .wm{display:none;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.25;letter-spacing:.02em;color:var(--muted);transition:color .4s ease}
+  .client.no-logo .wm{display:block}
+  .client:hover .wm{color:var(--ink)}
+  body.ar .client .wm{font-family:'Amiri',serif}
+
+  /* ---------- CTA ---------- */
+  .cta{position:relative;padding:170px 0;text-align:center;color:#fff;overflow:hidden;background:var(--ink)}
+  .cta-media{position:absolute;inset:0;z-index:0}
+  .cta-media img{width:100%;height:100%;object-fit:cover;filter:brightness(.5)}
+  .cta-media::after{content:"";position:absolute;inset:0;background:rgba(20,19,15,.55)}
+  .cta-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 40px}
+  .cta-inner h2{font-size:clamp(38px,5.5vw,72px);font-weight:300}
+  .cta-inner h2 em{font-style:italic;color:var(--gold-soft)}
+  .cta-inner p{color:rgba(255,255,255,.78);font-size:17px;margin:26px 0 44px}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--bg)}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
+  .contact-left h2{font-size:clamp(32px,4vw,52px);font-weight:300;margin-bottom:24px}
+  .contact-left h2 em{font-style:italic;color:var(--gold)}
+  .contact-left>p{color:var(--muted);font-size:16.5px;margin-bottom:44px;max-width:400px}
+  .cinfo{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+  .cinfo:last-child{border-bottom:1px solid var(--line)}
+  .cinfo .ic{width:24px;height:24px;flex:none;stroke:var(--gold);fill:none;stroke-width:1;margin-top:4px}
+  .cinfo .k{font-family:'Jost';font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .cinfo .v{font-family:'Cormorant Garamond';font-size:21px;color:var(--ink);overflow-wrap:anywhere}
+  .cinfo .v a{transition:color .3s}
+  .cinfo .v a:hover{color:var(--gold)}
+  form{background:var(--paper);padding:50px;border:1px solid var(--line)}
+  form .fld{margin-bottom:26px}
+  form label{display:block;font-family:'Jost';font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+  form input,form textarea,form select{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:'Jost';font-weight:300;font-size:16px;color:var(--ink);transition:border-color .4s}
+  form input:focus,form textarea:focus,form select:focus{outline:0;border-color:var(--gold)}
+  form textarea{min-height:90px;resize:vertical}
+  form .thin-btn{width:100%;justify-content:center;margin-top:8px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(255,255,255,.55);padding:90px 0 34px}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line-dark)}
+  footer .brand{margin-bottom:22px}
+  footer .fabout{font-size:14.5px;max-width:300px;line-height:1.8}
+  footer h5{font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:400}
+  footer ul{list-style:none;display:grid;gap:13px}
+  footer ul a{font-size:14.5px;transition:color .3s}
+  footer ul a:hover{color:var(--gold-soft)}
+  .foot-bottom{padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'Jost';font-size:11.5px;letter-spacing:.1em}
+
+  /* ---------- ARABIC / RTL ---------- */
+  body.ar{font-family:'Tajawal',sans-serif}
+  body.ar h1,body.ar h2,body.ar h3,body.ar h4,body.ar .disp,body.ar .brand .bt,body.ar .cinfo .v,body.ar .intro-copy .sig,body.ar .fig .n,body.ar .yrs .n,body.ar .gallery figcaption .cn,body.ar .client{font-family:'Amiri',serif}
+  body.ar .kicker,body.ar nav ul a,body.ar .nav-cta,body.ar .thin-btn,body.ar .gf,body.ar form label,body.ar .cinfo .k,body.ar .fig .l,body.ar .yrs .l,body.ar footer h5,body.ar .gallery figcaption .ct,body.ar .foot-bottom,body.ar .brand small,body.ar .scroll-hint{letter-spacing:normal}
+  body.ar .kicker,body.ar nav ul a,body.ar .nav-cta,body.ar .thin-btn,body.ar .gf,body.ar form label,body.ar .cinfo .k,body.ar .fig .l,body.ar .yrs .l,body.ar footer h5,body.ar .gallery figcaption .ct,body.ar .scroll-hint{text-transform:none}
+  body.ar .intro-copy .sig{font-style:normal}
+  body.ar .svc .no{font-style:normal}
+  /* flip the hero wash so the dark side sits behind the now right-aligned text */
+  html[dir="rtl"] .hero-media::after{background:linear-gradient(270deg,rgba(20,19,15,.86) 0%,rgba(20,19,15,.6) 42%,rgba(20,19,15,.25) 100%)}
+  html[dir="rtl"] .intro-figure .accent{right:auto;left:-40px}
+  html[dir="rtl"] .intro-figure .yrs{left:auto;right:-40px}
+  html[dir="rtl"] .svc::after{left:auto;right:0}
+  html[dir="rtl"] nav ul a::after{left:auto;right:0}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1024px){
+    .intro-grid{gap:70px}
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .clients-grid{grid-template-columns:repeat(4,1fr)}
+    .client:nth-child(6n){border-right:1px solid var(--line)}
+    .client:nth-child(4n){border-right:0}
+  }
+  @media(max-width:860px){
+    .wrap{padding:0 24px}
+    nav ul,.nav-cta{display:none}
+    .burger{display:flex}
+    .cap-layout{grid-template-columns:1fr;gap:54px}
+    .cap-intro{position:static}
+    .cap-row{grid-template-columns:1fr;gap:6px}
+    .cap-row .rd{text-align:left;max-width:none}
+    html[dir="rtl"] .cap-row .rd{text-align:right}
+    .intro-grid,.contact-grid{grid-template-columns:1fr;gap:80px}
+    .intro-figure{max-width:440px;margin:0 auto}
+    html[dir="ltr"] .intro-figure .yrs{left:0}
+    html[dir="rtl"] .intro-figure .yrs{right:0}
+    .figures .wrap{grid-template-columns:repeat(2,1fr)}
+    .fig{border-bottom:1px solid var(--line-dark)}
+    .fig:nth-child(2){border-right:0}
+    .gallery figure,.gallery figure.tall,.gallery figure.wide{grid-column:span 6;aspect-ratio:1}
+    .foot-top{grid-template-columns:1fr 1fr}
+    section.block{padding:100px 0}
+    form{padding:34px}
+  }
+  @media(max-width:560px){
+    .svc-grid{grid-template-columns:1fr}
+    .clients-grid{grid-template-columns:repeat(2,1fr)}
+    .client:nth-child(4n){border-right:1px solid var(--line)}
+    .client:nth-child(2n){border-right:0}
+    .gallery figure,.gallery figure.tall,.gallery figure.wide{grid-column:span 12}
+    .foot-top{grid-template-columns:1fr}
+    .intro-figure .accent{display:none}
+  }
+  /* Touch devices have no hover: reveal what hover would otherwise show. */
+  @media(hover:none){
+    .client img.logo{filter:grayscale(0);opacity:1}
+    .gallery figcaption{opacity:1;background:linear-gradient(transparent 45%,rgba(20,19,15,.86))}
+    .gallery img{filter:brightness(.9)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero-media img{transform:none!important}
+    .hero .kicker,.hero h1,.hero p,.hero-actions{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><img class="gem" src="images/al-jouhari-mark.png" alt="Al Jouhari"><span class="bt">Al Jouhari<small data-i18n="brand.small">TECHNICAL SERVICES L.L.C</small></span></a>
+    <nav>
+      <ul>
+        <li><a href="#intro" data-i18n="nav.about">About</a></li>
+        <li><a href="#services" data-i18n="nav.expertise">Expertise</a></li>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta" data-i18n="nav.cta">Request a consultation</a>
+      <button class="lang-btn" id="langToggle" aria-label="Switch language" lang="ar">العربية</button>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media"><img src="images/work-06.jpg" alt="Al Jouhari signature project"></div>
+  <div class="wrap hero-inner">
+    <span class="kicker" data-i18n="hero.kicker">Dubai · United Arab Emirates · Est. 1999</span>
+    <h1 data-i18n="hero.title">Where structure<br>meets <em>craft.</em></h1>
+    <p data-i18n="hero.p">A quarter-century of technical and construction expertise — delivering concrete, steel, and finishing works of uncompromising quality across the Emirates.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="thin-btn on-dark" data-i18n="hero.view">View our portfolio</a>
+      <a href="#contact" class="thin-btn solid" data-i18n="hero.start">Start a project</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- INTRO -->
+<section class="block intro" id="intro">
+  <div class="wrap intro-grid">
+    <div class="intro-figure reveal">
+      <img class="main" src="images/work-13.jpg" alt="Finished epoxy floor">
+      <img class="accent" src="images/work-01.jpg" alt="Boundary wall detail">
+      <div class="yrs"><div class="n" data-num="25">25</div><div class="l" data-i18n="intro.badge">Years of<br>craftsmanship</div></div>
+    </div>
+    <div class="intro-copy reveal">
+      <span class="kicker" data-i18n="intro.kicker">The house of Al Jouhari</span>
+      <h2 data-i18n="intro.h2">Dedicated craftsmen, <em>every trade</em> under one roof.</h2>
+      <p data-i18n="intro.p1">At Al Jouhari Technical Services, we transform spaces with expertise spanning carpentry, flooring, and a diverse range of specialized construction work. From precise installations to bespoke designs, our commitment to quality craftsmanship and customer satisfaction defines every project we undertake.</p>
+      <p data-i18n="intro.p2">Whether intricate woodwork, durable concrete flooring, panel insulation, or precision interlock installation, each commission receives personal attention and an exceptional result — the kind that endures.</p>
+      <div class="sig" data-i18n="intro.sig">Rami Al Jouhari<small>Founder &amp; Managing Director</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section class="figures">
+  <div class="wrap">
+    <div class="fig"><div class="n" data-count="25">25</div><div class="l" data-i18n="fig.years">Years of experience</div></div>
+    <div class="fig"><div class="n" data-count="15" data-suffix="+">15+</div><div class="l" data-i18n="fig.trades">Specialized trades</div></div>
+    <div class="fig"><div class="n" data-count="120" data-suffix="+">120+</div><div class="l" data-i18n="fig.projects">Projects delivered</div></div>
+    <div class="fig"><div class="n" data-count="12" data-suffix="+">12+</div><div class="l" data-i18n="fig.clients">Enduring clients</div></div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="block services" id="services">
+  <div class="wrap cap-layout">
+    <div class="cap-intro reveal">
+      <span class="kicker" data-i18n="svc.kicker">Our expertise</span>
+      <h2 data-i18n="svc.h2">A complete discipline of <em>construction</em></h2>
+      <p class="lead" data-i18n="svc.lead">From the ground slab to the final ceiling detail, every trade sits under one roof and one point of accountability — no chasing subcontractors, no gaps between scopes. One team starts the site and hands it back finished.</p>
+      <div class="cap-assure">
+        <div data-i18n="svc.a1">One accountable team</div>
+        <div data-i18n="svc.a2">25 years on UAE sites</div>
+        <div data-i18n="svc.a3">From site setup to handover</div>
+      </div>
+    </div>
+    <div class="cap-groups">
+      <div class="cap-group reveal">
+        <h4 data-i18n="svc.grpA">Structure &amp; Civil Works</h4>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n1">Steel Structure &amp; Shuttering</span><span class="rd" data-i18n="svc.d1">Frames, reinforcement, and formwork built to spec.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n2">Concrete Flooring</span><span class="rd" data-i18n="svc.d2">Slabs, screeds, and power-floated finishes.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n3">Underground Tanks</span><span class="rd" data-i18n="svc.d3">Water tanks, septic systems, and civil works.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n4">Drainage Systems</span><span class="rd" data-i18n="svc.d4">Storm and foul-water networks that perform.</span></div>
+      </div>
+      <div class="cap-group reveal">
+        <h4 data-i18n="svc.grpB">Surfaces &amp; Hardscape</h4>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n5">Epoxy &amp; Resin Flooring</span><span class="rd" data-i18n="svc.d5">Industrial, cold-store, and coved detailing.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n6">Interlock &amp; Curbstone</span><span class="rd" data-i18n="svc.d6">Paving, kerbs, and durable hardscape.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n7">Tiles, Block &amp; Plaster</span><span class="rd" data-i18n="svc.d7">Internal and external, laid clean and true.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n8">Painting &amp; Coatings</span><span class="rd" data-i18n="svc.d8">Interior, exterior, and protective systems.</span></div>
+      </div>
+      <div class="cap-group reveal">
+        <h4 data-i18n="svc.grpC">Interiors &amp; MEP</h4>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n9">Panel &amp; Sandwich-Panel Insulation</span><span class="rd" data-i18n="svc.d9">Thermal envelopes and cold rooms.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n10">Gypsum &amp; False Ceilings</span><span class="rd" data-i18n="svc.d10">Partitions, bulkheads, and light detailing.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n11">Aluminium &amp; Glass</span><span class="rd" data-i18n="svc.d11">Windows, façades, and partitions.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n12">Water Supply &amp; Plumbing</span><span class="rd" data-i18n="svc.d12">Supply lines, fixtures, and connections.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="block portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="pf.kicker">Selected works</span>
+      <h2 data-i18n="pf.h2">A <em>portfolio</em> of precision</h2>
+      <div class="rule"></div>
+      <p data-i18n="pf.p">Concrete, structural, and finishing works delivered for leading industrial and commercial clients across the Emirates.</p>
+    </div>
+    <div class="gallery-filters reveal">
+      <button class="gf active" data-cat="epoxy" data-i18n="f.epoxy">Epoxy Flooring</button>
+      <button class="gf" data-cat="concrete" data-i18n="f.concrete">Concrete</button>
+      <button class="gf" data-cat="curbstone" data-i18n="f.curbstone">Interlock &amp; Curbstone</button>
+      <button class="gf" data-cat="wall" data-i18n="f.wall">Boundary Walls</button>
+    </div>
+    <div class="gallery">
+      <figure class="wide" data-cat="epoxy"><img src="images/work-13.jpg" alt="Epoxy resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c1">Seamless Resin Floor</span></figcaption></figure>
+      <figure class="tall" data-cat="wall"><img src="images/work-01.jpg" alt="Boundary wall"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c2">Palisade Perimeter</span></figcaption></figure>
+      <figure data-cat="curbstone"><img src="images/work-07.jpg" alt="Curbstone work"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c3">Precast Blockwork</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/work-04.jpg" alt="Concrete slab"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c4">Poured Slab</span></figcaption></figure>
+      <figure data-cat="epoxy"><img src="images/work-18.jpg" alt="Finished resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c5">Industrial Handover</span></figcaption></figure>
+      <figure class="wide" data-cat="wall"><img src="images/work-06.jpg" alt="Perimeter wall and paving"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c6">Wall &amp; Interlock</span></figcaption></figure>
+      <figure data-cat="curbstone"><img src="images/work-08.jpg" alt="Curbstone casting"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c7">Casting Line</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/work-05.jpg" alt="Slab finishing"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c8">Hand Finishing</span></figcaption></figure>
+      <figure class="tall" data-cat="epoxy"><img src="images/work-16.jpg" alt="Coved resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c9">Cold-Store Floor</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/work-03.jpg" alt="Concrete slab with fixings"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c10">Cast-In Fixings</span></figcaption></figure>
+      <figure data-cat="curbstone"><img src="images/work-09.jpg" alt="Interlock preparation"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c11">Interlock Prep</span></figcaption></figure>
+      <figure data-cat="epoxy"><img src="images/work-14.jpg" alt="Glossy epoxy floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c12">High-Gloss Coat</span></figcaption></figure>
+      <figure data-cat="curbstone"><img src="images/work-12.jpg" alt="Blockwork laying"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c13">Blockwork Install</span></figcaption></figure>
+      <figure data-cat="wall"><img src="images/work-02.jpg" alt="Palisade fencing"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c14">Palisade Fencing</span></figcaption></figure>
+      <figure data-cat="epoxy"><img src="images/work-17.jpg" alt="High gloss floor finish"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c15">Mirror Finish</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/work-11.jpg" alt="Concrete surface"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c16">Floor Fixings</span></figcaption></figure>
+      <figure data-cat="epoxy"><img src="images/work-15.jpg" alt="Resin floor coved edge"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c17">Coved Detail</span></figcaption></figure>
+      <figure data-cat="curbstone"><img src="images/work-10.jpg" alt="Precast staging"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c18">Precast Staging</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="block clients" id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="cl.kicker">In good company</span>
+      <h2 data-i18n="cl.h2">Trusted by the region's <em>finest</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="clients-grid reveal">
+      <div class="client"><img class="logo" src="images/logos/al-seer.png" alt="Al Seer" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Al Seer</span></div>
+      <div class="client"><img class="logo" src="images/logos/mitras.jpeg" alt="Mitras International" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Mitras International</span></div>
+      <div class="client"><img class="logo" src="images/logos/magenta.png" alt="Magenta Group" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Magenta Group</span></div>
+      <div class="client"><img class="logo" src="images/logos/al-hathboor.jpeg" alt="Al Hathboor" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Al Hathboor</span></div>
+      <div class="client"><img class="logo" src="images/logos/cosmoplast.webp" alt="Cosmoplast" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Cosmoplast</span></div>
+      <div class="client"><img class="logo" src="images/logos/ambassador.webp" alt="Ambassador Academy" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Ambassador Academy</span></div>
+      <div class="client"><img class="logo" src="images/logos/tssc.jpeg" alt="TSSC" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">TSSC</span></div>
+      <div class="client"><img class="logo" src="images/logos/perfect-foods.jpeg" alt="Perfect Foods Factory" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Perfect Foods Factory</span></div>
+      <div class="client"><img class="logo" src="images/logos/thermozone.png" alt="Thermozone" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Thermozone</span></div>
+      <div class="client"><img class="logo" src="images/logos/prestige.png" alt="Prestige Construction" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Prestige Construction</span></div>
+      <div class="client"><img class="logo" src="images/logos/coolpoint.png" alt="Coolpoint" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Coolpoint</span></div>
+      <div class="client"><img class="logo" src="images/logos/sobha.png" alt="Sobha" loading="lazy" onerror="var c=this.closest('.client');c.classList.add('no-logo');this.remove()"><span class="wm">Sobha</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-media"><img src="images/work-17.jpg" alt="Finished project"></div>
+  <div class="cta-inner reveal">
+    <span class="kicker" data-i18n="cta.kicker">Begin the conversation</span>
+    <h2 style="margin-top:20px" data-i18n="cta.h2">Let us build something <em>enduring.</em></h2>
+    <p data-i18n="cta.p">From first site visit to final handover, we bring precision and care to every stage. Tell us what you're building.</p>
+    <a href="#contact" class="thin-btn on-dark" data-i18n="cta.btn">Request a consultation</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-left reveal">
+      <span class="kicker" data-i18n="ct.kicker">Connect with us</span>
+      <h2 style="margin-top:20px" data-i18n="ct.h2">Tell us about <em>your project</em></h2>
+      <p data-i18n="ct.p">Based in Dubai and serving the wider Emirates. Share the details and we'll respond with a considered proposal.</p>
+      <div class="cinfo">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M2 5h20v14H2zM2 6l10 7 10-7"/></svg>
+        <div><div class="k" data-i18n="ct.email">Email</div><div class="v"><a href="mailto:info@aljouhari.ae">info@aljouhari.ae</a></div><div class="v"><a href="mailto:Rami_aljouhari@hotmail.com">Rami_aljouhari@hotmail.com</a></div></div>
+      </div>
+      <div class="cinfo">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+        <div><div class="k" data-i18n="ct.tel">Telephone</div><div class="v"><a href="tel:0505519121" dir="ltr">050 551 9121</a></div></div>
+      </div>
+      <div class="cinfo">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+        <div><div class="k" data-i18n="ct.loc">Location</div><div class="v" data-i18n="ct.locval">Dubai, United Arab Emirates</div></div>
+      </div>
+    </div>
+    <form class="reveal" id="enquiry">
+      <div class="fld"><label data-i18n="fm.name">Full name</label><input required placeholder="Your name" data-i18n-ph="fm.name.ph"></div>
+      <div class="fld"><label data-i18n="fm.contact">Phone or email</label><input required placeholder="How we may reach you" data-i18n-ph="fm.contact.ph"></div>
+      <div class="fld"><label data-i18n="fm.service">Service required</label>
+        <select><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Interlock &amp; curbstone</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
+      </div>
+      <div class="fld"><label data-i18n="fm.details">Project details</label><textarea placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
+      <button type="submit" class="thin-btn" data-i18n="fm.submit">Send enquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#" class="brand"><img class="gem" src="images/al-jouhari-mark.png" alt="Al Jouhari"><span class="bt">Al Jouhari<small data-i18n="brand.small">TECHNICAL SERVICES L.L.C</small></span></a>
+        <p class="fabout" data-i18n="ft.about">Full-scope technical and construction services across the United Arab Emirates. Every trade, one dedicated team, one standard of craftsmanship.</p>
+      </div>
+      <div>
+        <h5 data-i18n="ft.navigate">Navigate</h5>
+        <ul><li><a href="#intro" data-i18n="nav.about">About</a></li><li><a href="#services" data-i18n="nav.expertise">Expertise</a></li><li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li><li><a href="#clients" data-i18n="nav.clients">Clients</a></li></ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft.expertise">Expertise</h5>
+        <ul><li><a href="#services" data-i18n="ft.e1">Concrete &amp; Epoxy</a></li><li><a href="#services" data-i18n="ft.e2">Steel &amp; Structure</a></li><li><a href="#services" data-i18n="ft.e3">Fit-out &amp; Finishing</a></li><li><a href="#services" data-i18n="ft.e4">MEP &amp; Plumbing</a></li></ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft.contact">Contact</h5>
+        <ul><li><a href="mailto:info@aljouhari.ae">info@aljouhari.ae</a></li><li><a href="tel:0505519121" dir="ltr">050 551 9121</a></li><li data-i18n="ct.locval">Dubai, United Arab Emirates</li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="foot.copy">© 2026 Al Jouhari Technical Services L.L.C</span>
+      <span data-i18n="foot.tag">Concrete · Steel · Fit-out · MEP</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- NUMERALS (Western <-> Arabic-Indic) ---------- */
+  var EASTERN = '٠١٢٣٤٥٦٧٨٩';
+  function digits(v){
+    return (curLang === 'ar')
+      ? String(v).replace(/[0-9]/g, function(d){ return EASTERN[+d]; })
+      : String(v);
+  }
+  function localizeNumbers(){
+    document.querySelectorAll('.fig .n').forEach(function(n){
+      var t = n.getAttribute('data-count'); if(t===null) return;
+      n.textContent = digits(t) + (n.getAttribute('data-suffix') || '');
+    });
+    var yrs = document.querySelector('.yrs .n');
+    if(yrs){ yrs.textContent = digits(yrs.getAttribute('data-num') || yrs.textContent.replace(/[^0-9]/g,'')); }
+  }
+
+  /* ---------- HEADER SCROLL STATE ---------- */
+  var hdr = document.getElementById('hdr');
+  function onScroll(){ hdr.classList.toggle('scrolled', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  } else {
+    document.querySelectorAll('.cap-group').forEach(function(el,i){ el.style.transitionDelay = (i*0.12) + 's'; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+
+  /* ---------- STAT COUNT-UP ---------- */
+  var figs = document.querySelector('.figures');
+  var counted = false;
+  if(figs){
+    var fio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting || counted) return; counted = true;
+        document.querySelectorAll('.fig .n').forEach(function(n){
+          var target = parseInt(n.getAttribute('data-count'),10);
+          var suffix = n.getAttribute('data-suffix') || '';
+          if(reduce){ n.textContent = digits(target)+suffix; return; }
+          var start=null, dur=1600;
+          requestAnimationFrame(function tick(t){
+            if(!start) start=t;
+            var p=Math.min((t-start)/dur,1), eased=1-Math.pow(1-p,3);
+            n.textContent = digits(Math.round(target*eased))+suffix;
+            if(p<1) requestAnimationFrame(tick);
+          });
+        });
+      });
+    },{threshold:0.4});
+    fio.observe(figs);
+  }
+
+  /* ---------- PORTFOLIO FILTER (animated) + AUTO-CYCLE ---------- */
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.gf'));
+  var itemsG = document.querySelectorAll('.gallery figure');
+  var gallery = document.querySelector('.gallery');
+  var portfolioSec = document.getElementById('portfolio');
+  var STAGGER = 45, OUT_MS = 330, CYCLE_MS = 4800;
+  var curFilter = 0, cycleTimer = null, hovering = false, inView = false;
+
+  function applyFilter(btn){
+    if(!btn || btn.classList.contains('active')) return;
+    filters.forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    curFilter = filters.indexOf(btn);
+    var cat = btn.getAttribute('data-cat');
+    var matches = function(fig){ return cat==='all' || fig.getAttribute('data-cat')===cat; };
+
+    if(reduce){
+      itemsG.forEach(function(fig){ fig.classList.toggle('hide', !matches(fig)); });
+      return;
+    }
+
+    // Phase 1 — fade every visible item out together.
+    itemsG.forEach(function(fig){ if(!fig.classList.contains('hide')) fig.classList.add('is-out'); });
+
+    // Phase 2 — swap membership, then fade the matches in with a stagger.
+    setTimeout(function(){
+      var shown = [];
+      itemsG.forEach(function(fig){
+        fig.classList.remove('is-out');
+        if(matches(fig)){
+          fig.classList.remove('hide');
+          fig.classList.add('is-in');
+          shown.push(fig);
+        } else {
+          fig.classList.add('hide');
+          fig.classList.remove('is-in');
+        }
+      });
+      if(gallery) void gallery.offsetWidth; // force reflow so the fade-in animates
+      shown.forEach(function(fig,i){ fig.style.transitionDelay = (i*STAGGER)+'ms'; });
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          shown.forEach(function(fig){ fig.classList.remove('is-in'); });
+        });
+      });
+      setTimeout(function(){
+        shown.forEach(function(fig){ fig.style.transitionDelay = ''; });
+      }, shown.length*STAGGER + 650);
+    }, OUT_MS);
+  }
+
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){ applyFilter(btn); restartCycle(); });
+  });
+
+  function nextFilter(){
+    if(hovering || !inView || document.hidden) return;
+    applyFilter(filters[(curFilter + 1) % filters.length]);
+  }
+  function startCycle(){ if(!cycleTimer && filters.length > 1) cycleTimer = setInterval(nextFilter, CYCLE_MS); }
+  function stopCycle(){ if(cycleTimer){ clearInterval(cycleTimer); cycleTimer = null; } }
+  function restartCycle(){ stopCycle(); startCycle(); }
+
+  // Establish the initial filtered state to match the active tab (no animation).
+  (function initFilter(){
+    var active = document.querySelector('.gf.active') || filters[0];
+    if(!active) return;
+    curFilter = filters.indexOf(active);
+    var cat = active.getAttribute('data-cat');
+    itemsG.forEach(function(fig){
+      fig.classList.toggle('hide', !(cat==='all' || fig.getAttribute('data-cat')===cat));
+    });
+  })();
+
+  if(portfolioSec){
+    portfolioSec.addEventListener('mouseenter', function(){ hovering = true; });
+    portfolioSec.addEventListener('mouseleave', function(){ hovering = false; });
+    var pio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ inView = e.isIntersecting; });
+    },{threshold:0.2});
+    pio.observe(portfolioSec);
+    document.addEventListener('visibilitychange', function(){ if(document.hidden) stopCycle(); else startCycle(); });
+    startCycle();
+  }
+
+  /* ---------- MOBILE MENU ---------- */
+  var burger = document.querySelector('.burger');
+  var menu = document.querySelector('nav ul');
+  if(burger && menu){
+    burger.addEventListener('click', function(){
+      var open = menu.style.display === 'flex';
+      if(open){ menu.style.display=''; return; }
+      var side = document.documentElement.dir === 'rtl' ? 'left:0;right:auto' : 'right:0;left:auto';
+      menu.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:0;'+side+';bottom:0;width:74%;background:#14130F;padding:110px 40px 40px;gap:26px;z-index:90';
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.style.display=''; }); });
+  }
+
+  /* ---------- LANGUAGE (EN / AR + RTL) ---------- */
+  var I18N = {
+    'brand.small':'خدمات فنية ذ.م.م',
+    'nav.about':'عن الشركة','nav.expertise':'خبراتنا','nav.portfolio':'أعمالنا','nav.clients':'عملاؤنا','nav.contact':'تواصل معنا','nav.cta':'اطلب استشارة',
+    'hero.kicker':'دبي · الإمارات العربية المتحدة · تأسست عام ١٩٩٩',
+    'hero.title':'حيث يلتقي البناء<br>بـ<em>الإتقان.</em>',
+    'hero.p':'ربع قرن من الخبرة الفنية والإنشائية — ننفّذ أعمال الخرسانة والحديد والتشطيبات بجودة لا تقبل المساومة في مختلف أنحاء الإمارات.',
+    'hero.view':'شاهد أعمالنا','hero.start':'ابدأ مشروعاً','hero.scroll':'اسحب للأسفل',
+    'intro.badge':'سنوات من<br>الحرفية',
+    'intro.kicker':'بيت الجوهري',
+    'intro.h2':'حرفيّون متفانون، <em>كل التخصصات</em> تحت سقف واحد.',
+    'intro.p1':'في الجوهري للخدمات الفنية، نُحوّل المساحات بخبرة تمتد من النجارة والأرضيات إلى نطاق واسع من الأعمال الإنشائية المتخصصة. من التركيبات الدقيقة إلى التصاميم المخصّصة، يحدّد التزامنا بجودة الحرفة ورضا العميل كل مشروع ننفّذه.',
+    'intro.p2':'سواء أكان عملاً خشبياً دقيقاً، أو أرضيات خرسانية متينة، أو عزل ألواح، أو تركيب إنترلوك بدقة — تنال كل مهمة عنايةً شخصية ونتيجةً استثنائية تدوم طويلاً.',
+    'intro.sig':'رامي الجوهري<small>المؤسس والمدير العام</small>',
+    'fig.years':'سنوات من الخبرة','fig.trades':'تخصصاً متنوعاً','fig.projects':'مشروعاً منجزاً','fig.clients':'عميلاً دائماً',
+    'svc.kicker':'خبراتنا',
+    'svc.h2':'منظومة <em>إنشائية</em> متكاملة',
+    'svc.lead':'من البلاطة الأرضية إلى آخر تفصيل في السقف، تجتمع كل التخصصات تحت سقف واحد وجهة مسؤولة واحدة — دون مطاردة لمقاولين من الباطن ودون فجوات بين الأعمال. فريق واحد يبدأ الموقع ويسلّمه مكتملاً.',
+    'svc.a1':'فريق واحد مسؤول','svc.a2':'٢٥ عاماً في مواقع الإمارات','svc.a3':'من تجهيز الموقع إلى التسليم',
+    'svc.grpA':'الأعمال الإنشائية والمدنية',
+    'svc.n1':'هياكل حديدية وشدّات','svc.d1':'هياكل وتسليح وقوالب صبّ مطابقة للمواصفات.',
+    'svc.n2':'أرضيات خرسانية','svc.d2':'بلاطات ولياسة أرضية وتشطيبات ممكننة.',
+    'svc.n3':'خزانات أرضية','svc.d3':'خزانات مياه وأنظمة صرف صحي وأعمال مدنية.',
+    'svc.n4':'أنظمة الصرف','svc.d4':'شبكات صرف مطر وصحي تعمل بكفاءة.',
+    'svc.grpB':'الأسطح والأعمال الخارجية',
+    'svc.n5':'أرضيات إيبوكسي وراتنج','svc.d5':'صناعية ومخازن تبريد وتفاصيل زوايا مقوّسة.',
+    'svc.n6':'إنترلوك وحجر أرصفة','svc.d6':'رصف وحواف وأعمال خارجية متينة.',
+    'svc.n7':'بلاط وبلوك ولياسة','svc.d7':'داخلية وخارجية، تُنفّذ بدقة وإتقان.',
+    'svc.n8':'دهانات وطبقات حماية','svc.d8':'داخلية وخارجية وأنظمة حماية.',
+    'svc.grpC':'التشطيبات والأعمال الكهروميكانيكية',
+    'svc.n9':'عزل الألواح وألواح الساندويتش','svc.d9':'أغلفة حرارية وغرف تبريد.',
+    'svc.n10':'جبس وأسقف مستعارة','svc.d10':'قواطع وأسقف وتفاصيل إضاءة.',
+    'svc.n11':'ألمنيوم وزجاج','svc.d11':'نوافذ وواجهات وقواطع.',
+    'svc.n12':'إمداد المياه والسباكة','svc.d12':'خطوط إمداد وتركيبات وتوصيلات.',
+    'pf.kicker':'أعمال مختارة',
+    'pf.h2':'<em>معرض</em> من الإتقان',
+    'pf.p':'أعمال خرسانية وإنشائية وتشطيبات نُفّذت لعملاء صناعيين وتجاريين رائدين في مختلف أنحاء الإمارات.',
+    'f.epoxy':'أرضيات إيبوكسي','f.concrete':'خرسانة','f.curbstone':'إنترلوك وأرصفة','f.wall':'أسوار','cap.curb':'حجر أرصفة',
+    'pf.c1':'أرضية راتنجية سلسة','pf.c2':'سياج محيطي','pf.c3':'بلوك سابق الصب','pf.c4':'بلاطة مصبوبة','pf.c5':'تسليم صناعي','pf.c6':'جدار وإنترلوك',
+    'pf.c7':'خط صبّ','pf.c8':'تشطيب يدوي','pf.c9':'أرضية مخزن تبريد','pf.c10':'تثبيتات مدمجة','pf.c11':'تحضير إنترلوك','pf.c12':'طبقة عالية اللمعان',
+    'pf.c13':'تركيب بلوك','pf.c14':'سياج باليسايد','pf.c15':'تشطيب مرآتي','pf.c16':'تثبيتات أرضية','pf.c17':'تفصيل زاوية مقوّسة','pf.c18':'تجهيز سابق الصب',
+    'cl.kicker':'في صحبة كريمة',
+    'cl.h2':'موضع ثقة <em>نخبة</em> المنطقة',
+    'cta.kicker':'لنبدأ الحديث',
+    'cta.h2':'لنبنِ معاً شيئاً <em>يدوم.</em>',
+    'cta.p':'من أول زيارة للموقع إلى التسليم النهائي، نقدّم الدقة والعناية في كل مرحلة. أخبرنا بما تبنيه.',
+    'cta.btn':'اطلب استشارة',
+    'ct.kicker':'تواصل معنا',
+    'ct.h2':'حدّثنا عن <em>مشروعك</em>',
+    'ct.p':'مقرّنا في دبي ونخدم الإمارات كافة. شاركنا التفاصيل وسنردّ عليك بعرضٍ مدروس.',
+    'ct.email':'البريد الإلكتروني','ct.tel':'الهاتف','ct.loc':'الموقع','ct.locval':'دبي، الإمارات العربية المتحدة',
+    'fm.name':'الاسم الكامل','fm.name.ph':'اسمك','fm.contact':'الهاتف أو البريد','fm.contact.ph':'كيف يمكننا الوصول إليك',
+    'fm.service':'الخدمة المطلوبة','fm.details':'تفاصيل المشروع','fm.details.ph':'أخبرنا عن الموقع والنطاق','fm.submit':'أرسل الطلب',
+    'fm.o1':'أرضيات خرسانية','fm.o2':'أرضيات إيبوكسي وراتنج','fm.o3':'حديد وهياكل','fm.o4':'إنترلوك وأرصفة','fm.o5':'تجهيز وتشطيب','fm.o6':'سباكة وكهروميكانيك','fm.o7':'أخرى',
+    'ft.about':'خدمات فنية وإنشائية شاملة في مختلف أنحاء الإمارات العربية المتحدة. كل التخصصات، فريق واحد متفانٍ، ومعيار واحد للحرفية.',
+    'ft.navigate':'تصفّح','ft.expertise':'الخبرات','ft.contact':'تواصل',
+    'ft.e1':'خرسانة وإيبوكسي','ft.e2':'حديد وهياكل','ft.e3':'تجهيز وتشطيب','ft.e4':'كهروميكانيك وسباكة',
+    'foot.copy':'© ٢٠٢٦ الجوهري للخدمات الفنية ذ.م.م','foot.tag':'خرسانة · حديد · تشطيبات · كهروميكانيك'
+  };
+  var TITLE = { en:'Al Jouhari Technical Services — Craftsmanship in Construction | Dubai, UAE', ar:'الجوهري للخدمات الفنية — حرفية في البناء | دبي، الإمارات' };
+  var ALERT = { en:'Thank you — we will be in touch shortly.', ar:'شكراً لك — سنتواصل معك قريباً.' };
+
+  var htmlEl = document.documentElement;
+  var origHTML = new Map(), origPH = new Map();
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ origHTML.set(el, el.innerHTML); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){ origPH.set(el, el.getAttribute('placeholder') || ''); });
+  var langBtn = document.getElementById('langToggle');
+  var curLang = 'en';
+
+  function setLang(lang){
+    var ar = lang === 'ar';
+    curLang = ar ? 'ar' : 'en';
+    htmlEl.lang = curLang;
+    htmlEl.dir = ar ? 'rtl' : 'ltr';
+    document.body.classList.toggle('ar', ar);
+    document.title = ar ? TITLE.ar : TITLE.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      el.innerHTML = (ar && I18N[k] != null) ? I18N[k] : origHTML.get(el);
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var k = el.getAttribute('data-i18n-ph');
+      el.setAttribute('placeholder', (ar && I18N[k] != null) ? I18N[k] : origPH.get(el));
+    });
+    if(langBtn){
+      langBtn.textContent = ar ? 'English' : 'العربية';
+      langBtn.setAttribute('lang', ar ? 'en' : 'ar');
+    }
+    localizeNumbers();
+    try{ localStorage.setItem('ajlang', curLang); }catch(e){}
+  }
+
+  // Smooth crossfade between languages: fade the text out, swap while hidden
+  // (this also masks the LTR<->RTL reflow), then fade it back in.
+  var swapping = false;
+  function switchLang(lang){
+    if(reduce){ setLang(lang); return; }
+    if(swapping) return;
+    swapping = true;
+    var els = document.querySelectorAll('[data-i18n]');
+    els.forEach(function(el){ el.style.transition = 'opacity .28s ease'; el.style.opacity = '0'; });
+    if(langBtn){ langBtn.style.transition = 'opacity .28s ease'; langBtn.style.opacity = '0'; }
+    setTimeout(function(){
+      setLang(lang);                 // swap text + direction while invisible
+      void document.body.offsetWidth; // force reflow before fading back in
+      els.forEach(function(el){ el.style.opacity = '1'; });
+      if(langBtn) langBtn.style.opacity = '1';
+      setTimeout(function(){
+        els.forEach(function(el){ el.style.transition = ''; el.style.opacity = ''; });
+        if(langBtn){ langBtn.style.transition = ''; langBtn.style.opacity = ''; }
+        swapping = false;
+      }, 320);
+    }, 280);
+  }
+
+  if(langBtn){
+    langBtn.addEventListener('click', function(){ switchLang(curLang === 'ar' ? 'en' : 'ar'); });
+  }
+  var saved = null;
+  try{ saved = localStorage.getItem('ajlang'); }catch(e){}
+  if(saved === 'ar') setLang('ar');
+
+  /* ---------- CONTACT FORM ---------- */
+  var form = document.getElementById('enquiry');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      form.reset();
+      alert(curLang === 'ar' ? ALERT.ar : ALERT.en);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
