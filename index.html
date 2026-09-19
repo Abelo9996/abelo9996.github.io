@@ -598,65 +598,93 @@
     /* Awards & Recognition */
     .awards-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
     .award-card {
+      display: flex;
+      gap: 16px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
-      transition: all 0.2s ease;
+      border-radius: 12px;
+      padding: 22px;
+      transition: all 0.25s ease;
     }
 
     .award-card:hover {
-      box-shadow: 0 4px 12px var(--shadow);
+      box-shadow: 0 6px 20px var(--shadow);
+      transform: translateY(-3px);
+      border-color: var(--primary);
     }
 
-    .award-card h3 {
-      font-size: 18px;
+    .award-card.wide { grid-column: 1 / -1; }
+
+    .award-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      color: var(--primary);
+      background: var(--accent-tint);
+      border: 1px solid var(--badge-border);
+    }
+
+    .award-body { min-width: 0; flex: 1; }
+
+    .award-body h3 {
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
 
-    .award-card .award-meta {
-      font-size: 13px;
+    .award-meta {
+      font-size: 12.5px;
       color: var(--text-light);
-      font-style: italic;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .award-card p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text-primary);
+    .award-body p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-secondary);
     }
 
-    .cert-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .award-body .links { margin-top: 12px; }
+
+    /* Elsevier certificate journal rows */
+    .cert-rows {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 0 28px;
       margin-top: 14px;
     }
 
-    .cert-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      background: var(--bg-page);
-      border: 1px solid var(--border);
+    .cert-rows li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
       color: var(--text-secondary);
-      overflow-wrap: anywhere;
     }
 
-    .cert-chip .count {
+    .cert-name { overflow-wrap: anywhere; }
+
+    .cert-n {
+      flex-shrink: 0;
       font-weight: 700;
       color: var(--primary);
+      font-variant-numeric: tabular-nums;
     }
 
     /* Open Source cards reuse .experience-card; PR meta list */
@@ -1122,8 +1150,7 @@
         <a href="http://linkedin.com/in/abelyagubyan" target="_blank" rel="noopener" title="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <!-- TODO(owner): replace with the owner's Google Scholar profile URL (currently the generic scholar.google.com landing page) -->
-        <a href="https://scholar.google.com" target="_blank" rel="noopener" title="Google Scholar">
+        <a href="https://scholar.google.com/citations?user=rgd3iYwAAAAJ&amp;hl=en" target="_blank" rel="noopener" title="Google Scholar">
           <i class="fas fa-graduation-cap"></i>
         </a>
         <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener" class="orcid" title="ORCID 0009-0004-8213-2863">
@@ -1285,18 +1312,18 @@
           </div>
 
           <div class="news-card" onclick="window.open('https://google.com', '_blank')">
-            <img src="assets/img/seamless_embedding.png" alt="Embedding programming IDEs into testing software: illustration of an in-browser IDE, compiler, and autograding pipeline" />
-            <div class="news-card-content">
-              <p>Published "Embedding of Programming IDEs into Computer-Based Testing Software" at ACM SIGCSE '22</p>
-              <div class="date">March 2022</div>
-            </div>
-          </div>
-
-          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
             <img src="assets/img/cal_logo.png" alt="UC Berkeley Graduation" />
             <div class="news-card-content">
               <p>Graduated from UC Berkeley with dual B.A. in Computer Science & Applied Mathematics</p>
               <div class="date">May 2022</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://google.com', '_blank')">
+            <img src="assets/img/seamless_embedding.png" alt="Embedding programming IDEs into testing software: illustration of an in-browser IDE, compiler, and autograding pipeline" />
+            <div class="news-card-content">
+              <p>Published "Embedding of Programming IDEs into Computer-Based Testing Software" at ACM SIGCSE '22</p>
+              <div class="date">March 2022</div>
             </div>
           </div>
 
@@ -1663,53 +1690,57 @@
         <div class="awards-grid">
 
           <div class="award-card">
-            <h3>Peer Reviewer</h3>
-            <div class="award-meta">191 peer reviews for 8 journals (ORCID, September 2026)</div>
-            <p>
-              Engineering Applications of Artificial Intelligence, Image and Vision Computing, Neural Networks, Information Fusion, Neurocomputing, Expert Systems with Applications, Knowledge-Based Systems, and Data and Knowledge Engineering.
-            </p>
-            <div class="links">
-              <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener">
-                <i class="fab fa-orcid"></i> ORCID record
-              </a>
+            <div class="award-icon"><i class="fas fa-trophy"></i></div>
+            <div class="award-body">
+              <h3>GroundLM 2026 (EMNLP 2026)</h3>
+              <div class="award-meta">Budapest &middot; 2026</div>
+              <p>"The Coin Flip Judge?" accepted as an Archival Long Paper (Program Chairs: Accept; two area-chair recommendations to accept).</p>
             </div>
           </div>
 
           <div class="award-card">
-            <h3>Elsevier Recognised Reviewer Certificates</h3>
-            <div class="award-meta">2024 to 2026 &middot; nine journals</div>
-            <p>Certificates awarded for review volume across the following journals:</p>
-            <div class="cert-list">
-              <span class="cert-chip">Engineering Applications of Artificial Intelligence <span class="count">109</span></span>
-              <span class="cert-chip">Image and Vision Computing <span class="count">33</span></span>
-              <span class="cert-chip">Neural Networks <span class="count">26</span></span>
-              <span class="cert-chip">Information Fusion <span class="count">18</span></span>
-              <span class="cert-chip">Neurocomputing <span class="count">3</span></span>
-              <span class="cert-chip">Expert Systems with Applications <span class="count">1</span></span>
-              <span class="cert-chip">Knowledge-Based Systems <span class="count">1</span></span>
-              <span class="cert-chip">Data and Knowledge Engineering <span class="count">1</span></span>
-              <span class="cert-chip">International Journal of Intelligent Networks <span class="count">1</span></span>
+            <div class="award-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="award-body">
+              <h3>Peer Reviewer</h3>
+              <div class="award-meta">191 reviews &middot; 8 journals &middot; Sep 2026</div>
+              <p>Verified peer reviews across Elsevier AI and computer-vision journals.</p>
+              <div class="links">
+                <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener">
+                  <i class="fab fa-orcid"></i> ORCID record
+                </a>
+              </div>
             </div>
-            <!-- Note(owner): certificate PDFs intentionally not uploaded; add if desired. -->
           </div>
 
           <div class="award-card">
-            <h3>GroundLM 2026 Workshop at EMNLP 2026</h3>
-            <div class="award-meta">Budapest, 2026</div>
-            <p>
-              "The Coin Flip Judge?" accepted as an Archival Long Paper (Program Chairs decision: Accept; two area-chair recommendations to accept).
-            </p>
+            <div class="award-icon"><i class="fas fa-rocket"></i></div>
+            <div class="award-body">
+              <h3>UC Berkeley Skydeck Pad-13</h3>
+              <div class="award-meta">2023</div>
+              <p>FibonAI accepted into the Skydeck Pad-13 incubator (competing against 5,000+ startups globally).</p>
+            </div>
           </div>
 
-          <div class="award-card">
-            <h3>UC Berkeley Skydeck Pad-13</h3>
-            <div class="award-meta">2023</div>
-            <p>
-              FibonAI accepted into UC Berkeley's Skydeck Pad-13 Incubator (competing against 5,000+ startups globally).
-            </p>
+          <div class="award-card wide">
+            <div class="award-icon"><i class="fas fa-certificate"></i></div>
+            <div class="award-body">
+              <h3>Elsevier Recognised Reviewer Certificates</h3>
+              <div class="award-meta">2024 to 2026 &middot; nine journals, by review volume</div>
+              <ul class="cert-rows">
+                <li><span class="cert-name">Engineering Applications of Artificial Intelligence</span><span class="cert-n">109</span></li>
+                <li><span class="cert-name">Image and Vision Computing</span><span class="cert-n">33</span></li>
+                <li><span class="cert-name">Neural Networks</span><span class="cert-n">26</span></li>
+                <li><span class="cert-name">Information Fusion</span><span class="cert-n">18</span></li>
+                <li><span class="cert-name">Neurocomputing</span><span class="cert-n">3</span></li>
+                <li><span class="cert-name">Expert Systems with Applications</span><span class="cert-n">1</span></li>
+                <li><span class="cert-name">Knowledge-Based Systems</span><span class="cert-n">1</span></li>
+                <li><span class="cert-name">Data and Knowledge Engineering</span><span class="cert-n">1</span></li>
+                <li><span class="cert-name">International Journal of Intelligent Networks</span><span class="cert-n">1</span></li>
+              </ul>
+            </div>
           </div>
 
-          <!-- TODO(owner): add any other awards or recognition here, newest first. -->
+          <!-- TODO(owner): add any other awards or recognition here. -->
 
         </div>
       </section>
