@@ -45,14 +45,14 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
-  <meta property="og:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 191 peer reviews across 8 journals." />
+  <meta property="og:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 8 journals." />
   <meta property="og:url" content="https://abelo9996.github.io/" />
   <meta property="og:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
-  <meta name="twitter:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 191 peer reviews across 8 journals." />
+  <meta name="twitter:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 8 journals." />
   <meta name="twitter:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
   
   <!-- Favicons -->
@@ -1047,6 +1047,27 @@
       line-height: 1.55;
     }
 
+    /* Hover effects */
+    .stat:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+    .sidebar > img { cursor: pointer; }
+    .sidebar > img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 26px var(--shadow);
+    }
+    .edu-school { transition: color 0.2s ease; }
+    .edu-item:hover .edu-logo { transform: scale(1.06); border-color: var(--primary); }
+    .edu-item:hover .edu-school { color: var(--primary); }
+    .cert-rows li { transition: color 0.2s ease, border-color 0.2s ease; }
+    .cert-rows li:hover { border-color: var(--primary); }
+    .cert-rows li:hover .cert-name { color: var(--text-primary); }
+    .award-icon { transition: transform 0.25s ease, background 0.25s ease; }
+    .award-card:hover .award-icon { transform: scale(1.08); }
+    .social-icons a { transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       body {
@@ -1141,7 +1162,7 @@
     <aside class="sidebar">
       <img src="assets/img/abel.jpeg" alt="Abel Yagubyan" />
       <h1>Abel Yagubyan</h1>
-      <div class="subtitle">Senior Data Scientist at C3.ai</div>
+      <div class="subtitle">AI Researcher &amp; Founder</div>
       
       <div class="social-icons">
         <a href="https://github.com/Abelo9996/" target="_blank" rel="noopener" title="GitHub">
@@ -1210,25 +1231,25 @@
       <!-- Hero Section -->
       <section class="hero">
         <h1>Abel Yagubyan</h1>
-        <p class="tagline">Senior Data Scientist at C3.ai</p>
+        <p class="tagline">AI Researcher &amp; Founder</p>
         <p class="hero-typed"><span id="typed" aria-hidden="true"></span></p>
       </section>
 
       <!-- Introduction -->
       <section class="intro">
         <p>
-          Hello! I'm a <strong>Senior Data Scientist at C3.ai</strong> with expertise in <strong>Deep Learning</strong>, <strong>Predictive Maintenance</strong>, and <strong>High-Performance Computing</strong>. I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
+          Hello! I'm an <strong>AI researcher and founder</strong> working on <strong>trustworthy AI evaluation</strong>: the reliability of <strong>LLM-as-a-judge</strong> scoring and the reproducibility of <strong>LLM agents</strong>. I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
         </p>
         <p>
-          Previously, I co-founded <a href="https://fibonai.co/" target="_blank"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), conducted research at <strong>Lawrence Berkeley National Laboratory</strong> on UPC++ performance testing, and interned at <strong>Apple</strong>. I've also reviewed 100+ papers for Elsevier's AI and Vision Computing journals.
+          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>. I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across eight Elsevier AI journals. Earlier, I co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>, and interned at <strong>Apple</strong>.
         </p>
       </section>
 
       <!-- Research Impact -->
       <section class="impact" aria-label="Research impact at a glance">
         <div class="impact-grid">
-          <div class="stat"><div class="stat-num" data-target="191">191</div><div class="stat-label">Peer Reviews</div></div>
-          <div class="stat"><div class="stat-num" data-target="25">25</div><div class="stat-label">Citations</div></div>
+          <div class="stat"><div class="stat-num" data-target="193">193</div><div class="stat-label">Peer Reviews</div></div>
+          <div class="stat"><div class="stat-num" data-target="26">26</div><div class="stat-label">Citations</div></div>
           <div class="stat"><div class="stat-num" data-target="13">13</div><div class="stat-label">Merged PRs</div></div>
           <div class="stat"><div class="stat-num" data-target="8">8</div><div class="stat-label">Journals</div></div>
           <div class="stat"><div class="stat-num" data-target="5">5</div><div class="stat-label">Citing Groups</div></div>
@@ -1347,7 +1368,7 @@
             <span class="pub-badge">GroundLM 2026 (EMNLP), Archival</span>
             <h3>The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation</h3>
             <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
-            <div class="award">arXiv:2606.13685, April 2026. Accepted as an Archival Long Paper at the GroundLM 2026 workshop at EMNLP 2026, Budapest (proceedings forthcoming).</div>
+            <div class="award">arXiv:2606.13685, April 2026. Accepted as an Archival Long Paper at the GroundLM 2026 workshop at EMNLP 2026, Budapest (proceedings forthcoming). 3 citations.</div>
             <div class="tldr">
               <strong>TLDR:</strong> Repeated identical LLM-as-a-judge evaluations across six judges from three providers show pairwise verdicts flip on 11 to 14 percent of re-runs, order bias persists across model generations, a single trial recovers only 86.6 percent of the consensus verdict, and about 11 trials are needed to stabilize a verdict; argues for multi-trial aggregation, order randomization, and uncertainty reporting as standard practice.
             </div>
@@ -1369,7 +1390,7 @@
             <span class="pub-badge preprint">Preprint</span>
             <h3>How Consistent Are LLM Agents? Measuring Behavioral Reproducibility in Multi-Step Tool-Calling Pipelines</h3>
             <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
-            <div class="award">arXiv:2605.28840, April 2026.</div>
+            <div class="award">arXiv:2605.28840, April 2026. 4 citations.</div>
             <div class="tldr">
               <strong>TLDR:</strong> Measures whether an LLM agent given the same task twice takes the same actions across several models and providers, and documents that agents with large unconstrained action spaces vary run to run.
             </div>
@@ -1390,7 +1411,7 @@
             <span class="pub-badge">MNRAS 2022</span>
             <h3>The Lick Observatory Supernova Search follow-up program: photometry data release of 70 SESNe</h3>
             <div class="authors">WeiKang Zheng, Benjamin E. Stahl, Alexei V. Filippenko, et al. (incl. <strong>Abel Yagubyan</strong>)</div>
-            <div class="award">Monthly Notices of the Royal Astronomical Society, vol. 512, pp. 3195-3214 (2022). 18 citations.</div>
+            <div class="award">Monthly Notices of the Royal Astronomical Society, vol. 512, pp. 3195-3214 (2022). 19 citations.</div>
             <div class="tldr">
               <strong>TLDR:</strong> Public BVRI and unfiltered light curves for 70 stripped-envelope supernovae observed 2003 to 2020, released through an automated photometry pipeline; the data yield host-galaxy extinction estimates and, for the first time, accurate rise-time measurements for a large SESN sample, with SNe Ic showing lower ejecta masses and velocities but higher nickel-56 masses than SNe Ib and IIb.
             </div>
@@ -1473,9 +1494,9 @@
           <div class="text">
             <h3>C3.ai</h3>
             <div class="role">Senior Data Scientist</div>
-            <div class="duration">May 2024 - Present | Redwood City, CA</div>
+            <div class="duration">May 2024 - March 2026 | Redwood City, CA</div>
             <div class="description">
-              Lead data science initiatives in predictive maintenance and generative AI across large-scale deployments for <strong>Shell, ExxonMobil, Dow, Bloom Energy</strong>. Directed pilots delivering over <strong>$10M in value</strong> and deploying 1,000+ models per project. Developed foundational healthcare transformer model trained on 1M+ U.S. patient records. Created <strong>SpeedyREL</strong>, an internal tool reducing deployment timelines by 50%, adopted by 5+ projects. <strong>Promoted to Senior in under 18 months.</strong>
+              Led data science initiatives in predictive maintenance and generative AI across large-scale deployments for <strong>Shell, ExxonMobil, Dow, Bloom Energy</strong>. Directed pilots delivering over <strong>$10M in value</strong> and deploying 1,000+ models per project. Developed foundational healthcare transformer model trained on 1M+ U.S. patient records. Created <strong>SpeedyREL</strong>, an internal tool reducing deployment timelines by 50%, adopted by 5+ projects. <strong>Promoted to Senior in under 18 months.</strong>
             </div>
             <div class="tech-stack">
               <span class="tech-badge">Python</span>
@@ -1702,7 +1723,7 @@
             <div class="award-icon"><i class="fas fa-clipboard-check"></i></div>
             <div class="award-body">
               <h3>Peer Reviewer</h3>
-              <div class="award-meta">191 reviews &middot; 8 journals &middot; Sep 2026</div>
+              <div class="award-meta">193 reviews &middot; 8 journals &middot; Sep 2026</div>
               <p>Verified peer reviews across Elsevier AI and computer-vision journals.</p>
               <div class="links">
                 <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener">
@@ -1715,9 +1736,9 @@
           <div class="award-card">
             <div class="award-icon"><i class="fas fa-rocket"></i></div>
             <div class="award-body">
-              <h3>UC Berkeley Skydeck Pad-13</h3>
-              <div class="award-meta">2023</div>
-              <p>FibonAI accepted into the Skydeck Pad-13 incubator (competing against 5,000+ startups globally).</p>
+              <h3>Y Combinator</h3>
+              <div class="award-meta">March 2026</div>
+              <p>Accepted into Y Combinator, the startup accelerator.</p>
             </div>
           </div>
 
@@ -1789,7 +1810,7 @@
           'LLM-as-a-Judge Reliability',
           'Agent Reproducibility',
           'Evaluation Science',
-          '191 Peer Reviews',
+          '193 Peer Reviews',
           'Open-Source LLM Evaluation'
         ],
         typeSpeed: 45,
