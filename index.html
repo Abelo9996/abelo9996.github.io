@@ -978,6 +978,11 @@
       inset: 0 0 auto 0;
       height: 3px;
       background: linear-gradient(90deg, var(--primary), transparent);
+      transition: height 0.25s ease, background 0.25s ease;
+    }
+    .stat:hover::after {
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-strong));
     }
     .stat-num {
       font-size: 40px;
@@ -1274,7 +1279,7 @@
           Hello! I'm an <strong>AI researcher and founder</strong> working on <strong>trustworthy AI evaluation</strong>: the reliability of <strong>LLM-as-a-judge</strong> scoring and the reproducibility of <strong>LLM agents</strong>. I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
         </p>
         <p>
-          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>. I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across eight Elsevier AI journals. Earlier, I co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>, and interned at <strong>Apple</strong>.
+          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>, backed by <strong>Y Combinator</strong> (2026). I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across eight Elsevier AI journals. Earlier, I co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>, and interned at <strong>Apple</strong>.
         </p>
       </section>
 
@@ -1328,7 +1333,7 @@
           </div>
 
           <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
-            <img src="assets/img/arxiv_logo.jpg" alt="arXiv" />
+            <img src="assets/img/arxiv_logo.png" alt="arXiv" />
             <div class="news-card-content">
               <p>Released two sole-author preprints on LLM agent reproducibility and LLM-as-a-judge reliability.</p>
               <div class="date">Apr 2026</div>
