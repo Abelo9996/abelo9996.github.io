@@ -300,23 +300,49 @@
     }
 
     /* News Section */
+    .news-slider { position: relative; }
+
     .news-row {
       display: flex;
       overflow-x: auto;
       gap: 20px;
-      padding-bottom: 10px;
       min-width: 0;
       max-width: 100%;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    .news-row::-webkit-scrollbar {
-      height: 8px;
-    }
+    .news-row::-webkit-scrollbar { display: none; }
 
-    .news-row::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 4px;
+    .news-arrow {
+      position: absolute;
+      top: 80px;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 3px 12px var(--shadow);
+      transition: opacity 0.25s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
+    .news-arrow.prev { left: -6px; }
+    .news-arrow.next { right: -6px; }
+    .news-arrow:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .news-arrow:disabled { opacity: 0; pointer-events: none; }
 
     .news-card {
       flex: 0 0 300px;
@@ -986,6 +1012,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .hero::before { animation: none; }
+      .news-row { scroll-behavior: auto; }
     }
 
     /* Sidebar Education */
@@ -1067,6 +1094,12 @@
     .award-icon { transition: transform 0.25s ease, background 0.25s ease; }
     .award-card:hover .award-icon { transform: scale(1.08); }
     .social-icons a { transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+    .contact a { transition: color 0.2s ease; }
+    .contact a:hover { color: var(--primary-strong); }
+    .edu-more summary { transition: color 0.2s ease; }
+    .edu-more summary:hover { color: var(--primary-strong); text-decoration: underline; }
+    .pub-card h3, .experience-card h3, .software-card .repo { transition: color 0.2s ease; }
+    .pub-card:hover h3, .experience-card:hover h3, .software-card:hover .repo { color: var(--primary); }
 
     /* Responsive Design */
     @media (max-width: 1200px) {
@@ -1259,7 +1292,9 @@
       <!-- News Section -->
       <section class="section">
         <h2>News</h2>
-        <div class="news-row">
+        <div class="news-slider">
+          <button class="news-arrow prev" id="newsPrev" type="button" aria-label="Previous news" disabled><i class="fas fa-chevron-left"></i></button>
+          <div class="news-row" id="newsRow">
           <div class="news-card" onclick="window.open('https://github.com/truera/trulens/blob/main/MAINTAINERS.md', '_blank')">
             <img src="assets/img/trulens_logo.png" alt="TruLens" />
             <div class="news-card-content">
@@ -1293,7 +1328,7 @@
           </div>
 
           <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
-            <div class="news-icon"><i class="fas fa-file-lines"></i><span class="tag-label">Preprints</span></div>
+            <img src="assets/img/arxiv_logo.jpg" alt="arXiv" />
             <div class="news-card-content">
               <p>Released two sole-author preprints on LLM agent reproducibility and LLM-as-a-judge reliability.</p>
               <div class="date">Apr 2026</div>
@@ -1355,6 +1390,8 @@
               <div class="date">May - Aug 2021</div>
             </div>
           </div>
+          </div>
+          <button class="news-arrow next" id="newsNext" type="button" aria-label="More news"><i class="fas fa-chevron-right"></i></button>
         </div>
       </section>
 
@@ -1891,6 +1928,29 @@
         });
       }, { threshold: 0.5 });
       statNums.forEach(function (el) { statIO.observe(el); });
+    })();
+
+    // ---- News slider ----
+    (function () {
+      var row = document.getElementById('newsRow');
+      var prev = document.getElementById('newsPrev');
+      var next = document.getElementById('newsNext');
+      if (!row || !prev || !next) return;
+      function step() {
+        var card = row.querySelector('.news-card');
+        var w = card ? card.getBoundingClientRect().width : 300;
+        return w + 20;
+      }
+      prev.addEventListener('click', function () { row.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { row.scrollBy({ left: step(), behavior: 'smooth' }); });
+      function update() {
+        var max = row.scrollWidth - row.clientWidth;
+        prev.disabled = row.scrollLeft <= 2;
+        next.disabled = row.scrollLeft >= max - 2;
+      }
+      row.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
     })();
 
     // ---- Knowledge-graph background animation ----
