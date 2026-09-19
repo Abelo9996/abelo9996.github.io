@@ -414,7 +414,7 @@
       margin-bottom: 30px;
       padding: 20px;
       border: 1px solid var(--border);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.5s ease;
       cursor: pointer;
     }
 
@@ -1079,6 +1079,32 @@
       line-height: 1.55;
     }
 
+    /* Citation badge + cited-by */
+    .cite-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      margin-left: 8px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .cite-badge i { font-size: 10px; color: var(--primary); }
+
+    .cited-by {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .cited-by i { color: var(--primary); margin-right: 5px; }
+    .cited-by a { font-weight: 600; }
+
     /* Hover effects */
     .stat:hover {
       transform: translateY(-4px);
@@ -1325,14 +1351,6 @@
           </div>
 
           <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
-            <div class="news-icon"><i class="fas fa-quote-right"></i><span class="tag-label">Citations</span></div>
-            <div class="news-card-content">
-              <p>Work cited by research groups at Meta, Alibaba and Nanjing University, USTC, University of New Mexico, and KTH.</p>
-              <div class="date">Aug to Sep 2026</div>
-            </div>
-          </div>
-
-          <div class="news-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
             <img src="assets/img/arxiv_logo.png" alt="arXiv" />
             <div class="news-card-content">
               <p>Released two sole-author preprints on LLM agent reproducibility and LLM-as-a-judge reliability.</p>
@@ -1407,13 +1425,14 @@
         <div class="pub-card" onclick="window.open('https://arxiv.org/abs/2606.13685', '_blank')">
           <img src="assets/img/paper_coin_flip_judge.png" alt="The Coin Flip Judge: conceptual illustration of an unreliable coin-flip verdict on an unstable balance scale" />
           <div class="text">
-            <span class="pub-badge">GroundLM 2026 (EMNLP), Archival</span>
+            <span class="pub-badge">GroundLM 2026 (EMNLP), Archival</span><span class="cite-badge"><i class="fas fa-quote-right"></i> 3 citations</span>
             <h3>The Coin Flip Judge? Reliability and Bias in LLM-as-a-Judge Evaluation</h3>
             <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
-            <div class="award">arXiv:2606.13685, April 2026. Accepted as an Archival Long Paper at the GroundLM 2026 workshop at EMNLP 2026, Budapest (proceedings forthcoming). 3 citations.</div>
+            <div class="award">arXiv:2606.13685, April 2026. Accepted as an Archival Long Paper at the GroundLM 2026 workshop at EMNLP 2026, Budapest (proceedings forthcoming).</div>
             <div class="tldr">
               <strong>TLDR:</strong> Repeated identical LLM-as-a-judge evaluations across six judges from three providers show pairwise verdicts flip on 11 to 14 percent of re-runs, order bias persists across model generations, a single trial recovers only 86.6 percent of the consensus verdict, and about 11 trials are needed to stabilize a verdict; argues for multi-trial aggregation, order randomization, and uncertainty reporting as standard practice.
             </div>
+            <div class="cited-by"><i class="fas fa-quote-left"></i>Cited by <a href="https://arxiv.org/abs/2608.08775" target="_blank" rel="noopener" onclick="event.stopPropagation()">Meta Superintelligence Labs</a></div>
             <div class="links">
               <a href="https://arxiv.org/abs/2606.13685" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fas fa-external-link-alt"></i> arXiv abstract
@@ -1429,13 +1448,14 @@
         <div class="pub-card" onclick="window.open('https://arxiv.org/abs/2605.28840', '_blank')">
           <img src="assets/img/paper_agent_consistency.png" alt="LLM agent reproducibility: conceptual illustration of one task branching into two divergent tool-call pipelines" />
           <div class="text">
-            <span class="pub-badge preprint">Preprint</span>
+            <span class="pub-badge preprint">Preprint</span><span class="cite-badge"><i class="fas fa-quote-right"></i> 4 citations</span>
             <h3>How Consistent Are LLM Agents? Measuring Behavioral Reproducibility in Multi-Step Tool-Calling Pipelines</h3>
             <div class="authors"><strong>Abel Yagubyan</strong> (sole author)</div>
-            <div class="award">arXiv:2605.28840, April 2026. 4 citations.</div>
+            <div class="award">arXiv:2605.28840, April 2026.</div>
             <div class="tldr">
               <strong>TLDR:</strong> Measures whether an LLM agent given the same task twice takes the same actions across several models and providers, and documents that agents with large unconstrained action spaces vary run to run.
             </div>
+            <div class="cited-by"><i class="fas fa-quote-left"></i>Cited by <a href="https://arxiv.org/abs/2608.09290" target="_blank" rel="noopener" onclick="event.stopPropagation()">Alibaba</a></div>
             <div class="links">
               <a href="https://arxiv.org/abs/2605.28840" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fas fa-external-link-alt"></i> arXiv abstract
@@ -1450,10 +1470,10 @@
         <div class="pub-card" onclick="window.open('https://doi.org/10.1093/mnras/stac723', '_blank')">
           <img src="assets/img/lick_observatory.png" alt="Lick Observatory Supernova Search: illustration of the supernova photometry pipeline and light curves" />
           <div class="text">
-            <span class="pub-badge">MNRAS 2022</span>
+            <span class="pub-badge">MNRAS 2022</span><span class="cite-badge"><i class="fas fa-quote-right"></i> 19 citations</span>
             <h3>The Lick Observatory Supernova Search follow-up program: photometry data release of 70 SESNe</h3>
             <div class="authors">WeiKang Zheng, Benjamin E. Stahl, Alexei V. Filippenko, et al. (incl. <strong>Abel Yagubyan</strong>)</div>
-            <div class="award">Monthly Notices of the Royal Astronomical Society, vol. 512, pp. 3195-3214 (2022). 19 citations.</div>
+            <div class="award">Monthly Notices of the Royal Astronomical Society, vol. 512, pp. 3195-3214 (2022).</div>
             <div class="tldr">
               <strong>TLDR:</strong> Public BVRI and unfiltered light curves for 70 stripped-envelope supernovae observed 2003 to 2020, released through an automated photometry pipeline; the data yield host-galaxy extinction estimates and, for the first time, accurate rise-time measurements for a large SESN sample, with SNe Ic showing lower ejecta masses and velocities but higher nickel-56 masses than SNe Ib and IIb.
             </div>
@@ -1596,86 +1616,85 @@
       <section class="section">
         <h2>Software & Projects</h2>
         <div class="software-grid">
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">FibonAI<span class="tag">Production</span></div>
-            <div class="description">Premier legal AI-powered workspace transforming in-house legal operations with GPT-powered tools.</div>
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/Synthora', '_blank')">
+            <div class="repo">Synthora<span class="tag">Platform</span></div>
+            <div class="description">AI development platform that builds full web and mobile apps from natural language: frontend, backend, database, workflows, and deployment.</div>
             <div class="stats">
-              <span><i class="fas fa-star"></i> Private Repo</span>
-              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
-              <span><i class="fas fa-building"></i> 10+ Customers</span>
+              <span><i class="fas fa-circle" style="color: #3178c6;"></i> TypeScript</span>
+              <span><i class="fas fa-wand-magic-sparkles"></i> No-code</span>
             </div>
             <div class="links">
-              <a href="https://fibonai.co" target="_blank" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> Website
-              </a>
-            </div>
-          </div>
-
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">SCALPEL<span class="tag">Research</span></div>
-            <div class="description">DNN model compression achieving 80% size reduction and 3.5x speedup through hardware-aware pruning.</div>
-            <div class="stats">
-              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
-              <span><i class="fas fa-microchip"></i> CUDA</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+              <a href="https://github.com/Abelo9996/Synthora" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
           </div>
 
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">UPC++ Benchmarking Suite<span class="tag">Framework</span></div>
-            <div class="description">Automated performance regression testing for UPC++ with comparison to MPI and SHMEM.</div>
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/EasyVoiceClone', '_blank')">
+            <div class="repo">EasyVoiceClone<span class="tag">Open Source</span></div>
+            <div class="description">A minimal, open-source pipeline to clone any voice from just a few audio samples, built for creators and researchers experimenting with AI voice synthesis.</div>
             <div class="stats">
-              <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C++</span>
+              <span><i class="fas fa-circle" style="color: #f1e05a;"></i> JavaScript</span>
+              <span><i class="fas fa-microphone"></i> Voice AI</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/Abelo9996/EasyVoiceClone" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/TableSage', '_blank')">
+            <div class="repo">TableSage<span class="tag">AI</span></div>
+            <div class="description">Turns any CSV into an instant exploratory-data-analysis and lightweight-modeling workspace: cleaning suggestions, schema understanding, statistical insights, and sketch ML models with interpretable explanations.</div>
+            <div class="stats">
               <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-table"></i> Data + ML</span>
             </div>
             <div class="links">
-              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+              <a href="https://github.com/Abelo9996/TableSage" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
           </div>
 
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">PrairieLearn RISC-V Compiler<span class="tag">Tool</span></div>
-            <div class="description">Interactive RISC-V compiler for online education serving 3,000+ students. Published at SIGCSE '22.</div>
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/Prompt2Deck', '_blank')">
+            <div class="repo">Prompt2Deck<span class="tag">AI</span></div>
+            <div class="description">Generates presentation decks (PowerPoint, Google Slides, or PDF) from a topic or outline, combining LLM content expansion with automated visuals for presentation-ready slides.</div>
             <div class="stats">
               <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
-              <span><i class="fas fa-users"></i> 3,000+ Students</span>
+              <span><i class="fas fa-file-powerpoint"></i> Slide gen</span>
             </div>
             <div class="links">
-              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+              <a href="https://github.com/Abelo9996/Prompt2Deck" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
           </div>
 
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">CS61Classify<span class="tag">Educational</span></div>
-            <div class="description">Neural network implementation in RISC-V assembly for Computer Architecture education.</div>
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/ArxivScribe', '_blank')">
+            <div class="repo">ArxivScribe<span class="tag">Tool</span></div>
+            <div class="description">A Discord and Slack bot that monitors arXiv, extracts the most relevant new machine-learning papers, and posts clean, LLM-generated TLDR summaries every day.</div>
             <div class="stats">
-              <span><i class="fas fa-circle" style="color: #6e4c13;"></i> Assembly</span>
-              <span><i class="fas fa-graduation-cap"></i> Educational</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-robot"></i> arXiv bot</span>
             </div>
             <div class="links">
-              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+              <a href="https://github.com/Abelo9996/ArxivScribe" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
           </div>
 
-          <div class="software-card" onclick="window.open('https://google.com', '_blank')">
-            <div class="repo">numc<span class="tag">Educational</span></div>
-            <div class="description">NumPy-like library in C achieving 20x speedup using OpenMP, SIMD, and loop unrolling optimizations.</div>
+          <div class="software-card" onclick="window.open('https://github.com/Abelo9996/EHRJEPA', '_blank')">
+            <div class="repo">EHRJEPA<span class="tag">Research</span></div>
+            <div class="description">A JEPA-based self-supervised framework for learning predictive patient embeddings from structured electronic health record data.</div>
             <div class="stats">
-              <span><i class="fas fa-circle" style="color: #f34b7d;"></i> C</span>
-              <span><i class="fas fa-tachometer-alt"></i> 20x Faster</span>
+              <span><i class="fas fa-circle" style="color: #3572A5;"></i> Python</span>
+              <span><i class="fas fa-brain"></i> Self-supervised</span>
             </div>
             <div class="links">
-              <a href="https://github.com" target="_blank" onclick="event.stopPropagation()">
+              <a href="https://github.com/Abelo9996/EHRJEPA" target="_blank" rel="noopener" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
