@@ -37,7 +37,7 @@
   <link rel="canonical" href="https://abelo9996.github.io/" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="ML Engineer and Researcher with expertise in Deep Learning, Distributed Systems, and High-Performance Computing. Sole-author research on LLM-as-a-judge reliability and agent reproducibility." />
+  <meta name="description" content="Ph.D. student in Artificial Intelligence at the University of Georgia. Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 9 journals." />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
 
@@ -45,14 +45,14 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
-  <meta property="og:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 8 journals." />
+  <meta property="og:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 9 journals." />
   <meta property="og:url" content="https://abelo9996.github.io/" />
   <meta property="og:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Abel Yagubyan | AI Researcher & Technical Founder" />
-  <meta name="twitter:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 8 journals." />
+  <meta name="twitter:description" content="Sole-author research on LLM-as-a-judge reliability and agent reproducibility, open-source LLM evaluation contributions, and 193 peer reviews across 9 journals." />
   <meta name="twitter:image" content="https://abelo9996.github.io/assets/img/abel.jpeg" />
   
   <!-- Favicons -->
@@ -149,9 +149,9 @@
     /* Main Container */
     .container {
       display: flex;
-      max-width: 1400px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 40px 60px;
+      padding: 40px 40px;
       gap: 60px;
     }
 
@@ -159,8 +159,14 @@
     .sidebar {
       width: 280px;
       position: sticky;
-      top: 40px;
+      top: 32px;
       height: fit-content;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 8px 10px 8px 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
     }
 
     .sidebar > img {
@@ -242,7 +248,7 @@
     /* Main Content */
     .main {
       flex-grow: 1;
-      max-width: 900px;
+      max-width: 1100px;
       min-width: 0;
     }
 
@@ -893,11 +899,17 @@
     }
 
     /* Smooth theme transition on surfaces */
+    /* This is the authoritative transition list for cards: it covers theme changes,
+       hover (0.5s border, lift + shadow) and the scroll-reveal fade below. */
     .news-card, .pub-card, .experience-card, .software-card,
     .award-card, .education-card, .adoption, .stat, .sidebar img,
     .social-icons a, .cert-chip {
-      transition: background-color 0.35s ease, border-color 0.35s ease,
-                  color 0.35s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.6s ease, transform 0.4s ease,
+                  background-color 0.35s ease, border-color 0.5s ease,
+                  color 0.35s ease, box-shadow 0.4s ease;
+    }
+    .impact, .section > h2 {
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     /* Dark-mode toggle */
@@ -1001,18 +1013,16 @@
     }
 
     /* Scroll reveal (only active once JS adds .reveal-on to <html>) */
-    .reveal-on .impact, .reveal-on .news-card, .reveal-on .pub-card,
-    .reveal-on .experience-card, .reveal-on .software-card,
-    .reveal-on .award-card, .reveal-on .education-card,
-    .reveal-on .adoption, .reveal-on .section > h2 {
+    /* Hidden state only; the transition itself lives on each element's own rule so that
+       hover effects (border-color 0.5s, lift, shadow) keep working after reveal. */
+    .reveal-on .impact:not(.is-visible), .reveal-on .news-card:not(.is-visible),
+    .reveal-on .pub-card:not(.is-visible), .reveal-on .experience-card:not(.is-visible),
+    .reveal-on .software-card:not(.is-visible), .reveal-on .award-card:not(.is-visible),
+    .reveal-on .education-card:not(.is-visible), .reveal-on .adoption:not(.is-visible),
+    .reveal-on .section > h2:not(.is-visible) {
       opacity: 0;
       transform: translateY(26px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
       will-change: opacity, transform;
-    }
-    .reveal-on .is-visible {
-      opacity: 1 !important;
-      transform: none !important;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1056,7 +1066,7 @@
       padding: 5px;
       border: 1px solid var(--border);
     }
-    .edu-info { min-width: 0; }
+    .edu-info { min-width: 0; flex: 1; }
     .edu-school { font-size: 14px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
     .edu-degree { font-size: 12.5px; font-weight: 600; color: var(--primary); margin-top: 2px; line-height: 1.35; }
     .edu-meta { font-size: 11.5px; color: var(--text-light); margin-top: 3px; }
@@ -1072,11 +1082,24 @@
     .edu-more summary::-webkit-details-marker { display: none; }
     .edu-more summary::before { content: "\25B8  "; font-size: 9px; }
     .edu-more[open] summary::before { content: "\25BE  "; }
-    .edu-more p {
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--text-light);
-      line-height: 1.55;
+    .edu-more .course-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 8px 0 2px;
+      padding: 0;
+    }
+    .edu-more .course-list li {
+      font-size: 10.5px;
+      line-height: 1.3;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     /* Citation badge + cited-by */
@@ -1147,6 +1170,9 @@
         width: 100%;
         position: relative;
         top: 0;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1262,6 +1288,15 @@
         <h3 class="sidebar-heading">Education</h3>
 
         <div class="edu-item">
+          <img src="assets/img/uga_arch.svg" alt="University of Georgia" class="edu-logo" />
+          <div class="edu-info">
+            <div class="edu-school">University of Georgia</div>
+            <div class="edu-degree">Ph.D. in Artificial Intelligence</div>
+            <div class="edu-meta">Athens, GA &middot; 2026-present</div>
+          </div>
+        </div>
+
+        <div class="edu-item">
           <img src="assets/img/nu_logo.png" alt="Northwestern University" class="edu-logo" />
           <div class="edu-info">
             <div class="edu-school">Northwestern University</div>
@@ -1270,7 +1305,15 @@
             <div class="edu-note">Concentration in Deep Learning &amp; Distributed Systems</div>
             <details class="edu-more">
               <summary>Relevant coursework</summary>
-              <p>Deep Reinforcement Learning, Deep Learning, Deep Learning in NLP, Programming Massively Parallel Processors (CUDA), Advanced Networking, Kernel &amp; Low-level Software Development, Probability Theory &amp; Stochastic Analysis</p>
+              <ul class="course-list">
+                <li>Deep Reinforcement Learning</li>
+                <li>Deep Learning</li>
+                <li>Deep Learning in NLP</li>
+                <li>Programming Massively Parallel Processors (CUDA)</li>
+                <li>Advanced Networking</li>
+                <li>Kernel &amp; Low-level Software Development</li>
+                <li>Probability Theory &amp; Stochastic Analysis</li>
+              </ul>
             </details>
           </div>
         </div>
@@ -1283,7 +1326,15 @@
             <div class="edu-meta">Berkeley, CA &middot; 2018-2022</div>
             <details class="edu-more">
               <summary>Relevant coursework</summary>
-              <p>Data Structures and Algorithms, Machine Learning, Artificial Intelligence, Computer Vision, Parallel Computers, Database Systems, ML in Multimedia Data</p>
+              <ul class="course-list">
+                <li>Data Structures and Algorithms</li>
+                <li>Machine Learning</li>
+                <li>Artificial Intelligence</li>
+                <li>Computer Vision</li>
+                <li>Parallel Computers</li>
+                <li>Database Systems</li>
+                <li>ML in Multimedia Data</li>
+              </ul>
             </details>
           </div>
         </div>
@@ -1302,10 +1353,10 @@
       <!-- Introduction -->
       <section class="intro">
         <p>
-          Hello! I'm an <strong>AI researcher and founder</strong> working on <strong>trustworthy AI evaluation</strong>: the reliability of <strong>LLM-as-a-judge</strong> scoring and the reproducibility of <strong>LLM agents</strong>. I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
+          Hello! I'm an <strong>AI researcher and founder</strong> working on <strong>trustworthy AI evaluation</strong>: the reliability of <strong>LLM-as-a-judge</strong> scoring and the reproducibility of <strong>LLM agents</strong>. I'm a <strong>Ph.D. student in Artificial Intelligence at the University of Georgia</strong> (since August 2026), and I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
         </p>
         <p>
-          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>, backed by <strong>Y Combinator</strong> (2026). I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across eight Elsevier AI journals. Earlier, I co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley Skydeck), researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>, and interned at <strong>Apple</strong>.
+          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>. I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across nine Elsevier AI journals. Earlier, I co-founded <strong>Aivaro</strong>, an AI workflow-execution platform for small businesses that was accepted into <strong>Y Combinator</strong> (Spring 2026); spent two years as a <strong>Senior Data Scientist at C3.ai</strong>; co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley SkyDeck); researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>; and interned at <strong>Apple</strong>.
         </p>
       </section>
 
@@ -1313,9 +1364,9 @@
       <section class="impact" aria-label="Research impact at a glance">
         <div class="impact-grid">
           <div class="stat"><div class="stat-num" data-target="193">193</div><div class="stat-label">Peer Reviews</div></div>
+          <div class="stat"><div class="stat-num" data-target="4">4</div><div class="stat-label">Published Papers</div></div>
           <div class="stat"><div class="stat-num" data-target="26">26</div><div class="stat-label">Citations</div></div>
-          <div class="stat"><div class="stat-num" data-target="13">13</div><div class="stat-label">Merged PRs</div></div>
-          <div class="stat"><div class="stat-num" data-target="8">8</div><div class="stat-label">Journals</div></div>
+          <div class="stat"><div class="stat-num" data-target="9">9</div><div class="stat-label">Journals</div></div>
           <div class="stat"><div class="stat-num" data-target="5">5</div><div class="stat-label">Citing Groups</div></div>
         </div>
       </section>
@@ -1467,6 +1518,46 @@
           </div>
         </div>
 
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/lbnl_logo.jpg" alt="UPC++ Research" />
+          <div class="text">
+            <h3>UPC++ Performance Regression Testing & Benchmarking</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong>, Lawrence Berkeley National Laboratory</div>
+            <div class="award">Pagoda Project, Research Contribution</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Developed automated performance regression testing platform for UPC++, a C++ library for distributed-memory parallel computing. Implemented distributed hashing benchmarks and compared performance against MPI and SHMEM.
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-external-link-alt"></i> LBNL Pagoda
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      
+        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
+          <img src="assets/img/dnn.jpeg" alt="SCALPEL" />
+          <div class="text">
+            <h3>SCALPEL: Customized Deep Neural Network Compression</h3>
+            <div class="authors"><strong>Abel Yagubyan</strong></div>
+            <div class="award">Northwestern University, Research Project (Jan 2022 to June 2022)</div>
+            <div class="tldr">
+              <strong>TLDR:</strong> Developed Python-based DNN compression framework that reduced model sizes (AlexNet, LeNet-5) by up to 80% and achieved 3.5x speedup by customizing pruning techniques to target hardware parallelism (CPU, GPU, Microcontroller).
+            </div>
+            <div class="links">
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i> Report
+              </a>
+              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="pub-card" onclick="window.open('https://doi.org/10.1093/mnras/stac723', '_blank')">
           <img src="assets/img/lick_observatory.png" alt="Lick Observatory Supernova Search: illustration of the supernova photometry pipeline and light curves" />
           <div class="text">
@@ -1507,47 +1598,7 @@
             </div>
           </div>
         </div>
-
-        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
-          <img src="assets/img/dnn.jpeg" alt="SCALPEL" />
-          <div class="text">
-            <h3>SCALPEL: Customized Deep Neural Network Compression</h3>
-            <div class="authors"><strong>Abel Yagubyan</strong></div>
-            <div class="award">Northwestern University, Research Project (Jan 2022 to June 2022)</div>
-            <div class="tldr">
-              <strong>TLDR:</strong> Developed Python-based DNN compression framework that reduced model sizes (AlexNet, LeNet-5) by up to 80% and achieved 3.5x speedup by customizing pruning techniques to target hardware parallelism (CPU, GPU, Microcontroller).
-            </div>
-            <div class="links">
-              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
-                <i class="fas fa-file-pdf"></i> Report
-              </a>
-              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="pub-card" onclick="window.open('https://google.com', '_blank')">
-          <img src="assets/img/lbnl_logo.jpg" alt="UPC++ Research" />
-          <div class="text">
-            <h3>UPC++ Performance Regression Testing & Benchmarking</h3>
-            <div class="authors"><strong>Abel Yagubyan</strong>, Lawrence Berkeley National Laboratory</div>
-            <div class="award">Pagoda Project, Research Contribution</div>
-            <div class="tldr">
-              <strong>TLDR:</strong> Developed automated performance regression testing platform for UPC++, a C++ library for distributed-memory parallel computing. Implemented distributed hashing benchmarks and compared performance against MPI and SHMEM.
-            </div>
-            <div class="links">
-              <a href="https://google.com" target="_blank" onclick="event.stopPropagation()">
-                <i class="fas fa-external-link-alt"></i> LBNL Pagoda
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- Industry Experience -->
+<!-- Industry Experience -->
       <section class="section">
         <h2>Industry Experience</h2>
 
@@ -1782,7 +1833,7 @@
             <div class="award-icon"><i class="fas fa-clipboard-check"></i></div>
             <div class="award-body">
               <h3>Peer Reviewer</h3>
-              <div class="award-meta">193 reviews &middot; 8 journals &middot; Sep 2026</div>
+              <div class="award-meta">193 reviews &middot; 9 journals &middot; Sep 2026</div>
               <p>Verified peer reviews across Elsevier AI and computer-vision journals.</p>
               <div class="links">
                 <a href="https://orcid.org/0009-0004-8213-2863" target="_blank" rel="noopener">
@@ -1797,7 +1848,7 @@
             <div class="award-body">
               <h3>Y Combinator</h3>
               <div class="award-meta">March 2026</div>
-              <p>Accepted into Y Combinator, the startup accelerator.</p>
+              <p>Accepted into Y Combinator (Spring 2026) with Aivaro, an AI workflow-execution platform for small and medium-sized businesses.</p>
             </div>
           </div>
 
@@ -1831,7 +1882,7 @@
   <!-- Footer -->
   <footer class="footer">
     <p>© 2026 Abel Yagubyan. Built with passion for research and innovation.</p>
-    <p style="margin-top: 8px;">Last updated <time datetime="2026-09-17">September 17, 2026</time>.</p>
+    <p style="margin-top: 8px;">Last updated <time datetime="2026-09-19">September 19, 2026</time>.</p>
   </footer>
 
   <!-- Typed.js (local vendor copy) for the dynamic hero -->
@@ -1932,8 +1983,10 @@
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
+            var el = entry.target;
+            el.classList.add('is-visible');
+            io.unobserve(el);
+            setTimeout(function () { el.style.transitionDelay = ''; }, 900);
           }
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
