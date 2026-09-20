@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/al-jouhari-mark.png">
 <link rel="apple-touch-icon" href="images/al-jouhari-mark.png">
-<title>Al Jouhari Technical Services — Craftsmanship in Construction | Dubai, UAE</title>
+<title>Al Jouhari Technical Services | Craftsmanship in Construction | Dubai, UAE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,13 +20,13 @@
     --gold-soft:#C9AE7C;
     --line:#D8D2C4;
     --line-dark:rgba(255,255,255,.14);
-    --muted:#8C8578;
-    --muted-light:#B7B0A2;
+    --muted:#545047;
+    --muted-light:#847D70;
     --max:1280px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--bg);line-height:1.72;font-weight:400;font-size:16px;-webkit-font-smoothing:antialiased}
   h1,h2,h3,h4,.disp{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.08;letter-spacing:.005em}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -107,7 +107,7 @@
   .intro-copy .kicker{display:block;margin-bottom:22px}
   .intro-copy h2{font-size:clamp(32px,3.6vw,50px);font-weight:300;margin-bottom:28px}
   .intro-copy h2 em{font-style:italic;color:var(--gold)}
-  .intro-copy p{color:var(--muted);margin-bottom:20px;font-size:16.5px}
+  .intro-copy p{color:var(--muted);margin-bottom:20px;font-size:17.5px}
   .intro-copy .sig{margin-top:36px;font-family:'Cormorant Garamond';font-style:italic;font-size:24px;color:var(--ink)}
   .intro-copy .sig small{display:block;font-family:'Jost';font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
@@ -126,7 +126,7 @@
   .cap-intro .kicker{display:block;margin-bottom:22px}
   .cap-intro h2{font-size:clamp(34px,3.9vw,54px);font-weight:300;line-height:1.06}
   .cap-intro h2 em{font-style:italic;color:var(--gold)}
-  .cap-intro .lead{color:var(--muted);font-size:16.5px;margin-top:26px;max-width:430px}
+  .cap-intro .lead{color:var(--muted);font-size:17.5px;margin-top:26px;max-width:440px}
   .cap-assure{margin-top:40px;border-top:1px solid var(--line)}
   .cap-assure div{padding:15px 0;border-bottom:1px solid var(--line);font-family:'Jost';font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:14px}
   .cap-assure div::before{content:"";width:7px;height:7px;flex:none;background:var(--gold);transform:rotate(45deg)}
@@ -135,7 +135,7 @@
   .cap-row{display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:baseline;padding:21px 4px;border-top:1px solid var(--line);transition:padding .45s cubic-bezier(.2,.7,.2,1),background .45s ease}
   .cap-group h4+.cap-row{border-top:0}
   .cap-row .rn{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--ink);transition:color .4s ease}
-  .cap-row .rd{font-family:'Jost';font-size:13.5px;color:var(--muted);text-align:right;max-width:330px;line-height:1.55}
+  .cap-row .rd{font-family:'Jost';font-size:15px;color:var(--muted);text-align:right;max-width:340px;line-height:1.55}
   .cap-row:hover{padding-left:16px}
   .cap-row:hover .rn{color:var(--gold)}
   html[dir="rtl"] .cap-row{padding:21px 4px}
@@ -164,6 +164,18 @@
   .gallery figure.hide{display:none}
   .gallery figure.is-out{opacity:0;transform:scale(.94)}
   .gallery figure.is-in{opacity:0;transform:scale(.96) translateY(16px)}
+  .gallery video{width:100%;height:100%;object-fit:cover;display:block;background:#14130F}
+  .gallery figure.video{cursor:pointer}
+  .gallery figure.video figcaption{opacity:1;background:linear-gradient(transparent 55%,rgba(20,19,15,.8))}
+  .gallery .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(20,19,15,.5);border:1px solid rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none;transition:opacity .3s ease,background .4s ease,transform .4s ease}
+  .gallery .playbtn::after{content:"";margin-left:5px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
+  .gallery figure.video:hover .playbtn{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.06)}
+  .gallery figure.playing .playbtn{opacity:0}
+  .gallery figure.coming{background:var(--ink-2);display:flex;align-items:center;justify-content:center;border:1px solid var(--line-dark)}
+  .gallery figure.coming .coming-inner{text-align:center;padding:26px}
+  .gallery figure.coming .ct{display:block;font-family:'Jost';font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+  .gallery figure.coming .cn{display:block;font-family:'Cormorant Garamond';font-size:27px;margin-top:10px;color:#fff}
+  body.ar .gallery figure.coming .cn{font-family:'Amiri',serif}
 
   /* ---------- CLIENTS ---------- */
   .clients{background:var(--paper)}
@@ -194,30 +206,30 @@
   .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
   .contact-left h2{font-size:clamp(32px,4vw,52px);font-weight:300;margin-bottom:24px}
   .contact-left h2 em{font-style:italic;color:var(--gold)}
-  .contact-left>p{color:var(--muted);font-size:16.5px;margin-bottom:44px;max-width:400px}
+  .contact-left>p{color:var(--muted);font-size:17.5px;margin-bottom:44px;max-width:420px}
   .cinfo{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
   .cinfo:last-child{border-bottom:1px solid var(--line)}
   .cinfo .ic{width:24px;height:24px;flex:none;stroke:var(--gold);fill:none;stroke-width:1;margin-top:4px}
-  .cinfo .k{font-family:'Jost';font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-  .cinfo .v{font-family:'Cormorant Garamond';font-size:21px;color:var(--ink);overflow-wrap:anywhere}
+  .cinfo .k{font-family:'Jost';font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .cinfo .v{font-family:'Cormorant Garamond';font-size:25px;font-weight:500;color:var(--ink);overflow-wrap:anywhere;line-height:1.3}
   .cinfo .v a{transition:color .3s}
   .cinfo .v a:hover{color:var(--gold)}
   form{background:var(--paper);padding:50px;border:1px solid var(--line)}
   form .fld{margin-bottom:26px}
-  form label{display:block;font-family:'Jost';font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
-  form input,form textarea,form select{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:'Jost';font-weight:300;font-size:16px;color:var(--ink);transition:border-color .4s}
+  form label{display:block;font-family:'Jost';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+  form input,form textarea,form select{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:'Jost';font-weight:400;font-size:16.5px;color:var(--ink);transition:border-color .4s}
   form input:focus,form textarea:focus,form select:focus{outline:0;border-color:var(--gold)}
   form textarea{min-height:90px;resize:vertical}
   form .thin-btn{width:100%;justify-content:center;margin-top:8px}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--ink);color:rgba(255,255,255,.55);padding:90px 0 34px}
+  footer{background:var(--ink);color:rgba(255,255,255,.66);padding:90px 0 34px}
   .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line-dark)}
   footer .brand{margin-bottom:22px}
-  footer .fabout{font-size:14.5px;max-width:300px;line-height:1.8}
+  footer .fabout{font-size:15.5px;max-width:320px;line-height:1.8;color:rgba(255,255,255,.72)}
   footer h5{font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:400}
   footer ul{list-style:none;display:grid;gap:13px}
-  footer ul a{font-size:14.5px;transition:color .3s}
+  footer ul a{font-size:15px;transition:color .3s}
   footer ul a:hover{color:var(--gold-soft)}
   .foot-bottom{padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'Jost';font-size:11.5px;letter-spacing:.1em}
 
@@ -316,7 +328,7 @@
   <div class="wrap hero-inner">
     <span class="kicker" data-i18n="hero.kicker">Dubai · United Arab Emirates · Est. 1999</span>
     <h1 data-i18n="hero.title">Where structure<br>meets <em>craft.</em></h1>
-    <p data-i18n="hero.p">A quarter-century of technical and construction expertise — delivering concrete, steel, and finishing works of uncompromising quality across the Emirates.</p>
+    <p data-i18n="hero.p">A quarter-century of technical and construction expertise, delivering concrete, steel, and finishing works of uncompromising quality across the Emirates.</p>
     <div class="hero-actions">
       <a href="#portfolio" class="thin-btn on-dark" data-i18n="hero.view">View our portfolio</a>
       <a href="#contact" class="thin-btn solid" data-i18n="hero.start">Start a project</a>
@@ -337,7 +349,7 @@
       <span class="kicker" data-i18n="intro.kicker">The house of Al Jouhari</span>
       <h2 data-i18n="intro.h2">Dedicated craftsmen, <em>every trade</em> under one roof.</h2>
       <p data-i18n="intro.p1">At Al Jouhari Technical Services, we transform spaces with expertise spanning carpentry, flooring, and a diverse range of specialized construction work. From precise installations to bespoke designs, our commitment to quality craftsmanship and customer satisfaction defines every project we undertake.</p>
-      <p data-i18n="intro.p2">Whether intricate woodwork, durable concrete flooring, panel insulation, or precision interlock installation, each commission receives personal attention and an exceptional result — the kind that endures.</p>
+      <p data-i18n="intro.p2">Whether intricate woodwork, durable concrete flooring, panel insulation, or precision interlock installation, each commission receives personal attention and an exceptional result, the kind that endures.</p>
       <div class="sig" data-i18n="intro.sig">Rami Al Jouhari<small>Founder &amp; Managing Director</small></div>
     </div>
   </div>
@@ -359,7 +371,7 @@
     <div class="cap-intro reveal">
       <span class="kicker" data-i18n="svc.kicker">Our expertise</span>
       <h2 data-i18n="svc.h2">A complete discipline of <em>construction</em></h2>
-      <p class="lead" data-i18n="svc.lead">From the ground slab to the final ceiling detail, every trade sits under one roof and one point of accountability — no chasing subcontractors, no gaps between scopes. One team starts the site and hands it back finished.</p>
+      <p class="lead" data-i18n="svc.lead">From the ground slab to the final ceiling detail, every trade sits under one roof and one point of accountability. No chasing subcontractors, no gaps between scopes. One team starts the site and hands it back finished.</p>
       <div class="cap-assure">
         <div data-i18n="svc.a1">One accountable team</div>
         <div data-i18n="svc.a2">25 years on UAE sites</div>
@@ -402,30 +414,46 @@
       <p data-i18n="pf.p">Concrete, structural, and finishing works delivered for leading industrial and commercial clients across the Emirates.</p>
     </div>
     <div class="gallery-filters reveal">
-      <button class="gf active" data-cat="epoxy" data-i18n="f.epoxy">Epoxy Flooring</button>
-      <button class="gf" data-cat="concrete" data-i18n="f.concrete">Concrete</button>
-      <button class="gf" data-cat="curbstone" data-i18n="f.curbstone">Interlock &amp; Curbstone</button>
-      <button class="gf" data-cat="wall" data-i18n="f.wall">Boundary Walls</button>
+      <button class="gf active" data-cat="concrete" data-i18n="f.concrete">Concrete Flooring</button>
+      <button class="gf" data-cat="resin" data-i18n="f.resin">Resin &amp; Ucrete</button>
+      <button class="gf" data-cat="waterproof" data-i18n="f.waterproof">Waterproofing &amp; Foam</button>
+      <button class="gf" data-cat="machinery" data-i18n="f.machinery">Machinery Foundation</button>
+      <button class="gf" data-cat="shed" data-i18n="f.shed">Metal Sheds</button>
+      <button class="gf" data-cat="staircase" data-i18n="f.staircase">Staircase</button>
+      <button class="gf" data-cat="aluminium" data-i18n="f.aluminium">Aluminium &amp; Marble</button>
+      <button class="gf" data-cat="interlock" data-i18n="f.interlock">Interlock</button>
     </div>
     <div class="gallery">
-      <figure class="wide" data-cat="epoxy"><img src="images/work-13.jpg" alt="Epoxy resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c1">Seamless Resin Floor</span></figcaption></figure>
-      <figure class="tall" data-cat="wall"><img src="images/work-01.jpg" alt="Boundary wall"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c2">Palisade Perimeter</span></figcaption></figure>
-      <figure data-cat="curbstone"><img src="images/work-07.jpg" alt="Curbstone work"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c3">Precast Blockwork</span></figcaption></figure>
-      <figure data-cat="concrete"><img src="images/work-04.jpg" alt="Concrete slab"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c4">Poured Slab</span></figcaption></figure>
-      <figure data-cat="epoxy"><img src="images/work-18.jpg" alt="Finished resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c5">Industrial Handover</span></figcaption></figure>
-      <figure class="wide" data-cat="wall"><img src="images/work-06.jpg" alt="Perimeter wall and paving"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c6">Wall &amp; Interlock</span></figcaption></figure>
-      <figure data-cat="curbstone"><img src="images/work-08.jpg" alt="Curbstone casting"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c7">Casting Line</span></figcaption></figure>
-      <figure data-cat="concrete"><img src="images/work-05.jpg" alt="Slab finishing"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c8">Hand Finishing</span></figcaption></figure>
-      <figure class="tall" data-cat="epoxy"><img src="images/work-16.jpg" alt="Coved resin floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c9">Cold-Store Floor</span></figcaption></figure>
-      <figure data-cat="concrete"><img src="images/work-03.jpg" alt="Concrete slab with fixings"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c10">Cast-In Fixings</span></figcaption></figure>
-      <figure data-cat="curbstone"><img src="images/work-09.jpg" alt="Interlock preparation"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c11">Interlock Prep</span></figcaption></figure>
-      <figure data-cat="epoxy"><img src="images/work-14.jpg" alt="Glossy epoxy floor"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c12">High-Gloss Coat</span></figcaption></figure>
-      <figure data-cat="curbstone"><img src="images/work-12.jpg" alt="Blockwork laying"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c13">Blockwork Install</span></figcaption></figure>
-      <figure data-cat="wall"><img src="images/work-02.jpg" alt="Palisade fencing"><figcaption><span class="ct" data-i18n="f.wall">Boundary Walls</span><span class="cn" data-i18n="pf.c14">Palisade Fencing</span></figcaption></figure>
-      <figure data-cat="epoxy"><img src="images/work-17.jpg" alt="High gloss floor finish"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c15">Mirror Finish</span></figcaption></figure>
-      <figure data-cat="concrete"><img src="images/work-11.jpg" alt="Concrete surface"><figcaption><span class="ct" data-i18n="f.concrete">Concrete</span><span class="cn" data-i18n="pf.c16">Floor Fixings</span></figcaption></figure>
-      <figure data-cat="epoxy"><img src="images/work-15.jpg" alt="Resin floor coved edge"><figcaption><span class="ct" data-i18n="f.epoxy">Epoxy Flooring</span><span class="cn" data-i18n="pf.c17">Coved Detail</span></figcaption></figure>
-      <figure data-cat="curbstone"><img src="images/work-10.jpg" alt="Precast staging"><figcaption><span class="ct" data-i18n="cap.curb">Curbstone</span><span class="cn" data-i18n="pf.c18">Precast Staging</span></figcaption></figure>
+      <figure class="wide" data-cat="concrete"><img src="images/portfolio/concrete-1.jpg" alt="Power-floated concrete slab" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c1">Power-Floated Slab</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/portfolio/concrete-2.jpg" alt="Cured concrete floor" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c2">Cured Floor</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/portfolio/concrete-3.jpg" alt="Poured concrete bay" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c3">Poured Bay</span></figcaption></figure>
+      <figure class="tall" data-cat="concrete"><img src="images/portfolio/concrete-4.jpg" alt="Level concrete finish" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c4">Level Finish</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/portfolio/concrete-5.jpg" alt="Concrete slab detail" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c5">Slab Detail</span></figcaption></figure>
+      <figure data-cat="concrete"><img src="images/portfolio/concrete-6.jpg" alt="Concrete pour on site" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c6">Site Pour</span></figcaption></figure>
+      <figure class="wide video" data-cat="concrete"><video src="images/portfolio/concrete-slab.mp4" muted loop playsinline preload="metadata"></video><span class="playbtn"></span><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c7">Slab Pour · Video</span></figcaption></figure>
+      <figure data-cat="resin"><img src="images/portfolio/resin-1.jpg" alt="Ucrete industrial floor" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c8">Ucrete Floor</span></figcaption></figure>
+      <figure class="tall" data-cat="resin"><img src="images/portfolio/resin-2.jpg" alt="Seamless resin coat" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c9">Seamless Coat</span></figcaption></figure>
+      <figure data-cat="resin"><img src="images/portfolio/resin-3.jpg" alt="Ucrete floor bay" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c10">Ucrete Bay</span></figcaption></figure>
+      <figure data-cat="resin"><img src="images/portfolio/resin-4.jpg" alt="Flowcrete resin finish" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c11">Flowcrete Finish</span></figcaption></figure>
+      <figure class="wide" data-cat="resin"><img src="images/portfolio/resin-5.jpg" alt="Resin floor handover" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c12">Resin Handover</span></figcaption></figure>
+      <figure data-cat="resin"><img src="images/portfolio/resin-6.jpg" alt="Coved resin edge" loading="lazy"><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c13">Coved Edge</span></figcaption></figure>
+      <figure class="video" data-cat="resin"><video src="images/portfolio/resin.mp4" muted loop playsinline preload="metadata"></video><span class="playbtn"></span><figcaption><span class="ct" data-i18n="f.resin">Resin &amp; Ucrete</span><span class="cn" data-i18n="pf.c14">Resin Pour · Video</span></figcaption></figure>
+      <figure class="wide" data-cat="waterproof"><img src="images/portfolio/waterproof-1.jpg" alt="Waterproof membrane laid" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c15">Membrane Laid</span></figcaption></figure>
+      <figure data-cat="waterproof"><img src="images/portfolio/waterproof-2.jpg" alt="Waterproof coating" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c16">Waterproof Coat</span></figcaption></figure>
+      <figure class="tall" data-cat="waterproof"><img src="images/portfolio/waterproof-3.jpg" alt="Sealed roof deck" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c17">Sealed Deck</span></figcaption></figure>
+      <figure data-cat="waterproof"><img src="images/portfolio/waterproof-4.jpg" alt="Protective waterproof layer" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c18">Protective Layer</span></figcaption></figure>
+      <figure data-cat="waterproof"><img src="images/portfolio/foam-1.jpg" alt="Foam insulation" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c19">Foam Insulation</span></figcaption></figure>
+      <figure data-cat="waterproof"><img src="images/portfolio/foam-2.jpg" alt="Spray foam application" loading="lazy"><figcaption><span class="ct" data-i18n="f.waterproof">Waterproofing &amp; Foam</span><span class="cn" data-i18n="pf.c20">Spray Foam</span></figcaption></figure>
+      <figure class="wide" data-cat="machinery"><img src="images/portfolio/machinery-1.jpg" alt="Machine base foundation" loading="lazy"><figcaption><span class="ct" data-i18n="f.machinery">Machinery Foundation</span><span class="cn" data-i18n="pf.c21">Machine Base</span></figcaption></figure>
+      <figure data-cat="machinery"><img src="images/portfolio/machinery-2.jpg" alt="Anchored machine foundation" loading="lazy"><figcaption><span class="ct" data-i18n="f.machinery">Machinery Foundation</span><span class="cn" data-i18n="pf.c22">Anchored Foundation</span></figcaption></figure>
+      <figure data-cat="machinery"><img src="images/portfolio/machinery-3.jpg" alt="Cast concrete plinth" loading="lazy"><figcaption><span class="ct" data-i18n="f.machinery">Machinery Foundation</span><span class="cn" data-i18n="pf.c23">Cast Plinth</span></figcaption></figure>
+      <figure data-cat="machinery"><img src="images/portfolio/machinery-4.jpg" alt="Equipment pad" loading="lazy"><figcaption><span class="ct" data-i18n="f.machinery">Machinery Foundation</span><span class="cn" data-i18n="pf.c24">Equipment Pad</span></figcaption></figure>
+      <figure class="wide video" data-cat="shed"><video src="images/portfolio/shed-1.mp4" muted loop playsinline preload="metadata"></video><span class="playbtn"></span><figcaption><span class="ct" data-i18n="f.shed">Metal Sheds</span><span class="cn" data-i18n="pf.c25">Steel Shed · Video</span></figcaption></figure>
+      <figure class="video" data-cat="shed"><video src="images/portfolio/shed-2.mp4" muted loop playsinline preload="metadata"></video><span class="playbtn"></span><figcaption><span class="ct" data-i18n="f.shed">Metal Sheds</span><span class="cn" data-i18n="pf.c26">Shed Erection · Video</span></figcaption></figure>
+      <figure class="tall" data-cat="staircase"><img src="images/portfolio/staircase-1.jpg" alt="Cast concrete staircase" loading="lazy"><figcaption><span class="ct" data-i18n="f.staircase">Staircase</span><span class="cn" data-i18n="pf.c27">Cast Staircase</span></figcaption></figure>
+      <figure data-cat="staircase"><img src="images/portfolio/staircase-2.jpg" alt="Concrete stair" loading="lazy"><figcaption><span class="ct" data-i18n="f.staircase">Staircase</span><span class="cn" data-i18n="pf.c28">Concrete Stair</span></figcaption></figure>
+      <figure class="wide" data-cat="aluminium"><img src="images/portfolio/aluminium-1.jpg" alt="Aluminium and marble work" loading="lazy"><figcaption><span class="ct" data-i18n="f.aluminium">Aluminium &amp; Marble</span><span class="cn" data-i18n="pf.c29">Aluminium &amp; Marble</span></figcaption></figure>
+      <figure class="wide coming" data-cat="interlock"><div class="coming-inner"><span class="ct" data-i18n="f.interlock">Interlock</span><span class="cn" data-i18n="pf.soon">Photos coming soon</span></div></figure>
     </div>
   </div>
 </section>
@@ -487,12 +515,12 @@
       </div>
     </div>
     <form class="reveal" id="enquiry">
-      <div class="fld"><label data-i18n="fm.name">Full name</label><input required placeholder="Your name" data-i18n-ph="fm.name.ph"></div>
-      <div class="fld"><label data-i18n="fm.contact">Phone or email</label><input required placeholder="How we may reach you" data-i18n-ph="fm.contact.ph"></div>
+      <div class="fld"><label data-i18n="fm.name">Full name</label><input id="f-name" required placeholder="Your name" data-i18n-ph="fm.name.ph"></div>
+      <div class="fld"><label data-i18n="fm.contact">Phone or email</label><input id="f-contact" required placeholder="How we may reach you" data-i18n-ph="fm.contact.ph"></div>
       <div class="fld"><label data-i18n="fm.service">Service required</label>
-        <select><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Interlock &amp; curbstone</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
+        <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Interlock &amp; curbstone</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
       </div>
-      <div class="fld"><label data-i18n="fm.details">Project details</label><textarea placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
+      <div class="fld"><label data-i18n="fm.details">Project details</label><textarea id="f-details" placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
       <button type="submit" class="thin-btn" data-i18n="fm.submit">Send enquiry</button>
     </form>
   </div>
@@ -599,6 +627,7 @@
     filters.forEach(function(b){b.classList.remove('active');});
     btn.classList.add('active');
     curFilter = filters.indexOf(btn);
+    pauseVideos();
     var cat = btn.getAttribute('data-cat');
     var matches = function(fig){ return cat==='all' || fig.getAttribute('data-cat')===cat; };
 
@@ -607,10 +636,10 @@
       return;
     }
 
-    // Phase 1 — fade every visible item out together.
+    // Phase 1: fade every visible item out together.
     itemsG.forEach(function(fig){ if(!fig.classList.contains('hide')) fig.classList.add('is-out'); });
 
-    // Phase 2 — swap membership, then fade the matches in with a stagger.
+    // Phase 2: swap membership, then fade the matches in with a stagger.
     setTimeout(function(){
       var shown = [];
       itemsG.forEach(function(fig){
@@ -643,11 +672,27 @@
 
   function nextFilter(){
     if(hovering || !inView || document.hidden) return;
+    if(document.querySelector('.gallery figure.playing')) return; // don't interrupt a playing clip
     applyFilter(filters[(curFilter + 1) % filters.length]);
   }
   function startCycle(){ if(!cycleTimer && filters.length > 1) cycleTimer = setInterval(nextFilter, CYCLE_MS); }
   function stopCycle(){ if(cycleTimer){ clearInterval(cycleTimer); cycleTimer = null; } }
   function restartCycle(){ stopCycle(); startCycle(); }
+
+  // Video tiles: click to play/pause; only one plays at a time.
+  function pauseVideos(){
+    document.querySelectorAll('.gallery figure.video').forEach(function(f){
+      var v = f.querySelector('video'); if(v){ try{ v.pause(); }catch(e){} }
+      f.classList.remove('playing');
+    });
+  }
+  document.querySelectorAll('.gallery figure.video').forEach(function(f){
+    var v = f.querySelector('video'); if(!v) return;
+    f.addEventListener('click', function(){
+      if(v.paused){ pauseVideos(); f.classList.add('playing'); v.play().catch(function(){}); }
+      else { v.pause(); f.classList.remove('playing'); }
+    });
+  });
 
   // Establish the initial filtered state to match the active tab (no animation).
   (function initFilter(){
@@ -690,18 +735,18 @@
     'nav.about':'عن الشركة','nav.expertise':'خبراتنا','nav.portfolio':'أعمالنا','nav.clients':'عملاؤنا','nav.contact':'تواصل معنا','nav.cta':'اطلب استشارة',
     'hero.kicker':'دبي · الإمارات العربية المتحدة · تأسست عام ١٩٩٩',
     'hero.title':'حيث يلتقي البناء<br>بـ<em>الإتقان.</em>',
-    'hero.p':'ربع قرن من الخبرة الفنية والإنشائية — ننفّذ أعمال الخرسانة والحديد والتشطيبات بجودة لا تقبل المساومة في مختلف أنحاء الإمارات.',
+    'hero.p':'ربع قرن من الخبرة الفنية والإنشائية، ننفّذ أعمال الخرسانة والحديد والتشطيبات بجودة لا تقبل المساومة في مختلف أنحاء الإمارات.',
     'hero.view':'شاهد أعمالنا','hero.start':'ابدأ مشروعاً','hero.scroll':'اسحب للأسفل',
     'intro.badge':'سنوات من<br>الحرفية',
     'intro.kicker':'بيت الجوهري',
     'intro.h2':'حرفيّون متفانون، <em>كل التخصصات</em> تحت سقف واحد.',
     'intro.p1':'في الجوهري للخدمات الفنية، نُحوّل المساحات بخبرة تمتد من النجارة والأرضيات إلى نطاق واسع من الأعمال الإنشائية المتخصصة. من التركيبات الدقيقة إلى التصاميم المخصّصة، يحدّد التزامنا بجودة الحرفة ورضا العميل كل مشروع ننفّذه.',
-    'intro.p2':'سواء أكان عملاً خشبياً دقيقاً، أو أرضيات خرسانية متينة، أو عزل ألواح، أو تركيب إنترلوك بدقة — تنال كل مهمة عنايةً شخصية ونتيجةً استثنائية تدوم طويلاً.',
+    'intro.p2':'سواء أكان عملاً خشبياً دقيقاً، أو أرضيات خرسانية متينة، أو عزل ألواح، أو تركيب إنترلوك بدقة، تنال كل مهمة عنايةً شخصية ونتيجةً استثنائية تدوم طويلاً.',
     'intro.sig':'رامي الجوهري<small>المؤسس والمدير العام</small>',
     'fig.years':'سنوات من الخبرة','fig.trades':'تخصصاً متنوعاً','fig.projects':'مشروعاً منجزاً','fig.clients':'عميلاً دائماً',
     'svc.kicker':'خبراتنا',
     'svc.h2':'منظومة <em>إنشائية</em> متكاملة',
-    'svc.lead':'من البلاطة الأرضية إلى آخر تفصيل في السقف، تجتمع كل التخصصات تحت سقف واحد وجهة مسؤولة واحدة — دون مطاردة لمقاولين من الباطن ودون فجوات بين الأعمال. فريق واحد يبدأ الموقع ويسلّمه مكتملاً.',
+    'svc.lead':'من البلاطة الأرضية إلى آخر تفصيل في السقف، تجتمع كل التخصصات تحت سقف واحد وجهة مسؤولة واحدة. دون مطاردة لمقاولين من الباطن ودون فجوات بين الأعمال. فريق واحد يبدأ الموقع ويسلّمه مكتملاً.',
     'svc.a1':'فريق واحد مسؤول','svc.a2':'٢٥ عاماً في مواقع الإمارات','svc.a3':'من تجهيز الموقع إلى التسليم',
     'svc.grpA':'الأعمال الإنشائية والمدنية',
     'svc.n1':'هياكل حديدية وشدّات','svc.d1':'هياكل وتسليح وقوالب صبّ مطابقة للمواصفات.',
@@ -721,10 +766,13 @@
     'pf.kicker':'أعمال مختارة',
     'pf.h2':'<em>معرض</em> من الإتقان',
     'pf.p':'أعمال خرسانية وإنشائية وتشطيبات نُفّذت لعملاء صناعيين وتجاريين رائدين في مختلف أنحاء الإمارات.',
-    'f.epoxy':'أرضيات إيبوكسي','f.concrete':'خرسانة','f.curbstone':'إنترلوك وأرصفة','f.wall':'أسوار','cap.curb':'حجر أرصفة',
-    'pf.c1':'أرضية راتنجية سلسة','pf.c2':'سياج محيطي','pf.c3':'بلوك سابق الصب','pf.c4':'بلاطة مصبوبة','pf.c5':'تسليم صناعي','pf.c6':'جدار وإنترلوك',
-    'pf.c7':'خط صبّ','pf.c8':'تشطيب يدوي','pf.c9':'أرضية مخزن تبريد','pf.c10':'تثبيتات مدمجة','pf.c11':'تحضير إنترلوك','pf.c12':'طبقة عالية اللمعان',
-    'pf.c13':'تركيب بلوك','pf.c14':'سياج باليسايد','pf.c15':'تشطيب مرآتي','pf.c16':'تثبيتات أرضية','pf.c17':'تفصيل زاوية مقوّسة','pf.c18':'تجهيز سابق الصب',
+    'f.concrete':'أرضيات خرسانية','f.resin':'راتنج ويوكريت','f.waterproof':'عزل مائي ورغوة','f.machinery':'قواعد المعدات','f.shed':'هناجر معدنية','f.staircase':'أعمال الدرج','f.aluminium':'ألمنيوم ورخام','f.interlock':'إنترلوك','pf.soon':'الصور قريباً',
+    'pf.c1':'بلاطة ممكننة','pf.c2':'أرضية معالجة','pf.c3':'صبّة أرضية','pf.c4':'تشطيب مستوٍ','pf.c5':'تفصيل البلاطة','pf.c6':'صبّ بالموقع','pf.c7':'صبّ البلاطة · فيديو',
+    'pf.c8':'أرضية يوكريت','pf.c9':'طبقة سلسة','pf.c10':'منطقة يوكريت','pf.c11':'تشطيب فلوكريت','pf.c12':'تسليم راتنجي','pf.c13':'حافة مقوّسة','pf.c14':'صبّ الراتنج · فيديو',
+    'pf.c15':'غشاء عازل','pf.c16':'طبقة عازلة للماء','pf.c17':'سطح محكم','pf.c18':'طبقة حماية','pf.c19':'عزل رغوي','pf.c20':'رغوة رش',
+    'pf.c21':'قاعدة معدة','pf.c22':'أساس مثبّت','pf.c23':'قاعدة مصبوبة','pf.c24':'قاعدة تجهيزات',
+    'pf.c25':'هنجر معدني · فيديو','pf.c26':'تركيب الهنجر · فيديو',
+    'pf.c27':'درج مصبوب','pf.c28':'درج خرساني','pf.c29':'ألمنيوم ورخام',
     'cl.kicker':'في صحبة كريمة',
     'cl.h2':'موضع ثقة <em>نخبة</em> المنطقة',
     'cta.kicker':'لنبدأ الحديث',
@@ -743,8 +791,8 @@
     'ft.e1':'خرسانة وإيبوكسي','ft.e2':'حديد وهياكل','ft.e3':'تجهيز وتشطيب','ft.e4':'كهروميكانيك وسباكة',
     'foot.copy':'© ٢٠٢٦ الجوهري للخدمات الفنية ذ.م.م','foot.tag':'خرسانة · حديد · تشطيبات · كهروميكانيك'
   };
-  var TITLE = { en:'Al Jouhari Technical Services — Craftsmanship in Construction | Dubai, UAE', ar:'الجوهري للخدمات الفنية — حرفية في البناء | دبي، الإمارات' };
-  var ALERT = { en:'Thank you — we will be in touch shortly.', ar:'شكراً لك — سنتواصل معك قريباً.' };
+  var TITLE = { en:'Al Jouhari Technical Services | Craftsmanship in Construction | Dubai, UAE', ar:'الجوهري للخدمات الفنية | حرفية في البناء | دبي، الإمارات' };
+  var ALERT = { en:'Opening your email app with the enquiry ready to send.', ar:'يتم فتح تطبيق البريد لديك مع الطلب جاهزاً للإرسال.' };
 
   var htmlEl = document.documentElement;
   var origHTML = new Map(), origPH = new Map();
@@ -811,8 +859,29 @@
   if(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      form.reset();
-      alert(curLang === 'ar' ? ALERT.ar : ALERT.en);
+      var ar = (curLang === 'ar');
+      var val = function(id){ var el=document.getElementById(id); return el ? String(el.value||'').trim() : ''; };
+      var name = val('f-name'), contact = val('f-contact'), details = val('f-details');
+      var sel = document.getElementById('f-service');
+      var service = sel ? sel.options[sel.selectedIndex].text : '';
+      var L = ar
+        ? { subj:'طلب مشروع جديد', name:'الاسم', contact:'وسيلة التواصل', service:'الخدمة المطلوبة', details:'تفاصيل المشروع', none:'(غير محدد)' }
+        : { subj:'New project enquiry', name:'Name', contact:'Contact', service:'Service required', details:'Project details', none:'(not provided)' };
+      var body = [
+        L.name + ': ' + (name || L.none),
+        L.contact + ': ' + (contact || L.none),
+        L.service + ': ' + service,
+        '',
+        L.details + ':',
+        details || L.none
+      ].join('\n');
+      var subject = L.subj + (name ? ' | ' + name : '');
+      var href = 'mailto:info@aljouhari.ae'
+        + '?cc=' + encodeURIComponent('Rami_aljouhari@hotmail.com')
+        + '&subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+      window.location.href = href;   // opens the visitor's email app, prefilled
+      setTimeout(function(){ alert(ar ? ALERT.ar : ALERT.en); }, 250);
     });
   }
 })();
