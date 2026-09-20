@@ -159,14 +159,8 @@
     .sidebar {
       width: 280px;
       position: sticky;
-      top: 32px;
+      top: 32px; /* JS lowers this below zero when the sidebar is taller than the viewport */
       height: fit-content;
-      max-height: calc(100vh - 64px);
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 8px 10px 8px 0;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
     }
 
     .sidebar > img {
@@ -311,6 +305,9 @@
     .news-row {
       display: flex;
       overflow-x: auto;
+      overflow-y: hidden;
+      padding: 8px 4px 28px;
+      margin: -8px -4px -28px;
       gap: 20px;
       min-width: 0;
       max-width: 100%;
@@ -694,7 +691,7 @@
     .cert-rows {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
       gap: 0 28px;
       margin-top: 14px;
     }
@@ -1170,9 +1167,6 @@
         width: 100%;
         position: relative;
         top: 0;
-        max-height: none;
-        overflow: visible;
-        padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1204,13 +1198,44 @@
       }
 
       .impact-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 12px;
       }
 
       .stat-num {
         font-size: 34px;
       }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 20px 16px; }
+      .sidebar > img { width: 150px; height: 150px; }
+      .sidebar h1 { font-size: 26px; }
+      .sidebar { margin-bottom: 28px; }
+      .hero { padding: 36px 0; margin-bottom: 36px; }
+      .hero h1 { font-size: 36px; margin-bottom: 10px; }
+      .hero .tagline { font-size: 18px; }
+      .hero-typed { font-size: 15px; }
+      .intro { font-size: 15px; margin-bottom: 40px; }
+      .impact { margin-bottom: 44px; }
+      .impact-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 18px 10px; }
+      .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .stat-num { font-size: 30px; }
+      .section { margin-bottom: 50px; }
+      .section h2 { font-size: 23px; margin-bottom: 20px; }
+      .news-card { flex-basis: 260px; }
+      .news-arrow { width: 36px; height: 36px; font-size: 13px; }
+      .pub-card, .experience-card { padding: 16px; margin-bottom: 20px; }
+      .pub-card img, .experience-card img { height: 160px; }
+      .pub-card h3, .experience-card h3 { font-size: 17px; }
+      .software-card { padding: 16px; }
+      .awards-grid { gap: 14px; }
+      .award-card { padding: 16px; gap: 12px; }
+      .award-card.wide { flex-direction: column; }
+      .cert-rows { grid-template-columns: 1fr; }
+      .theme-toggle { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 16px; }
+      .footer { padding-left: 16px; padding-right: 16px; }
     }
   </style>
 
@@ -1356,7 +1381,7 @@
           Hello! I'm an <strong>AI researcher and founder</strong> working on <strong>trustworthy AI evaluation</strong>: the reliability of <strong>LLM-as-a-judge</strong> scoring and the reproducibility of <strong>LLM agents</strong>. I'm a <strong>Ph.D. student in Artificial Intelligence at the University of Georgia</strong> (since August 2026), and I hold an <strong>M.S. in Computer Science from Northwestern University (Summa Cum Laude)</strong> and dual <strong>B.A. degrees in Computer Science & Applied Mathematics from UC Berkeley</strong>.
         </p>
         <p>
-          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>. I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across nine Elsevier AI journals. Earlier, I co-founded <strong>Aivaro</strong>, an AI workflow-execution platform for small businesses that was accepted into <strong>Y Combinator</strong> (Spring 2026); spent two years as a <strong>Senior Data Scientist at C3.ai</strong>; co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley SkyDeck); researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>; and interned at <strong>Apple</strong>.
+          I'm currently building <a href="https://github.com/Abelo9996/LearnOS" target="_blank" rel="noopener"><strong>LearnOS</strong></a>, an open-source, agentic <strong>AI university</strong>. I contribute to open-source LLM evaluation as an <strong>Area Triager on Snowflake's TruLens</strong> and a contributor to the <strong>UK AI Security Institute's inspect_evals</strong>, and I've completed <strong>193 peer reviews</strong> across nine Elsevier AI journals. I was accepted into <strong>Y Combinator</strong>'s Spring 2026 batch. Earlier, I spent two years as a <strong>Senior Data Scientist at C3.ai</strong>; co-founded <a href="https://fibonai.co/" target="_blank" rel="noopener"><strong>FibonAI</strong></a> (UC Berkeley SkyDeck); researched UPC++ performance at <strong>Lawrence Berkeley National Laboratory</strong>; and interned at <strong>Apple</strong>.
         </p>
       </section>
 
@@ -1848,7 +1873,16 @@
             <div class="award-body">
               <h3>Y Combinator</h3>
               <div class="award-meta">March 2026</div>
-              <p>Accepted into Y Combinator (Spring 2026) with Aivaro, an AI workflow-execution platform for small and medium-sized businesses.</p>
+              <p>Accepted into Y Combinator's Spring 2026 batch.</p>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="award-body">
+              <h3>Summa Cum Laude</h3>
+              <div class="award-meta">Northwestern University &middot; June 2023</div>
+              <p>Graduated with Summa Cum Laude honors from the M.S. in Computer Science program.</p>
             </div>
           </div>
 
@@ -1942,6 +1976,25 @@
         document.documentElement.setAttribute('data-theme', next);
         try { localStorage.setItem('theme', next); } catch (e) {}
       });
+    })();
+
+    // ---- Sticky sidebar: when taller than the viewport, stick its bottom instead of its top ----
+    // Keeps every sidebar item reachable by scrolling the page, with no inner scrollbar.
+    (function () {
+      var sb = document.querySelector('.sidebar');
+      if (!sb) return;
+      var mq = window.matchMedia('(max-width: 1200px)');
+      var pad = 32;
+      function update() {
+        if (mq.matches) { sb.style.top = ''; return; }
+        var h = sb.offsetHeight, vh = window.innerHeight;
+        sb.style.top = (h + pad * 2 <= vh) ? pad + 'px' : (vh - h - pad) + 'px';
+      }
+      update();
+      window.addEventListener('resize', update);
+      window.addEventListener('load', update);
+      Array.prototype.forEach.call(sb.querySelectorAll('details'), function (d) { d.addEventListener('toggle', update); });
+      if ('ResizeObserver' in window) { new ResizeObserver(update).observe(sb); }
     })();
 
     // ---- Scroll reveal + stat count-up ----
