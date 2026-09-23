@@ -220,6 +220,9 @@
   form input:focus,form textarea:focus,form select:focus{outline:0;border-color:var(--gold)}
   form textarea{min-height:90px;resize:vertical}
   form .thin-btn{width:100%;justify-content:center;margin-top:8px}
+  .form-status{margin-top:16px;font-family:'Jost';font-size:14px;line-height:1.5}
+  .form-status.ok{color:#3f7a52}
+  .form-status.err{color:#b0473c}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink);color:rgba(255,255,255,.66);padding:90px 0 34px}
@@ -517,7 +520,9 @@
         <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Interlock &amp; curbstone</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
       </div>
       <div class="fld"><label data-i18n="fm.details">Project details</label><textarea id="f-details" placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <button type="submit" class="thin-btn" data-i18n="fm.submit">Send enquiry</button>
+      <p class="form-status" id="form-status" hidden></p>
     </form>
   </div>
 </section>
@@ -849,34 +854,52 @@
   try{ saved = localStorage.getItem('ajlang'); }catch(e){}
   if(saved === 'ar') setLang('ar');
 
-  /* ---------- CONTACT FORM ---------- */
+  /* ---------- CONTACT FORM (silent AJAX submit) ---------- */
+  // Formspree endpoint. Destination email is set in the Formspree dashboard,
+  // so it can be changed later without touching this code.
+  var FORM_ENDPOINT = 'https://formspree.io/f/xoevwkpy';
+  var SENT = {
+    en: "Thanks. Your enquiry has been sent; we'll be in touch shortly.",
+    ar: 'شكراً لك، تم إرسال طلبك وسنتواصل معك قريباً.'
+  };
+  var ERR = {
+    en: 'Something went wrong. Please email us directly at info@aljouhari.ae.',
+    ar: 'حدث خطأ. يرجى مراسلتنا مباشرة على info@aljouhari.ae.'
+  };
   var form = document.getElementById('enquiry');
+  var status = document.getElementById('form-status');
+  function showStatus(msg, ok){
+    if(!status) return;
+    status.textContent = msg;
+    status.className = 'form-status ' + (ok ? 'ok' : 'err');
+    status.hidden = false;
+  }
   if(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var ar = (curLang === 'ar');
+      if(form.querySelector('[name="_gotcha"]') && form.querySelector('[name="_gotcha"]').value) return; // honeypot
       var val = function(id){ var el=document.getElementById(id); return el ? String(el.value||'').trim() : ''; };
-      var name = val('f-name'), contact = val('f-contact'), details = val('f-details');
+      var name = val('f-name');
       var sel = document.getElementById('f-service');
-      var service = sel ? sel.options[sel.selectedIndex].text : '';
-      var L = ar
-        ? { subj:'طلب مشروع جديد', name:'الاسم', contact:'وسيلة التواصل', service:'الخدمة المطلوبة', details:'تفاصيل المشروع', none:'(غير محدد)' }
-        : { subj:'New project enquiry', name:'Name', contact:'Contact', service:'Service required', details:'Project details', none:'(not provided)' };
-      var body = [
-        L.name + ': ' + (name || L.none),
-        L.contact + ': ' + (contact || L.none),
-        L.service + ': ' + service,
-        '',
-        L.details + ':',
-        details || L.none
-      ].join('\n');
-      var subject = L.subj + (name ? ' | ' + name : '');
-      // TEST recipient — swap back to info@aljouhari.ae (cc Rami) once verified.
-      var href = 'mailto:abelyagubyan@gmail.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-      window.location.href = href;   // opens the visitor's email app, prefilled
-      setTimeout(function(){ alert(ar ? ALERT.ar : ALERT.en); }, 250);
+      var payload = {
+        name: name,
+        contact: val('f-contact'),
+        service: sel ? sel.options[sel.selectedIndex].text : '',
+        message: val('f-details'),
+        _subject: 'New project enquiry' + (name ? ' | ' + name : '')
+      };
+      var btn = form.querySelector('button[type="submit"]');
+      if(btn) btn.disabled = true;
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
+      .then(function(){ form.reset(); showStatus(ar ? SENT.ar : SENT.en, true); })
+      .catch(function(){ showStatus(ar ? ERR.ar : ERR.en, false); })
+      .then(function(){ if(btn) btn.disabled = false; });
     });
   }
 })();
