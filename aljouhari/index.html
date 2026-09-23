@@ -146,11 +146,10 @@
   .portfolio{background:var(--ink);color:#fff}
   .portfolio .sec-head h2{color:#fff}
   .portfolio .sec-head p{color:var(--muted-light)}
-  .gallery-filters{display:flex;flex-wrap:wrap;gap:0;justify-content:center;margin-bottom:60px;border:1px solid var(--line-dark);width:fit-content;margin-left:auto;margin-right:auto}
-  .gf{background:transparent;color:rgba(255,255,255,.6);border:0;border-right:1px solid var(--line-dark);padding:15px 30px;font-family:'Jost';font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:300;cursor:pointer;transition:all .4s ease}
-  .gf:last-child{border-right:0}
-  .gf:hover{color:#fff}
-  .gf.active{background:var(--gold);color:#fff}
+  .gallery-filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 56px;max-width:920px}
+  .gf{background:transparent;color:rgba(255,255,255,.62);border:1px solid var(--line-dark);padding:11px 20px;font-family:'Jost';font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:300;cursor:pointer;transition:color .4s ease,background .4s ease,border-color .4s ease;white-space:nowrap}
+  .gf:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+  .gf.active{background:var(--gold);color:#fff;border-color:var(--gold)}
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   .gallery figure{position:relative;overflow:hidden;aspect-ratio:4/3;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
   .gallery figure.tall,.gallery figure.wide{aspect-ratio:4/3}
@@ -208,7 +207,7 @@
   .cinfo .v{font-family:'Cormorant Garamond';font-size:25px;font-weight:500;color:var(--ink);overflow-wrap:anywhere;line-height:1.3}
   .cinfo .v a{transition:color .3s}
   .cinfo .v a:hover{color:var(--gold)}
-  form{background:var(--paper);padding:50px;border:1px solid var(--line)}
+  form{position:relative;background:var(--paper);padding:50px;border:1px solid var(--line)}
   form .fld{margin-bottom:26px}
   form label{display:block;font-family:'Jost';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
   form input,form textarea,form select{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:'Jost';font-weight:400;font-size:16.5px;color:var(--ink);transition:border-color .4s}
@@ -279,8 +278,12 @@
     .client:nth-child(4n){border-right:1px solid var(--line)}
     .client:nth-child(2n){border-right:0}
     .gallery{grid-template-columns:1fr}
+    .gallery-filters{margin-bottom:38px}
     .foot-top{grid-template-columns:1fr}
     .intro-figure .accent{display:none}
+    section.block{padding:74px 0}
+    .sec-head{margin-bottom:52px}
+    form{padding:28px}
   }
   /* Touch devices have no hover: reveal what hover would otherwise show. */
   @media(hover:none){
@@ -521,7 +524,7 @@
         <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Curbstone &amp; paving</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
       </div>
       <div class="fld"><label data-i18n="fm.details">Project details</label><textarea id="f-details" placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;opacity:0">
       <button type="submit" class="thin-btn" data-i18n="fm.submit">Send enquiry</button>
       <p class="form-status" id="form-status" hidden></p>
     </form>
