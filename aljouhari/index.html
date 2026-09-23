@@ -871,9 +871,9 @@
         details || L.none
       ].join('\n');
       var subject = L.subj + (name ? ' | ' + name : '');
-      var href = 'mailto:info@aljouhari.ae'
-        + '?cc=' + encodeURIComponent('Rami_aljouhari@hotmail.com')
-        + '&subject=' + encodeURIComponent(subject)
+      // TEST recipient — swap back to info@aljouhari.ae (cc Rami) once verified.
+      var href = 'mailto:abelyagubyan@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
       window.location.href = href;   // opens the visitor's email app, prefilled
       setTimeout(function(){ alert(ar ? ALERT.ar : ALERT.en); }, 250);
