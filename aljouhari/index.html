@@ -151,10 +151,9 @@
   .gf:last-child{border-right:0}
   .gf:hover{color:#fff}
   .gf.active{background:var(--gold);color:#fff}
-  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;grid-auto-flow:dense}
-  .gallery figure{position:relative;overflow:hidden;grid-column:span 4;aspect-ratio:4/3;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
-  .gallery figure.tall{grid-column:span 4;aspect-ratio:3/4}
-  .gallery figure.wide{grid-column:span 8;aspect-ratio:16/9}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gallery figure{position:relative;overflow:hidden;aspect-ratio:4/3;transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1)}
+  .gallery figure.tall,.gallery figure.wide{aspect-ratio:4/3}
   .gallery img{width:100%;height:100%;object-fit:cover;filter:brightness(.98);transition:filter 1s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
   .gallery figure:hover img{filter:brightness(1.04);transform:scale(1.06)}
   .gallery figcaption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:linear-gradient(transparent 40%,rgba(20,19,15,.82));opacity:0;transition:opacity .5s ease}
@@ -271,7 +270,7 @@
     .figures .wrap{grid-template-columns:repeat(2,1fr)}
     .fig{border-bottom:1px solid var(--line-dark)}
     .fig:nth-child(2){border-right:0}
-    .gallery figure,.gallery figure.tall,.gallery figure.wide{grid-column:span 6;aspect-ratio:1}
+    .gallery{grid-template-columns:repeat(2,1fr)}
     .foot-top{grid-template-columns:1fr 1fr}
     section.block{padding:100px 0}
     form{padding:34px}
@@ -281,7 +280,7 @@
     .clients-grid{grid-template-columns:repeat(2,1fr)}
     .client:nth-child(4n){border-right:1px solid var(--line)}
     .client:nth-child(2n){border-right:0}
-    .gallery figure,.gallery figure.tall,.gallery figure.wide{grid-column:span 12}
+    .gallery{grid-template-columns:1fr}
     .foot-top{grid-template-columns:1fr}
     .intro-figure .accent{display:none}
   }
