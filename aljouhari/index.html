@@ -170,11 +170,6 @@
   .gallery .playbtn::after{content:"";margin-left:5px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff}
   .gallery figure.video:hover .playbtn{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.06)}
   .gallery figure.playing .playbtn{opacity:0}
-  .gallery figure.coming{background:var(--ink-2);display:flex;align-items:center;justify-content:center;border:1px solid var(--line-dark)}
-  .gallery figure.coming .coming-inner{text-align:center;padding:26px}
-  .gallery figure.coming .ct{display:block;font-family:'Jost';font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
-  .gallery figure.coming .cn{display:block;font-family:'Cormorant Garamond';font-size:27px;margin-top:10px;color:#fff}
-  body.ar .gallery figure.coming .cn{font-family:'Amiri',serif}
 
   /* ---------- CLIENTS ---------- */
   .clients{background:var(--paper)}
@@ -351,7 +346,7 @@
       <span class="kicker" data-i18n="intro.kicker">The house of Al Jouhari</span>
       <h2 data-i18n="intro.h2">Dedicated craftsmen, <em>every trade</em> under one roof.</h2>
       <p data-i18n="intro.p1">At Al Jouhari Technical Services, we transform spaces with expertise spanning carpentry, flooring, and a diverse range of specialized construction work. From precise installations to bespoke designs, our commitment to quality craftsmanship and customer satisfaction defines every project we undertake.</p>
-      <p data-i18n="intro.p2">Whether intricate woodwork, durable concrete flooring, panel insulation, or precision interlock installation, each commission receives personal attention and an exceptional result, the kind that endures.</p>
+      <p data-i18n="intro.p2">Whether intricate woodwork, durable concrete flooring, panel insulation, or seamless resin flooring, each commission receives personal attention and an exceptional result, the kind that endures.</p>
       <div class="sig" data-i18n="intro.sig">Rami Al Jouhari<small>Founder &amp; Managing Director</small></div>
     </div>
   </div>
@@ -385,7 +380,7 @@
         <h4 data-i18n="svc.grpA">Flooring Systems</h4>
         <div class="cap-row"><span class="rn" data-i18n="svc.n1">Concrete Flooring</span><span class="rd" data-i18n="svc.d1">Slabs, screeds, and power-floated finishes.</span></div>
         <div class="cap-row"><span class="rn" data-i18n="svc.n2">Ucrete &amp; Resin Flooring</span><span class="rd" data-i18n="svc.d2">Industrial, cold-store, and coved detailing.</span></div>
-        <div class="cap-row"><span class="rn" data-i18n="svc.n3">Interlock &amp; Curbstone</span><span class="rd" data-i18n="svc.d3">Paving, kerbs, and durable hardscape.</span></div>
+        <div class="cap-row"><span class="rn" data-i18n="svc.n3">Curbstone &amp; Paving</span><span class="rd" data-i18n="svc.d3">Paving, kerbs, and durable hardscape.</span></div>
       </div>
       <div class="cap-group reveal">
         <h4 data-i18n="svc.grpB">Structure &amp; Civil Works</h4>
@@ -422,7 +417,6 @@
       <button class="gf" data-cat="shed" data-i18n="f.shed">Metal Sheds</button>
       <button class="gf" data-cat="staircase" data-i18n="f.staircase">Staircase</button>
       <button class="gf" data-cat="aluminium" data-i18n="f.aluminium">Aluminium &amp; Marble</button>
-      <button class="gf" data-cat="interlock" data-i18n="f.interlock">Interlock</button>
     </div>
     <div class="gallery">
       <figure class="wide" data-cat="concrete"><img src="images/portfolio/concrete-1.jpg" alt="Power-floated concrete slab" loading="lazy"><figcaption><span class="ct" data-i18n="f.concrete">Concrete Flooring</span><span class="cn" data-i18n="pf.c1">Power-Floated Slab</span></figcaption></figure>
@@ -452,7 +446,6 @@
       <figure class="tall" data-cat="staircase"><img src="images/portfolio/staircase-1.jpg" alt="Cast concrete staircase" loading="lazy"><figcaption><span class="ct" data-i18n="f.staircase">Staircase</span><span class="cn" data-i18n="pf.c27">Cast Staircase</span></figcaption></figure>
       <figure data-cat="staircase"><img src="images/portfolio/staircase-2.jpg" alt="Concrete stair" loading="lazy"><figcaption><span class="ct" data-i18n="f.staircase">Staircase</span><span class="cn" data-i18n="pf.c28">Concrete Stair</span></figcaption></figure>
       <figure class="wide" data-cat="aluminium"><img src="images/portfolio/aluminium-1.jpg" alt="Aluminium and marble work" loading="lazy"><figcaption><span class="ct" data-i18n="f.aluminium">Aluminium &amp; Marble</span><span class="cn" data-i18n="pf.c29">Aluminium &amp; Marble</span></figcaption></figure>
-      <figure class="wide coming" data-cat="interlock"><div class="coming-inner"><span class="ct" data-i18n="f.interlock">Interlock</span><span class="cn" data-i18n="pf.soon">Photos coming soon</span></div></figure>
     </div>
   </div>
 </section>
@@ -517,7 +510,7 @@
       <div class="fld"><label data-i18n="fm.name">Full name</label><input id="f-name" required placeholder="Your name" data-i18n-ph="fm.name.ph"></div>
       <div class="fld"><label data-i18n="fm.contact">Phone or email</label><input id="f-contact" required placeholder="How we may reach you" data-i18n-ph="fm.contact.ph"></div>
       <div class="fld"><label data-i18n="fm.service">Service required</label>
-        <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Interlock &amp; curbstone</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
+        <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Curbstone &amp; paving</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
       </div>
       <div class="fld"><label data-i18n="fm.details">Project details</label><textarea id="f-details" placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -742,7 +735,7 @@
     'intro.kicker':'بيت الجوهري',
     'intro.h2':'حرفيّون متفانون، <em>كل التخصصات</em> تحت سقف واحد.',
     'intro.p1':'في الجوهري للخدمات الفنية، نُحوّل المساحات بخبرة تمتد من النجارة والأرضيات إلى نطاق واسع من الأعمال الإنشائية المتخصصة. من التركيبات الدقيقة إلى التصاميم المخصّصة، يحدّد التزامنا بجودة الحرفة ورضا العميل كل مشروع ننفّذه.',
-    'intro.p2':'سواء أكان عملاً خشبياً دقيقاً، أو أرضيات خرسانية متينة، أو عزل ألواح، أو تركيب إنترلوك بدقة، تنال كل مهمة عنايةً شخصية ونتيجةً استثنائية تدوم طويلاً.',
+    'intro.p2':'سواء أكان عملاً خشبياً دقيقاً، أو أرضيات خرسانية متينة، أو عزل ألواح، أو أرضيات راتنجية سلسة، تنال كل مهمة عنايةً شخصية ونتيجةً استثنائية تدوم طويلاً.',
     'intro.sig':'رامي الجوهري<small>المؤسس والمدير العام</small>',
     'fig.years':'سنوات من الخبرة','fig.trades':'تخصصاً متنوعاً','fig.projects':'مشروعاً منجزاً','fig.clients':'عميلاً دائماً',
     'svc.kicker':'خبراتنا',
@@ -752,7 +745,7 @@
     'svc.grpA':'أنظمة الأرضيات',
     'svc.n1':'أرضيات خرسانية','svc.d1':'بلاطات ولياسة وتشطيبات ممكننة.',
     'svc.n2':'أرضيات يوكريت وراتنج','svc.d2':'صناعية ومخازن تبريد وتفاصيل زوايا مقوّسة.',
-    'svc.n3':'إنترلوك وحجر أرصفة','svc.d3':'رصف وحواف وأعمال خارجية متينة.',
+    'svc.n3':'أحجار الأرصفة والرصف','svc.d3':'رصف وحواف وأعمال خارجية متينة.',
     'svc.grpB':'الأعمال الإنشائية والمدنية',
     'svc.n4':'قواعد المعدات','svc.d4':'قواعد وأسس مثبّتة مطابقة للمواصفات.',
     'svc.n5':'الحديد والهناجر المعدنية','svc.d5':'تصنيع وتركيب الهياكل المعدنية.',
@@ -766,7 +759,7 @@
     'pf.kicker':'أعمال مختارة',
     'pf.h2':'<em>معرض</em> من الإتقان',
     'pf.p':'أعمال خرسانية وإنشائية وتشطيبات نُفّذت لعملاء صناعيين وتجاريين رائدين في مختلف أنحاء الإمارات.',
-    'f.concrete':'أرضيات خرسانية','f.resin':'راتنج ويوكريت','f.waterproof':'العزل المائي','f.machinery':'قواعد المعدات','f.shed':'هناجر معدنية','f.staircase':'أعمال الدرج','f.aluminium':'ألمنيوم ورخام','f.interlock':'إنترلوك','pf.soon':'الصور قريباً',
+    'f.concrete':'أرضيات خرسانية','f.resin':'راتنج ويوكريت','f.waterproof':'العزل المائي','f.machinery':'قواعد المعدات','f.shed':'هناجر معدنية','f.staircase':'أعمال الدرج','f.aluminium':'ألمنيوم ورخام',
     'pf.c1':'بلاطة ممكننة','pf.c2':'أرضية معالجة','pf.c3':'صبّة أرضية','pf.c4':'تشطيب مستوٍ','pf.c5':'تفصيل البلاطة','pf.c6':'صبّ بالموقع','pf.c7':'صبّ البلاطة · فيديو',
     'pf.c8':'أرضية يوكريت','pf.c9':'طبقة سلسة','pf.c10':'منطقة يوكريت','pf.c11':'تشطيب فلوكريت','pf.c12':'تسليم راتنجي','pf.c13':'حافة مقوّسة','pf.c14':'صبّ الراتنج · فيديو',
     'pf.c15':'غشاء عازل','pf.c16':'طبقة عازلة للماء','pf.c17':'سطح محكم','pf.c18':'طبقة حماية',
@@ -785,7 +778,7 @@
     'ct.email':'البريد الإلكتروني','ct.tel':'الهاتف','ct.loc':'الموقع','ct.locval':'دبي، الإمارات العربية المتحدة',
     'fm.name':'الاسم الكامل','fm.name.ph':'اسمك','fm.contact':'الهاتف أو البريد','fm.contact.ph':'كيف يمكننا الوصول إليك',
     'fm.service':'الخدمة المطلوبة','fm.details':'تفاصيل المشروع','fm.details.ph':'أخبرنا عن الموقع والنطاق','fm.submit':'أرسل الطلب',
-    'fm.o1':'أرضيات خرسانية','fm.o2':'أرضيات إيبوكسي وراتنج','fm.o3':'حديد وهياكل','fm.o4':'إنترلوك وأرصفة','fm.o5':'تجهيز وتشطيب','fm.o6':'سباكة وكهروميكانيك','fm.o7':'أخرى',
+    'fm.o1':'أرضيات خرسانية','fm.o2':'أرضيات إيبوكسي وراتنج','fm.o3':'حديد وهياكل','fm.o4':'أحجار الأرصفة والرصف','fm.o5':'تجهيز وتشطيب','fm.o6':'سباكة وكهروميكانيك','fm.o7':'أخرى',
     'ft.about':'خدمات فنية وإنشائية شاملة في مختلف أنحاء الإمارات العربية المتحدة. كل التخصصات، فريق واحد متفانٍ، ومعيار واحد للحرفية.',
     'ft.navigate':'تصفّح','ft.expertise':'الخبرات','ft.contact':'تواصل',
     'ft.e1':'خرسانة وإيبوكسي','ft.e2':'حديد وهياكل','ft.e3':'تجهيز وتشطيب','ft.e4':'كهروميكانيك وسباكة',
