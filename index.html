@@ -1402,6 +1402,22 @@
         <div class="news-slider">
           <button class="news-arrow prev" id="newsPrev" type="button" aria-label="Previous news" disabled><i class="fas fa-chevron-left"></i></button>
           <div class="news-row" id="newsRow">
+          <div class="news-card" onclick="window.open('https://github.com/truera/trulens/pull/2854', '_blank')">
+            <img src="assets/img/trulens_logo.png" alt="TruLens" />
+            <div class="news-card-content">
+              <p>TruLens 2.16.0 ships Jury.repeated, repeated-trial LLM-as-a-judge scoring built on the Coin Flip Judge paper; 30 of my PRs are now in TruLens releases.</p>
+              <div class="date">Oct 2026</div>
+            </div>
+          </div>
+
+          <div class="news-card" onclick="window.open('https://github.com/UKGovernmentBEIS/inspect_evals/blob/main/BEST_PRACTICES.md', '_blank')">
+            <img src="assets/img/aisi_logo.svg" alt="UK AI Security Institute" />
+            <div class="news-card-content">
+              <p>inspect_evals' BEST_PRACTICES.md cites two of my merged PRs as reference examples; credited in releases v0.22.0 and v0.25.0.</p>
+              <div class="date">Oct 2026</div>
+            </div>
+          </div>
+
           <div class="news-card" onclick="window.open('https://github.com/truera/trulens/blob/main/MAINTAINERS.md', '_blank')">
             <img src="assets/img/trulens_logo.png" alt="TruLens" />
             <div class="news-card-content">
@@ -1813,7 +1829,7 @@
             <div class="role">Area Triager</div>
             <div class="os-meta">Maintained by <strong>Snowflake</strong> &middot; <a href="https://github.com/truera/trulens" target="_blank" rel="noopener">github.com/truera/trulens</a> &middot; Area Triager since September 11, 2026</div>
             <div class="description">
-              Open-source LLM and agent evaluation and tracing library. <strong>13 merged pull requests</strong>: one observability feature (streaming tokens, time to first token, and throughput in the OpenTelemetry path) and twelve correctness fixes across the database and persistence layer, dashboard, evaluation API, IR metrics, OpenAI and Anthropic providers, instrumentation, leaderboard aggregation, and Python 3.10 compatibility. Listed in MAINTAINERS.md with scope over OpenTelemetry instrumentation, evaluation and database correctness, and shared core code. Feature proposal #2741 (repeated-trial self-consistency for LLM-as-a-judge metrics) is grounded in the Coin Flip Judge paper.
+              Open-source LLM and agent evaluation and tracing library. <strong>30 merged pull requests</strong> (August to October 2026), all shipped in public PyPI releases 2.14.0, 2.15.0 and 2.16.0, and 29 of them with tests. Built <code>Jury.repeated</code> with reliability metadata on every Jury result (#2854), repeated-trial LLM-as-a-judge scoring based on the Coin Flip Judge paper, listed under New features in the 2.16.0 release. The other merged work fixes OpenTelemetry and async instrumentation, the database and persistence layer, the evaluation API, batch evaluation, providers, and the dashboard. Filed 22 issues, each closed by one of these PRs, and posted 16 reviews of other contributors' PRs, including catches of a core-only install crash and of a failing certification check in the 2.16.0 release PR before it shipped. 12th of 124 contributors by commits to main. Listed in MAINTAINERS.md with scope over OpenTelemetry instrumentation, evaluation and database correctness, and shared core code.
             </div>
             <div class="links">
               <a href="https://github.com/truera/trulens/blob/main/MAINTAINERS.md" target="_blank" rel="noopener">
@@ -1821,6 +1837,12 @@
               </a>
               <a href="https://github.com/truera/trulens/pulls?q=is%3Apr+author%3AAbelo9996+is%3Amerged" target="_blank" rel="noopener">
                 <i class="fas fa-code-pull-request"></i> Merged PRs
+              </a>
+              <a href="https://github.com/truera/trulens/pull/2854" target="_blank" rel="noopener">
+                <i class="fas fa-code-merge"></i> Jury.repeated (#2854)
+              </a>
+              <a href="https://pypi.org/project/trulens/2.16.0/" target="_blank" rel="noopener">
+                <i class="fas fa-tag"></i> Release 2.16.0
               </a>
             </div>
           </div>
@@ -1833,11 +1855,17 @@
             <div class="role">Contributor</div>
             <div class="os-meta"><strong>UK AI Security Institute</strong> &middot; <a href="https://github.com/UKGovernmentBEIS/inspect_evals" target="_blank" rel="noopener">github.com/UKGovernmentBEIS/inspect_evals</a></div>
             <div class="description">
-              The UK AI Security Institute's evaluation suite for Inspect AI. Merged PR #2317 migrating the shared metric helpers (mean, standard deviation, and standard error) to the framework's aggregation API; credited in release v0.20.0 (September 2026).
+              The UK AI Security Institute's evaluation suite for Inspect AI. <strong>4 merged pull requests</strong>, credited by handle in releases v0.20.0, v0.22.0 and v0.25.0: moving the per-key metric helpers onto the framework's <code>aggregate()</code> (#2317), moving the unscored-sample signal to the first-class <code>Score.reason</code> field across 9 evals (#2459), and fixing makemesay's four rate metrics, which miscounted games whose repeated trials ended differently (#2547), plus a one-line README fix. The repo's BEST_PRACTICES.md cites #2547 and #2317 as reference examples, and maintainers named #2547 when building a shared test helper for epoch-reduced metrics (#2597, #2641).
             </div>
             <div class="links">
-              <a href="https://github.com/UKGovernmentBEIS/inspect_evals/releases/tag/v0.20.0" target="_blank" rel="noopener">
-                <i class="fas fa-tag"></i> Release notes v0.20.0
+              <a href="https://github.com/UKGovernmentBEIS/inspect_evals/pulls?q=is%3Apr+author%3AAbelo9996+is%3Amerged" target="_blank" rel="noopener">
+                <i class="fas fa-code-pull-request"></i> Merged PRs
+              </a>
+              <a href="https://github.com/UKGovernmentBEIS/inspect_evals/blob/main/BEST_PRACTICES.md" target="_blank" rel="noopener">
+                <i class="fas fa-file-lines"></i> BEST_PRACTICES.md
+              </a>
+              <a href="https://github.com/UKGovernmentBEIS/inspect_evals/releases/tag/v0.25.0" target="_blank" rel="noopener">
+                <i class="fas fa-tag"></i> Release notes v0.25.0
               </a>
             </div>
           </div>
