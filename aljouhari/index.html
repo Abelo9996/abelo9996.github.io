@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/al-jouhari-mark.png">
 <link rel="apple-touch-icon" href="images/al-jouhari-mark.png">
-<title>Al Jouhari Technical Services | Craftsmanship in Construction | Dubai, UAE</title>
+<title>Al Jouhari Technical Services | Construction, Pools &amp; Interiors | Dubai, UAE</title>
+<meta name="description" content="Al Jouhari Technical Services, Dubai: construction and finishing works across the UAE, plus residential collections of swimming pools, kitchens, wardrobes, doors and wall cladding.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -72,10 +73,19 @@
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;overflow:hidden;background:var(--ink)}
   .hero-media{position:absolute;inset:0;z-index:0}
-  .hero-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 12s ease-out forwards}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.8s ease}
+  .hero-media img.on{opacity:1;animation:kenburns 9s ease-out forwards}
+  .hero-media img.off{transform:scale(1)}
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,19,15,.86) 0%,rgba(20,19,15,.6) 42%,rgba(20,19,15,.25) 100%)}
   @keyframes kenburns{to{transform:scale(1)}}
-  .hero-inner{position:relative;z-index:2;color:#fff;max-width:760px;padding:120px 0 60px;margin-top:auto;margin-bottom:auto}
+  .hero-inner{position:relative;z-index:2;color:#fff;max-width:760px;padding:120px 0 120px;margin-top:auto;margin-bottom:auto}
+  .hero-slides{position:absolute;left:0;right:0;bottom:38px;z-index:3;display:flex;justify-content:flex-end;gap:26px}
+  .hs{background:none;border:0;padding:8px 0;cursor:pointer;color:rgba(255,255,255,.55);font-family:'Jost';font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transition:color .4s ease}
+  .hs:hover,.hs.on{color:#fff}
+  .hs-bar{display:block;width:74px;height:1px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
+  .hs-bar i{position:absolute;inset:0;width:0;background:var(--gold-soft)}
+  .hs.on .hs-bar i{animation:hsfill 6.5s linear forwards}
+  @keyframes hsfill{to{width:100%}}
   .hero .kicker{opacity:0;transform:translateY(24px);animation:rise 1s .3s cubic-bezier(.2,.7,.2,1) forwards}
   .hero h1{font-size:clamp(48px,7.5vw,104px);font-weight:300;margin:26px 0 0;letter-spacing:-.01em;opacity:0;transform:translateY(30px);animation:rise 1.1s .5s cubic-bezier(.2,.7,.2,1) forwards}
   .hero h1 em{font-style:italic;color:var(--gold-soft)}
@@ -224,7 +234,7 @@
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink);color:rgba(255,255,255,.66);padding:90px 0 34px}
-  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line-dark)}
+  .foot-top{display:grid;grid-template-columns:1.8fr 1fr 1.1fr 1fr 1.4fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line-dark)}
   footer .brand{margin-bottom:22px}
   footer .fabout{font-size:15.5px;max-width:320px;line-height:1.8;color:rgba(255,255,255,.72)}
   footer h5{font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:22px;font-weight:400}
@@ -232,6 +242,208 @@
   footer ul a{display:inline-block;padding:4px 0;font-size:15px;transition:color .3s}
   footer ul a:hover{color:var(--gold-soft)}
   .foot-bottom{padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'Jost';font-size:11.5px;letter-spacing:.1em}
+
+  /* ---------- COLLECTIONS: OVERVIEW ---------- */
+  .collections{background:var(--paper)}
+  .portals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .portal{position:relative;display:block;aspect-ratio:3/4.2;overflow:hidden;background:var(--ink);color:#fff;isolation:isolate}
+  .portal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);filter:brightness(.8);transition:transform 1.8s cubic-bezier(.2,.7,.2,1),filter 1s ease}
+  .portal::before{content:"";position:absolute;inset:16px;border:1px solid rgba(201,174,124,0);z-index:2;transition:border-color .8s ease,inset .8s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+  .portal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,15,.5) 0%,rgba(20,19,15,.05) 22%,rgba(20,19,15,.1) 34%,rgba(20,19,15,.9));z-index:1}
+  .viewer-cap .vn,.tl .n,.door .dn,.sc-info .code,.sc-count,.sc-tab sup{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+  .portal:hover img{transform:scale(1.09);filter:brightness(.95)}
+  .portal:hover::before{border-color:rgba(201,174,124,.6);inset:22px}
+  .portal .pn{position:absolute;top:34px;inset-inline-start:36px;z-index:3;font-family:'Cormorant Garamond';font-size:19px;letter-spacing:.24em;color:var(--gold-soft)}
+  .portal .pb{position:absolute;inset-inline:36px;bottom:40px;z-index:3}
+  .portal .pk{font-family:'Jost';font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft)}
+  .portal h3{font-size:clamp(30px,2.9vw,44px);font-weight:300;margin:12px 0 8px}
+  .portal .pm{font-size:14.5px;color:rgba(255,255,255,.7)}
+  .portal .go{display:flex;align-items:center;gap:14px;margin-top:24px;font-family:'Jost';font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+  .portal .go::before{content:"";width:34px;height:1px;background:var(--gold);transition:width .7s cubic-bezier(.2,.7,.2,1)}
+  .portal:hover .go::before{width:68px}
+
+  /* ---------- COLLECTIONS: CHAPTER COVERS ---------- */
+  .chapter{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--ink)}
+  .chapter-media{position:absolute;inset:0}
+  .chapter-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+  .chapter-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,19,15,.92) 0%,rgba(20,19,15,.5) 42%,rgba(20,19,15,.12) 100%)}
+  .chapter-inner{position:relative;z-index:2;width:100%;padding-top:160px;padding-bottom:96px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:70px;align-items:end}
+  .chapter .numeral{position:absolute;top:120px;inset-inline-end:40px;z-index:2;font-family:'Cormorant Garamond';font-weight:300;font-size:clamp(120px,15vw,230px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(201,174,124,.55);pointer-events:none}
+  .chapter .kicker{color:var(--gold-soft)}
+  .chapter h2{font-size:clamp(52px,7.6vw,118px);font-weight:300;margin-top:22px;letter-spacing:-.01em}
+  .chapter h2 em{font-style:italic;color:var(--gold-soft)}
+  .chapter .sub{font-family:'Jost';font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:22px}
+  .chapter .lead{font-size:17.5px;font-weight:300;color:rgba(255,255,255,.82);margin-bottom:34px}
+  .chapter .acts{display:flex;flex-wrap:wrap;gap:14px}
+  .pdf-note{display:block;font-family:'Jost';font-size:10px;letter-spacing:.2em;opacity:.6;margin-top:2px}
+  .fine{font-family:'Jost';font-size:12.5px;line-height:1.6;color:var(--muted-light);max-width:760px;margin-top:46px;padding-top:18px;border-top:1px solid var(--line)}
+  .on-ink .fine,.build .fine,.doors .fine{border-top-color:var(--line-dark);color:rgba(255,255,255,.5)}
+
+  /* ---------- POOLS: DESIGN RAIL ---------- */
+  .pool-designs{background:var(--paper)}
+  .rail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:54px}
+  .rail-head .kicker{display:block;margin-bottom:18px}
+  .rail-head h3{font-size:clamp(34px,4.2vw,56px);font-weight:300}
+  .rail-head h3 em{font-style:italic;color:var(--gold)}
+  .rail-head p{color:var(--muted);font-size:17px;margin-top:16px;max-width:520px}
+  .rail-ctrl{display:flex;gap:10px;flex:none}
+  .arrow{width:56px;height:56px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:transparent;color:var(--ink);cursor:pointer;transition:background .4s ease,color .4s ease,border-color .4s ease,opacity .4s ease}
+  .arrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1}
+  .arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .arrow:disabled{opacity:.28;pointer-events:none}
+  .arrow.light{border-color:rgba(255,255,255,.3);color:#fff}
+  .arrow.light:hover{background:var(--gold);border-color:var(--gold)}
+  html[dir="rtl"] .arrow svg{transform:scaleX(-1)}
+  .rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/2.5);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .rail::-webkit-scrollbar{display:none}
+  .card{scroll-snap-align:start;cursor:zoom-in;outline:0}
+  .card .ph{position:relative;overflow:hidden;aspect-ratio:3/2;background:var(--bg-2)}
+  .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .ph img,.card:focus-visible .ph img{transform:scale(1.06)}
+  .card:focus-visible .ph{outline:1px solid var(--gold);outline-offset:4px}
+  .tag{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:rgba(20,19,15,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-family:'Jost';font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;padding:7px 11px}
+  .card .ck{display:block;margin-top:24px;font-family:'Jost';font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+  .card h4{font-family:'Cormorant Garamond';font-size:29px;font-weight:400;margin:8px 0 8px;line-height:1.15}
+  .card p{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:380px}
+  .rail-progress{height:1px;background:var(--line);margin-top:46px;position:relative}
+  .rail-progress span{position:absolute;top:0;bottom:0;inset-inline-start:0;width:30%;background:var(--gold);transition:width .25s ease}
+
+  /* ---------- POOLS: BUILD SEQUENCE ---------- */
+  .build{background:var(--ink);color:#fff}
+  .build-head{display:flex;justify-content:space-between;align-items:flex-end;gap:50px;margin-bottom:44px}
+  .build-head .kicker{display:block;margin-bottom:18px}
+  .build-head h3{font-size:clamp(34px,4.2vw,56px);font-weight:300}
+  .build-head h3 em{font-style:italic;color:var(--gold-soft)}
+  .build-head p{color:var(--muted-light);font-size:17px;margin-top:16px;max-width:460px}
+  .build-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;max-width:560px}
+  .viewer{position:relative;aspect-ratio:3/1;overflow:hidden;background:#0d0c0a}
+  .viewer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .9s ease,transform 4s cubic-bezier(.2,.7,.2,1)}
+  .viewer img.on{opacity:1;transform:scale(1)}
+  .viewer.swap img{transition:opacity .35s ease}
+  .viewer.swap img.on{opacity:0}
+  .viewer::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,12,10,.78) 0%,rgba(13,12,10,0) 52%);pointer-events:none}
+  .viewer-cap{position:absolute;inset-inline-start:34px;bottom:28px;z-index:2;display:flex;align-items:flex-end;gap:22px}
+  .viewer-cap .vn{font-family:'Cormorant Garamond';font-weight:300;font-size:clamp(56px,6vw,92px);line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gold-soft)}
+  .viewer-cap .vt{font-family:'Cormorant Garamond';font-size:clamp(24px,2.4vw,34px);line-height:1.1}
+  .viewer-cap .vd{font-size:14.5px;color:rgba(255,255,255,.72);margin-top:4px;max-width:420px}
+  .timeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) auto;gap:0 18px;margin-top:26px;align-items:start}
+  .tl{background:none;border:0;padding:0;text-align:start;color:rgba(255,255,255,.45);cursor:pointer;font:inherit;transition:color .4s ease}
+  .tl:hover,.tl.on,.tl.done{color:#fff}
+  .tl .bar{display:block;height:1px;background:rgba(255,255,255,.2);position:relative;overflow:hidden;margin-bottom:16px}
+  .tl .bar i{position:absolute;inset:0;width:0;background:var(--gold-soft)}
+  .tl.done .bar i{width:100%}
+  .tl.on .bar i{animation:hsfill var(--dur,2.8s) linear forwards}
+  .build.paused .tl.on .bar i{animation:none;width:100%}
+  .tl .n{display:block;font-family:'Cormorant Garamond';font-size:19px;color:var(--gold-soft)}
+  .tl .l{display:block;font-family:'Jost';font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5;margin-top:4px}
+  .play{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .4s ease,border-color .4s ease}
+  .play:hover{background:var(--gold);border-color:var(--gold)}
+  .play svg{width:14px;height:14px;fill:currentColor}
+  .play .i-play{display:none}
+  .build.paused .play .i-play{display:block}
+  .build.paused .play .i-pause{display:none}
+  .evening{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.15fr) minmax(0,1fr);gap:22px;margin-top:130px;align-items:end}
+  .evening .kicker{display:block;margin-bottom:18px;color:var(--gold-soft)}
+  .evening h3{font-size:clamp(34px,4vw,54px);font-weight:300}
+  .evening h3 em{font-style:italic;color:var(--gold-soft)}
+  .evening .ev-copy p{color:var(--muted-light);font-size:16.5px;margin-top:18px}
+  .ev{cursor:zoom-in;outline:0}
+  .ev .ph{position:relative;overflow:hidden;aspect-ratio:4/3}
+  .ev:first-of-type .ph{aspect-ratio:4/4.4}
+  .ev .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+  .ev:hover .ph img{transform:scale(1.05)}
+  .ev h4{font-family:'Cormorant Garamond';font-size:24px;font-weight:400;margin-top:18px}
+  .ev p{font-size:14.5px;color:var(--muted-light);margin-top:4px;line-height:1.6}
+
+  /* ---------- INTERIORS: SHOWCASE ---------- */
+  .showcase{background:var(--bg)}
+  .sc-tabs{display:flex;gap:34px;border-bottom:1px solid var(--line);margin-bottom:56px;overflow-x:auto;scrollbar-width:none}
+  .sc-tabs::-webkit-scrollbar{display:none}
+  .sc-tab{background:none;border:0;padding:0 0 18px;font-family:'Jost';font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;position:relative;white-space:nowrap;transition:color .4s ease}
+  .sc-tab sup{font-size:9.5px;color:var(--gold);margin-inline-start:5px;letter-spacing:0}
+  .sc-tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .sc-tab:hover{color:var(--ink)}
+  .sc-tab.on{color:var(--ink)}
+  .sc-tab.on::after{transform:scaleX(1)}
+  .sc-stage{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(0,.58fr);gap:70px;align-items:center}
+  .sc-frame{position:relative;aspect-ratio:5/4;overflow:hidden;background:var(--ink);cursor:zoom-in}
+  .sc-layer{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+  .sc-layer.on{opacity:1}
+  .sc-layer .blur{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);max-width:none;object-fit:cover;filter:blur(34px) brightness(.5) saturate(1.1)}
+  .sc-layer .fg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .sc-frame .zoom{position:absolute;top:18px;inset-inline-end:18px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(20,19,15,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:.85;transition:background .4s ease}
+  .sc-frame:hover .zoom{background:var(--gold)}
+  .sc-frame .zoom svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.2}
+  .sc-info{transition:opacity .35s ease,transform .35s ease}
+  .sc-info.fade{opacity:0;transform:translateY(10px)}
+  .sc-info .code{font-family:'Cormorant Garamond';font-weight:300;font-size:76px;line-height:.9;color:var(--gold)}
+  .sc-info .cat{display:block;margin-top:18px}
+  .sc-info h3{font-size:clamp(34px,3.4vw,50px);font-weight:300;margin:10px 0 18px}
+  .sc-info p{color:var(--muted);font-size:17px}
+  .sc-details{list-style:none;margin:28px 0 34px;border-top:1px solid var(--line)}
+  .sc-details li{padding:13px 0;border-bottom:1px solid var(--line);font-family:'Jost';font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
+  .sc-details li::before{content:"";width:6px;height:6px;flex:none;background:var(--gold);transform:rotate(45deg)}
+  .sc-nav{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+  .sc-count{font-family:'Cormorant Garamond';font-size:22px;margin-inline-start:12px;color:var(--muted)}
+  .sc-count b{font-weight:400;color:var(--ink)}
+  .sc-thumbs{display:grid;grid-auto-flow:column;grid-auto-columns:112px;gap:12px;overflow-x:auto;margin-top:44px;padding:6px 4px 12px;scrollbar-width:thin;scrollbar-color:var(--gold-soft) transparent}
+  .sc-thumb{aspect-ratio:1;overflow:hidden;padding:0;border:0;background:var(--bg-2);cursor:pointer;opacity:.5;transition:opacity .4s ease,outline-color .4s ease;outline:1px solid transparent;outline-offset:3px}
+  .sc-thumb img{width:100%;height:100%;object-fit:cover}
+  .sc-thumb:hover{opacity:.85}
+  .sc-thumb.on{opacity:1;outline-color:var(--gold)}
+
+  /* ---------- DOORS ---------- */
+  .doors{background:var(--ink);color:#fff}
+  .doors-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:70px;align-items:end}
+  .doors-head .kicker{display:block;margin-bottom:20px;color:var(--gold-soft)}
+  .doors-head h2{font-size:clamp(48px,6.4vw,96px);font-weight:300}
+  .doors-head h2 em{font-style:italic;color:var(--gold-soft)}
+  .doors-head .sub{font-family:'Jost';font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:22px}
+  .doors-head .lead{font-size:17.5px;font-weight:300;color:rgba(255,255,255,.78);margin-bottom:30px}
+  .doors-head .acts{display:flex;flex-wrap:wrap;gap:14px}
+  .door-row{display:flex;gap:10px;height:min(80vh,740px);min-height:520px;margin-top:80px}
+  .door{position:relative;flex:1 1 0;min-width:0;overflow:hidden;cursor:pointer;background:#0d0c0a;transition:flex-grow 1s cubic-bezier(.2,.7,.2,1);outline:0}
+  .door.on{flex-grow:3.3}
+  .door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.85);transition:filter 1s ease,transform 2s cubic-bezier(.2,.7,.2,1)}
+  .door.on img{filter:brightness(.95) saturate(1)}
+  .door::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,12,10,.9) 0%,rgba(13,12,10,0) 48%,rgba(13,12,10,0) 80%,rgba(13,12,10,.55) 100%);pointer-events:none}
+  .door:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+  .door .dn{position:absolute;top:24px;inset-inline-start:26px;z-index:2;font-family:'Cormorant Garamond';font-weight:300;font-size:46px;line-height:1;color:var(--gold-soft)}
+  .door .dv{position:absolute;bottom:30px;inset-inline-start:calc(50% - 8px);z-index:2;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Jost';font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;white-space:nowrap;transition:opacity .4s ease}
+  .door.on .dv{opacity:0}
+  .door .di{position:absolute;inset-inline-start:32px;bottom:32px;z-index:2;width:300px;max-width:calc(100% - 64px);opacity:0;transform:translateY(18px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+  .door.on .di{opacity:1;transform:none;transition:opacity .7s .35s ease,transform .7s .35s cubic-bezier(.2,.7,.2,1)}
+  .door .di .k{font-family:'Jost';font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft)}
+  .door .di h4{font-size:38px;font-weight:300;margin:8px 0 14px}
+  .door .di ul{list-style:none}
+  .door .di li{font-size:14px;color:rgba(255,255,255,.82);display:flex;align-items:center;gap:12px;padding:5px 0}
+  .door .di li::before{content:"";width:5px;height:5px;flex:none;background:var(--gold);transform:rotate(45deg)}
+  .door-hint{margin-top:22px;font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+  .details{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:130px;align-items:end}
+  .details .kicker{display:block;margin-bottom:18px;color:var(--gold-soft)}
+  .details h3{font-size:clamp(34px,4vw,54px);font-weight:300}
+  .details h3 em{font-style:italic;color:var(--gold-soft)}
+  .details .dt-copy p{color:var(--muted-light);font-size:16.5px;margin-top:18px}
+  .details .ev .ph{aspect-ratio:4/5}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb{position:fixed;inset:0;z-index:300;background:rgba(14,13,10,.97);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease;color:#fff}
+  .lb.open{opacity:1;visibility:visible}
+  .lb-top{display:flex;justify-content:space-between;align-items:center;padding:20px 30px;font-family:'Jost';font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .lb-close{width:46px;height:46px;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .4s ease,border-color .4s ease}
+  .lb-close:hover{background:var(--gold);border-color:var(--gold)}
+  .lb-close svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.2}
+  .lb-stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;padding:0 100px}
+  .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;transition:opacity .3s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+  .lb-stage img.fade{opacity:0;transform:scale(.985)}
+  .lb .arrow{position:absolute;top:50%;margin-top:-28px;z-index:2}
+  .lb-prev{inset-inline-start:26px}
+  .lb-next{inset-inline-end:26px}
+  .lb-cap{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:24px 30px 30px}
+  .lb-cap .t{font-family:'Cormorant Garamond';font-size:30px;line-height:1.15}
+  .lb-cap .t b{font-weight:400;color:var(--gold-soft);margin-inline-end:12px}
+  .lb-cap .s{color:rgba(255,255,255,.6);font-size:14.5px;max-width:640px;margin-top:4px}
+  .lb-cap .thin-btn{flex:none}
 
   /* ---------- ARABIC / RTL ---------- */
   body.ar{font-family:'Tajawal',sans-serif}
@@ -246,22 +458,41 @@
   html[dir="rtl"] .intro-figure .yrs{left:auto;right:-40px}
   html[dir="rtl"] .svc::after{left:auto;right:0}
   html[dir="rtl"] nav ul a::after{left:auto;right:0}
+  body.ar .viewer-cap .vt,body.ar .lb-cap .t,body.ar .sc-count{font-family:'Amiri',serif}
+  body.ar .hs,body.ar .portal .pk,body.ar .portal .go,body.ar .chapter .sub,body.ar .doors-head .sub,body.ar .tag,body.ar .card .ck,body.ar .tl .l,body.ar .sc-tab,body.ar .sc-details li,body.ar .door .di .k,body.ar .door-hint,body.ar .lb-top,body.ar .pdf-note{letter-spacing:normal;text-transform:none}
+  body.ar .door .dv{display:none}
 
   /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1320px){
+    .nav-cta{display:none}
+  }
+  @media(max-width:1120px){
+    nav ul{display:none}
+    .burger{display:flex}
+    nav ul.open{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:min(74%,420px);background:#14130F;padding:110px 40px 40px;gap:8px;z-index:90}
+    html[dir="rtl"] nav ul.open{right:auto;left:0}
+    nav ul.open a{display:block;padding:10px 0;font-size:14px}
+  }
   @media(max-width:1024px){
     .intro-grid{gap:70px}
     .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .clients-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
     .client:nth-child(6n){border-inline-end:1px solid var(--line)}
     .client:nth-child(4n){border-inline-end:0}
+    .portals{gap:12px}
+    .portal .pb{inset-inline:26px;bottom:30px}
+    .portal .pn{inset-inline-start:26px;top:26px}
+    .rail{grid-auto-columns:calc((100% - 24px)/1.6)}
+    .chapter-inner{grid-template-columns:minmax(0,1fr);gap:30px}
+    .chapter .lead{max-width:560px}
+    .sc-stage{grid-template-columns:minmax(0,1fr);gap:44px}
+    .evening,.details{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .ev-copy,.dt-copy{grid-column:1/-1;max-width:620px;margin-bottom:12px}
+    .evening .ev:first-of-type .ph{aspect-ratio:4/3}
+    .doors-head{grid-template-columns:minmax(0,1fr);gap:34px}
   }
   @media(max-width:860px){
     .wrap{padding-left:24px;padding-right:24px}
-    nav ul,.nav-cta{display:none}
-    .burger{display:flex}
-    nav ul.open{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:74%;background:#14130F;padding:110px 40px 40px;gap:8px;z-index:90}
-    html[dir="rtl"] nav ul.open{right:auto;left:0}
-    nav ul.open a{display:block;padding:10px 0;font-size:14px}
     .cap-layout{grid-template-columns:minmax(0,1fr);gap:54px}
     .cap-intro{position:static}
     .cap-row{grid-template-columns:minmax(0,1fr);gap:6px}
@@ -278,6 +509,30 @@
     .foot-top{grid-template-columns:1fr 1fr}
     section.block{padding:100px 0}
     form{padding:34px}
+    .portals{grid-template-columns:minmax(0,1fr)}
+    .portal{aspect-ratio:4/3.3}
+    .chapter{min-height:86vh}
+    .chapter .numeral{top:100px;inset-inline-end:24px;font-size:110px}
+    .chapter-inner{padding-bottom:70px}
+    .rail-head,.build-head{flex-direction:column;align-items:flex-start;gap:28px}
+    .build-tabs{justify-content:flex-start}
+    .viewer{aspect-ratio:2/1}
+    .timeline{grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:22px 14px}
+    .timeline .play{grid-column:4;grid-row:1}
+    .door-row{overflow-x:auto;scroll-snap-type:x mandatory;height:auto;min-height:0;margin-top:56px;scrollbar-width:none}
+    .door-row::-webkit-scrollbar{display:none}
+    .door,.door.on{flex:0 0 72%;height:560px;scroll-snap-align:start}
+    .door .dv{display:none}
+    .door .di{opacity:1;transform:none}
+    .door img{filter:brightness(.88)}
+    .door-hint{display:none}
+    .evening,.details{margin-top:90px}
+    .lb-stage{padding:0 10px}
+    .lb .arrow{width:44px;height:44px;margin-top:-22px;background:rgba(20,19,15,.55);border-color:rgba(255,255,255,.25)}
+    .lb-prev{inset-inline-start:10px}
+    .lb-next{inset-inline-end:10px}
+    .lb-cap{flex-direction:column;align-items:flex-start;gap:16px;padding:18px 20px 24px}
+    .lb-top{padding:14px 20px}
   }
   @media(max-width:560px){
     .svc-grid{grid-template-columns:minmax(0,1fr)}
@@ -296,6 +551,23 @@
     section.block{padding:74px 0}
     .sec-head{margin-bottom:52px}
     form{padding:28px}
+    .hero-slides{justify-content:flex-start;bottom:26px;gap:14px}
+    .hs .hs-l{display:none}
+    .hs-bar{width:46px}
+    .portal{aspect-ratio:1/1.08}
+    .rail{grid-auto-columns:86%;gap:16px}
+    .rail-ctrl{display:none}
+    .viewer{aspect-ratio:16/10}
+    .viewer-cap{inset-inline-start:18px;bottom:16px;gap:14px}
+    .viewer-cap .vd{display:none}
+    .timeline .l{font-size:10px;letter-spacing:.08em}
+    .sc-info .code{font-size:58px}
+    .sc-tabs{gap:24px;margin-bottom:36px}
+    .sc-thumbs{grid-auto-columns:82px}
+    .door,.door.on{flex-basis:84%;height:500px}
+    .evening,.details{grid-template-columns:minmax(0,1fr);gap:34px}
+    .details{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+    .lb-cap .t{font-size:24px}
   }
   @media(max-width:560px),(max-height:860px){
     .scroll-hint{display:none}
@@ -331,6 +603,7 @@
     <nav>
       <ul>
         <li><a href="#intro" data-i18n="nav.about">About</a></li>
+        <li><a href="#collections" data-i18n="nav.collections">Collections</a></li>
         <li><a href="#services" data-i18n="nav.expertise">Expertise</a></li>
         <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
         <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
@@ -347,15 +620,24 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-media"><img src="images/work-06.jpg" alt="Al Jouhari precast boundary wall"></div>
+  <div class="hero-media">
+    <img class="on" src="images/collections/pools/garden.jpg" alt="Contemporary garden pool concept">
+    <img src="images/collections/interiors/w06-dressing-gallery.jpg" alt="Dressing gallery with illuminated glass-front wardrobes" loading="lazy">
+    <img src="images/work-06.jpg" alt="Al Jouhari precast boundary wall" loading="lazy">
+  </div>
   <div class="wrap hero-inner">
     <span class="kicker" data-i18n="hero.kicker">Dubai · United Arab Emirates · Est. 1999</span>
     <h1 data-i18n="hero.title">Where structure<br>meets <em>craft.</em></h1>
-    <p data-i18n="hero.p">A quarter-century of technical and construction expertise, delivering concrete, steel, and finishing works of uncompromising quality across the Emirates.</p>
+    <p data-i18n="hero.p">A quarter-century of technical and construction expertise across the Emirates, from industrial floors and steel structures to private pools, bespoke kitchens and dressing rooms.</p>
     <div class="hero-actions">
-      <a href="#portfolio" class="thin-btn on-dark" data-i18n="hero.view">View our portfolio</a>
+      <a href="#collections" class="thin-btn on-dark" data-i18n="hero.view">Explore the collections</a>
       <a href="#contact" class="thin-btn solid" data-i18n="hero.start">Start a project</a>
     </div>
+  </div>
+  <div class="wrap hero-slides" role="tablist" aria-label="Featured">
+    <button class="hs on" type="button" aria-label="Pools"><span class="hs-l" data-i18n="hero.s1">Pools</span><span class="hs-bar"><i></i></span></button>
+    <button class="hs" type="button" aria-label="Interiors"><span class="hs-l" data-i18n="hero.s2">Interiors</span><span class="hs-bar"><i></i></span></button>
+    <button class="hs" type="button" aria-label="Construction"><span class="hs-l" data-i18n="hero.s3">Construction</span><span class="hs-bar"><i></i></span></button>
   </div>
   <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span><span class="ln"></span></div>
 </section>
@@ -385,6 +667,314 @@
     <div class="fig"><div class="n" data-count="15" data-suffix="+">15+</div><div class="l" data-i18n="fig.trades">Specialized trades</div></div>
     <div class="fig"><div class="n" data-count="120" data-suffix="+">120+</div><div class="l" data-i18n="fig.projects">Projects delivered</div></div>
     <div class="fig"><div class="n" data-count="12" data-suffix="+">12+</div><div class="l" data-i18n="fig.clients">Enduring clients</div></div>
+  </div>
+</section>
+
+<!-- COLLECTIONS: OVERVIEW -->
+<section class="block collections" id="collections">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="co.kicker">The residential collections</span>
+      <h2 data-i18n="co.h2">Living, <em>refined.</em></h2>
+      <div class="rule"></div>
+      <p data-i18n="co.p">The same hands that pour industrial floors also craft the spaces people come home to: private pools, bespoke kitchens and dressing rooms, and entrance doors with matching cladding.</p>
+    </div>
+    <div class="portals">
+      <a class="portal reveal" href="#pools" style="transition-delay:0.00s">
+        <img src="images/collections/pools/freeform-sm.jpg" srcset="images/collections/pools/freeform-sm.jpg 820w, images/collections/pools/freeform.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Freeform swimming pool concept" loading="lazy">
+        <span class="pn">I</span>
+        <span class="pb">
+          <span class="pk" data-i18n="co.n1">Design &amp; Construction</span>
+          <h3 data-i18n="co.k1">Swimming Pools</h3>
+          <span class="pm" data-i18n="co.m1">9 designs · 6 build sequences</span>
+          <span class="go" data-i18n="co.go">Discover</span>
+        </span>
+      </a>
+      <a class="portal reveal" href="#interiors" style="transition-delay:0.12s">
+        <img src="images/collections/interiors/k04-warm-wood-sm.jpg" srcset="images/collections/interiors/k04-warm-wood-sm.jpg 820w, images/collections/interiors/k04-warm-wood.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Wood-look kitchen with a peninsula" loading="lazy">
+        <span class="pn">II</span>
+        <span class="pb">
+          <span class="pk" data-i18n="co.n2">Kitchens &amp; dressing rooms</span>
+          <h3 data-i18n="co.k2">Kitchens &amp; Wardrobes</h3>
+          <span class="pm" data-i18n="co.m2">17 designs</span>
+          <span class="go" data-i18n="co.go">Discover</span>
+        </span>
+      </a>
+      <a class="portal reveal" href="#doors" style="transition-delay:0.24s">
+        <img src="images/collections/doors/d03-vertical-rhythm-sm.jpg" srcset="images/collections/doors/d03-vertical-rhythm-sm.jpg 820w, images/collections/doors/d03-vertical-rhythm.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Wood-clad entrance door" loading="lazy">
+        <span class="pn">III</span>
+        <span class="pb">
+          <span class="pk" data-i18n="co.n3">Texture, form, character</span>
+          <h3 data-i18n="co.k3">Doors &amp; Cladding</h3>
+          <span class="pm" data-i18n="co.m3">5 design directions</span>
+          <span class="go" data-i18n="co.go">Discover</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION I: POOLS -->
+<section class="chapter" id="pools">
+  <div class="chapter-media"><img src="images/collections/pools/oval.jpg" alt="Oval pool concept with stepped entry" loading="lazy"></div>
+  <span class="numeral" aria-hidden="true">I</span>
+  <div class="wrap chapter-inner">
+    <div class="reveal">
+      <span class="kicker" data-i18n="po.kicker">Collection I</span>
+      <h2 data-i18n="po.h2">Swimming <em>Pools</em></h2>
+      <div class="sub" data-i18n="po.sub">Design &amp; Construction</div>
+    </div>
+    <div class="reveal">
+      <p class="lead" data-i18n="po.lead">Contemporary pool concepts, integrated children's areas and the full build sequence, from the first cut of the ground to the first swim.</p>
+      <div class="acts">
+        <a href="#contact" class="thin-btn solid" data-enquire="pools" data-i18n="po.enq">Discuss your pool</a>
+        <a href="catalogues/al-jouhari-swimming-pools.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 14 MB</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block pool-designs">
+  <div class="wrap">
+    <div class="rail-head reveal">
+      <div>
+        <span class="kicker" data-i18n="pd.kicker">The designs</span>
+        <h3 data-i18n="pd.h3">A shape for every <em>garden.</em></h3>
+        <p data-i18n="pd.p">From compact courtyards to family pools with a shallow children's area. Select any design to view it full screen.</p>
+      </div>
+      <div class="rail-ctrl">
+        <button class="arrow" type="button" data-rail-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="arrow" type="button" data-rail-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="rail reveal" id="poolRail">
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/courtyard.jpg" data-lb-t="pl.n1" data-lb-s="pl.d1" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/courtyard-sm.jpg" srcset="images/collections/pools/courtyard-sm.jpg 820w, images/collections/pools/courtyard.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Compact courtyard pool concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k1">Design inspiration · 01</span>
+        <h4 data-i18n="pl.n1">Compact courtyard pool</h4>
+        <p data-i18n="pl.d1">A compact square pool with broad entry steps and a natural stone setting.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/garden.jpg" data-lb-t="pl.n2" data-lb-s="pl.d2" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/garden-sm.jpg" srcset="images/collections/pools/garden-sm.jpg 820w, images/collections/pools/garden.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Contemporary garden pool concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k2">Design inspiration · 02</span>
+        <h4 data-i18n="pl.n2">Contemporary garden pool</h4>
+        <p data-i18n="pl.d2">An elongated pool framed by pale paving and soft garden planting.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-side.jpg" data-lb-t="pl.n3" data-lb-s="pl.d3" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/family-side-sm.jpg" srcset="images/collections/pools/family-side-sm.jpg 820w, images/collections/pools/family-side.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool, side zone concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k3">Pool design · 01</span>
+        <h4 data-i18n="pl.n3">Family pool, side zone</h4>
+        <p data-i18n="pl.d3">A shallow children's area integrated beside the main swimming zone.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-end.jpg" data-lb-t="pl.n4" data-lb-s="pl.d4" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/family-end-sm.jpg" srcset="images/collections/pools/family-end-sm.jpg 820w, images/collections/pools/family-end.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool, end zone concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k4">Pool design · 02</span>
+        <h4 data-i18n="pl.n4">Family pool, end zone</h4>
+        <p data-i18n="pl.d4">A rectangular pool with an integrated shallow children's area at one end.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/oval.jpg" data-lb-t="pl.n5" data-lb-s="pl.d5" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/oval-sm.jpg" srcset="images/collections/pools/oval-sm.jpg 820w, images/collections/pools/oval.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The oval pool concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k5">Pool design · 03</span>
+        <h4 data-i18n="pl.n5">The oval pool</h4>
+        <p data-i18n="pl.d5">A continuous curved outline with a generous stepped entry.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/freeform.jpg" data-lb-t="pl.n6" data-lb-s="pl.d6" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/freeform-sm.jpg" srcset="images/collections/pools/freeform-sm.jpg 820w, images/collections/pools/freeform.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The freeform pool concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k6">Pool design · 04</span>
+        <h4 data-i18n="pl.n6">The freeform pool</h4>
+        <p data-i18n="pl.d6">A sculpted kidney-shaped pool with flowing edges and curved steps.</p>
+      </article>
+      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/square.jpg" data-lb-t="pl.n7" data-lb-s="pl.d7" data-svc="pools">
+        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/square-sm.jpg" srcset="images/collections/pools/square-sm.jpg 820w, images/collections/pools/square.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The square pool concept" loading="lazy"></div>
+        <span class="ck" data-i18n="pl.k7">Pool design · 05</span>
+        <h4 data-i18n="pl.n7">The square pool</h4>
+        <p data-i18n="pl.d7">A compact geometric layout with clean edges and corner entry steps.</p>
+      </article>
+    </div>
+    <div class="rail-progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<section class="block build" id="build">
+  <div class="wrap">
+    <div class="build-head reveal">
+      <div>
+        <span class="kicker" data-i18n="bd.kicker">The build, stage by stage</span>
+        <h3 data-i18n="bd.h3">From excavation <em>to first swim.</em></h3>
+        <p data-i18n="bd.p">Choose a design and watch it take shape across six milestones.</p>
+      </div>
+      <div class="build-tabs">
+        <button class="gf active" type="button" data-design="concept" data-i18n="bd.t1">Initial concept</button>
+        <button class="gf" type="button" data-design="family-side" data-i18n="bd.t2">Family · side zone</button>
+        <button class="gf" type="button" data-design="family-end" data-i18n="bd.t3">Family · end zone</button>
+        <button class="gf" type="button" data-design="oval" data-i18n="bd.t4">Oval</button>
+        <button class="gf" type="button" data-design="freeform" data-i18n="bd.t5">Freeform</button>
+        <button class="gf" type="button" data-design="square" data-i18n="bd.t6">Square</button>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="viewer" id="viewer">
+        <img class="on" src="images/collections/pools/stages/concept-1.jpg" alt="" loading="lazy">
+        <img src="images/collections/pools/stages/concept-2.jpg" alt="" loading="lazy">
+        <img src="images/collections/pools/stages/concept-3.jpg" alt="" loading="lazy">
+        <img src="images/collections/pools/stages/concept-4.jpg" alt="" loading="lazy">
+        <img src="images/collections/pools/stages/concept-5.jpg" alt="" loading="lazy">
+        <img src="images/collections/pools/stages/concept-6.jpg" alt="" loading="lazy">
+        <div class="viewer-cap"><span class="vn">01</span><div><div class="vt"></div><div class="vd"></div></div></div>
+      </div>
+      <div class="timeline">
+        <button class="tl on" type="button" data-stage="0"><span class="bar"><i></i></span><span class="n">01</span><span class="l" data-i18n="st.n1">Excavation</span></button>
+        <button class="tl" type="button" data-stage="1"><span class="bar"><i></i></span><span class="n">02</span><span class="l" data-i18n="st.n2">Reinforcement &amp; pipework</span></button>
+        <button class="tl" type="button" data-stage="2"><span class="bar"><i></i></span><span class="n">03</span><span class="l" data-i18n="st.n3">Concrete shell</span></button>
+        <button class="tl" type="button" data-stage="3"><span class="bar"><i></i></span><span class="n">04</span><span class="l" data-i18n="st.n4">Waterproofing</span></button>
+        <button class="tl" type="button" data-stage="4"><span class="bar"><i></i></span><span class="n">05</span><span class="l" data-i18n="st.n5">Tiling &amp; coping</span></button>
+        <button class="tl" type="button" data-stage="5"><span class="bar"><i></i></span><span class="n">06</span><span class="l" data-i18n="st.n6">Filled &amp; finished</span></button>
+        <button class="play" type="button" aria-label="Play or pause"><svg class="i-pause" viewBox="0 0 14 14"><rect x="2" y="1" width="3" height="12"/><rect x="9" y="1" width="3" height="12"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg></button>
+      </div>
+    </div>
+
+    <div class="evening">
+      <div class="ev-copy reveal">
+        <span class="kicker" data-i18n="ev.kicker">Outdoor living</span>
+        <h3 data-i18n="ev.h3">After <em>dark.</em></h3>
+        <p data-i18n="ev.p">Pergolas, garden lounges and evening lighting complete the setting around the water.</p>
+      </div>
+      <figure class="ev reveal" tabindex="0" data-lb="pools" data-src="images/collections/pools/pergola.jpg" data-lb-t="ev.n1" data-lb-s="ev.d1" data-svc="pools">
+        <div class="ph"><img src="images/collections/pools/pergola-sm.jpg" srcset="images/collections/pools/pergola-sm.jpg 820w, images/collections/pools/pergola.jpg 1536w" sizes="(max-width:1024px) 50vw, 36vw" alt="Pool beneath a slatted pergola at dusk" loading="lazy"></div>
+        <h4 data-i18n="ev.n1">Pergola pool courtyard</h4>
+        <p data-i18n="ev.d1">An intimate pool beneath a slatted pergola, beside a glazed lounge.</p>
+      </figure>
+      <figure class="ev reveal" tabindex="0" data-lb="pools" data-src="images/collections/pools/poolside.jpg" data-lb-t="ev.n2" data-lb-s="ev.d2" data-svc="pools">
+        <div class="ph"><img src="images/collections/pools/poolside-sm.jpg" srcset="images/collections/pools/poolside-sm.jpg 820w, images/collections/pools/poolside.jpg 1536w" sizes="(max-width:1024px) 50vw, 32vw" alt="Poolside lounge with step lighting at dusk" loading="lazy"></div>
+        <h4 data-i18n="ev.n2">Poolside outdoor living</h4>
+        <p data-i18n="ev.d2">Layered seating, shaded terraces and integrated step lighting.</p>
+      </figure>
+    </div>
+    <p class="fine" data-i18n="po.fine">Pool designs and build sequences are concept visualisations, not records of completed projects; the two evening scenes are supplied references. Construction stages are illustrative milestones, not technical or structural drawings, and do not fully show testing, filtration equipment or commissioning.</p>
+  </div>
+</section>
+
+<!-- COLLECTION II: INTERIORS -->
+<section class="chapter" id="interiors">
+  <div class="chapter-media"><img src="images/collections/interiors/k03-gloss-contrast.jpg" alt="Kitchen with dark glossy fronts and open shelving" loading="lazy"></div>
+  <span class="numeral" aria-hidden="true">II</span>
+  <div class="wrap chapter-inner">
+    <div class="reveal">
+      <span class="kicker" data-i18n="in.kicker">Collection II</span>
+      <h2 data-i18n="in.h2">Kitchens, Wardrobes <em>&amp; Living Spaces</em></h2>
+      <div class="sub" data-i18n="in.sub">Interior collection</div>
+    </div>
+    <div class="reveal">
+      <p class="lead" data-i18n="in.lead">A curated portfolio of cabinetry, dressing rooms and everyday spaces, contemporary and classic, from welcoming kitchens to carefully organised dressing rooms.</p>
+      <div class="acts">
+        <a href="#contact" class="thin-btn solid" data-enquire="interiors" data-i18n="in.enq">Discuss your interiors</a>
+        <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 4 MB</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block showcase" id="showcase">
+  <div class="wrap">
+    <div class="sc-tabs reveal" role="tablist">
+      <button class="sc-tab on" type="button" data-group="all"><span data-i18n="sc.all">All designs</span><sup>17</sup></button>
+      <button class="sc-tab" type="button" data-group="k"><span data-i18n="sc.k">Kitchens</span><sup>07</sup></button>
+      <button class="sc-tab" type="button" data-group="w"><span data-i18n="sc.w">Wardrobes &amp; dressing rooms</span><sup>09</sup></button>
+      <button class="sc-tab" type="button" data-group="c"><span data-i18n="sc.c">Coffee corner</span><sup>01</sup></button>
+    </div>
+    <div class="sc-stage reveal">
+      <div class="sc-frame" id="scFrame" role="button" tabindex="0" aria-label="View full screen">
+        <div class="sc-layer on"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
+        <div class="sc-layer"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
+        <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+      </div>
+      <div class="sc-info" id="scInfo">
+        <div class="code"></div>
+        <span class="kicker cat"></span>
+        <h3></h3>
+        <p class="desc"></p>
+        <ul class="sc-details"></ul>
+        <div class="sc-nav">
+          <button class="arrow" type="button" data-sc-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="arrow" type="button" data-sc-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          <span class="sc-count"><b>01</b> / 17</span>
+        </div>
+        <button class="thin-btn" type="button" id="scEnquire" data-i18n="lb.enq">Enquire about this design</button>
+      </div>
+    </div>
+    <div class="sc-thumbs" id="scThumbs"></div>
+  </div>
+</section>
+
+<!-- COLLECTION III: DOORS & CLADDING -->
+<section class="block doors" id="doors">
+  <div class="wrap">
+    <div class="doors-head">
+      <div class="reveal">
+        <span class="kicker" data-i18n="dr.kicker">Collection III</span>
+        <h2 data-i18n="dr.h2">Doors <em>&amp; Cladding</em></h2>
+        <div class="sub" data-i18n="dr.sub">Texture. Form. Character.</div>
+      </div>
+      <div class="reveal">
+        <p class="lead" data-i18n="dr.lead">Five design directions for entrance doors and matching wall cladding: a study in texture, lines and warm tones. Choose your style, then start with the details.</p>
+        <div class="acts">
+          <a href="#contact" class="thin-btn solid" data-enquire="doors" data-i18n="dr.enq">Enquire about doors</a>
+          <a href="catalogues/al-jouhari-doors-cladding.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 1.3 MB</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="door-row reveal" id="doorRow">
+      <div class="door on" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d01-horizontal-lines.jpg" data-lb-t="dr.n1" data-code="01" data-svc="doors">
+        <img src="images/collections/doors/d01-horizontal-lines-sm.jpg" srcset="images/collections/doors/d01-horizontal-lines-sm.jpg 820w, images/collections/doors/d01-horizontal-lines.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Horizontal Lines door design" loading="lazy">
+        <span class="dn">01</span>
+        <span class="dv" data-i18n="dr.n1">Horizontal Lines</span>
+        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n1">Horizontal Lines</h4><ul><li data-i18n="dr.f11">Dark brown tone</li><li data-i18n="dr.f12">Subtle horizontal lines</li><li data-i18n="dr.f13">Statement pull handle</li></ul></div>
+      </div>
+      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d02-natural-character.jpg" data-lb-t="dr.n2" data-code="02" data-svc="doors">
+        <img src="images/collections/doors/d02-natural-character-sm.jpg" srcset="images/collections/doors/d02-natural-character-sm.jpg 820w, images/collections/doors/d02-natural-character.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Natural Character door design" loading="lazy">
+        <span class="dn">02</span>
+        <span class="dv" data-i18n="dr.n2">Natural Character</span>
+        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n2">Natural Character</h4><ul><li data-i18n="dr.f21">Visible wood-grain pattern</li><li data-i18n="dr.f22">Clean, plain surface</li><li data-i18n="dr.f23">Coordinated frame tone</li></ul></div>
+      </div>
+      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d03-vertical-rhythm.jpg" data-lb-t="dr.n3" data-code="03" data-svc="doors">
+        <img src="images/collections/doors/d03-vertical-rhythm-sm.jpg" srcset="images/collections/doors/d03-vertical-rhythm-sm.jpg 820w, images/collections/doors/d03-vertical-rhythm.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Vertical Rhythm door design" loading="lazy">
+        <span class="dn">03</span>
+        <span class="dv" data-i18n="dr.n3">Vertical Rhythm</span>
+        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n3">Vertical Rhythm</h4><ul><li data-i18n="dr.f31">Repeated vertical lines</li><li data-i18n="dr.f32">Surrounding wall panels</li><li data-i18n="dr.f33">Unified entrance design</li></ul></div>
+      </div>
+      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d04-integrated-surfaces.jpg" data-lb-t="dr.n4" data-code="04" data-svc="doors">
+        <img src="images/collections/doors/d04-integrated-surfaces-sm.jpg" srcset="images/collections/doors/d04-integrated-surfaces-sm.jpg 820w, images/collections/doors/d04-integrated-surfaces.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Integrated Surfaces door design" loading="lazy">
+        <span class="dn">04</span>
+        <span class="dv" data-i18n="dr.n4">Integrated Surfaces</span>
+        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n4">Integrated Surfaces</h4><ul><li data-i18n="dr.f41">Coordinated door and panels</li><li data-i18n="dr.f42">Vertical grain direction</li><li data-i18n="dr.f43">Gold-toned details</li></ul></div>
+      </div>
+      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d05-geometric-accent.jpg" data-lb-t="dr.n5" data-code="05" data-svc="doors">
+        <img src="images/collections/doors/d05-geometric-accent-sm.jpg" srcset="images/collections/doors/d05-geometric-accent-sm.jpg 820w, images/collections/doors/d05-geometric-accent.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Geometric Accent door design" loading="lazy">
+        <span class="dn">05</span>
+        <span class="dv" data-i18n="dr.n5">Geometric Accent</span>
+        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n5">Geometric Accent</h4><ul><li data-i18n="dr.f51">Decorative side motif</li><li data-i18n="dr.f52">Balanced horizontal divisions</li><li data-i18n="dr.f53">Light wood-tone appearance</li></ul></div>
+      </div>
+    </div>
+    <p class="door-hint reveal" data-i18n="dr.hint">Hover to open a design · click to view full screen</p>
+
+    <div class="details">
+      <div class="dt-copy reveal">
+        <span class="kicker" data-i18n="dt.kicker">Detail study</span>
+        <h3 data-i18n="dt.h3">Details make <em>the difference.</em></h3>
+        <p data-i18n="dt.p">Grain, lines and frame: the quiet decisions that turn a door into an entrance.</p>
+      </div>
+      <figure class="ev reveal" tabindex="0" data-lb="doors" data-src="images/collections/doors/detail-frame.jpg" data-lb-t="dt.n1" data-lb-s="dt.s1" data-svc="doors">
+        <div class="ph"><img src="images/collections/doors/detail-frame-sm.jpg" srcset="images/collections/doors/detail-frame-sm.jpg 820w, images/collections/doors/detail-frame.jpg 1536w" sizes="(max-width:1024px) 50vw, 33vw" alt="Door frame and installation detail" loading="lazy"></div>
+        <h4 data-i18n="dt.n1">Frame and installation</h4>
+        <p data-i18n="dt.s1">Construction detail</p>
+      </figure>
+      <figure class="ev reveal" tabindex="0" data-lb="doors" data-src="images/collections/doors/detail-grain.jpg" data-lb-t="dt.n2" data-lb-s="dt.s2" data-svc="doors">
+        <div class="ph"><img src="images/collections/doors/detail-grain-sm.jpg" srcset="images/collections/doors/detail-grain-sm.jpg 820w, images/collections/doors/detail-grain.jpg 1536w" sizes="(max-width:1024px) 50vw, 33vw" alt="Wood grain panel with gold-toned lines" loading="lazy"></div>
+        <h4 data-i18n="dt.n2">Grain and gold-toned lines</h4>
+        <p data-i18n="dt.s2">Surface detail</p>
+      </figure>
+    </div>
+    <p class="fine" data-i18n="dr.fine">Photographs are shown as supplied; some show work in progress. Materials, dimensions and hardware are confirmed upon order approval, and final colours and finishes are subject to approved samples.</p>
   </div>
 </section>
 
@@ -421,6 +1011,12 @@
         <div class="cap-row"><span class="rn" data-i18n="svc.n9">Foam Insulation</span><span class="rd" data-i18n="svc.d9">Thermal envelopes and void forming.</span></div>
         <div class="cap-row"><span class="rn" data-i18n="svc.n10">Aluminium &amp; Glass</span><span class="rd" data-i18n="svc.d10">Windows, façades, and railings.</span></div>
         <div class="cap-row"><span class="rn" data-i18n="svc.n11">Marble &amp; Tiling</span><span class="rd" data-i18n="svc.d11">Stone, tile, and plaster finishing.</span></div>
+      </div>
+      <div class="cap-group reveal">
+        <h4 data-i18n="svc.grpD">Residential &amp; Interiors</h4>
+        <a class="cap-row" href="#pools"><span class="rn" data-i18n="svc.n12">Swimming Pools</span><span class="rd" data-i18n="svc.d12">Design, shell, waterproofing and finishing.</span></a>
+        <a class="cap-row" href="#interiors"><span class="rn" data-i18n="svc.n13">Kitchens &amp; Wardrobes</span><span class="rd" data-i18n="svc.d13">Kitchens, dressing rooms and coffee corners.</span></a>
+        <a class="cap-row" href="#doors"><span class="rn" data-i18n="svc.n14">Doors &amp; Cladding</span><span class="rd" data-i18n="svc.d14">Entrance doors with matching wall panels.</span></a>
       </div>
     </div>
   </div>
@@ -563,7 +1159,7 @@
       <div class="fld"><label data-i18n="fm.name">Full name</label><input id="f-name" required placeholder="Your name" data-i18n-ph="fm.name.ph"></div>
       <div class="fld"><label data-i18n="fm.contact">Phone or email</label><input id="f-contact" required placeholder="How we may reach you" data-i18n-ph="fm.contact.ph"></div>
       <div class="fld"><label data-i18n="fm.service">Service required</label>
-        <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Curbstone &amp; paving</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-i18n="fm.o7">Other</option></select>
+        <select id="f-service"><option data-i18n="fm.o1">Concrete flooring</option><option data-i18n="fm.o2">Epoxy &amp; resin flooring</option><option data-i18n="fm.o3">Steel &amp; structure</option><option data-i18n="fm.o4">Curbstone &amp; paving</option><option data-i18n="fm.o5">Fit-out &amp; finishing</option><option data-i18n="fm.o6">Plumbing &amp; MEP</option><option data-svc="pools" data-i18n="fm.o8">Swimming pools</option><option data-svc="interiors" data-i18n="fm.o9">Kitchens &amp; wardrobes</option><option data-svc="doors" data-i18n="fm.o10">Doors &amp; cladding</option><option data-i18n="fm.o7">Other</option></select>
       </div>
       <div class="fld"><label data-i18n="fm.details">Project details</label><textarea id="f-details" placeholder="Tell us about the site and scope" data-i18n-ph="fm.details.ph"></textarea></div>
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;opacity:0">
@@ -586,6 +1182,10 @@
         <ul><li><a href="#intro" data-i18n="nav.about">About</a></li><li><a href="#services" data-i18n="nav.expertise">Expertise</a></li><li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li><li><a href="#clients" data-i18n="nav.clients">Clients</a></li></ul>
       </div>
       <div>
+        <h5 data-i18n="nav.collections">Collections</h5>
+        <ul><li><a href="#pools" data-i18n="co.k1">Swimming Pools</a></li><li><a href="#interiors" data-i18n="co.k2">Kitchens &amp; Wardrobes</a></li><li><a href="#doors" data-i18n="co.k3">Doors &amp; Cladding</a></li></ul>
+      </div>
+      <div>
         <h5 data-i18n="ft.expertise">Expertise</h5>
         <ul><li><a href="#services" data-i18n="ft.e1">Concrete &amp; Epoxy</a></li><li><a href="#services" data-i18n="ft.e2">Steel &amp; Structure</a></li><li><a href="#services" data-i18n="ft.e3">Fit-out &amp; Finishing</a></li><li><a href="#services" data-i18n="ft.e4">MEP &amp; Plumbing</a></li></ul>
       </div>
@@ -596,14 +1196,26 @@
     </div>
     <div class="foot-bottom">
       <span data-i18n="foot.copy">© 2026 Al Jouhari Technical Services L.L.C</span>
-      <span data-i18n="foot.tag">Concrete · Steel · Fit-out · MEP</span>
+      <span data-i18n="foot.tag">Concrete · Steel · Pools · Interiors</span>
     </div>
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <div class="lb-top"><span class="lb-count"></span><button class="lb-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="lb-stage">
+    <button class="arrow light lb-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <img alt="">
+    <button class="arrow light lb-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="lb-cap"><div><div class="t"></div><div class="s"></div></div><button class="thin-btn on-dark lb-enq" type="button" data-i18n="lb.enq">Enquire about this design</button></div>
+</div>
+
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var langHooks = []; // re-render JS-built content after a language change
 
   /* ---------- NUMERALS (Western <-> Arabic-Indic) ---------- */
   var EASTERN = '٠١٢٣٤٥٦٧٨٩';
@@ -770,17 +1382,17 @@
     var setMenu = function(open){ menu.classList.toggle('open', open); burger.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); };
     burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
-    window.addEventListener('resize', function(){ if(window.innerWidth > 860) setMenu(false); });
+    window.addEventListener('resize', function(){ if(window.innerWidth > 1120) setMenu(false); });
   }
 
   /* ---------- LANGUAGE (EN / AR + RTL) ---------- */
   var I18N = {
     'brand.small':'خدمات فنية ذ.م.م',
-    'nav.about':'عن الشركة','nav.expertise':'خبراتنا','nav.portfolio':'أعمالنا','nav.clients':'عملاؤنا','nav.contact':'تواصل معنا','nav.cta':'اطلب استشارة',
+    'nav.about':'عن الشركة','nav.collections':'المجموعات','nav.expertise':'خبراتنا','nav.portfolio':'أعمالنا','nav.clients':'عملاؤنا','nav.contact':'تواصل معنا','nav.cta':'اطلب استشارة',
     'hero.kicker':'دبي · الإمارات العربية المتحدة · تأسست عام ١٩٩٩',
     'hero.title':'حيث يلتقي البناء<br>بـ<em>الإتقان.</em>',
-    'hero.p':'ربع قرن من الخبرة الفنية والإنشائية، ننفّذ أعمال الخرسانة والحديد والتشطيبات بجودة لا تقبل المساومة في مختلف أنحاء الإمارات.',
-    'hero.view':'شاهد أعمالنا','hero.start':'ابدأ مشروعاً','hero.scroll':'اسحب للأسفل',
+    'hero.p':'ربع قرن من الخبرة الفنية والإنشائية في مختلف أنحاء الإمارات، من الأرضيات الصناعية والهياكل المعدنية إلى المسابح الخاصة والمطابخ وغرف الملابس المصمّمة حسب الطلب.',
+    'hero.view':'استكشف المجموعات','hero.s1':'المسابح','hero.s2':'التصميم الداخلي','hero.s3':'الإنشاءات','hero.start':'ابدأ مشروعاً','hero.scroll':'اسحب للأسفل',
     'intro.badge':'سنوات من<br>الحرفية',
     'intro.kicker':'بيت الجوهري',
     'intro.h2':'حرفيّون متفانون، <em>كل التخصصات</em> تحت سقف واحد.',
@@ -806,6 +1418,10 @@
     'svc.n9':'العزل الرغوي','svc.d9':'أغلفة حرارية وتشكيل الفراغات.',
     'svc.n10':'الألمنيوم والزجاج','svc.d10':'نوافذ وواجهات ودرابزينات.',
     'svc.n11':'الرخام والبلاط','svc.d11':'رخام وبلاط وتشطيبات لياسة.',
+    'svc.grpD':'السكني والتصميم الداخلي',
+    'svc.n12':'المسابح','svc.d12':'تصميم وهيكل وعزل مائي وتشطيب.',
+    'svc.n13':'المطابخ وخزائن الملابس','svc.d13':'مطابخ وغرف ملابس وأركان قهوة.',
+    'svc.n14':'الأبواب والتكسيات','svc.d14':'أبواب مداخل مع ألواح جدارية متناسقة.',
     'pf.kicker':'أعمال مختارة',
     'pf.h2':'<em>معرض</em> من الإتقان',
     'pf.p':'أعمال خرسانية وإنشائية وتشطيبات نُفّذت لعملاء صناعيين وتجاريين رائدين في مختلف أنحاء الإمارات.',
@@ -832,13 +1448,56 @@
     'ct.email':'البريد الإلكتروني','ct.tel':'الهاتف','ct.loc':'الموقع','ct.locval':'دبي، الإمارات العربية المتحدة',
     'fm.name':'الاسم الكامل','fm.name.ph':'اسمك','fm.contact':'الهاتف أو البريد','fm.contact.ph':'كيف يمكننا الوصول إليك',
     'fm.service':'الخدمة المطلوبة','fm.details':'تفاصيل المشروع','fm.details.ph':'أخبرنا عن الموقع والنطاق','fm.submit':'أرسل الطلب',
-    'fm.o1':'أرضيات خرسانية','fm.o2':'أرضيات إيبوكسي وراتنج','fm.o3':'حديد وهياكل','fm.o4':'أحجار الأرصفة والرصف','fm.o5':'تجهيز وتشطيب','fm.o6':'سباكة وكهروميكانيك','fm.o7':'أخرى',
+    'fm.o1':'أرضيات خرسانية','fm.o2':'أرضيات إيبوكسي وراتنج','fm.o3':'حديد وهياكل','fm.o4':'أحجار الأرصفة والرصف','fm.o5':'تجهيز وتشطيب','fm.o6':'سباكة وكهروميكانيك','fm.o7':'أخرى','fm.o8':'المسابح','fm.o9':'المطابخ وخزائن الملابس','fm.o10':'الأبواب والتكسيات',
     'ft.about':'خدمات فنية وإنشائية شاملة في مختلف أنحاء الإمارات العربية المتحدة. كل التخصصات، فريق واحد متفانٍ، ومعيار واحد للحرفية.',
     'ft.navigate':'تصفّح','ft.expertise':'الخبرات','ft.contact':'تواصل',
     'ft.e1':'خرسانة وإيبوكسي','ft.e2':'حديد وهياكل','ft.e3':'تجهيز وتشطيب','ft.e4':'كهروميكانيك وسباكة',
-    'foot.copy':'© ٢٠٢٦ الجوهري للخدمات الفنية ذ.م.م','foot.tag':'خرسانة · حديد · تشطيبات · كهروميكانيك'
+    'foot.copy':'© ٢٠٢٦ الجوهري للخدمات الفنية ذ.م.م','foot.tag':'خرسانة · حديد · مسابح · تصميم داخلي',
+    /* collections */
+    'co.kicker':'المجموعات السكنية','co.h2':'عيشٌ <em>راقٍ.</em>',
+    'co.p':'الأيدي ذاتها التي تصبّ الأرضيات الصناعية تصنع أيضاً المساحات التي يعود إليها الناس: مسابح خاصة، ومطابخ وغرف ملابس مصمّمة حسب الطلب، وأبواب مداخل مع تكسيات جدران متناسقة.',
+    'co.k1':'المسابح','co.n1':'تصميم وتنفيذ','co.m1':'٩ تصاميم · ٦ تسلسلات بناء',
+    'co.k2':'المطابخ وخزائن الملابس','co.n2':'مطابخ وغرف ملابس','co.m2':'١٧ تصميماً',
+    'co.k3':'الأبواب والتكسيات','co.n3':'ملمس، شكل، طابع','co.m3':'٥ اتجاهات تصميمية',
+    'co.go':'اكتشف','cat.pdf':'الكتالوج','lb.enq':'استفسر عن هذا التصميم',
+    'po.kicker':'المجموعة الأولى','po.h2':'<em>المسابح</em>','po.sub':'تصميم وتنفيذ',
+    'po.lead':'تصاميم معاصرة للمسابح، ومناطق مدمجة للأطفال، ومراحل البناء كاملةً من أول حفرة في الأرض إلى أول سباحة.',
+    'po.enq':'ناقش مسبحك',
+    'pd.kicker':'التصاميم','pd.h3':'شكلٌ يناسب كل <em>حديقة.</em>',
+    'pd.p':'من الأفنية المدمجة إلى المسابح العائلية مع منطقة ضحلة للأطفال. اختر أي تصميم لعرضه بملء الشاشة.',
+    'pl.concept':'تصوّر مفاهيمي',
+    'pl.k1':'إلهام التصميم · ٠١','pl.n1':'مسبح الفناء المدمج','pl.d1':'مسبح مربع مدمج بدرجات دخول عريضة وإطار من الحجر الطبيعي.',
+    'pl.k2':'إلهام التصميم · ٠٢','pl.n2':'مسبح الحديقة المعاصر','pl.d2':'مسبح ممتد يحيط به رصف فاتح ونباتات حديقة ناعمة.',
+    'pl.k3':'تصميم المسبح · ٠١','pl.n3':'مسبح عائلي، منطقة جانبية','pl.d3':'منطقة ضحلة للأطفال مدمجة بجانب منطقة السباحة الرئيسية.',
+    'pl.k4':'تصميم المسبح · ٠٢','pl.n4':'مسبح عائلي، منطقة طرفية','pl.d4':'مسبح مستطيل مع منطقة ضحلة للأطفال مدمجة في أحد طرفيه.',
+    'pl.k5':'تصميم المسبح · ٠٣','pl.n5':'المسبح البيضاوي','pl.d5':'خط منحنٍ متصل مع مدخل متدرّج واسع.',
+    'pl.k6':'تصميم المسبح · ٠٤','pl.n6':'المسبح الحر','pl.d6':'مسبح منحوت على شكل كلية بحواف انسيابية ودرجات منحنية.',
+    'pl.k7':'تصميم المسبح · ٠٥','pl.n7':'المسبح المربع','pl.d7':'تصميم هندسي مدمج بحواف نظيفة ودرجات دخول في الزاوية.',
+    'bd.kicker':'البناء مرحلةً بمرحلة','bd.h3':'من الحفر <em>إلى أول سباحة.</em>','bd.p':'اختر تصميماً وشاهده يتشكّل عبر ست مراحل.',
+    'bd.t1':'الفكرة الأولية','bd.t2':'عائلي · منطقة جانبية','bd.t3':'عائلي · منطقة طرفية','bd.t4':'بيضاوي','bd.t5':'حر','bd.t6':'مربع',
+    'st.n1':'الحفر','st.n2':'التسليح والتمديدات','st.n3':'الهيكل الخرساني','st.n4':'العزل المائي','st.n5':'التبليط والحواف','st.n6':'الملء والتسليم',
+    'ev.kicker':'الحياة في الهواء الطلق','ev.h3':'بعد <em>الغروب.</em>','ev.p':'تكتمل الأجواء حول الماء بالبرجولات وجلسات الحديقة وإضاءة المساء.',
+    'ev.n1':'فناء المسبح مع البرجولا','ev.d1':'مسبح حميم تحت برجولا شرائحية بجانب صالة زجاجية.',
+    'ev.n2':'جلسات خارجية بجانب المسبح','ev.d2':'جلسات متدرجة وتراسات مظللة وإضاءة مدمجة في الدرجات.',
+    'po.fine':'تصاميم المسابح ومراحل بنائها تصوّرات مفاهيمية وليست توثيقاً لمشاريع منجزة، ومشهدا المساء صورتان مرجعيتان. مراحل البناء توضيحية وليست رسومات فنية أو إنشائية، ولا تُظهر الاختبارات ومعدات الترشيح والتشغيل بالكامل.',
+    'in.kicker':'المجموعة الثانية','in.h2':'المطابخ وخزائن الملابس <em>ومساحات المعيشة</em>','in.sub':'مجموعة التصميم الداخلي',
+    'in.lead':'مجموعة منتقاة من الخزائن وغرف الملابس والمساحات اليومية، بين المعاصر والكلاسيكي، من مطابخ دافئة إلى غرف ملابس منظّمة بعناية.',
+    'in.enq':'ناقش مشروعك الداخلي',
+    'sc.all':'كل التصاميم','sc.k':'المطابخ','sc.w':'خزائن وغرف الملابس','sc.c':'ركن القهوة',
+    'dr.kicker':'المجموعة الثالثة','dr.h2':'الأبواب <em>والتكسيات</em>','dr.sub':'ملمس. شكل. طابع.',
+    'dr.lead':'خمسة اتجاهات تصميمية لأبواب المداخل وتكسيات الجدران المتناسقة: دراسة في الملمس والخطوط والدرجات الدافئة. اختر أسلوبك، ثم ابدأ بالتفاصيل.',
+    'dr.enq':'استفسر عن الأبواب','dr.k':'دراسة تصميم',
+    'dr.n1':'خطوط أفقية','dr.f11':'لون بني داكن','dr.f12':'خطوط أفقية خفيفة','dr.f13':'مقبض سحب لافت',
+    'dr.n2':'طابع طبيعي','dr.f21':'عروق خشب ظاهرة','dr.f22':'سطح نظيف وبسيط','dr.f23':'إطار بلون متناسق',
+    'dr.n3':'إيقاع عمودي','dr.f31':'خطوط عمودية متكررة','dr.f32':'ألواح جدارية محيطة','dr.f33':'تصميم مدخل موحّد',
+    'dr.n4':'أسطح متكاملة','dr.f41':'باب وألواح متناسقة','dr.f42':'اتجاه عروق عمودي','dr.f43':'تفاصيل بلون ذهبي',
+    'dr.n5':'لمسة هندسية','dr.f51':'زخرفة جانبية','dr.f52':'تقسيمات أفقية متوازنة','dr.f53':'مظهر خشبي فاتح',
+    'dr.hint':'مرّر المؤشر لفتح التصميم · انقر للعرض بملء الشاشة',
+    'dt.kicker':'دراسة التفاصيل','dt.h3':'التفاصيل <em>تصنع الفرق.</em>','dt.p':'العروق والخطوط والإطار: قرارات هادئة تحوّل الباب إلى مدخل.',
+    'dt.n1':'الإطار والتركيب','dt.s1':'تفصيل إنشائي','dt.n2':'العروق والخطوط الذهبية','dt.s2':'تفصيل السطح',
+    'dr.fine':'الصور معروضة كما وردت، وبعضها لأعمال قيد التنفيذ. تُعتمد المواد والمقاسات والإكسسوارات عند الموافقة على الطلب، وتخضع الألوان والتشطيبات النهائية للعينات المعتمدة.'
   };
-  var TITLE = { en:'Al Jouhari Technical Services | Craftsmanship in Construction | Dubai, UAE', ar:'الجوهري للخدمات الفنية | حرفية في البناء | دبي، الإمارات' };
+  var TITLE = { en:'Al Jouhari Technical Services | Construction, Pools & Interiors | Dubai, UAE', ar:'الجوهري للخدمات الفنية | إنشاءات ومسابح وتصميم داخلي | دبي، الإمارات' };
   var ALERT = { en:'Opening your email app with the enquiry ready to send.', ar:'يتم فتح تطبيق البريد لديك مع الطلب جاهزاً للإرسال.' };
 
   var htmlEl = document.documentElement;
@@ -868,6 +1527,7 @@
       langBtn.setAttribute('lang', ar ? 'en' : 'ar');
     }
     localizeNumbers();
+    langHooks.forEach(function(fn){ fn(); });
     try{ localStorage.setItem('ajlang', curLang); }catch(e){}
   }
 
@@ -897,6 +1557,423 @@
   if(langBtn){
     langBtn.addEventListener('click', function(){ switchLang(curLang === 'ar' ? 'en' : 'ar'); });
   }
+  /* ---------- COLLECTIONS: SHARED HELPERS ---------- */
+  var EN = {};
+  origHTML.forEach(function(h, el){ var k = el.getAttribute('data-i18n'); if(!(k in EN)) EN[k] = h; });
+  function L(){ return curLang === 'ar' ? 'ar' : 'en'; }
+  function tr(k){ return (curLang === 'ar' && I18N[k] != null) ? I18N[k] : (EN[k] != null ? EN[k] : ''); }
+  function txt(h){ var d = document.createElement('div'); d.innerHTML = h; return d.textContent; }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function rtl(){ return htmlEl.dir === 'rtl'; }
+  function onSwipe(el, fn){
+    var x0 = null, y0 = null;
+    el.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive:true});
+    el.addEventListener('touchend', function(e){
+      if(x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) fn((dx < 0) !== rtl() ? 1 : -1); // +1 = next
+    }, {passive:true});
+  }
+
+  /* ---------- ENQUIRY PREFILL ---------- */
+  var lastAuto = '';
+  function enquire(svc, label){
+    var sel = document.getElementById('f-service');
+    var opt = sel && sel.querySelector('option[data-svc="' + svc + '"]');
+    if(opt) opt.selected = true;
+    var det = document.getElementById('f-details');
+    if(det && label && (!det.value.trim() || det.value === lastAuto)){
+      det.value = lastAuto = (curLang === 'ar' ? 'أرغب في الاستفسار عن ' : "I'm interested in ") + label + '.';
+    }
+    var c = document.getElementById('contact');
+    if(c) c.scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  }
+  document.querySelectorAll('[data-enquire]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); enquire(a.getAttribute('data-enquire'), ''); });
+  });
+
+  /* ---------- HERO SLIDESHOW ---------- */
+  (function(){
+    var imgs = document.querySelectorAll('.hero-media img');
+    var dots = document.querySelectorAll('.hs');
+    if(imgs.length < 2) return;
+    var cur = 0, timer = null;
+    function show(i){
+      if(i === cur) return;
+      var prev = imgs[cur];
+      prev.classList.remove('on'); prev.classList.add('off'); // hold the settled zoom while fading out
+      setTimeout(function(){ prev.classList.remove('off'); }, 1900);
+      imgs[i].classList.add('on');
+      dots.forEach(function(d, j){ d.classList.toggle('on', j === i); });
+      cur = i;
+    }
+    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+    function start(){ stop(); if(!reduce) timer = setInterval(function(){ show((cur + 1) % imgs.length); }, 6500); }
+    dots.forEach(function(d, j){ d.addEventListener('click', function(){ show(j); start(); }); });
+    document.addEventListener('visibilitychange', function(){ if(document.hidden) stop(); else start(); });
+    start();
+  })();
+
+  /* ---------- CHAPTER COVER PARALLAX ---------- */
+  (function(){
+    var covers = document.querySelectorAll('.chapter-media img');
+    if(!covers.length || reduce) return;
+    var ticking = false;
+    function run(){
+      ticking = false;
+      var vh = window.innerHeight;
+      covers.forEach(function(img){
+        var r = img.parentNode.getBoundingClientRect();
+        if(r.bottom < 0 || r.top > vh) return;
+        var p = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.transform = 'translate3d(0,' + (p * -40).toFixed(1) + 'px,0) scale(1.12)';
+      });
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(run); } }, {passive:true});
+    run();
+  })();
+
+  /* ---------- LIGHTBOX ---------- */
+  var lb = document.getElementById('lb');
+  var lbOpen = function(){};
+  if(lb){
+    var lbImg = lb.querySelector('.lb-stage img');
+    var lbT = lb.querySelector('.lb-cap .t'), lbS = lb.querySelector('.lb-cap .s'), lbCount = lb.querySelector('.lb-count');
+    var lbPrev = lb.querySelector('.lb-prev'), lbNext = lb.querySelector('.lb-next'), lbClose = lb.querySelector('.lb-close');
+    var lbItems = [], lbIdx = 0, lbLast = null, lbToken = 0;
+    var lbRender = function(){
+      var it = lbItems[lbIdx], token = ++lbToken;
+      lbImg.classList.add('fade');
+      var pre = new Image();
+      var done = function(){ if(token !== lbToken) return; lbImg.src = it.src; lbImg.alt = it.title(); lbImg.classList.remove('fade'); };
+      pre.src = it.src;
+      if(pre.decode) pre.decode().then(done, done); else pre.onload = pre.onerror = done;
+      lbT.textContent = '';
+      if(it.code){ var b = document.createElement('b'); b.textContent = it.code; lbT.appendChild(b); }
+      lbT.appendChild(document.createTextNode(it.title()));
+      lbS.textContent = it.sub();
+      lbCount.textContent = digits(pad(lbIdx + 1)) + ' / ' + digits(pad(lbItems.length));
+      lbPrev.style.visibility = lbNext.style.visibility = lbItems.length > 1 ? '' : 'hidden';
+      [1, -1].forEach(function(d){ var n = lbItems[(lbIdx + d + lbItems.length) % lbItems.length]; if(n) (new Image()).src = n.src; });
+    };
+    var lbStep = function(d){ if(lbItems.length < 2) return; lbIdx = (lbIdx + d + lbItems.length) % lbItems.length; lbRender(); };
+    var lbHide = function(){
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
+      htmlEl.style.overflow = '';
+      if(lbLast && lbLast.focus) lbLast.focus({preventScroll:true});
+    };
+    lbOpen = function(items, idx){
+      lbItems = items; lbIdx = Math.max(0, idx);
+      lbLast = document.activeElement;
+      lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+      htmlEl.style.overflow = 'hidden';
+      lbRender();
+      lbClose.focus({preventScroll:true});
+    };
+    lbPrev.addEventListener('click', function(){ lbStep(-1); });
+    lbNext.addEventListener('click', function(){ lbStep(1); });
+    lbClose.addEventListener('click', lbHide);
+    lb.querySelector('.lb-stage').addEventListener('click', function(e){ if(e.target === e.currentTarget) lbHide(); });
+    lb.querySelector('.lb-enq').addEventListener('click', function(){
+      var it = lbItems[lbIdx]; lbHide();
+      enquire(it.svc, (it.code ? it.code + ' ' : '') + it.title());
+    });
+    onSwipe(lb.querySelector('.lb-stage'), lbStep);
+    document.addEventListener('keydown', function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') lbHide();
+      else if(e.key === 'ArrowRight') lbStep(rtl() ? -1 : 1);
+      else if(e.key === 'ArrowLeft') lbStep(rtl() ? 1 : -1);
+      else if(e.key === 'Tab'){
+        var f = Array.prototype.filter.call(lb.querySelectorAll('button'), function(b){ return b.style.visibility !== 'hidden'; });
+        var i = f.indexOf(document.activeElement);
+        e.preventDefault();
+        f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+      }
+    });
+    langHooks.push(function(){ if(lb.classList.contains('open')) lbRender(); });
+  }
+
+  // Static gallery items (pool designs, evening scenes, doors, door details).
+  var lbGroups = {};
+  document.querySelectorAll('[data-lb]').forEach(function(el){
+    var g = el.getAttribute('data-lb'); (lbGroups[g] = lbGroups[g] || []).push(el);
+  });
+  function domItem(el){
+    return {
+      src: el.getAttribute('data-src'),
+      code: el.getAttribute('data-code') || '',
+      svc: el.getAttribute('data-svc'),
+      title: function(){ return txt(tr(el.getAttribute('data-lb-t'))); },
+      sub: function(){
+        var k = el.getAttribute('data-lb-s');
+        if(k) return txt(tr(k));
+        return Array.prototype.map.call(el.querySelectorAll('.di li'), function(li){ return li.textContent; }).join(' · ');
+      }
+    };
+  }
+  function openFromEl(el){ var g = lbGroups[el.getAttribute('data-lb')]; lbOpen(g.map(domItem), g.indexOf(el)); }
+  document.querySelectorAll('[data-lb]').forEach(function(el){
+    if(el.classList.contains('door')) return; // doors open on the second interaction, see below
+    el.addEventListener('click', function(){ openFromEl(el); });
+    el.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openFromEl(el); } });
+  });
+
+  /* ---------- POOLS: DESIGN RAIL ---------- */
+  document.querySelectorAll('.rail').forEach(function(rail){
+    var box = rail.parentNode;
+    var prev = box.querySelector('[data-rail-prev]'), next = box.querySelector('[data-rail-next]');
+    var bar = box.querySelector('.rail-progress span');
+    function step(){ var c = rail.firstElementChild; return c ? c.getBoundingClientRect().width + 24 : rail.clientWidth * .8; }
+    function upd(){
+      var max = rail.scrollWidth - rail.clientWidth, x = Math.abs(rail.scrollLeft);
+      var vis = rail.clientWidth / rail.scrollWidth;
+      if(bar) bar.style.width = (Math.min(1, vis + (max > 0 ? x / max : 1) * (1 - vis)) * 100) + '%';
+      if(prev) prev.disabled = x < 4;
+      if(next) next.disabled = x > max - 4;
+    }
+    function go(d){ rail.scrollBy({left: d * step() * (rtl() ? -1 : 1), behavior: reduce ? 'auto' : 'smooth'}); }
+    if(prev) prev.addEventListener('click', function(){ go(-1); });
+    if(next) next.addEventListener('click', function(){ go(1); });
+    rail.addEventListener('scroll', upd, {passive:true});
+    window.addEventListener('resize', upd);
+    langHooks.push(function(){ rail.scrollLeft = 0; upd(); });
+    upd();
+  });
+
+  /* ---------- POOLS: BUILD SEQUENCE VIEWER ---------- */
+  (function(){
+    var build = document.getElementById('build');
+    var viewer = document.getElementById('viewer');
+    if(!build || !viewer) return;
+    var STAGE_D = [
+      {en:'The outline is set out and dug to depth, steps shaped into the ground.', ar:'تحديد مخطط المسبح وحفره حتى العمق المطلوب، مع تشكيل الدرجات في الأرض.'},
+      {en:'Steel cage, formwork and plumbing lines placed before the pour.', ar:'تركيب حديد التسليح والقوالب وخطوط السباكة قبل الصبّ.'},
+      {en:'The structural shell is cast, steps and all.', ar:'صبّ الهيكل الإنشائي بما فيه الدرجات.'},
+      {en:'A continuous membrane seals the shell.', ar:'طبقة عزل متصلة تُحكم الهيكل.'},
+      {en:'Mosaic, coping stones and surrounding paving are laid.', ar:'تركيب الموزاييك وأحجار الحواف والرصف المحيط.'},
+      {en:'Filled, cleaned and dressed for the first swim.', ar:'الملء والتنظيف والتجهيز لأول سباحة.'}
+    ];
+    var STEP = 2800, HOLD_END = 4200;
+    var vImgs = viewer.querySelectorAll('img');
+    var vn = viewer.querySelector('.vn'), vt = viewer.querySelector('.vt'), vd = viewer.querySelector('.vd');
+    var tls = Array.prototype.slice.call(build.querySelectorAll('.tl'));
+    var tabs = Array.prototype.slice.call(build.querySelectorAll('[data-design]'));
+    var playBtn = build.querySelector('.play');
+    var design = 'concept', stage = 0, playing = !reduce, inView = false, timer = null;
+
+    function caption(){
+      vn.textContent = pad(stage + 1);
+      vt.textContent = txt(tr('st.n' + (stage + 1)));
+      vd.textContent = STAGE_D[stage][L()];
+    }
+    function restartBar(){
+      var t = tls[stage]; if(!t) return;
+      t.style.setProperty('--dur', (stage === 5 ? HOLD_END : STEP) + 'ms');
+      var i = t.querySelector('.bar i'); i.style.animation = 'none'; void i.offsetWidth; i.style.animation = '';
+    }
+    function setStage(i){
+      stage = i;
+      vImgs.forEach(function(im, k){ im.classList.toggle('on', k === i); });
+      tls.forEach(function(t, k){ t.classList.toggle('on', k === i); t.classList.toggle('done', k < i); });
+      restartBar();
+      caption();
+      if(i === 4){ // warm the cache for the next design
+        var nx = tabs[(tabs.findIndex(function(b){ return b.getAttribute('data-design') === design; }) + 1) % tabs.length];
+        for(var n = 1; n <= 6; n++) (new Image()).src = 'images/collections/pools/stages/' + nx.getAttribute('data-design') + '-' + n + '.jpg';
+      }
+    }
+    function schedule(){
+      clearTimeout(timer);
+      build.classList.toggle('paused', !playing);
+      if(!playing || !inView || document.hidden) return;
+      restartBar();
+      timer = setTimeout(advance, stage === 5 ? HOLD_END : STEP);
+    }
+    function advance(){
+      if(stage < 5){ setStage(stage + 1); schedule(); return; }
+      var i = tabs.findIndex(function(b){ return b.getAttribute('data-design') === design; });
+      setDesign(tabs[(i + 1) % tabs.length].getAttribute('data-design'));
+    }
+    function setDesign(k){
+      clearTimeout(timer);
+      design = k;
+      tabs.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-design') === k); });
+      viewer.classList.add('swap');
+      setTimeout(function(){
+        vImgs.forEach(function(im, n){ im.src = 'images/collections/pools/stages/' + k + '-' + (n + 1) + '.jpg'; });
+        setStage(0);
+        var fin = function(){ viewer.classList.remove('swap'); schedule(); };
+        if(vImgs[0].decode) vImgs[0].decode().then(fin, fin); else fin();
+      }, reduce ? 0 : 350);
+    }
+    tabs.forEach(function(b){ b.addEventListener('click', function(){ if(b.getAttribute('data-design') !== design) setDesign(b.getAttribute('data-design')); }); });
+    tls.forEach(function(t, k){ t.addEventListener('click', function(){ playing = false; setStage(k); schedule(); }); });
+    playBtn.addEventListener('click', function(){ playing = !playing; schedule(); });
+    onSwipe(viewer, function(d){ playing = false; setStage(Math.min(5, Math.max(0, stage + d))); schedule(); });
+    new IntersectionObserver(function(es){ es.forEach(function(e){ inView = e.isIntersecting; schedule(); }); }, {threshold:.35}).observe(viewer);
+    document.addEventListener('visibilitychange', schedule);
+    langHooks.push(caption);
+    setStage(0);
+    build.classList.toggle('paused', !playing);
+  })();
+
+  /* ---------- INTERIORS: SHOWCASE ---------- */
+  (function(){
+    var frame = document.getElementById('scFrame'), info = document.getElementById('scInfo'), thumbs = document.getElementById('scThumbs');
+    if(!frame || !info || !thumbs) return;
+    var GROUP = {
+      k:{en:'Kitchens', ar:'المطابخ'},
+      w:{en:'Wardrobes & dressing rooms', ar:'خزائن وغرف الملابس'},
+      c:{en:'Coffee corner', ar:'ركن القهوة'}
+    };
+    var ITEMS = [
+      {c:'K01', g:'k', f:'k01-graphite',
+       en:{n:'Graphite', d:'Clean-lined cabinetry with tall storage and integrated appliances. A pale worktop adds contrast to the deep grey palette.', x:['Tall cabinetry','Clean lines','Light worktop']},
+       ar:{n:'غرافيت', d:'خزائن بخطوط نظيفة مع تخزين طويل وأجهزة مدمجة، وسطح عمل فاتح يضيف تبايناً مع درجات الرمادي الداكن.', x:['خزائن طويلة','خطوط نظيفة','سطح عمل فاتح']}},
+      {c:'K02', g:'k', f:'k02-soft-neutrals',
+       en:{n:'Soft neutrals', d:'Warm beige and white cabinetry frame a central island. Veined surfaces create a continuous visual theme across the room.', x:['Central island','Two-tone palette','Veined surfaces']},
+       ar:{n:'ألوان محايدة ناعمة', d:'خزائن بيج دافئة وبيضاء تحيط بجزيرة وسطية، وأسطح معرّقة تخلق إيقاعاً بصرياً متصلاً في أرجاء المكان.', x:['جزيرة وسطية','لونان متناسقان','أسطح معرّقة']}},
+      {c:'K03', g:'k', f:'k03-gloss-contrast',
+       en:{n:'Gloss & contrast', d:'Dark glossy fronts sit alongside open shelves and pale surfaces, creating a bold kitchen composition.', x:['Glossy fronts','Open shelving','Built-in appliances']},
+       ar:{n:'لمعان وتباين', d:'واجهات داكنة لامعة إلى جانب رفوف مفتوحة وأسطح فاتحة في تكوين جريء للمطبخ.', x:['واجهات لامعة','رفوف مفتوحة','أجهزة مدمجة']}},
+      {c:'K04', g:'k', f:'k04-warm-wood',
+       en:{n:'Warm wood tones', d:'Wood-look cabinetry and a generous peninsula bring warmth and definition to an open kitchen setting.', x:['Wood-look finish','Peninsula','Open shelving']},
+       ar:{n:'درجات خشبية دافئة', d:'خزائن بمظهر خشبي وشبه جزيرة واسعة تمنح المطبخ المفتوح دفئاً ووضوحاً.', x:['تشطيب بمظهر خشبي','شبه جزيرة','رفوف مفتوحة']}},
+      {c:'K05', g:'k', f:'k05-classic-white',
+       en:{n:'Classic white', d:'White framed cabinetry, glazed upper doors and dark worktops create a familiar, balanced kitchen scheme.', x:['Framed fronts','Island storage','Glazed doors']},
+       ar:{n:'الأبيض الكلاسيكي', d:'خزائن بيضاء بإطارات وأبواب علوية زجاجية وأسطح عمل داكنة في تصميم مألوف ومتوازن.', x:['واجهات بإطار','تخزين في الجزيرة','أبواب زجاجية']}},
+      {c:'K06', g:'k', f:'k06-layers-of-light',
+       en:{n:'Layers of light', d:'Pale textured fronts are complemented by illuminated glazed cabinets, under-cabinet lighting and a glowing plinth line.', x:['Glazed storage','Task lighting','Plinth lighting']},
+       ar:{n:'طبقات من الضوء', d:'واجهات فاتحة بملمس تكمّلها خزائن زجاجية مضاءة وإضاءة أسفل الخزائن وخط قاعدة مضيء.', x:['تخزين زجاجي','إضاءة عمل','إضاءة القاعدة']}},
+      {c:'K07', g:'k', f:'k07-open-plan',
+       en:{n:'Open-plan elegance', d:'White panelled cabinetry and a dark peninsula worktop define a compact pantry within a bright, open interior.', x:['Panelled fronts','Peninsula','Open-plan setting']},
+       ar:{n:'أناقة المساحة المفتوحة', d:'خزائن بيضاء بألواح وسطح شبه جزيرة داكن يحدّدان مخزن مؤن مدمجاً داخل مساحة مفتوحة ومشرقة.', x:['واجهات بألواح','شبه جزيرة','مساحة مفتوحة']}},
+      {c:'W01', g:'w', f:'w01-quiet-symmetry',
+       en:{n:'Quiet symmetry', d:'Neutral solid doors frame a pair of illuminated glass-front compartments, balancing concealed storage with display.', x:['Solid and glass fronts','Long handles','Interior lighting']},
+       ar:{n:'تناظر هادئ', d:'أبواب مصمتة محايدة تؤطّر حجرتين بواجهات زجاجية مضاءة، في توازن بين التخزين المخفي والعرض.', x:['واجهات مصمتة وزجاجية','مقابض طويلة','إضاءة داخلية']}},
+      {c:'W02', g:'w', f:'w02-warm-reflections',
+       en:{n:'Warm reflections', d:'Rich wood tones and mirrored sliding doors surround a central storage island in this spacious dressing room.', x:['Mirrored doors','Central island','Wood tones']},
+       ar:{n:'انعكاسات دافئة', d:'درجات خشبية غنية وأبواب منزلقة بمرايا تحيط بجزيرة تخزين وسطية في غرفة ملابس فسيحة.', x:['أبواب بمرايا','جزيرة وسطية','درجات خشبية']}},
+      {c:'W03', g:'w', f:'w03-vertical-rhythm',
+       en:{n:'Vertical rhythm', d:'Tall wood-look panels and dark-framed reflective doors create a continuous storage composition around the room.', x:['Full-height cabinetry','Reflective fronts','Corner layout']},
+       ar:{n:'إيقاع عمودي', d:'ألواح طويلة بمظهر خشبي وأبواب عاكسة بإطارات داكنة تشكّل تكويناً متصلاً للتخزين حول الغرفة.', x:['خزائن بكامل الارتفاع','واجهات عاكسة','توزيع زاوي']}},
+      {c:'W04', g:'w', f:'w04-illuminated-corner',
+       en:{n:'The illuminated corner', d:'Dark-framed glass doors reveal warm wood-look interiors, with vertical lighting accentuating the corner arrangement.', x:['Glass fronts','Corner storage','Vertical lighting']},
+       ar:{n:'الزاوية المضيئة', d:'أبواب زجاجية بإطارات داكنة تكشف دواخل دافئة بمظهر خشبي، مع إضاءة عمودية تبرز توزيع الزاوية.', x:['واجهات زجاجية','تخزين زاوي','إضاءة عمودية']}},
+      {c:'W05', g:'w', f:'w05-smoked-glass',
+       en:{n:'Smoked glass', d:'A continuous bank of dark-tinted glass doors forms a refined wardrobe elevation with subtle internal lighting.', x:['Tinted glass','Slim dark frames','Full-height doors']},
+       ar:{n:'زجاج مدخّن', d:'صفّ متصل من الأبواب الزجاجية الداكنة يشكّل واجهة خزانة راقية مع إضاءة داخلية خفيفة.', x:['زجاج ملوّن','إطارات داكنة رفيعة','أبواب بكامل الارتفاع']}},
+      {c:'W06', g:'w', f:'w06-dressing-gallery',
+       en:{n:'The dressing gallery', d:'Parallel runs of illuminated glass-front wardrobes lead towards a dressing table and a circular illuminated mirror.', x:['Gallery layout','Dressing table','Feature mirror']},
+       ar:{n:'رواق الملابس', d:'صفّان متوازيان من الخزائن الزجاجية المضاءة يقودان إلى طاولة زينة ومرآة دائرية مضيئة.', x:['توزيع رواقي','طاولة زينة','مرآة مميزة']}},
+      {c:'W07', g:'w', f:'w07-statement-island',
+       en:{n:'Statement island', d:'Illuminated wardrobes surround a central drawer island, bringing together warm wood tones, dark frames and a pale veined top.', x:['Drawer island','Display compartments','Integrated lighting']},
+       ar:{n:'جزيرة لافتة', d:'خزائن مضاءة تحيط بجزيرة أدراج وسطية تجمع الدرجات الخشبية الدافئة والإطارات الداكنة وسطحاً فاتحاً معرّقاً.', x:['جزيرة أدراج','حجرات عرض','إضاءة مدمجة']}},
+      {c:'W08', g:'w', f:'w08-golden-glow',
+       en:{n:'Golden glow', d:'Pale upper cupboards and illuminated glass-front storage are paired with a compact dressing niche.', x:['Overhead storage','Dressing niche','Warm illumination']},
+       ar:{n:'توهّج ذهبي', d:'خزائن علوية فاتحة وتخزين بواجهات زجاجية مضاءة مع ركن زينة مدمج.', x:['تخزين علوي','ركن زينة','إضاءة دافئة']}},
+      {c:'W09', g:'w', f:'w09-conceal-reveal',
+       en:{n:'Conceal & reveal', d:'Solid-front cabinetry alongside illuminated glass compartments, showing two distinct storage treatments.', x:['Concealed storage','Glass display','Coordinated handles']},
+       ar:{n:'إخفاء وإظهار', d:'خزائن بواجهات مصمتة إلى جانب حجرات زجاجية مضاءة، تُظهر معالجتين مختلفتين للتخزين.', x:['تخزين مخفي','عرض زجاجي','مقابض متناسقة']}},
+      {c:'C01', g:'c', f:'c01-everyday-ritual',
+       en:{n:'Everyday ritual', d:'Neutral cabinetry, a softly lit open niche and glazed side storage create a compact coffee and refreshment station.', x:['Open niche','Drawer storage','Accent lighting']},
+       ar:{n:'طقس يومي', d:'خزائن محايدة وتجويف مفتوح بإضاءة ناعمة وتخزين جانبي زجاجي تشكّل ركناً مدمجاً للقهوة والمشروبات.', x:['تجويف مفتوح','تخزين بالأدراج','إضاءة مميزة']}}
+    ];
+    var list = ITEMS.slice(), idx = 0, token = 0, started = false;
+    var layers = frame.querySelectorAll('.sc-layer');
+    function src(it, sm){ return 'images/collections/interiors/' + it.f + (sm ? '-sm' : '') + '.jpg'; }
+    function item(it){
+      return { src: src(it), code: it.c, svc: 'interiors',
+               title: function(){ return it[L()].n; }, sub: function(){ return it[L()].d; } };
+    }
+    function text(){
+      var it = list[idx], t = it[L()];
+      info.querySelector('.code').textContent = it.c;
+      info.querySelector('.cat').textContent = GROUP[it.g][L()];
+      info.querySelector('h3').textContent = t.n;
+      info.querySelector('.desc').textContent = t.d;
+      var ul = info.querySelector('.sc-details'); ul.innerHTML = '';
+      t.x.forEach(function(s){ var li = document.createElement('li'); li.textContent = s; ul.appendChild(li); });
+      info.querySelector('.sc-count').innerHTML = '<b>' + digits(pad(idx + 1)) + '</b> / ' + digits(pad(list.length));
+    }
+    function image(first){
+      var it = list[idx], my = ++token;
+      var on = frame.querySelector('.sc-layer.on');
+      var target = first ? layers[0] : (on === layers[0] ? layers[1] : layers[0]);
+      var fg = target.querySelector('.fg');
+      target.querySelector('.blur').src = src(it, true);
+      fg.alt = it.c + ' ' + it[L()].n;
+      fg.src = src(it);
+      var show = function(){ if(my !== token) return; layers.forEach(function(l){ l.classList.toggle('on', l === target); }); };
+      if(first || !fg.decode) show(); else fg.decode().then(show, show);
+    }
+    function buildThumbs(){
+      thumbs.innerHTML = '';
+      list.forEach(function(it, j){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'sc-thumb' + (j === idx ? ' on' : '');
+        b.setAttribute('aria-label', it.c + ' ' + it[L()].n);
+        var im = document.createElement('img'); im.src = src(it, true); im.alt = ''; im.loading = 'lazy';
+        b.appendChild(im);
+        b.addEventListener('click', function(){ go(j); });
+        thumbs.appendChild(b);
+      });
+    }
+    function go(j){
+      idx = (j + list.length) % list.length;
+      info.classList.add('fade');
+      setTimeout(function(){ text(); info.classList.remove('fade'); }, reduce ? 0 : 260);
+      image(false);
+      Array.prototype.forEach.call(thumbs.children, function(b, k){ b.classList.toggle('on', k === idx); });
+      var cur = thumbs.children[idx];
+      if(cur){
+        var r = cur.getBoundingClientRect(), c = thumbs.getBoundingClientRect();
+        thumbs.scrollBy({left: (r.left + r.width / 2) - (c.left + c.width / 2), behavior: reduce ? 'auto' : 'smooth'});
+      }
+    }
+    document.querySelectorAll('.sc-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var g = tab.getAttribute('data-group');
+        document.querySelectorAll('.sc-tab').forEach(function(t){ t.classList.toggle('on', t === tab); });
+        list = g === 'all' ? ITEMS.slice() : ITEMS.filter(function(it){ return it.g === g; });
+        idx = 0; buildThumbs(); thumbs.scrollLeft = 0; go(0);
+      });
+    });
+    document.querySelector('[data-sc-prev]').addEventListener('click', function(){ go(idx - 1); });
+    document.querySelector('[data-sc-next]').addEventListener('click', function(){ go(idx + 1); });
+    function full(){ lbOpen(list.map(item), idx); }
+    frame.addEventListener('click', full);
+    frame.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); full(); } });
+    onSwipe(frame, function(d){ go(idx + d); });
+    document.getElementById('scEnquire').addEventListener('click', function(){ var it = list[idx]; enquire('interiors', it.c + ' ' + it[L()].n); });
+    langHooks.push(function(){ text(); buildThumbs(); });
+    text(); buildThumbs();
+    // Defer the first full-size image until the showcase is close to the viewport.
+    new IntersectionObserver(function(es, ob){
+      if(es.some(function(e){ return e.isIntersecting; }) && !started){ started = true; image(true); ob.disconnect(); }
+    }, {rootMargin:'600px 0px'}).observe(frame);
+  })();
+
+  /* ---------- DOORS: ACCORDION ---------- */
+  (function(){
+    var row = document.getElementById('doorRow');
+    if(!row) return;
+    var doors = Array.prototype.slice.call(row.querySelectorAll('.door'));
+    var wide = window.matchMedia('(min-width: 861px)'), hover = window.matchMedia('(hover: hover)');
+    function open(d){ doors.forEach(function(x){ x.classList.toggle('on', x === d); }); }
+    doors.forEach(function(d){
+      d.addEventListener('mouseenter', function(){ if(wide.matches && hover.matches) open(d); });
+      d.addEventListener('focus', function(){ var fv = false; try{ fv = d.matches(':focus-visible'); }catch(e){} if(fv && wide.matches) open(d); });
+      d.addEventListener('click', function(){
+        if(wide.matches && !d.classList.contains('on')){ open(d); return; } // first tap on touch opens the panel
+        openFromEl(d);
+      });
+      d.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openFromEl(d); } });
+    });
+  })();
+
   var saved = null;
   try{ saved = localStorage.getItem('ajlang'); }catch(e){}
   if(saved === 'ar') setLang('ar');
