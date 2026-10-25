@@ -806,7 +806,7 @@
           <p data-i18n="po.lead">Contemporary pool designs, integrated children's areas and the full build sequence, from the first cut of the ground to the first swim.</p>
           <div class="acts">
             <a href="#contact" class="thin-btn solid" data-enquire="pools" data-i18n="po.enq">Discuss your pool</a>
-            <a href="catalogues/al-jouhari-swimming-pools.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="pools">PDF · 20 pp · 14 MB</span></a>
+            <a href="catalogues/al-jouhari-swimming-pools.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="pools">PDF · 20 pp</span></a>
           </div>
         </div>
         <div class="cc" data-c="interiors">
@@ -815,7 +815,7 @@
           <p data-i18n="in.lead">A curated portfolio of cabinetry, dressing rooms and everyday spaces, contemporary and classic, from welcoming kitchens to carefully organised dressing rooms.</p>
           <div class="acts">
             <a href="#contact" class="thin-btn solid" data-enquire="interiors" data-i18n="in.enq">Discuss your interiors</a>
-            <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="interiors">PDF · 22 pp · 5 MB</span></a>
+            <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="interiors">PDF · 22 pp</span></a>
           </div>
         </div>
         <div class="cc" data-c="doors">
@@ -824,7 +824,7 @@
           <p data-i18n="dr.lead">Five design directions for entrance doors and matching wall cladding: a study in texture, lines and warm tones. Choose your style, then start with the details.</p>
           <div class="acts">
             <a href="#contact" class="thin-btn solid" data-enquire="doors" data-i18n="dr.enq">Enquire about doors</a>
-            <a href="catalogues/al-jouhari-doors-cladding.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="doors">PDF · 10 pp · 1.7 MB</span></a>
+            <a href="catalogues/al-jouhari-doors-cladding.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="doors">PDF · 10 pp</span></a>
           </div>
         </div>
       </div>
@@ -1029,15 +1029,15 @@
       <div class="books reveal">
         <a class="book" href="catalogues/al-jouhari-swimming-pools.pdf" target="_blank" rel="noopener">
           <span class="bk-cover"><img src="catalogues/covers/swimming-pools.jpg" alt="Swimming Pools catalogue cover" loading="lazy"></span>
-          <span class="bk-n">I</span><span class="bk-t" data-i18n="co.k1">Swimming Pools</span><span class="bk-m pdf-note" data-pdf="pools">PDF · 20 pp · 14 MB</span>
+          <span class="bk-n">I</span><span class="bk-t" data-i18n="co.k1">Swimming Pools</span><span class="bk-m pdf-note" data-pdf="pools">PDF · 20 pp</span>
         </a>
         <a class="book" href="catalogues/al-jouhari-kitchens-wardrobes.pdf" target="_blank" rel="noopener">
           <span class="bk-cover"><img src="catalogues/covers/kitchens-wardrobes.jpg" alt="Kitchens and Wardrobes catalogue cover" loading="lazy"></span>
-          <span class="bk-n">II</span><span class="bk-t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="bk-m pdf-note" data-pdf="interiors">PDF · 22 pp · 5 MB</span>
+          <span class="bk-n">II</span><span class="bk-t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="bk-m pdf-note" data-pdf="interiors">PDF · 22 pp</span>
         </a>
         <a class="book" href="catalogues/al-jouhari-doors-cladding.pdf" target="_blank" rel="noopener">
           <span class="bk-cover"><img src="catalogues/covers/doors-cladding.jpg" alt="Doors and Cladding catalogue cover" loading="lazy"></span>
-          <span class="bk-n">III</span><span class="bk-t" data-i18n="co.k3">Doors &amp; Cladding</span><span class="bk-m pdf-note" data-pdf="doors">PDF · 10 pp · 1.7 MB</span>
+          <span class="bk-n">III</span><span class="bk-t" data-i18n="co.k3">Doors &amp; Cladding</span><span class="bk-m pdf-note" data-pdf="doors">PDF · 10 pp</span>
         </a>
       </div>
     </div>
@@ -1784,7 +1784,7 @@
 
   /* ---------- POOLS: DESIGN RAIL ---------- */
   document.querySelectorAll('.rail').forEach(function(rail){
-    var box = rail.parentNode;
+    var box = rail.closest('.cp') || rail.parentNode; // the arrows sit in the panel header, not beside the rail
     var prev = box.querySelector('[data-rail-prev]'), next = box.querySelector('[data-rail-next]');
     var bar = box.querySelector('.rail-progress span');
     function step(){ var c = rail.firstElementChild; return c ? c.getBoundingClientRect().width + 24 : rail.clientWidth * .8; }
