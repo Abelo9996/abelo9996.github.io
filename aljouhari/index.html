@@ -50,10 +50,12 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:96px;transition:height .5s ease}
   header.scrolled .nav{height:74px}
   .brand{display:flex;align-items:center;gap:13px;color:#fff}
+  .nav .brand{margin-inline-end:clamp(36px,4.5vw,80px)} /* breathing room between the logo and the links */
+  header .wrap{max-width:max(var(--max),1600px)}
   .brand .gem{width:36px;height:auto;flex:none;object-fit:contain;display:block}
   .brand .bt{font-family:'Cormorant Garamond';font-size:23px;font-weight:500;letter-spacing:.04em;line-height:1;white-space:nowrap}
   .brand small{display:block;font-family:'Jost';font-size:8.5px;font-weight:400;letter-spacing:.32em;color:var(--gold-soft);margin-top:3px}
-  nav ul{display:flex;gap:38px;list-style:none}
+  nav ul{display:flex;gap:clamp(26px,2.3vw,38px);list-style:none}
   nav ul a{font-family:'Jost';font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:300;position:relative;padding:4px 0}
   nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .4s ease}
   nav ul a:hover{color:#fff}
@@ -478,7 +480,7 @@
   body.ar .door .dv{display:none}
 
   /* ---------- RESPONSIVE ---------- */
-  @media(max-width:1320px){
+  @media(max-width:1380px){
     .nav-cta{display:none}
   }
   @media(max-width:1120px){
@@ -595,6 +597,16 @@
   }
   @media(max-width:560px),(max-height:860px){
     .scroll-hint{display:none}
+  }
+  @media(max-width:440px){
+    .brand small{letter-spacing:.2em}
+    .nav-right{gap:12px}
+  }
+  @media(max-width:400px){
+    .brand{gap:11px}
+    .brand .gem{width:32px}
+    .brand .bt{font-size:21px}
+    .brand small{letter-spacing:.12em}
   }
   @media(max-width:360px){
     .wrap{padding-left:18px;padding-right:18px}
