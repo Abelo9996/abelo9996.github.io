@@ -2044,6 +2044,31 @@
     });
   })();
 
+  /* ---------- CATALOGUES: ARABIC EDITIONS ---------- */
+  // Each catalogue has an Arabic edition saved alongside it as *-ar.pdf (cover *-ar.jpg).
+  (function(){
+    var links = document.querySelectorAll('a[href^="catalogues/al-jouhari-"]');
+    var covers = document.querySelectorAll('.bk-cover img');
+    var notes = Array.prototype.map.call(document.querySelectorAll('.pdf-note'), function(n){
+      return { el: n, pp: +(n.textContent.match(/(\d+)\s*pp/) || [0, 0])[1] };
+    });
+    function ed(path){ return path.replace(/(-ar)?\.(pdf|jpg)$/, (L() === 'ar' ? '-ar' : '') + '.$2'); }
+    function apply(){
+      links.forEach(function(a){ a.setAttribute('href', ed(a.getAttribute('href'))); });
+      covers.forEach(function(img){
+        img.setAttribute('src', ed(img.getAttribute('src')));
+        var t = img.closest('.book').querySelector('.bk-t');
+        img.alt = L() === 'ar' ? 'غلاف كتالوج ' + t.textContent : t.textContent + ' catalogue cover';
+      });
+      notes.forEach(function(n){
+        n.el.textContent = L() === 'ar'
+          ? 'PDF · ' + digits(n.pp) + (n.pp >= 3 && n.pp <= 10 ? ' صفحات' : ' صفحة')
+          : 'PDF · ' + n.pp + ' pp';
+      });
+    }
+    langHooks.push(apply);
+  })();
+
   var saved = null;
   try{ saved = localStorage.getItem('ajlang'); }catch(e){}
   if(saved === 'ar') setLang('ar');
