@@ -243,41 +243,83 @@
   footer ul a:hover{color:var(--gold-soft)}
   .foot-bottom{padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'Jost';font-size:11.5px;letter-spacing:.1em}
 
-  /* ---------- COLLECTIONS: OVERVIEW ---------- */
-  .collections{background:var(--paper)}
-  .portals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-  .portal{position:relative;display:block;aspect-ratio:3/4.2;overflow:hidden;background:var(--ink);color:#fff;isolation:isolate}
-  .portal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);filter:brightness(.8);transition:transform 1.8s cubic-bezier(.2,.7,.2,1),filter 1s ease}
-  .portal::before{content:"";position:absolute;inset:16px;border:1px solid rgba(201,174,124,0);z-index:2;transition:border-color .8s ease,inset .8s cubic-bezier(.2,.7,.2,1);pointer-events:none}
-  .portal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,15,.5) 0%,rgba(20,19,15,.05) 22%,rgba(20,19,15,.1) 34%,rgba(20,19,15,.9));z-index:1}
-  .viewer-cap .vn,.tl .n,.door .dn,.sc-info .code,.sc-count,.sc-tab sup{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
-  .portal:hover img{transform:scale(1.09);filter:brightness(.95)}
-  .portal:hover::before{border-color:rgba(201,174,124,.6);inset:22px}
-  .portal .pn{position:absolute;top:34px;inset-inline-start:36px;z-index:3;font-family:'Cormorant Garamond';font-size:19px;letter-spacing:.24em;color:var(--gold-soft)}
-  .portal .pb{position:absolute;inset-inline:36px;bottom:40px;z-index:3}
-  .portal .pk{font-family:'Jost';font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-soft)}
-  .portal h3{font-size:clamp(30px,2.9vw,44px);font-weight:300;margin:12px 0 8px}
-  .portal .pm{font-size:14.5px;color:rgba(255,255,255,.7)}
-  .portal .go{display:flex;align-items:center;gap:14px;margin-top:24px;font-family:'Jost';font-size:11px;letter-spacing:.24em;text-transform:uppercase}
-  .portal .go::before{content:"";width:34px;height:1px;background:var(--gold);transition:width .7s cubic-bezier(.2,.7,.2,1)}
-  .portal:hover .go::before{width:68px}
-
-  /* ---------- COLLECTIONS: CHAPTER COVERS ---------- */
-  .chapter{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--ink)}
-  .chapter-media{position:absolute;inset:0}
-  .chapter-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
-  .chapter-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,19,15,.92) 0%,rgba(20,19,15,.5) 42%,rgba(20,19,15,.12) 100%)}
-  .chapter-inner{position:relative;z-index:2;width:100%;padding-top:160px;padding-bottom:96px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:70px;align-items:end}
-  .chapter .numeral{position:absolute;top:120px;inset-inline-end:40px;z-index:2;font-family:'Cormorant Garamond';font-weight:300;font-size:clamp(120px,15vw,230px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(201,174,124,.55);pointer-events:none}
-  .chapter .kicker{color:var(--gold-soft)}
-  .chapter h2{font-size:clamp(52px,7.6vw,118px);font-weight:300;margin-top:22px;letter-spacing:-.01em}
-  .chapter h2 em{font-style:italic;color:var(--gold-soft)}
-  .chapter .sub{font-family:'Jost';font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:22px}
-  .chapter .lead{font-size:17.5px;font-weight:300;color:rgba(255,255,255,.82);margin-bottom:34px}
-  .chapter .acts{display:flex;flex-wrap:wrap;gap:14px}
+  /* ---------- RESIDENTIAL COLLECTIONS ---------- */
+  .coll{background:var(--ink);color:#fff}
+  .cc-cover{position:relative;min-height:max(100vh,780px);display:flex;overflow:hidden;background:var(--ink)}
+  .cc-media{position:absolute;inset:0}
+  .cc-media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity 1.2s ease,transform 7s cubic-bezier(.2,.7,.2,1)}
+  .cc-media>.on{opacity:1;transform:scale(1)}
+  .cc-tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .cc-tri img{width:100%;height:100%;object-fit:cover;min-width:0}
+  .cc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,19,15,.84) 0%,rgba(20,19,15,.3) 30%,rgba(20,19,15,.38) 52%,rgba(20,19,15,.95) 90%),linear-gradient(90deg,rgba(20,19,15,.55) 0%,rgba(20,19,15,0) 62%)}
+  html[dir="rtl"] .cc-media::after{background:linear-gradient(180deg,rgba(20,19,15,.84) 0%,rgba(20,19,15,.3) 30%,rgba(20,19,15,.38) 52%,rgba(20,19,15,.95) 90%),linear-gradient(270deg,rgba(20,19,15,.55) 0%,rgba(20,19,15,0) 62%)}
+  .cc-inner{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;justify-content:space-between;padding-top:150px}
+  .cc-head{max-width:600px}
+  .cc-head .kicker{display:block;margin-bottom:18px;color:var(--gold-soft)}
+  .cc-head h2{font-size:clamp(40px,4.4vw,62px);font-weight:300}
+  .cc-head h2 em{font-style:italic;color:var(--gold-soft)}
+  .cc-head p{color:rgba(255,255,255,.76);font-size:16.5px;margin-top:18px;max-width:540px}
+  .cc-copy{display:grid;margin-top:70px}
+  .cc{grid-area:1/1;align-self:end;max-width:660px;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease,visibility .5s}
+  .cc.on{opacity:1;visibility:visible;transform:none;transition:opacity .9s .15s ease,transform .9s .15s cubic-bezier(.2,.7,.2,1),visibility 0s}
+  .cc-k{font-family:'Jost';font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft)}
+  .cc h3{font-size:clamp(50px,7vw,106px);font-weight:300;margin:14px 0 20px;letter-spacing:-.01em;line-height:1}
+  .cc h3 em{font-style:italic;color:var(--gold-soft)}
+  .cc p{font-size:17px;font-weight:300;color:rgba(255,255,255,.84);max-width:560px;margin-bottom:32px}
+  .cc .acts{display:flex;flex-wrap:wrap;gap:14px}
+  .coll .numeral{position:absolute;top:130px;inset-inline-end:40px;z-index:2;font-family:'Cormorant Garamond';font-weight:300;font-size:clamp(120px,15vw,230px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(201,174,124,.55);pointer-events:none;transition:opacity .45s ease,transform .45s ease}
+  .coll .numeral.swap{opacity:0;transform:translateY(-14px)}
+  .cc-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:70px;border-top:1px solid var(--line-dark)}
+  .ct{position:relative;background:none;border:0;color:rgba(255,255,255,.55);text-align:start;padding:26px 28px 34px 0;cursor:pointer;font:inherit;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:baseline;transition:color .4s ease}
+  html[dir="rtl"] .ct{padding:26px 0 34px 28px}
+  .ct::before{content:"";position:absolute;top:-1px;inset-inline-start:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  html[dir="rtl"] .ct::before{transform-origin:right}
+  .ct.on::before{transform:scaleX(1)}
+  .ct:hover,.ct.on{color:#fff}
+  .ct .n{font-family:'Cormorant Garamond';font-size:20px;color:var(--gold-soft);letter-spacing:.12em;grid-row:span 2}
+  .ct .t{font-family:'Cormorant Garamond';font-size:clamp(22px,2vw,29px);line-height:1.15}
+  .ct .m{font-size:13.5px;color:rgba(255,255,255,.5);margin-top:4px}
+  .ct:focus-visible{outline:1px solid var(--gold);outline-offset:-1px}
+  .cp{display:none;padding:96px 0 110px}
+  .cp.on{display:block;animation:cpIn .8s cubic-bezier(.2,.7,.2,1)}
+  @keyframes cpIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .cp.ink{background:var(--ink);color:#fff}
+  .cp.showcase{color:var(--ink)}
+  .pv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;border-bottom:1px solid var(--line-dark)}
+  .pv-tabs{display:flex;gap:36px;overflow-x:auto;scrollbar-width:none}
+  .pv-tabs::-webkit-scrollbar{display:none}
+  .pv{background:none;border:0;padding:0 0 20px;font-family:'Jost';font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);cursor:pointer;position:relative;white-space:nowrap;transition:color .4s ease}
+  .pv sup{font-size:9.5px;color:var(--gold-soft);margin-inline-start:5px;letter-spacing:0}
+  .pv::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .pv:hover,.pv.on{color:#fff}
+  .pv.on::after{transform:scaleX(1)}
+  .pv-head .rail-ctrl{padding-bottom:16px;transition:opacity .4s ease}
+  .cp.v-build .pv-head .rail-ctrl{opacity:0;pointer-events:none}
+  .pview{display:none}
+  .pview.on{display:block;animation:cpIn .7s cubic-bezier(.2,.7,.2,1)}
+  .cp.ink .card .ph{background:#0d0c0a}
+  .cp.ink .card .ck{color:var(--gold-soft)}
+  .cp.ink .card p{color:var(--muted-light)}
+  .cp.ink .rail-progress{background:var(--line-dark)}
+  .door-row{display:flex;gap:10px;height:min(80vh,740px);min-height:520px}
+  .shelf{background:var(--paper);color:var(--ink);padding:120px 0}
+  .shelf-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.62fr);gap:70px;align-items:center}
+  .shelf-copy .kicker{display:block;margin-bottom:18px}
+  .shelf-copy h3{font-size:clamp(34px,3.8vw,52px);font-weight:300}
+  .shelf-copy h3 em{font-style:italic;color:var(--gold)}
+  .shelf-copy p{color:var(--muted);font-size:16.5px;margin-top:18px;max-width:400px}
+  .books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+  .book{display:block}
+  .bk-cover{display:block;position:relative;aspect-ratio:297/210;overflow:hidden;background:var(--ink);box-shadow:0 22px 40px -22px rgba(20,19,15,.6),0 2px 6px rgba(20,19,15,.12);transition:transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .8s ease}
+  .bk-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 34%);pointer-events:none}
+  .bk-cover img{width:100%;height:100%;object-fit:cover}
+  .book:hover .bk-cover,.book:focus-visible .bk-cover{transform:translateY(-8px);box-shadow:0 34px 50px -24px rgba(20,19,15,.62),0 2px 6px rgba(20,19,15,.12)}
+  .bk-n{display:inline-block;margin-top:22px;margin-inline-end:10px;font-family:'Cormorant Garamond';font-size:17px;letter-spacing:.12em;color:var(--gold)}
+  .bk-t{font-family:'Cormorant Garamond';font-size:23px;transition:color .4s ease}
+  .book:hover .bk-t{color:var(--gold)}
+  .bk-m{color:var(--muted)}
+  .viewer-cap .vn,.tl .n,.door .dn,.sc-info .code,.sc-count,.sc-tab sup,.pv sup{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
   .pdf-note{display:block;font-family:'Jost';font-size:10px;letter-spacing:.2em;opacity:.6;margin-top:2px}
-  .fine{font-family:'Jost';font-size:12.5px;line-height:1.6;color:var(--muted-light);max-width:760px;margin-top:46px;padding-top:18px;border-top:1px solid var(--line)}
-  .on-ink .fine,.build .fine,.doors .fine{border-top-color:var(--line-dark);color:rgba(255,255,255,.5)}
 
   /* ---------- POOLS: DESIGN RAIL ---------- */
   .pool-designs{background:var(--paper)}
@@ -301,7 +343,6 @@
   .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
   .card:hover .ph img,.card:focus-visible .ph img{transform:scale(1.06)}
   .card:focus-visible .ph{outline:1px solid var(--gold);outline-offset:4px}
-  .tag{position:absolute;top:14px;inset-inline-start:14px;z-index:2;background:rgba(20,19,15,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-family:'Jost';font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;padding:7px 11px}
   .card .ck{display:block;margin-top:24px;font-family:'Jost';font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
   .card h4{font-family:'Cormorant Garamond';font-size:29px;font-weight:400;margin:8px 0 8px;line-height:1.15}
   .card p{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:380px}
@@ -342,18 +383,6 @@
   .play .i-play{display:none}
   .build.paused .play .i-play{display:block}
   .build.paused .play .i-pause{display:none}
-  .evening{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.15fr) minmax(0,1fr);gap:22px;margin-top:130px;align-items:end}
-  .evening .kicker{display:block;margin-bottom:18px;color:var(--gold-soft)}
-  .evening h3{font-size:clamp(34px,4vw,54px);font-weight:300}
-  .evening h3 em{font-style:italic;color:var(--gold-soft)}
-  .evening .ev-copy p{color:var(--muted-light);font-size:16.5px;margin-top:18px}
-  .ev{cursor:zoom-in;outline:0}
-  .ev .ph{position:relative;overflow:hidden;aspect-ratio:4/3}
-  .ev:first-of-type .ph{aspect-ratio:4/4.4}
-  .ev .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-  .ev:hover .ph img{transform:scale(1.05)}
-  .ev h4{font-family:'Cormorant Garamond';font-size:24px;font-weight:400;margin-top:18px}
-  .ev p{font-size:14.5px;color:var(--muted-light);margin-top:4px;line-height:1.6}
 
   /* ---------- INTERIORS: SHOWCASE ---------- */
   .showcase{background:var(--bg)}
@@ -394,14 +423,6 @@
 
   /* ---------- DOORS ---------- */
   .doors{background:var(--ink);color:#fff}
-  .doors-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:70px;align-items:end}
-  .doors-head .kicker{display:block;margin-bottom:20px;color:var(--gold-soft)}
-  .doors-head h2{font-size:clamp(48px,6.4vw,96px);font-weight:300}
-  .doors-head h2 em{font-style:italic;color:var(--gold-soft)}
-  .doors-head .sub{font-family:'Jost';font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:22px}
-  .doors-head .lead{font-size:17.5px;font-weight:300;color:rgba(255,255,255,.78);margin-bottom:30px}
-  .doors-head .acts{display:flex;flex-wrap:wrap;gap:14px}
-  .door-row{display:flex;gap:10px;height:min(80vh,740px);min-height:520px;margin-top:80px}
   .door{position:relative;flex:1 1 0;min-width:0;overflow:hidden;cursor:pointer;background:#0d0c0a;transition:flex-grow 1s cubic-bezier(.2,.7,.2,1);outline:0}
   .door.on{flex-grow:3.3}
   .door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.85);transition:filter 1s ease,transform 2s cubic-bezier(.2,.7,.2,1)}
@@ -419,12 +440,6 @@
   .door .di li{font-size:14px;color:rgba(255,255,255,.82);display:flex;align-items:center;gap:12px;padding:5px 0}
   .door .di li::before{content:"";width:5px;height:5px;flex:none;background:var(--gold);transform:rotate(45deg)}
   .door-hint{margin-top:22px;font-family:'Jost';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-  .details{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,1fr);gap:22px;margin-top:130px;align-items:end}
-  .details .kicker{display:block;margin-bottom:18px;color:var(--gold-soft)}
-  .details h3{font-size:clamp(34px,4vw,54px);font-weight:300}
-  .details h3 em{font-style:italic;color:var(--gold-soft)}
-  .details .dt-copy p{color:var(--muted-light);font-size:16.5px;margin-top:18px}
-  .details .ev .ph{aspect-ratio:4/5}
 
   /* ---------- LIGHTBOX ---------- */
   .lb{position:fixed;inset:0;z-index:300;background:rgba(14,13,10,.97);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s ease;color:#fff}
@@ -458,8 +473,8 @@
   html[dir="rtl"] .intro-figure .yrs{left:auto;right:-40px}
   html[dir="rtl"] .svc::after{left:auto;right:0}
   html[dir="rtl"] nav ul a::after{left:auto;right:0}
-  body.ar .viewer-cap .vt,body.ar .lb-cap .t,body.ar .sc-count{font-family:'Amiri',serif}
-  body.ar .hs,body.ar .portal .pk,body.ar .portal .go,body.ar .chapter .sub,body.ar .doors-head .sub,body.ar .tag,body.ar .card .ck,body.ar .tl .l,body.ar .sc-tab,body.ar .sc-details li,body.ar .door .di .k,body.ar .door-hint,body.ar .lb-top,body.ar .pdf-note{letter-spacing:normal;text-transform:none}
+  body.ar .viewer-cap .vt,body.ar .lb-cap .t,body.ar .sc-count,body.ar .ct .t,body.ar .bk-t{font-family:'Amiri',serif}
+  body.ar .hs,body.ar .cc-k,body.ar .pv,body.ar .ct .m,body.ar .card .ck,body.ar .tl .l,body.ar .sc-tab,body.ar .sc-details li,body.ar .door .di .k,body.ar .door-hint,body.ar .lb-top,body.ar .pdf-note{letter-spacing:normal;text-transform:none}
   body.ar .door .dv{display:none}
 
   /* ---------- RESPONSIVE ---------- */
@@ -479,17 +494,11 @@
     .clients-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
     .client:nth-child(6n){border-inline-end:1px solid var(--line)}
     .client:nth-child(4n){border-inline-end:0}
-    .portals{gap:12px}
-    .portal .pb{inset-inline:26px;bottom:30px}
-    .portal .pn{inset-inline-start:26px;top:26px}
     .rail{grid-auto-columns:calc((100% - 24px)/1.6)}
-    .chapter-inner{grid-template-columns:minmax(0,1fr);gap:30px}
-    .chapter .lead{max-width:560px}
     .sc-stage{grid-template-columns:minmax(0,1fr);gap:44px}
-    .evening,.details{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-    .ev-copy,.dt-copy{grid-column:1/-1;max-width:620px;margin-bottom:12px}
-    .evening .ev:first-of-type .ph{aspect-ratio:4/3}
-    .doors-head{grid-template-columns:minmax(0,1fr);gap:34px}
+    .shelf-grid{grid-template-columns:minmax(0,1fr);gap:46px}
+    .shelf-copy p{max-width:560px}
+    .ct{padding-inline-end:18px}
   }
   @media(max-width:860px){
     .wrap{padding-left:24px;padding-right:24px}
@@ -509,24 +518,35 @@
     .foot-top{grid-template-columns:1fr 1fr}
     section.block{padding:100px 0}
     form{padding:34px}
-    .portals{grid-template-columns:minmax(0,1fr)}
-    .portal{aspect-ratio:4/3.3}
-    .chapter{min-height:86vh}
-    .chapter .numeral{top:100px;inset-inline-end:24px;font-size:110px}
-    .chapter-inner{padding-bottom:70px}
     .rail-head,.build-head{flex-direction:column;align-items:flex-start;gap:28px}
     .build-tabs{justify-content:flex-start}
     .viewer{aspect-ratio:2/1}
     .timeline{grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:22px 14px}
     .timeline .play{grid-column:4;grid-row:1}
-    .door-row{overflow-x:auto;scroll-snap-type:x mandatory;height:auto;min-height:0;margin-top:56px;scrollbar-width:none}
+    .door-row{overflow-x:auto;scroll-snap-type:x mandatory;height:auto;min-height:0;scrollbar-width:none}
     .door-row::-webkit-scrollbar{display:none}
     .door,.door.on{flex:0 0 72%;height:560px;scroll-snap-align:start}
     .door .dv{display:none}
     .door .di{opacity:1;transform:none}
     .door img{filter:brightness(.88)}
     .door-hint{display:none}
-    .evening,.details{margin-top:90px}
+    .cc-cover{min-height:0}
+    .cc-inner{padding-top:120px}
+    .cc-copy{margin-top:56px}
+    .coll .numeral{top:100px;inset-inline-end:24px;font-size:110px}
+    .cc-tabs{margin-top:54px}
+    .ct{grid-template-columns:minmax(0,1fr);padding:20px 12px 24px 0;row-gap:2px}
+    html[dir="rtl"] .ct{padding:20px 0 24px 12px}
+    .ct .n{grid-row:auto;font-size:16px}
+    .ct .t{font-size:20px}
+    .ct .m{display:none}
+    .cp{padding:64px 0 90px}
+    .pv-head{margin-bottom:36px}
+    .pv-head .rail-ctrl{display:none}
+    .pv-tabs{gap:24px}
+    .pv{font-size:11px;letter-spacing:.14em}
+    .shelf{padding:90px 0}
+    .books{gap:16px}
     .lb-stage{padding:0 10px}
     .lb .arrow{width:44px;height:44px;margin-top:-22px;background:rgba(20,19,15,.55);border-color:rgba(255,255,255,.25)}
     .lb-prev{inset-inline-start:10px}
@@ -554,7 +574,6 @@
     .hero-slides{justify-content:flex-start;bottom:26px;gap:14px}
     .hs .hs-l{display:none}
     .hs-bar{width:46px}
-    .portal{aspect-ratio:1/1.08}
     .rail{grid-auto-columns:86%;gap:16px}
     .rail-ctrl{display:none}
     .viewer{aspect-ratio:16/10}
@@ -565,9 +584,14 @@
     .sc-tabs{gap:24px;margin-bottom:36px}
     .sc-thumbs{grid-auto-columns:82px}
     .door,.door.on{flex-basis:84%;height:500px}
-    .evening,.details{grid-template-columns:minmax(0,1fr);gap:34px}
-    .details{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
     .lb-cap .t{font-size:24px}
+    .cc h3{font-size:48px}
+    .cc-head h2{font-size:36px}
+    .cc-head p{font-size:15.5px}
+    .ct .t{font-size:17px}
+    .books{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:74%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 22px;scrollbar-width:none}
+    .books::-webkit-scrollbar{display:none}
+    .book{scroll-snap-align:start}
   }
   @media(max-width:560px),(max-height:860px){
     .scroll-hint{display:none}
@@ -603,8 +627,8 @@
     <nav>
       <ul>
         <li><a href="#intro" data-i18n="nav.about">About</a></li>
-        <li><a href="#collections" data-i18n="nav.collections">Collections</a></li>
         <li><a href="#services" data-i18n="nav.expertise">Expertise</a></li>
+        <li><a href="#collections" data-i18n="nav.collections">Collections</a></li>
         <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
         <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -621,7 +645,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-media">
-    <img class="on" src="images/collections/pools/garden.jpg" alt="Contemporary garden pool concept">
+    <img class="on" src="images/collections/pools/garden.jpg" alt="Contemporary garden pool">
     <img src="images/collections/interiors/w06-dressing-gallery.jpg" alt="Dressing gallery with illuminated glass-front wardrobes" loading="lazy">
     <img src="images/work-06.jpg" alt="Al Jouhari precast boundary wall" loading="lazy">
   </div>
@@ -670,314 +694,6 @@
   </div>
 </section>
 
-<!-- COLLECTIONS: OVERVIEW -->
-<section class="block collections" id="collections">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker" data-i18n="co.kicker">The residential collections</span>
-      <h2 data-i18n="co.h2">Living, <em>refined.</em></h2>
-      <div class="rule"></div>
-      <p data-i18n="co.p">The same hands that pour industrial floors also craft the spaces people come home to: private pools, bespoke kitchens and dressing rooms, and entrance doors with matching cladding.</p>
-    </div>
-    <div class="portals">
-      <a class="portal reveal" href="#pools" style="transition-delay:0.00s">
-        <img src="images/collections/pools/freeform-sm.jpg" srcset="images/collections/pools/freeform-sm.jpg 820w, images/collections/pools/freeform.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Freeform swimming pool concept" loading="lazy">
-        <span class="pn">I</span>
-        <span class="pb">
-          <span class="pk" data-i18n="co.n1">Design &amp; Construction</span>
-          <h3 data-i18n="co.k1">Swimming Pools</h3>
-          <span class="pm" data-i18n="co.m1">9 designs · 6 build sequences</span>
-          <span class="go" data-i18n="co.go">Discover</span>
-        </span>
-      </a>
-      <a class="portal reveal" href="#interiors" style="transition-delay:0.12s">
-        <img src="images/collections/interiors/k04-warm-wood-sm.jpg" srcset="images/collections/interiors/k04-warm-wood-sm.jpg 820w, images/collections/interiors/k04-warm-wood.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Wood-look kitchen with a peninsula" loading="lazy">
-        <span class="pn">II</span>
-        <span class="pb">
-          <span class="pk" data-i18n="co.n2">Kitchens &amp; dressing rooms</span>
-          <h3 data-i18n="co.k2">Kitchens &amp; Wardrobes</h3>
-          <span class="pm" data-i18n="co.m2">17 designs</span>
-          <span class="go" data-i18n="co.go">Discover</span>
-        </span>
-      </a>
-      <a class="portal reveal" href="#doors" style="transition-delay:0.24s">
-        <img src="images/collections/doors/d03-vertical-rhythm-sm.jpg" srcset="images/collections/doors/d03-vertical-rhythm-sm.jpg 820w, images/collections/doors/d03-vertical-rhythm.jpg 1536w" sizes="(max-width:860px) 100vw, 33vw" alt="Wood-clad entrance door" loading="lazy">
-        <span class="pn">III</span>
-        <span class="pb">
-          <span class="pk" data-i18n="co.n3">Texture, form, character</span>
-          <h3 data-i18n="co.k3">Doors &amp; Cladding</h3>
-          <span class="pm" data-i18n="co.m3">5 design directions</span>
-          <span class="go" data-i18n="co.go">Discover</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- COLLECTION I: POOLS -->
-<section class="chapter" id="pools">
-  <div class="chapter-media"><img src="images/collections/pools/oval.jpg" alt="Oval pool concept with stepped entry" loading="lazy"></div>
-  <span class="numeral" aria-hidden="true">I</span>
-  <div class="wrap chapter-inner">
-    <div class="reveal">
-      <span class="kicker" data-i18n="po.kicker">Collection I</span>
-      <h2 data-i18n="po.h2">Swimming <em>Pools</em></h2>
-      <div class="sub" data-i18n="po.sub">Design &amp; Construction</div>
-    </div>
-    <div class="reveal">
-      <p class="lead" data-i18n="po.lead">Contemporary pool concepts, integrated children's areas and the full build sequence, from the first cut of the ground to the first swim.</p>
-      <div class="acts">
-        <a href="#contact" class="thin-btn solid" data-enquire="pools" data-i18n="po.enq">Discuss your pool</a>
-        <a href="catalogues/al-jouhari-swimming-pools.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 14 MB</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="block pool-designs">
-  <div class="wrap">
-    <div class="rail-head reveal">
-      <div>
-        <span class="kicker" data-i18n="pd.kicker">The designs</span>
-        <h3 data-i18n="pd.h3">A shape for every <em>garden.</em></h3>
-        <p data-i18n="pd.p">From compact courtyards to family pools with a shallow children's area. Select any design to view it full screen.</p>
-      </div>
-      <div class="rail-ctrl">
-        <button class="arrow" type="button" data-rail-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button class="arrow" type="button" data-rail-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-    <div class="rail reveal" id="poolRail">
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/courtyard.jpg" data-lb-t="pl.n1" data-lb-s="pl.d1" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/courtyard-sm.jpg" srcset="images/collections/pools/courtyard-sm.jpg 820w, images/collections/pools/courtyard.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Compact courtyard pool concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k1">Design inspiration · 01</span>
-        <h4 data-i18n="pl.n1">Compact courtyard pool</h4>
-        <p data-i18n="pl.d1">A compact square pool with broad entry steps and a natural stone setting.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/garden.jpg" data-lb-t="pl.n2" data-lb-s="pl.d2" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/garden-sm.jpg" srcset="images/collections/pools/garden-sm.jpg 820w, images/collections/pools/garden.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Contemporary garden pool concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k2">Design inspiration · 02</span>
-        <h4 data-i18n="pl.n2">Contemporary garden pool</h4>
-        <p data-i18n="pl.d2">An elongated pool framed by pale paving and soft garden planting.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-side.jpg" data-lb-t="pl.n3" data-lb-s="pl.d3" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/family-side-sm.jpg" srcset="images/collections/pools/family-side-sm.jpg 820w, images/collections/pools/family-side.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool, side zone concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k3">Pool design · 01</span>
-        <h4 data-i18n="pl.n3">Family pool, side zone</h4>
-        <p data-i18n="pl.d3">A shallow children's area integrated beside the main swimming zone.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-end.jpg" data-lb-t="pl.n4" data-lb-s="pl.d4" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/family-end-sm.jpg" srcset="images/collections/pools/family-end-sm.jpg 820w, images/collections/pools/family-end.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool, end zone concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k4">Pool design · 02</span>
-        <h4 data-i18n="pl.n4">Family pool, end zone</h4>
-        <p data-i18n="pl.d4">A rectangular pool with an integrated shallow children's area at one end.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/oval.jpg" data-lb-t="pl.n5" data-lb-s="pl.d5" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/oval-sm.jpg" srcset="images/collections/pools/oval-sm.jpg 820w, images/collections/pools/oval.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The oval pool concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k5">Pool design · 03</span>
-        <h4 data-i18n="pl.n5">The oval pool</h4>
-        <p data-i18n="pl.d5">A continuous curved outline with a generous stepped entry.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/freeform.jpg" data-lb-t="pl.n6" data-lb-s="pl.d6" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/freeform-sm.jpg" srcset="images/collections/pools/freeform-sm.jpg 820w, images/collections/pools/freeform.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The freeform pool concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k6">Pool design · 04</span>
-        <h4 data-i18n="pl.n6">The freeform pool</h4>
-        <p data-i18n="pl.d6">A sculpted kidney-shaped pool with flowing edges and curved steps.</p>
-      </article>
-      <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/square.jpg" data-lb-t="pl.n7" data-lb-s="pl.d7" data-svc="pools">
-        <div class="ph"><span class="tag" data-i18n="pl.concept">Concept</span><img src="images/collections/pools/square-sm.jpg" srcset="images/collections/pools/square-sm.jpg 820w, images/collections/pools/square.jpg 1536w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The square pool concept" loading="lazy"></div>
-        <span class="ck" data-i18n="pl.k7">Pool design · 05</span>
-        <h4 data-i18n="pl.n7">The square pool</h4>
-        <p data-i18n="pl.d7">A compact geometric layout with clean edges and corner entry steps.</p>
-      </article>
-    </div>
-    <div class="rail-progress" aria-hidden="true"><span></span></div>
-  </div>
-</section>
-
-<section class="block build" id="build">
-  <div class="wrap">
-    <div class="build-head reveal">
-      <div>
-        <span class="kicker" data-i18n="bd.kicker">The build, stage by stage</span>
-        <h3 data-i18n="bd.h3">From excavation <em>to first swim.</em></h3>
-        <p data-i18n="bd.p">Choose a design and watch it take shape across six milestones.</p>
-      </div>
-      <div class="build-tabs">
-        <button class="gf active" type="button" data-design="concept" data-i18n="bd.t1">Initial concept</button>
-        <button class="gf" type="button" data-design="family-side" data-i18n="bd.t2">Family · side zone</button>
-        <button class="gf" type="button" data-design="family-end" data-i18n="bd.t3">Family · end zone</button>
-        <button class="gf" type="button" data-design="oval" data-i18n="bd.t4">Oval</button>
-        <button class="gf" type="button" data-design="freeform" data-i18n="bd.t5">Freeform</button>
-        <button class="gf" type="button" data-design="square" data-i18n="bd.t6">Square</button>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="viewer" id="viewer">
-        <img class="on" src="images/collections/pools/stages/concept-1.jpg" alt="" loading="lazy">
-        <img src="images/collections/pools/stages/concept-2.jpg" alt="" loading="lazy">
-        <img src="images/collections/pools/stages/concept-3.jpg" alt="" loading="lazy">
-        <img src="images/collections/pools/stages/concept-4.jpg" alt="" loading="lazy">
-        <img src="images/collections/pools/stages/concept-5.jpg" alt="" loading="lazy">
-        <img src="images/collections/pools/stages/concept-6.jpg" alt="" loading="lazy">
-        <div class="viewer-cap"><span class="vn">01</span><div><div class="vt"></div><div class="vd"></div></div></div>
-      </div>
-      <div class="timeline">
-        <button class="tl on" type="button" data-stage="0"><span class="bar"><i></i></span><span class="n">01</span><span class="l" data-i18n="st.n1">Excavation</span></button>
-        <button class="tl" type="button" data-stage="1"><span class="bar"><i></i></span><span class="n">02</span><span class="l" data-i18n="st.n2">Reinforcement &amp; pipework</span></button>
-        <button class="tl" type="button" data-stage="2"><span class="bar"><i></i></span><span class="n">03</span><span class="l" data-i18n="st.n3">Concrete shell</span></button>
-        <button class="tl" type="button" data-stage="3"><span class="bar"><i></i></span><span class="n">04</span><span class="l" data-i18n="st.n4">Waterproofing</span></button>
-        <button class="tl" type="button" data-stage="4"><span class="bar"><i></i></span><span class="n">05</span><span class="l" data-i18n="st.n5">Tiling &amp; coping</span></button>
-        <button class="tl" type="button" data-stage="5"><span class="bar"><i></i></span><span class="n">06</span><span class="l" data-i18n="st.n6">Filled &amp; finished</span></button>
-        <button class="play" type="button" aria-label="Play or pause"><svg class="i-pause" viewBox="0 0 14 14"><rect x="2" y="1" width="3" height="12"/><rect x="9" y="1" width="3" height="12"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg></button>
-      </div>
-    </div>
-
-    <div class="evening">
-      <div class="ev-copy reveal">
-        <span class="kicker" data-i18n="ev.kicker">Outdoor living</span>
-        <h3 data-i18n="ev.h3">After <em>dark.</em></h3>
-        <p data-i18n="ev.p">Pergolas, garden lounges and evening lighting complete the setting around the water.</p>
-      </div>
-      <figure class="ev reveal" tabindex="0" data-lb="pools" data-src="images/collections/pools/pergola.jpg" data-lb-t="ev.n1" data-lb-s="ev.d1" data-svc="pools">
-        <div class="ph"><img src="images/collections/pools/pergola-sm.jpg" srcset="images/collections/pools/pergola-sm.jpg 820w, images/collections/pools/pergola.jpg 1536w" sizes="(max-width:1024px) 50vw, 36vw" alt="Pool beneath a slatted pergola at dusk" loading="lazy"></div>
-        <h4 data-i18n="ev.n1">Pergola pool courtyard</h4>
-        <p data-i18n="ev.d1">An intimate pool beneath a slatted pergola, beside a glazed lounge.</p>
-      </figure>
-      <figure class="ev reveal" tabindex="0" data-lb="pools" data-src="images/collections/pools/poolside.jpg" data-lb-t="ev.n2" data-lb-s="ev.d2" data-svc="pools">
-        <div class="ph"><img src="images/collections/pools/poolside-sm.jpg" srcset="images/collections/pools/poolside-sm.jpg 820w, images/collections/pools/poolside.jpg 1536w" sizes="(max-width:1024px) 50vw, 32vw" alt="Poolside lounge with step lighting at dusk" loading="lazy"></div>
-        <h4 data-i18n="ev.n2">Poolside outdoor living</h4>
-        <p data-i18n="ev.d2">Layered seating, shaded terraces and integrated step lighting.</p>
-      </figure>
-    </div>
-    <p class="fine" data-i18n="po.fine">Pool designs and build sequences are concept visualisations, not records of completed projects; the two evening scenes are supplied references. Construction stages are illustrative milestones, not technical or structural drawings, and do not fully show testing, filtration equipment or commissioning.</p>
-  </div>
-</section>
-
-<!-- COLLECTION II: INTERIORS -->
-<section class="chapter" id="interiors">
-  <div class="chapter-media"><img src="images/collections/interiors/k03-gloss-contrast.jpg" alt="Kitchen with dark glossy fronts and open shelving" loading="lazy"></div>
-  <span class="numeral" aria-hidden="true">II</span>
-  <div class="wrap chapter-inner">
-    <div class="reveal">
-      <span class="kicker" data-i18n="in.kicker">Collection II</span>
-      <h2 data-i18n="in.h2">Kitchens, Wardrobes <em>&amp; Living Spaces</em></h2>
-      <div class="sub" data-i18n="in.sub">Interior collection</div>
-    </div>
-    <div class="reveal">
-      <p class="lead" data-i18n="in.lead">A curated portfolio of cabinetry, dressing rooms and everyday spaces, contemporary and classic, from welcoming kitchens to carefully organised dressing rooms.</p>
-      <div class="acts">
-        <a href="#contact" class="thin-btn solid" data-enquire="interiors" data-i18n="in.enq">Discuss your interiors</a>
-        <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 4 MB</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="block showcase" id="showcase">
-  <div class="wrap">
-    <div class="sc-tabs reveal" role="tablist">
-      <button class="sc-tab on" type="button" data-group="all"><span data-i18n="sc.all">All designs</span><sup>17</sup></button>
-      <button class="sc-tab" type="button" data-group="k"><span data-i18n="sc.k">Kitchens</span><sup>07</sup></button>
-      <button class="sc-tab" type="button" data-group="w"><span data-i18n="sc.w">Wardrobes &amp; dressing rooms</span><sup>09</sup></button>
-      <button class="sc-tab" type="button" data-group="c"><span data-i18n="sc.c">Coffee corner</span><sup>01</sup></button>
-    </div>
-    <div class="sc-stage reveal">
-      <div class="sc-frame" id="scFrame" role="button" tabindex="0" aria-label="View full screen">
-        <div class="sc-layer on"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
-        <div class="sc-layer"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
-        <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
-      </div>
-      <div class="sc-info" id="scInfo">
-        <div class="code"></div>
-        <span class="kicker cat"></span>
-        <h3></h3>
-        <p class="desc"></p>
-        <ul class="sc-details"></ul>
-        <div class="sc-nav">
-          <button class="arrow" type="button" data-sc-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button class="arrow" type="button" data-sc-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-          <span class="sc-count"><b>01</b> / 17</span>
-        </div>
-        <button class="thin-btn" type="button" id="scEnquire" data-i18n="lb.enq">Enquire about this design</button>
-      </div>
-    </div>
-    <div class="sc-thumbs" id="scThumbs"></div>
-  </div>
-</section>
-
-<!-- COLLECTION III: DOORS & CLADDING -->
-<section class="block doors" id="doors">
-  <div class="wrap">
-    <div class="doors-head">
-      <div class="reveal">
-        <span class="kicker" data-i18n="dr.kicker">Collection III</span>
-        <h2 data-i18n="dr.h2">Doors <em>&amp; Cladding</em></h2>
-        <div class="sub" data-i18n="dr.sub">Texture. Form. Character.</div>
-      </div>
-      <div class="reveal">
-        <p class="lead" data-i18n="dr.lead">Five design directions for entrance doors and matching wall cladding: a study in texture, lines and warm tones. Choose your style, then start with the details.</p>
-        <div class="acts">
-          <a href="#contact" class="thin-btn solid" data-enquire="doors" data-i18n="dr.enq">Enquire about doors</a>
-          <a href="catalogues/al-jouhari-doors-cladding.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.pdf">Catalogue</span><span class="pdf-note">PDF · 1.3 MB</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="door-row reveal" id="doorRow">
-      <div class="door on" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d01-horizontal-lines.jpg" data-lb-t="dr.n1" data-code="01" data-svc="doors">
-        <img src="images/collections/doors/d01-horizontal-lines-sm.jpg" srcset="images/collections/doors/d01-horizontal-lines-sm.jpg 820w, images/collections/doors/d01-horizontal-lines.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Horizontal Lines door design" loading="lazy">
-        <span class="dn">01</span>
-        <span class="dv" data-i18n="dr.n1">Horizontal Lines</span>
-        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n1">Horizontal Lines</h4><ul><li data-i18n="dr.f11">Dark brown tone</li><li data-i18n="dr.f12">Subtle horizontal lines</li><li data-i18n="dr.f13">Statement pull handle</li></ul></div>
-      </div>
-      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d02-natural-character.jpg" data-lb-t="dr.n2" data-code="02" data-svc="doors">
-        <img src="images/collections/doors/d02-natural-character-sm.jpg" srcset="images/collections/doors/d02-natural-character-sm.jpg 820w, images/collections/doors/d02-natural-character.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Natural Character door design" loading="lazy">
-        <span class="dn">02</span>
-        <span class="dv" data-i18n="dr.n2">Natural Character</span>
-        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n2">Natural Character</h4><ul><li data-i18n="dr.f21">Visible wood-grain pattern</li><li data-i18n="dr.f22">Clean, plain surface</li><li data-i18n="dr.f23">Coordinated frame tone</li></ul></div>
-      </div>
-      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d03-vertical-rhythm.jpg" data-lb-t="dr.n3" data-code="03" data-svc="doors">
-        <img src="images/collections/doors/d03-vertical-rhythm-sm.jpg" srcset="images/collections/doors/d03-vertical-rhythm-sm.jpg 820w, images/collections/doors/d03-vertical-rhythm.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Vertical Rhythm door design" loading="lazy">
-        <span class="dn">03</span>
-        <span class="dv" data-i18n="dr.n3">Vertical Rhythm</span>
-        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n3">Vertical Rhythm</h4><ul><li data-i18n="dr.f31">Repeated vertical lines</li><li data-i18n="dr.f32">Surrounding wall panels</li><li data-i18n="dr.f33">Unified entrance design</li></ul></div>
-      </div>
-      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d04-integrated-surfaces.jpg" data-lb-t="dr.n4" data-code="04" data-svc="doors">
-        <img src="images/collections/doors/d04-integrated-surfaces-sm.jpg" srcset="images/collections/doors/d04-integrated-surfaces-sm.jpg 820w, images/collections/doors/d04-integrated-surfaces.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Integrated Surfaces door design" loading="lazy">
-        <span class="dn">04</span>
-        <span class="dv" data-i18n="dr.n4">Integrated Surfaces</span>
-        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n4">Integrated Surfaces</h4><ul><li data-i18n="dr.f41">Coordinated door and panels</li><li data-i18n="dr.f42">Vertical grain direction</li><li data-i18n="dr.f43">Gold-toned details</li></ul></div>
-      </div>
-      <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d05-geometric-accent.jpg" data-lb-t="dr.n5" data-code="05" data-svc="doors">
-        <img src="images/collections/doors/d05-geometric-accent-sm.jpg" srcset="images/collections/doors/d05-geometric-accent-sm.jpg 820w, images/collections/doors/d05-geometric-accent.jpg 1536w" sizes="(max-width:860px) 80vw, 50vw" alt="Geometric Accent door design" loading="lazy">
-        <span class="dn">05</span>
-        <span class="dv" data-i18n="dr.n5">Geometric Accent</span>
-        <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n5">Geometric Accent</h4><ul><li data-i18n="dr.f51">Decorative side motif</li><li data-i18n="dr.f52">Balanced horizontal divisions</li><li data-i18n="dr.f53">Light wood-tone appearance</li></ul></div>
-      </div>
-    </div>
-    <p class="door-hint reveal" data-i18n="dr.hint">Hover to open a design · click to view full screen</p>
-
-    <div class="details">
-      <div class="dt-copy reveal">
-        <span class="kicker" data-i18n="dt.kicker">Detail study</span>
-        <h3 data-i18n="dt.h3">Details make <em>the difference.</em></h3>
-        <p data-i18n="dt.p">Grain, lines and frame: the quiet decisions that turn a door into an entrance.</p>
-      </div>
-      <figure class="ev reveal" tabindex="0" data-lb="doors" data-src="images/collections/doors/detail-frame.jpg" data-lb-t="dt.n1" data-lb-s="dt.s1" data-svc="doors">
-        <div class="ph"><img src="images/collections/doors/detail-frame-sm.jpg" srcset="images/collections/doors/detail-frame-sm.jpg 820w, images/collections/doors/detail-frame.jpg 1536w" sizes="(max-width:1024px) 50vw, 33vw" alt="Door frame and installation detail" loading="lazy"></div>
-        <h4 data-i18n="dt.n1">Frame and installation</h4>
-        <p data-i18n="dt.s1">Construction detail</p>
-      </figure>
-      <figure class="ev reveal" tabindex="0" data-lb="doors" data-src="images/collections/doors/detail-grain.jpg" data-lb-t="dt.n2" data-lb-s="dt.s2" data-svc="doors">
-        <div class="ph"><img src="images/collections/doors/detail-grain-sm.jpg" srcset="images/collections/doors/detail-grain-sm.jpg 820w, images/collections/doors/detail-grain.jpg 1536w" sizes="(max-width:1024px) 50vw, 33vw" alt="Wood grain panel with gold-toned lines" loading="lazy"></div>
-        <h4 data-i18n="dt.n2">Grain and gold-toned lines</h4>
-        <p data-i18n="dt.s2">Surface detail</p>
-      </figure>
-    </div>
-    <p class="fine" data-i18n="dr.fine">Photographs are shown as supplied; some show work in progress. Materials, dimensions and hardware are confirmed upon order approval, and final colours and finishes are subject to approved samples.</p>
-  </div>
-</section>
-
 <!-- CAPABILITIES -->
 <section class="block services" id="services">
   <div class="wrap cap-layout">
@@ -1017,6 +733,271 @@
         <a class="cap-row" href="#pools"><span class="rn" data-i18n="svc.n12">Swimming Pools</span><span class="rd" data-i18n="svc.d12">Design, shell, waterproofing and finishing.</span></a>
         <a class="cap-row" href="#interiors"><span class="rn" data-i18n="svc.n13">Kitchens &amp; Wardrobes</span><span class="rd" data-i18n="svc.d13">Kitchens, dressing rooms and coffee corners.</span></a>
         <a class="cap-row" href="#doors"><span class="rn" data-i18n="svc.n14">Doors &amp; Cladding</span><span class="rd" data-i18n="svc.d14">Entrance doors with matching wall panels.</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDENTIAL COLLECTIONS -->
+<section class="coll" id="collections">
+  <div class="cc-cover">
+    <div class="cc-media">
+      <img class="on" data-c="pools" src="images/collections/pools/oval.jpg" alt="Oval pool with a stepped entry" loading="lazy">
+      <img data-c="interiors" src="images/collections/interiors/k03-gloss-contrast.jpg" alt="Kitchen with dark glossy fronts and open shelving" loading="lazy">
+      <div class="cc-tri" data-c="doors">
+        <img src="images/collections/doors/d01-horizontal-lines.jpg" alt="" loading="lazy">
+        <img src="images/collections/doors/d03-vertical-rhythm.jpg" alt="" loading="lazy">
+        <img src="images/collections/doors/d05-geometric-accent.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <span class="numeral" aria-hidden="true">I</span>
+    <div class="wrap cc-inner">
+      <div class="cc-head reveal">
+        <span class="kicker" data-i18n="co.kicker">Residential &amp; Interiors</span>
+        <h2 data-i18n="co.h2">Living, <em>refined.</em></h2>
+        <p data-i18n="co.p">The same hands that pour industrial floors also craft the spaces people come home to: private pools, bespoke kitchens and dressing rooms, and entrance doors with matching cladding.</p>
+      </div>
+      <div class="cc-copy reveal">
+        <div class="cc on" data-c="pools">
+          <span class="cc-k"><span data-i18n="po.kicker">Collection I</span> · <span data-i18n="po.sub">Design &amp; Construction</span></span>
+          <h3 data-i18n="po.h2">Swimming <em>Pools</em></h3>
+          <p data-i18n="po.lead">Contemporary pool designs, integrated children's areas and the full build sequence, from the first cut of the ground to the first swim.</p>
+          <div class="acts">
+            <a href="#contact" class="thin-btn solid" data-enquire="pools" data-i18n="po.enq">Discuss your pool</a>
+            <a href="catalogues/al-jouhari-swimming-pools.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="pools">PDF · 20 pp · 14 MB</span></a>
+          </div>
+        </div>
+        <div class="cc" data-c="interiors">
+          <span class="cc-k"><span data-i18n="in.kicker">Collection II</span> · <span data-i18n="in.sub">Interior collection</span></span>
+          <h3 data-i18n="in.h2">Kitchens <em>&amp; Wardrobes</em></h3>
+          <p data-i18n="in.lead">A curated portfolio of cabinetry, dressing rooms and everyday spaces, contemporary and classic, from welcoming kitchens to carefully organised dressing rooms.</p>
+          <div class="acts">
+            <a href="#contact" class="thin-btn solid" data-enquire="interiors" data-i18n="in.enq">Discuss your interiors</a>
+            <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="interiors">PDF · 23 pp · 5 MB</span></a>
+          </div>
+        </div>
+        <div class="cc" data-c="doors">
+          <span class="cc-k"><span data-i18n="dr.kicker">Collection III</span> · <span data-i18n="dr.sub">Texture. Form. Character.</span></span>
+          <h3 data-i18n="dr.h2">Doors <em>&amp; Cladding</em></h3>
+          <p data-i18n="dr.lead">Five design directions for entrance doors and matching wall cladding: a study in texture, lines and warm tones. Choose your style, then start with the details.</p>
+          <div class="acts">
+            <a href="#contact" class="thin-btn solid" data-enquire="doors" data-i18n="dr.enq">Enquire about doors</a>
+            <a href="catalogues/al-jouhari-doors-cladding.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="doors">PDF · 10 pp · 1.7 MB</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="cc-tabs" role="tablist" aria-label="Collections">
+        <button class="ct on" type="button" role="tab" aria-selected="true" data-c="pools"><span class="n">I</span><span class="t" data-i18n="co.k1">Swimming Pools</span><span class="m" data-i18n="co.m1">9 designs · 6 build sequences</span></button>
+        <button class="ct" type="button" role="tab" aria-selected="false" data-c="interiors"><span class="n">II</span><span class="t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="m" data-i18n="co.m2">17 designs</span></button>
+        <button class="ct" type="button" role="tab" aria-selected="false" data-c="doors"><span class="n">III</span><span class="t" data-i18n="co.k3">Doors &amp; Cladding</span><span class="m" data-i18n="co.m3">5 design directions</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- I. POOLS -->
+  <div class="cp ink on" id="pools" data-c="pools" role="tabpanel">
+    <div class="wrap">
+      <div class="pv-head">
+        <div class="pv-tabs" role="tablist">
+          <button class="pv on" type="button" data-view="designs"><span data-i18n="pv.designs">The designs</span><sup>09</sup></button>
+          <button class="pv" type="button" data-view="build"><span data-i18n="pv.build">The build, stage by stage</span><sup>06</sup></button>
+        </div>
+        <div class="rail-ctrl">
+          <button class="arrow light" type="button" data-rail-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="arrow light" type="button" data-rail-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <div class="pview on" data-view="designs">
+        <div class="rail" id="poolRail">
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/courtyard.jpg" data-lb-t="pl.n1" data-lb-s="pl.d1" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/courtyard-sm.jpg" srcset="images/collections/pools/courtyard-sm.jpg 1400w, images/collections/pools/courtyard.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Compact courtyard pool" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k1">Design inspiration · 01</span>
+            <h4 data-i18n="pl.n1">Compact courtyard pool</h4>
+            <p data-i18n="pl.d1">A compact square pool with broad entry steps and a natural stone setting.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/garden.jpg" data-lb-t="pl.n2" data-lb-s="pl.d2" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/garden-sm.jpg" srcset="images/collections/pools/garden-sm.jpg 1400w, images/collections/pools/garden.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Contemporary garden pool" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k2">Design inspiration · 02</span>
+            <h4 data-i18n="pl.n2">Contemporary garden pool</h4>
+            <p data-i18n="pl.d2">An elongated pool framed by pale paving and soft garden planting.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-side.jpg" data-lb-t="pl.n3" data-lb-s="pl.d3" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/family-side-sm.jpg" srcset="images/collections/pools/family-side-sm.jpg 1400w, images/collections/pools/family-side.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool with a side children's zone" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k3">Pool design · 01</span>
+            <h4 data-i18n="pl.n3">Family pool, side zone</h4>
+            <p data-i18n="pl.d3">A shallow children's area integrated beside the main swimming zone.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/family-end.jpg" data-lb-t="pl.n4" data-lb-s="pl.d4" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/family-end-sm.jpg" srcset="images/collections/pools/family-end-sm.jpg 1400w, images/collections/pools/family-end.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Family pool with an end children's zone" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k4">Pool design · 02</span>
+            <h4 data-i18n="pl.n4">Family pool, end zone</h4>
+            <p data-i18n="pl.d4">A rectangular pool with an integrated shallow children's area at one end.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/oval.jpg" data-lb-t="pl.n5" data-lb-s="pl.d5" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/oval-sm.jpg" srcset="images/collections/pools/oval-sm.jpg 1400w, images/collections/pools/oval.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The oval pool" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k5">Pool design · 03</span>
+            <h4 data-i18n="pl.n5">The oval pool</h4>
+            <p data-i18n="pl.d5">A continuous curved outline with a generous stepped entry.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/freeform.jpg" data-lb-t="pl.n6" data-lb-s="pl.d6" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/freeform-sm.jpg" srcset="images/collections/pools/freeform-sm.jpg 1400w, images/collections/pools/freeform.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The freeform pool" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k6">Pool design · 04</span>
+            <h4 data-i18n="pl.n6">The freeform pool</h4>
+            <p data-i18n="pl.d6">A sculpted kidney-shaped pool with flowing edges and curved steps.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/square.jpg" data-lb-t="pl.n7" data-lb-s="pl.d7" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/square-sm.jpg" srcset="images/collections/pools/square-sm.jpg 1400w, images/collections/pools/square.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="The square pool" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k7">Pool design · 05</span>
+            <h4 data-i18n="pl.n7">The square pool</h4>
+            <p data-i18n="pl.d7">A compact geometric layout with clean edges and corner entry steps.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/pergola.jpg" data-lb-t="ev.n1" data-lb-s="ev.d1" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/pergola-sm.jpg" srcset="images/collections/pools/pergola-sm.jpg 1400w, images/collections/pools/pergola.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Pool beneath a slatted pergola at dusk" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k8">Outdoor living · 01</span>
+            <h4 data-i18n="ev.n1">Pergola pool courtyard</h4>
+            <p data-i18n="ev.d1">An intimate pool beneath a slatted pergola, beside a glazed lounge.</p>
+          </article>
+          <article class="card" tabindex="0" data-lb="pools" data-src="images/collections/pools/poolside.jpg" data-lb-t="ev.n2" data-lb-s="ev.d2" data-svc="pools">
+            <div class="ph"><img src="images/collections/pools/poolside-sm.jpg" srcset="images/collections/pools/poolside-sm.jpg 1400w, images/collections/pools/poolside.jpg 2560w" sizes="(max-width:560px) 86vw, (max-width:1024px) 60vw, 40vw" alt="Poolside lounge with step lighting at dusk" loading="lazy"></div>
+            <span class="ck" data-i18n="pl.k9">Outdoor living · 02</span>
+            <h4 data-i18n="ev.n2">Poolside outdoor living</h4>
+            <p data-i18n="ev.d2">Layered seating, shaded terraces and integrated step lighting.</p>
+          </article>
+        </div>
+        <div class="rail-progress" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div class="pview build" data-view="build" id="build">
+        <div class="build-head">
+          <div>
+            <h3 data-i18n="bd.h3">From excavation <em>to first swim.</em></h3>
+            <p data-i18n="bd.p">Choose a design and watch it take shape across six milestones.</p>
+          </div>
+          <div class="build-tabs">
+            <button class="gf active" type="button" data-design="classic" data-i18n="bd.t1">Classic</button>
+            <button class="gf" type="button" data-design="family-side" data-i18n="bd.t2">Family · side zone</button>
+            <button class="gf" type="button" data-design="family-end" data-i18n="bd.t3">Family · end zone</button>
+            <button class="gf" type="button" data-design="oval" data-i18n="bd.t4">Oval</button>
+            <button class="gf" type="button" data-design="freeform" data-i18n="bd.t5">Freeform</button>
+            <button class="gf" type="button" data-design="square" data-i18n="bd.t6">Square</button>
+          </div>
+        </div>
+        <div class="viewer" id="viewer">
+          <img class="on" src="images/collections/pools/stages/classic-1.jpg" alt="" loading="lazy">
+          <img src="images/collections/pools/stages/classic-2.jpg" alt="" loading="lazy">
+          <img src="images/collections/pools/stages/classic-3.jpg" alt="" loading="lazy">
+          <img src="images/collections/pools/stages/classic-4.jpg" alt="" loading="lazy">
+          <img src="images/collections/pools/stages/classic-5.jpg" alt="" loading="lazy">
+          <img src="images/collections/pools/stages/classic-6.jpg" alt="" loading="lazy">
+          <div class="viewer-cap"><span class="vn">01</span><div><div class="vt"></div><div class="vd"></div></div></div>
+        </div>
+        <div class="timeline">
+          <button class="tl on" type="button" data-stage="0"><span class="bar"><i></i></span><span class="n">01</span><span class="l" data-i18n="st.n1">Excavation</span></button>
+          <button class="tl" type="button" data-stage="1"><span class="bar"><i></i></span><span class="n">02</span><span class="l" data-i18n="st.n2">Reinforcement &amp; pipework</span></button>
+          <button class="tl" type="button" data-stage="2"><span class="bar"><i></i></span><span class="n">03</span><span class="l" data-i18n="st.n3">Concrete shell</span></button>
+          <button class="tl" type="button" data-stage="3"><span class="bar"><i></i></span><span class="n">04</span><span class="l" data-i18n="st.n4">Waterproofing</span></button>
+          <button class="tl" type="button" data-stage="4"><span class="bar"><i></i></span><span class="n">05</span><span class="l" data-i18n="st.n5">Tiling &amp; coping</span></button>
+          <button class="tl" type="button" data-stage="5"><span class="bar"><i></i></span><span class="n">06</span><span class="l" data-i18n="st.n6">Filled &amp; finished</span></button>
+          <button class="play" type="button" aria-label="Play or pause"><svg class="i-pause" viewBox="0 0 14 14"><rect x="2" y="1" width="3" height="12"/><rect x="9" y="1" width="3" height="12"/></svg><svg class="i-play" viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- II. KITCHENS & WARDROBES -->
+  <div class="cp showcase" id="interiors" data-c="interiors" role="tabpanel">
+    <div class="wrap">
+      <div class="sc-tabs" role="tablist">
+        <button class="sc-tab on" type="button" data-group="all"><span data-i18n="sc.all">All designs</span><sup>17</sup></button>
+        <button class="sc-tab" type="button" data-group="k"><span data-i18n="sc.k">Kitchens</span><sup>07</sup></button>
+        <button class="sc-tab" type="button" data-group="w"><span data-i18n="sc.w">Wardrobes &amp; dressing rooms</span><sup>09</sup></button>
+        <button class="sc-tab" type="button" data-group="c"><span data-i18n="sc.c">Coffee corner</span><sup>01</sup></button>
+      </div>
+      <div class="sc-stage">
+        <div class="sc-frame" id="scFrame" role="button" tabindex="0" aria-label="View full screen">
+          <div class="sc-layer on"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
+          <div class="sc-layer"><img class="blur" alt="" aria-hidden="true"><img class="fg" alt=""></div>
+          <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+        </div>
+        <div class="sc-info" id="scInfo">
+          <div class="code"></div>
+          <span class="kicker cat"></span>
+          <h3></h3>
+          <p class="desc"></p>
+          <ul class="sc-details"></ul>
+          <div class="sc-nav">
+            <button class="arrow" type="button" data-sc-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="arrow" type="button" data-sc-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            <span class="sc-count"><b>01</b> / 17</span>
+          </div>
+          <button class="thin-btn" type="button" id="scEnquire" data-i18n="lb.enq">Enquire about this design</button>
+        </div>
+      </div>
+      <div class="sc-thumbs" id="scThumbs"></div>
+    </div>
+  </div>
+
+  <!-- III. DOORS & CLADDING -->
+  <div class="cp ink doors" id="doors" data-c="doors" role="tabpanel">
+    <div class="wrap">
+      <div class="door-row" id="doorRow">
+        <div class="door on" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d01-horizontal-lines.jpg" data-lb-t="dr.n1" data-code="01" data-svc="doors">
+          <img src="images/collections/doors/d01-horizontal-lines-sm.jpg" srcset="images/collections/doors/d01-horizontal-lines-sm.jpg 788w, images/collections/doors/d01-horizontal-lines.jpg 1442w" sizes="(max-width:860px) 80vw, 50vw" alt="Horizontal Lines door design" loading="lazy">
+          <span class="dn">01</span>
+          <span class="dv" data-i18n="dr.n1">Horizontal Lines</span>
+          <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n1">Horizontal Lines</h4><ul><li data-i18n="dr.f11">Dark brown tone</li><li data-i18n="dr.f12">Subtle horizontal lines</li><li data-i18n="dr.f13">Statement pull handle</li></ul></div>
+        </div>
+        <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d02-natural-character.jpg" data-lb-t="dr.n2" data-code="02" data-svc="doors">
+          <img src="images/collections/doors/d02-natural-character-sm.jpg" srcset="images/collections/doors/d02-natural-character-sm.jpg 1050w, images/collections/doors/d02-natural-character.jpg 1920w" sizes="(max-width:860px) 80vw, 50vw" alt="Natural Character door design" loading="lazy">
+          <span class="dn">02</span>
+          <span class="dv" data-i18n="dr.n2">Natural Character</span>
+          <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n2">Natural Character</h4><ul><li data-i18n="dr.f21">Visible wood-grain pattern</li><li data-i18n="dr.f22">Clean, plain surface</li><li data-i18n="dr.f23">Coordinated frame tone</li></ul></div>
+        </div>
+        <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d03-vertical-rhythm.jpg" data-lb-t="dr.n3" data-code="03" data-svc="doors">
+          <img src="images/collections/doors/d03-vertical-rhythm-sm.jpg" srcset="images/collections/doors/d03-vertical-rhythm-sm.jpg 644w, images/collections/doors/d03-vertical-rhythm.jpg 1178w" sizes="(max-width:860px) 80vw, 50vw" alt="Vertical Rhythm door design" loading="lazy">
+          <span class="dn">03</span>
+          <span class="dv" data-i18n="dr.n3">Vertical Rhythm</span>
+          <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n3">Vertical Rhythm</h4><ul><li data-i18n="dr.f31">Repeated vertical lines</li><li data-i18n="dr.f32">Surrounding wall panels</li><li data-i18n="dr.f33">Unified entrance design</li></ul></div>
+        </div>
+        <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d04-integrated-surfaces.jpg" data-lb-t="dr.n4" data-code="04" data-svc="doors">
+          <img src="images/collections/doors/d04-integrated-surfaces-sm.jpg" srcset="images/collections/doors/d04-integrated-surfaces-sm.jpg 646w, images/collections/doors/d04-integrated-surfaces.jpg 1182w" sizes="(max-width:860px) 80vw, 50vw" alt="Integrated Surfaces door design" loading="lazy">
+          <span class="dn">04</span>
+          <span class="dv" data-i18n="dr.n4">Integrated Surfaces</span>
+          <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n4">Integrated Surfaces</h4><ul><li data-i18n="dr.f41">Coordinated door and panels</li><li data-i18n="dr.f42">Vertical grain direction</li><li data-i18n="dr.f43">Gold-toned details</li></ul></div>
+        </div>
+        <div class="door" role="button" tabindex="0" data-lb="doors" data-src="images/collections/doors/d05-geometric-accent.jpg" data-lb-t="dr.n5" data-code="05" data-svc="doors">
+          <img src="images/collections/doors/d05-geometric-accent-sm.jpg" srcset="images/collections/doors/d05-geometric-accent-sm.jpg 788w, images/collections/doors/d05-geometric-accent.jpg 1440w" sizes="(max-width:860px) 80vw, 50vw" alt="Geometric Accent door design" loading="lazy">
+          <span class="dn">05</span>
+          <span class="dv" data-i18n="dr.n5">Geometric Accent</span>
+          <div class="di"><span class="k" data-i18n="dr.k">Design study</span><h4 data-i18n="dr.n5">Geometric Accent</h4><ul><li data-i18n="dr.f51">Decorative side motif</li><li data-i18n="dr.f52">Balanced horizontal divisions</li><li data-i18n="dr.f53">Light wood-tone appearance</li></ul></div>
+        </div>
+      </div>
+      <p class="door-hint" data-i18n="dr.hint">Hover to open a design · click to view full screen</p>
+    </div>
+  </div>
+
+  <!-- CATALOGUES -->
+  <div class="shelf">
+    <div class="wrap shelf-grid">
+      <div class="shelf-copy reveal">
+        <span class="kicker" data-i18n="cs.kicker">The catalogues</span>
+        <h3 data-i18n="cs.h3">Take the collections <em>home.</em></h3>
+        <p data-i18n="cs.p">Each collection, bound as an Al Jouhari catalogue. Open it in your browser, save it, or share it with your architect.</p>
+      </div>
+      <div class="books reveal">
+        <a class="book" href="catalogues/al-jouhari-swimming-pools.pdf" target="_blank" rel="noopener">
+          <span class="bk-cover"><img src="catalogues/covers/swimming-pools.jpg" alt="Swimming Pools catalogue cover" loading="lazy"></span>
+          <span class="bk-n">I</span><span class="bk-t" data-i18n="co.k1">Swimming Pools</span><span class="bk-m pdf-note" data-pdf="pools">PDF · 20 pp · 14 MB</span>
+        </a>
+        <a class="book" href="catalogues/al-jouhari-kitchens-wardrobes.pdf" target="_blank" rel="noopener">
+          <span class="bk-cover"><img src="catalogues/covers/kitchens-wardrobes.jpg" alt="Kitchens and Wardrobes catalogue cover" loading="lazy"></span>
+          <span class="bk-n">II</span><span class="bk-t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="bk-m pdf-note" data-pdf="interiors">PDF · 23 pp · 5 MB</span>
+        </a>
+        <a class="book" href="catalogues/al-jouhari-doors-cladding.pdf" target="_blank" rel="noopener">
+          <span class="bk-cover"><img src="catalogues/covers/doors-cladding.jpg" alt="Doors and Cladding catalogue cover" loading="lazy"></span>
+          <span class="bk-n">III</span><span class="bk-t" data-i18n="co.k3">Doors &amp; Cladding</span><span class="bk-m pdf-note" data-pdf="doors">PDF · 10 pp · 1.7 MB</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1454,18 +1435,17 @@
     'ft.e1':'خرسانة وإيبوكسي','ft.e2':'حديد وهياكل','ft.e3':'تجهيز وتشطيب','ft.e4':'كهروميكانيك وسباكة',
     'foot.copy':'© ٢٠٢٦ الجوهري للخدمات الفنية ذ.م.م','foot.tag':'خرسانة · حديد · مسابح · تصميم داخلي',
     /* collections */
-    'co.kicker':'المجموعات السكنية','co.h2':'عيشٌ <em>راقٍ.</em>',
+    'co.kicker':'السكني والتصميم الداخلي','co.h2':'عيشٌ <em>راقٍ.</em>',
     'co.p':'الأيدي ذاتها التي تصبّ الأرضيات الصناعية تصنع أيضاً المساحات التي يعود إليها الناس: مسابح خاصة، ومطابخ وغرف ملابس مصمّمة حسب الطلب، وأبواب مداخل مع تكسيات جدران متناسقة.',
     'co.k1':'المسابح','co.n1':'تصميم وتنفيذ','co.m1':'٩ تصاميم · ٦ تسلسلات بناء',
     'co.k2':'المطابخ وخزائن الملابس','co.n2':'مطابخ وغرف ملابس','co.m2':'١٧ تصميماً',
     'co.k3':'الأبواب والتكسيات','co.n3':'ملمس، شكل، طابع','co.m3':'٥ اتجاهات تصميمية',
-    'co.go':'اكتشف','cat.pdf':'الكتالوج','lb.enq':'استفسر عن هذا التصميم',
+    'cat.view':'تصفّح الكتالوج','pv.designs':'التصاميم','pv.build':'التنفيذ مرحلةً بمرحلة',
+    'pl.k8':'المعيشة الخارجية · ٠١','pl.k9':'المعيشة الخارجية · ٠٢',
+    'cs.kicker':'الكتالوجات','cs.h3':'خذ المجموعات <em>معك.</em>','cs.p':'كل مجموعة في كتالوج بتوقيع الجوهري. تصفّحه في متصفحك، أو احفظه، أو شاركه مع مهندسك المعماري.','lb.enq':'استفسر عن هذا التصميم',
     'po.kicker':'المجموعة الأولى','po.h2':'<em>المسابح</em>','po.sub':'تصميم وتنفيذ',
     'po.lead':'تصاميم معاصرة للمسابح، ومناطق مدمجة للأطفال، ومراحل البناء كاملةً من أول حفرة في الأرض إلى أول سباحة.',
     'po.enq':'ناقش مسبحك',
-    'pd.kicker':'التصاميم','pd.h3':'شكلٌ يناسب كل <em>حديقة.</em>',
-    'pd.p':'من الأفنية المدمجة إلى المسابح العائلية مع منطقة ضحلة للأطفال. اختر أي تصميم لعرضه بملء الشاشة.',
-    'pl.concept':'تصوّر مفاهيمي',
     'pl.k1':'إلهام التصميم · ٠١','pl.n1':'مسبح الفناء المدمج','pl.d1':'مسبح مربع مدمج بدرجات دخول عريضة وإطار من الحجر الطبيعي.',
     'pl.k2':'إلهام التصميم · ٠٢','pl.n2':'مسبح الحديقة المعاصر','pl.d2':'مسبح ممتد يحيط به رصف فاتح ونباتات حديقة ناعمة.',
     'pl.k3':'تصميم المسبح · ٠١','pl.n3':'مسبح عائلي، منطقة جانبية','pl.d3':'منطقة ضحلة للأطفال مدمجة بجانب منطقة السباحة الرئيسية.',
@@ -1474,13 +1454,11 @@
     'pl.k6':'تصميم المسبح · ٠٤','pl.n6':'المسبح الحر','pl.d6':'مسبح منحوت على شكل كلية بحواف انسيابية ودرجات منحنية.',
     'pl.k7':'تصميم المسبح · ٠٥','pl.n7':'المسبح المربع','pl.d7':'تصميم هندسي مدمج بحواف نظيفة ودرجات دخول في الزاوية.',
     'bd.kicker':'البناء مرحلةً بمرحلة','bd.h3':'من الحفر <em>إلى أول سباحة.</em>','bd.p':'اختر تصميماً وشاهده يتشكّل عبر ست مراحل.',
-    'bd.t1':'الفكرة الأولية','bd.t2':'عائلي · منطقة جانبية','bd.t3':'عائلي · منطقة طرفية','bd.t4':'بيضاوي','bd.t5':'حر','bd.t6':'مربع',
+    'bd.t1':'كلاسيكي','bd.t2':'عائلي · منطقة جانبية','bd.t3':'عائلي · منطقة طرفية','bd.t4':'بيضاوي','bd.t5':'حر','bd.t6':'مربع',
     'st.n1':'الحفر','st.n2':'التسليح والتمديدات','st.n3':'الهيكل الخرساني','st.n4':'العزل المائي','st.n5':'التبليط والحواف','st.n6':'الملء والتسليم',
-    'ev.kicker':'الحياة في الهواء الطلق','ev.h3':'بعد <em>الغروب.</em>','ev.p':'تكتمل الأجواء حول الماء بالبرجولات وجلسات الحديقة وإضاءة المساء.',
     'ev.n1':'فناء المسبح مع البرجولا','ev.d1':'مسبح حميم تحت برجولا شرائحية بجانب صالة زجاجية.',
     'ev.n2':'جلسات خارجية بجانب المسبح','ev.d2':'جلسات متدرجة وتراسات مظللة وإضاءة مدمجة في الدرجات.',
-    'po.fine':'تصاميم المسابح ومراحل بنائها تصوّرات مفاهيمية وليست توثيقاً لمشاريع منجزة، ومشهدا المساء صورتان مرجعيتان. مراحل البناء توضيحية وليست رسومات فنية أو إنشائية، ولا تُظهر الاختبارات ومعدات الترشيح والتشغيل بالكامل.',
-    'in.kicker':'المجموعة الثانية','in.h2':'المطابخ وخزائن الملابس <em>ومساحات المعيشة</em>','in.sub':'مجموعة التصميم الداخلي',
+    'in.kicker':'المجموعة الثانية','in.h2':'المطابخ <em>وخزائن الملابس</em>','in.sub':'مجموعة التصميم الداخلي',
     'in.lead':'مجموعة منتقاة من الخزائن وغرف الملابس والمساحات اليومية، بين المعاصر والكلاسيكي، من مطابخ دافئة إلى غرف ملابس منظّمة بعناية.',
     'in.enq':'ناقش مشروعك الداخلي',
     'sc.all':'كل التصاميم','sc.k':'المطابخ','sc.w':'خزائن وغرف الملابس','sc.c':'ركن القهوة',
@@ -1493,9 +1471,6 @@
     'dr.n4':'أسطح متكاملة','dr.f41':'باب وألواح متناسقة','dr.f42':'اتجاه عروق عمودي','dr.f43':'تفاصيل بلون ذهبي',
     'dr.n5':'لمسة هندسية','dr.f51':'زخرفة جانبية','dr.f52':'تقسيمات أفقية متوازنة','dr.f53':'مظهر خشبي فاتح',
     'dr.hint':'مرّر المؤشر لفتح التصميم · انقر للعرض بملء الشاشة',
-    'dt.kicker':'دراسة التفاصيل','dt.h3':'التفاصيل <em>تصنع الفرق.</em>','dt.p':'العروق والخطوط والإطار: قرارات هادئة تحوّل الباب إلى مدخل.',
-    'dt.n1':'الإطار والتركيب','dt.s1':'تفصيل إنشائي','dt.n2':'العروق والخطوط الذهبية','dt.s2':'تفصيل السطح',
-    'dr.fine':'الصور معروضة كما وردت، وبعضها لأعمال قيد التنفيذ. تُعتمد المواد والمقاسات والإكسسوارات عند الموافقة على الطلب، وتخضع الألوان والتشطيبات النهائية للعينات المعتمدة.'
   };
   var TITLE = { en:'Al Jouhari Technical Services | Construction, Pools & Interiors | Dubai, UAE', ar:'الجوهري للخدمات الفنية | إنشاءات ومسابح وتصميم داخلي | دبي، الإمارات' };
   var ALERT = { en:'Opening your email app with the enquiry ready to send.', ar:'يتم فتح تطبيق البريد لديك مع الطلب جاهزاً للإرسال.' };
@@ -1615,23 +1590,54 @@
     start();
   })();
 
-  /* ---------- CHAPTER COVER PARALLAX ---------- */
+  /* ---------- COLLECTIONS: SWITCHER ---------- */
   (function(){
-    var covers = document.querySelectorAll('.chapter-media img');
-    if(!covers.length || reduce) return;
-    var ticking = false;
-    function run(){
-      ticking = false;
-      var vh = window.innerHeight;
-      covers.forEach(function(img){
-        var r = img.parentNode.getBoundingClientRect();
-        if(r.bottom < 0 || r.top > vh) return;
-        var p = (r.top + r.height / 2 - vh / 2) / vh;
-        img.style.transform = 'translate3d(0,' + (p * -40).toFixed(1) + 'px,0) scale(1.12)';
-      });
+    var root = document.getElementById('collections');
+    if(!root) return;
+    var NUM = {pools:'I', interiors:'II', doors:'III'}, cur = 'pools';
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('.ct'));
+    var num = root.querySelector('.numeral');
+    var pools = document.getElementById('pools');
+    function relayout(){ window.dispatchEvent(new Event('resize')); }
+    function set(c){
+      if(!NUM[c] || c === cur) return;
+      cur = c;
+      root.querySelectorAll('.cc-media > [data-c], .cc, .cp').forEach(function(el){ el.classList.toggle('on', el.getAttribute('data-c') === c); });
+      tabs.forEach(function(t){ var on = t.getAttribute('data-c') === c; t.classList.toggle('on', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      num.classList.add('swap');
+      setTimeout(function(){ num.textContent = NUM[c]; num.classList.remove('swap'); }, reduce ? 0 : 450);
+      relayout();
     }
-    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(run); } }, {passive:true});
-    run();
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ set(t.getAttribute('data-c')); });
+      t.addEventListener('keydown', function(e){
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if(!d) return;
+        if(rtl()) d = -d;
+        var n = tabs[(i + d + tabs.length) % tabs.length];
+        n.focus(); set(n.getAttribute('data-c'));
+      });
+    });
+    function view(v){
+      pools.querySelectorAll('.pv, .pview').forEach(function(el){ el.classList.toggle('on', el.getAttribute('data-view') === v); });
+      pools.classList.toggle('v-build', v === 'build');
+      relayout();
+    }
+    pools.querySelectorAll('.pv').forEach(function(b){ b.addEventListener('click', function(){ view(b.getAttribute('data-view')); }); });
+    // #pools, #interiors, #doors and #build open the right collection, then scroll to its cover.
+    function open(h, instant){
+      var k = h.replace('#', '');
+      if(k === 'build'){ set('pools'); view('build'); }
+      else if(NUM[k]) set(k);
+      else return false;
+      root.scrollIntoView({behavior: (reduce || instant) ? 'auto' : 'smooth'});
+      return true;
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var h = a.getAttribute('href');
+      if(h === '#build' || NUM[h.slice(1)]) a.addEventListener('click', function(e){ e.preventDefault(); open(h); });
+    });
+    if(location.hash) window.addEventListener('load', function(){ setTimeout(function(){ open(location.hash, true); }, 0); });
   })();
 
   /* ---------- LIGHTBOX ---------- */
@@ -1761,7 +1767,7 @@
     var tls = Array.prototype.slice.call(build.querySelectorAll('.tl'));
     var tabs = Array.prototype.slice.call(build.querySelectorAll('[data-design]'));
     var playBtn = build.querySelector('.play');
-    var design = 'concept', stage = 0, playing = !reduce, inView = false, timer = null;
+    var design = 'classic', stage = 0, playing = !reduce, inView = false, timer = null;
 
     function caption(){
       vn.textContent = pad(stage + 1);
