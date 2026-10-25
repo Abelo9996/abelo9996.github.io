@@ -604,6 +604,48 @@
     .brand .bt{font-size:21px}
     .nav-right{gap:12px}
   }
+  /* Phones: keep collection copy legible over photography, tidy dense controls. */
+  @media(max-width:860px){
+    .cc-media::after,html[dir="rtl"] .cc-media::after{background:linear-gradient(180deg,rgba(20,19,15,.86) 0%,rgba(20,19,15,.62) 34%,rgba(20,19,15,.7) 58%,rgba(20,19,15,.97) 92%)}
+    .cc-head p,.cc p{text-shadow:0 1px 14px rgba(20,19,15,.6)}
+  }
+  @media(max-width:560px){
+    .coll .numeral{top:30px;font-size:80px}
+    .cc .acts{flex-direction:column;align-items:stretch;gap:12px}
+    .cc .acts .thin-btn{width:100%;padding-left:20px;padding-right:20px}
+    .cc .acts a.thin-btn{flex-direction:column;gap:4px}
+    .pdf-note{margin-top:0}
+    .pv-tabs{gap:20px}
+    .pv{letter-spacing:.08em}
+    .gallery-filters{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-left:-24px;margin-right:-24px;padding:0 24px 4px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%)}
+    .gallery-filters::-webkit-scrollbar{display:none}
+    .gf{flex:none;scroll-snap-align:center;padding:11px 16px}
+    .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .gallery figcaption{padding:12px}
+    .gallery figcaption .ct{display:none}
+    .gallery figcaption .cn{font-size:17px;line-height:1.15;margin-top:0}
+    .gallery .playbtn{width:46px;height:46px}
+    .gallery figure.span{grid-column:span 2;aspect-ratio:16/9}
+  }
+  @media(max-width:360px){
+    .wrap .gallery-filters{margin-left:-18px;margin-right:-18px;padding:0 18px 4px}
+    .pv-tabs{gap:16px}
+    .pv{font-size:10.5px;letter-spacing:.06em}
+  }
+  /* Comfortable tap targets on touch screens without changing the visual rhythm. */
+  @media(pointer:coarse){
+    nav ul a{display:inline-block;padding-top:12px;padding-bottom:12px}
+    .cinfo .v a{display:inline-block;padding:8px 0;margin:-8px 0}
+    footer ul a{padding:8px 0}
+    footer ul{gap:0}
+  }
+  /* Large and ultra-wide screens: let the layout breathe instead of floating in a narrow column. */
+  @media(min-width:1800px){
+    :root{--max:1440px}
+  }
+  @media(min-width:2400px){
+    :root{--max:1600px}
+  }
   /* Touch devices have no hover: reveal what hover would otherwise show. */
   @media(hover:none){
     .client img.logo{filter:grayscale(0);opacity:1}
@@ -731,7 +773,7 @@
       <div class="cap-group reveal">
         <h4 data-i18n="svc.grpD">Residential &amp; Interiors</h4>
         <a class="cap-row" href="#pools"><span class="rn" data-i18n="svc.n12">Swimming Pools</span><span class="rd" data-i18n="svc.d12">Design, shell, waterproofing and finishing.</span></a>
-        <a class="cap-row" href="#interiors"><span class="rn" data-i18n="svc.n13">Kitchens &amp; Wardrobes</span><span class="rd" data-i18n="svc.d13">Kitchens, dressing rooms and coffee corners.</span></a>
+        <a class="cap-row" href="#interiors"><span class="rn" data-i18n="svc.n13">Kitchens &amp; Wardrobes</span><span class="rd" data-i18n="svc.d13">Kitchens, wardrobes and dressing rooms.</span></a>
         <a class="cap-row" href="#doors"><span class="rn" data-i18n="svc.n14">Doors &amp; Cladding</span><span class="rd" data-i18n="svc.d14">Entrance doors with matching wall panels.</span></a>
       </div>
     </div>
@@ -773,7 +815,7 @@
           <p data-i18n="in.lead">A curated portfolio of cabinetry, dressing rooms and everyday spaces, contemporary and classic, from welcoming kitchens to carefully organised dressing rooms.</p>
           <div class="acts">
             <a href="#contact" class="thin-btn solid" data-enquire="interiors" data-i18n="in.enq">Discuss your interiors</a>
-            <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="interiors">PDF · 23 pp · 5 MB</span></a>
+            <a href="catalogues/al-jouhari-kitchens-wardrobes.pdf" class="thin-btn on-dark" target="_blank" rel="noopener"><span data-i18n="cat.view">View the catalogue</span><span class="pdf-note" data-pdf="interiors">PDF · 22 pp · 5 MB</span></a>
           </div>
         </div>
         <div class="cc" data-c="doors">
@@ -788,7 +830,7 @@
       </div>
       <div class="cc-tabs" role="tablist" aria-label="Collections">
         <button class="ct on" type="button" role="tab" aria-selected="true" data-c="pools"><span class="n">I</span><span class="t" data-i18n="co.k1">Swimming Pools</span><span class="m" data-i18n="co.m1">9 designs · 6 build sequences</span></button>
-        <button class="ct" type="button" role="tab" aria-selected="false" data-c="interiors"><span class="n">II</span><span class="t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="m" data-i18n="co.m2">17 designs</span></button>
+        <button class="ct" type="button" role="tab" aria-selected="false" data-c="interiors"><span class="n">II</span><span class="t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="m" data-i18n="co.m2">16 designs</span></button>
         <button class="ct" type="button" role="tab" aria-selected="false" data-c="doors"><span class="n">III</span><span class="t" data-i18n="co.k3">Doors &amp; Cladding</span><span class="m" data-i18n="co.m3">5 design directions</span></button>
       </div>
     </div>
@@ -909,10 +951,9 @@
   <div class="cp showcase" id="interiors" data-c="interiors" role="tabpanel">
     <div class="wrap">
       <div class="sc-tabs" role="tablist">
-        <button class="sc-tab on" type="button" data-group="all"><span data-i18n="sc.all">All designs</span><sup>17</sup></button>
+        <button class="sc-tab on" type="button" data-group="all"><span data-i18n="sc.all">All designs</span><sup>16</sup></button>
         <button class="sc-tab" type="button" data-group="k"><span data-i18n="sc.k">Kitchens</span><sup>07</sup></button>
         <button class="sc-tab" type="button" data-group="w"><span data-i18n="sc.w">Wardrobes &amp; dressing rooms</span><sup>09</sup></button>
-        <button class="sc-tab" type="button" data-group="c"><span data-i18n="sc.c">Coffee corner</span><sup>01</sup></button>
       </div>
       <div class="sc-stage">
         <div class="sc-frame" id="scFrame" role="button" tabindex="0" aria-label="View full screen">
@@ -929,7 +970,7 @@
           <div class="sc-nav">
             <button class="arrow" type="button" data-sc-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
             <button class="arrow" type="button" data-sc-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-            <span class="sc-count"><b>01</b> / 17</span>
+            <span class="sc-count"><b>01</b> / 16</span>
           </div>
           <button class="thin-btn" type="button" id="scEnquire" data-i18n="lb.enq">Enquire about this design</button>
         </div>
@@ -992,7 +1033,7 @@
         </a>
         <a class="book" href="catalogues/al-jouhari-kitchens-wardrobes.pdf" target="_blank" rel="noopener">
           <span class="bk-cover"><img src="catalogues/covers/kitchens-wardrobes.jpg" alt="Kitchens and Wardrobes catalogue cover" loading="lazy"></span>
-          <span class="bk-n">II</span><span class="bk-t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="bk-m pdf-note" data-pdf="interiors">PDF · 23 pp · 5 MB</span>
+          <span class="bk-n">II</span><span class="bk-t" data-i18n="co.k2">Kitchens &amp; Wardrobes</span><span class="bk-m pdf-note" data-pdf="interiors">PDF · 22 pp · 5 MB</span>
         </a>
         <a class="book" href="catalogues/al-jouhari-doors-cladding.pdf" target="_blank" rel="noopener">
           <span class="bk-cover"><img src="catalogues/covers/doors-cladding.jpg" alt="Doors and Cladding catalogue cover" loading="lazy"></span>
@@ -1255,24 +1296,37 @@
   }
 
   /* ---------- PORTFOLIO FILTER (animated) + AUTO-CYCLE ---------- */
-  var filters = Array.prototype.slice.call(document.querySelectorAll('.gf'));
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.gallery-filters .gf'));
   var itemsG = document.querySelectorAll('.gallery figure');
   var gallery = document.querySelector('.gallery');
   var portfolioSec = document.getElementById('portfolio');
   var STAGGER = 45, OUT_MS = 330, CYCLE_MS = 4800;
   var curFilter = 0, cycleTimer = null, hovering = false, inView = false;
 
+  // In the two-column phone grid an odd count leaves a hole; the last tile spans the row instead.
+  function markSpan(){
+    var shown = Array.prototype.filter.call(itemsG, function(f){ return !f.classList.contains('hide'); });
+    itemsG.forEach(function(f){ f.classList.remove('span'); });
+    if(shown.length % 2) shown[shown.length - 1].classList.add('span');
+  }
+
   function applyFilter(btn){
     if(!btn || btn.classList.contains('active')) return;
     filters.forEach(function(b){b.classList.remove('active');});
     btn.classList.add('active');
     curFilter = filters.indexOf(btn);
+    var strip = btn.parentNode;
+    if(strip.scrollWidth > strip.clientWidth + 1){
+      var br = btn.getBoundingClientRect(), sr = strip.getBoundingClientRect();
+      strip.scrollBy({left: (br.left + br.width / 2) - (sr.left + sr.width / 2), behavior: reduce ? 'auto' : 'smooth'});
+    }
     pauseVideos();
     var cat = btn.getAttribute('data-cat');
     var matches = function(fig){ return cat==='all' || fig.getAttribute('data-cat')===cat; };
 
     if(reduce){
       itemsG.forEach(function(fig){ fig.classList.toggle('hide', !matches(fig)); });
+      markSpan();
       return;
     }
 
@@ -1293,6 +1347,7 @@
           fig.classList.remove('is-in');
         }
       });
+      markSpan();
       if(gallery) void gallery.offsetWidth; // force reflow so the fade-in animates
       shown.forEach(function(fig,i){ fig.style.transitionDelay = (i*STAGGER)+'ms'; });
       requestAnimationFrame(function(){
@@ -1336,13 +1391,14 @@
 
   // Establish the initial filtered state to match the active tab (no animation).
   (function initFilter(){
-    var active = document.querySelector('.gf.active') || filters[0];
+    var active = document.querySelector('.gallery-filters .gf.active') || filters[0];
     if(!active) return;
     curFilter = filters.indexOf(active);
     var cat = active.getAttribute('data-cat');
     itemsG.forEach(function(fig){
       fig.classList.toggle('hide', !(cat==='all' || fig.getAttribute('data-cat')===cat));
     });
+    markSpan();
   })();
 
   if(portfolioSec){
@@ -1401,7 +1457,7 @@
     'svc.n11':'الرخام والبلاط','svc.d11':'رخام وبلاط وتشطيبات لياسة.',
     'svc.grpD':'السكني والتصميم الداخلي',
     'svc.n12':'المسابح','svc.d12':'تصميم وهيكل وعزل مائي وتشطيب.',
-    'svc.n13':'المطابخ وخزائن الملابس','svc.d13':'مطابخ وغرف ملابس وأركان قهوة.',
+    'svc.n13':'المطابخ وخزائن الملابس','svc.d13':'مطابخ وخزائن وغرف ملابس.',
     'svc.n14':'الأبواب والتكسيات','svc.d14':'أبواب مداخل مع ألواح جدارية متناسقة.',
     'pf.kicker':'أعمال مختارة',
     'pf.h2':'<em>معرض</em> من الإتقان',
@@ -1438,7 +1494,7 @@
     'co.kicker':'السكني والتصميم الداخلي','co.h2':'عيشٌ <em>راقٍ.</em>',
     'co.p':'الأيدي ذاتها التي تصبّ الأرضيات الصناعية تصنع أيضاً المساحات التي يعود إليها الناس: مسابح خاصة، ومطابخ وغرف ملابس مصمّمة حسب الطلب، وأبواب مداخل مع تكسيات جدران متناسقة.',
     'co.k1':'المسابح','co.n1':'تصميم وتنفيذ','co.m1':'٩ تصاميم · ٦ تسلسلات بناء',
-    'co.k2':'المطابخ وخزائن الملابس','co.n2':'مطابخ وغرف ملابس','co.m2':'١٧ تصميماً',
+    'co.k2':'المطابخ وخزائن الملابس','co.n2':'مطابخ وغرف ملابس','co.m2':'١٦ تصميماً',
     'co.k3':'الأبواب والتكسيات','co.n3':'ملمس، شكل، طابع','co.m3':'٥ اتجاهات تصميمية',
     'cat.view':'تصفّح الكتالوج','pv.designs':'التصاميم','pv.build':'التنفيذ مرحلةً بمرحلة',
     'pl.k8':'المعيشة الخارجية · ٠١','pl.k9':'المعيشة الخارجية · ٠٢',
@@ -1461,7 +1517,7 @@
     'in.kicker':'المجموعة الثانية','in.h2':'المطابخ <em>وخزائن الملابس</em>','in.sub':'مجموعة التصميم الداخلي',
     'in.lead':'مجموعة منتقاة من الخزائن وغرف الملابس والمساحات اليومية، بين المعاصر والكلاسيكي، من مطابخ دافئة إلى غرف ملابس منظّمة بعناية.',
     'in.enq':'ناقش مشروعك الداخلي',
-    'sc.all':'كل التصاميم','sc.k':'المطابخ','sc.w':'خزائن وغرف الملابس','sc.c':'ركن القهوة',
+    'sc.all':'كل التصاميم','sc.k':'المطابخ','sc.w':'خزائن وغرف الملابس',
     'dr.kicker':'المجموعة الثالثة','dr.h2':'الأبواب <em>والتكسيات</em>','dr.sub':'ملمس. شكل. طابع.',
     'dr.lead':'خمسة اتجاهات تصميمية لأبواب المداخل وتكسيات الجدران المتناسقة: دراسة في الملمس والخطوط والدرجات الدافئة. اختر أسلوبك، ثم ابدأ بالتفاصيل.',
     'dr.enq':'استفسر عن الأبواب','dr.k':'دراسة تصميم',
@@ -1831,8 +1887,7 @@
     if(!frame || !info || !thumbs) return;
     var GROUP = {
       k:{en:'Kitchens', ar:'المطابخ'},
-      w:{en:'Wardrobes & dressing rooms', ar:'خزائن وغرف الملابس'},
-      c:{en:'Coffee corner', ar:'ركن القهوة'}
+      w:{en:'Wardrobes & dressing rooms', ar:'خزائن وغرف الملابس'}
     };
     var ITEMS = [
       {c:'K01', g:'k', f:'k01-graphite',
@@ -1882,10 +1937,7 @@
        ar:{n:'توهّج ذهبي', d:'خزائن علوية فاتحة وتخزين بواجهات زجاجية مضاءة مع ركن زينة مدمج.', x:['تخزين علوي','ركن زينة','إضاءة دافئة']}},
       {c:'W09', g:'w', f:'w09-conceal-reveal',
        en:{n:'Conceal & reveal', d:'Solid-front cabinetry alongside illuminated glass compartments, showing two distinct storage treatments.', x:['Concealed storage','Glass display','Coordinated handles']},
-       ar:{n:'إخفاء وإظهار', d:'خزائن بواجهات مصمتة إلى جانب حجرات زجاجية مضاءة، تُظهر معالجتين مختلفتين للتخزين.', x:['تخزين مخفي','عرض زجاجي','مقابض متناسقة']}},
-      {c:'C01', g:'c', f:'c01-everyday-ritual',
-       en:{n:'Everyday ritual', d:'Neutral cabinetry, a softly lit open niche and glazed side storage create a compact coffee and refreshment station.', x:['Open niche','Drawer storage','Accent lighting']},
-       ar:{n:'طقس يومي', d:'خزائن محايدة وتجويف مفتوح بإضاءة ناعمة وتخزين جانبي زجاجي تشكّل ركناً مدمجاً للقهوة والمشروبات.', x:['تجويف مفتوح','تخزين بالأدراج','إضاءة مميزة']}}
+       ar:{n:'إخفاء وإظهار', d:'خزائن بواجهات مصمتة إلى جانب حجرات زجاجية مضاءة، تُظهر معالجتين مختلفتين للتخزين.', x:['تخزين مخفي','عرض زجاجي','مقابض متناسقة']}}
     ];
     var list = ITEMS.slice(), idx = 0, token = 0, started = false;
     var layers = frame.querySelectorAll('.sc-layer');
