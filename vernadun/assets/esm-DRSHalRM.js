@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/web-DR22LSNd.js","assets/dist-B-Lo1tqG.js"])))=>i.map(i=>d[i]);
+import{a as e}from"./dist-B-Lo1tqG.js";import{t}from"./preload-helper-CDTmxIEA.js";var n=e(`SplashScreen`,{web:()=>t(()=>import(`./web-DR22LSNd.js`).then(e=>new e.SplashScreenWeb),__vite__mapDeps([0,1]))});export{n as SplashScreen};
